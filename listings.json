@@ -1,0 +1,162 @@
+[
+  {
+    "listing": "/posts/sgd/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/lu/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/webtemplate/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/matmul/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/teaching.html",
+    "items": [
+      "/teaching/sp25.html",
+      "/teaching/sp24.html",
+      "/teaching/fall23.html",
+      "/teaching/sp23.html",
+      "/teaching/fall22.html",
+      "/teaching/fall21.html",
+      "/teaching/f18-f21.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": [
+      "/research/holmc/index.html",
+      "/research/rulmc/index.html",
+      "/research/extrasgld/index.html",
+      "/talks/2023-11-20-candi.html",
+      "/talks/2023-10-05-st-op.html",
+      "/talks/2020-04-26-project.html"
+    ]
+  },
+  {
+    "listing": "/portfolio.html",
+    "items": [
+      "/portfolio/dsp/autoloan/index.html",
+      "/portfolio/dsp/titanic/index.html",
+      "/portfolio/dsp/dp-nlp/index.html",
+      "/portfolio/dsp/ecommerce/index.html",
+      "/portfolio/dsp/medicalcost/index.html",
+      "/portfolio/dsp/lendingclub/index.html",
+      "/portfolio/dsp/nlp-sales/index.html",
+      "/portfolio/spd/webapp/index.html",
+      "/portfolio/spd/desgld/index.html",
+      "/teaching/sp25.html",
+      "/teaching/sp24.html",
+      "/teaching/fall23.html",
+      "/teaching/sp23.html",
+      "/teaching/fall22.html",
+      "/teaching/fall21.html",
+      "/teaching/f18-f21.html"
+    ]
+  },
+  {
+    "listing": "/posts/matrixrep/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/eigen/index.html",
+    "items": [
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/mathbiology/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/someproofs/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/bengalitrial/index.html",
+    "items": [
+      "/banglablog/welcomepost/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  }
+]

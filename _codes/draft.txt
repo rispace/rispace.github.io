@@ -1,3 +1,0 @@
-1. Probability
-2. Webtemplate
-3. DSA

@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rafiq Islam">
+<meta name="dcterms.date" content="2021-11-09">
+
+<title>LU Factorization of a Full rank Matrix using Fortran – Mohammad Rafiqul Islam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//_assets/images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-668b4bf65ca412b3963a8d4356ccfb65.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bf8620ae136997fc5e805fd163043728.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-668b4bf65ca412b3963a8d4356ccfb65.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z5NP67GHFC"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z5NP67GHFC', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="LU Factorization of a Full rank Matrix using Fortran – Mohammad Rafiqul Islam">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://mrislambd.github.io/posts/lu/lu.png">
+<meta property="og:site_name" content="Mohammad Rafiqul Islam">
+<meta property="og:image:height" content="888">
+<meta property="og:image:width" content="1188">
+<meta name="twitter:title" content="LU Factorization of a Full rank Matrix using Fortran – Mohammad Rafiqul Islam">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://mrislambd.github.io/posts/lu/lu.png">
+<meta name="twitter:image-height" content="888">
+<meta name="twitter:image-width" content="1188">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../posts/lu/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../posts/lu/index.html">
+    <span class="navbar-title">Mohammad Rafiqul Islam</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Blog</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
+        <li>
+    <a class="dropdown-item" href="https://mrislambd.github.io/dsandml/">
+ <span class="dropdown-text">Data Science and Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://mrislambd.github.io/letscode/">
+ <span class="dropdown-text">Data Structure and Algorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://mrislambd.github.io/statandprob/">
+ <span class="dropdown-text">Statistics and Probability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Other Blogs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mrislambd" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#no-pivot" id="toc-no-pivot" class="nav-link active" data-scroll-target="#no-pivot">No Pivot</a></li>
+  <li><a href="#partial-pivot" id="toc-partial-pivot" class="nav-link" data-scroll-target="#partial-pivot">Partial Pivot</a></li>
+  <li><a href="#complete-pivot" id="toc-complete-pivot" class="nav-link" data-scroll-target="#complete-pivot">Complete Pivot</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">LU Factorization of a Full rank Matrix using Fortran</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Computational Mathematics</div>
+    <div class="quarto-category">Algorithmic Complexity</div>
+    <div class="quarto-category">Programming</div>
+    <div class="quarto-category">Computer Science</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rafiq Islam </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 9, 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<pre class="{Fortran}"><code>! This program factors a full rank matrix A into lower triangular (or trapezoidal) L and upper
+! triangular matrix U
+program LU_decompostion
+    implicit none
+    !############# #################List of main program variable##################################
+    integer::m,n
+    ! m is the # of rows of the matrix that we are working with
+    ! n is the # of columns that we are working with
+    doubleprecision, allocatable,dimension(:,:)::A,A1
+    ! A is the working matrix, A1 is the original matrix preserved to check correctness of factoring
+    integer,allocatable,dimension(:):: P,Q
+    ! P, Q are the row and column permutation vectors for partial and complete pivoting
+    character::method
+    !################################################################################################
+
+    ! ############################ Open an Input Data File###########################################
+    open(unit=1,file=&amp;quot;data.txt&amp;quot;)
+    ! ###############################################################################################
+
+    ! ################################# Read m, n of the matrix A ###################################
+    write(*,*)&amp;quot;Input the number of rows of the matrix A, m&amp;quot;
+    read(*,*) m
+    write(*,*)&amp;quot;Input the number of columns of the matrix A, n&amp;quot;
+    read(*,*)n
+    ! ##############################################################################################
+
+    ! ########################### Allocate Space ###################################################
+    allocate(A(m,n),A1(m,n),P(m),Q(n))
+    ! ##############################################################################################
+
+    ! Create the matrix A
+    print*,
+    call matrixA(m,n,A,A1)
+    print*,
+
+    !##################################### Choose the method #######################################
+    print*,&amp;quot;What method you want to apply?&amp;quot;
+    print*,&amp;quot;For No Pivot input: N&amp;quot;
+    print*, &amp;quot;For Partial Pivot input: P&amp;quot;
+    print*, &amp;quot;For Complete Pivot input: C&amp;quot;
+    read(*,*) method
+    !###############################################################################################
+
+    ! ############################### Execution of the methods #####################################
+    IF(method.eq.&amp;quot;C&amp;quot;.or.method.eq.&amp;quot;c&amp;quot;) THEN
+        print*, &amp;quot;Complete Pivoting method has been selected&amp;quot;
+        print*,
+        call completePivot(m,n,A,A1,P,Q)
+    ELSE IF(method.eq.&amp;quot;P&amp;quot;.or.method.eq.&amp;quot;p&amp;quot;) then
+        print*,&amp;quot;Partial Pivoting method has been selected&amp;quot;
+        print*,
+        call partialPivot(m,n,A,A1,P)
+    ELSE IF (method.eq.&amp;quot;N&amp;quot;.or.method.eq.&amp;quot;n&amp;quot;) then
+        print*, &amp;quot;No Pivoting method has been selected&amp;quot;
+        print*,
+        call noPivot(m,n,A,A1)
+    END IF
+
+end program
+
+subroutine matrixA(m,n,A,A1)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    integer::i
+    print*,
+    print*, &amp;quot;This is the provided working matrix&amp;quot;
+    print*
+    do i=1,m
+        read(1,*)A(i,:)
+        A1(i,:)=A(i,:)
+        print*,A(i,:)
+    end do
+    do i=1,n
+        IF(A(i,i)==0) then
+            print*,&amp;quot;A 0 entry was found in the main diagonal.&amp;quot;
+            print*, &amp;quot;Therefore, pivoting is a must required&amp;quot;
+        else if(A(i,i).lt.0.0001) then
+            print*, &amp;quot;WARNING!! Diagonal Element is too small.&amp;quot;
+        END IF
+    end do
+end subroutine
+
+subroutine completePivot(m,n,A,A1,P,Q)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    integer,dimension(m),intent(out)::P
+    integer,dimension(n),intent(out)::Q
+    integer::i,j,k,row,col
+    doubleprecision::temp
+
+    do k=1,n
+       call max_val(A,m,n,k,row,col)
+       do i=k,n
+            temp=A(i,col)
+            A(i,col)=A(i,k)
+            A(i,k)=temp
+        end do
+        Q(k)=col
+        do j=k,n
+            temp=A(k,j)
+            A(k,j)=A(row,j)
+            A(row,j)=temp
+        end do
+        P(k)=row
+
+        A(k+1:n,k)=A(k+1:n,k)/A(k,k)
+        do j=k+1,n
+            do i=k+1,n
+                A(i,j)=A(i,j)-A(i,k)*A(k,j)
+            end do
+        end do
+    end do
+    print*,
+    print*,&amp;quot;------------------------------------------------------&amp;quot;
+    print*,&amp;quot;         Complete Pivot A=LU factorized array&amp;quot;
+    print*,&amp;quot;-------------------------------------------------------&amp;quot;
+    print*,
+    do i=1,m
+        print*,A(i,:)
+    end do
+    print*,
+    print*, &amp;quot;Permutation vector P=(&amp;quot;,(P(i),i=1,m-1),&amp;quot;)&amp;quot;
+    print*,
+    print*, &amp;quot;Permutation vector Q=(&amp;quot;,(Q(i),i=1,n-1),&amp;quot;)&amp;quot;
+    print*,
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,
+    call CheckingCompletePivot(m,n,A,A1)
+
+end subroutine
+
+
+subroutine CheckingCompletePivot(m,n,A,A1)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    doubleprecision,dimension(n,n):: U
+    doubleprecision,dimension(m,n)::L,A2
+    integer::i,j
+
+    do i=1,m
+        do j=1,n
+            if(i.le.j)then
+                L(i,j)=0
+            else if (i.gt.j) then
+                L(i,j)=A(i,j)
+            end if
+            L(i,i)=1
+        end do
+    end do
+    do i=1,n
+        do j=1,n
+            if(i.le.j)then
+                U(i,j)=A(i,j)
+            else
+                U(i,j)=0.0
+            end if
+        end do
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  Complete Pivot Upper triangular matrix U&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,n
+        print*,U(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  Complete Pivot Lower triangular matrix L&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,L(i,:)
+    end do
+
+    A2=matmul(L,U)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;              Product of L U=&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,A2(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;  Factoring Accuracy with the Frobenius-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)
+end subroutine
+
+subroutine partialPivot(m,n,A,A1,P)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    integer,dimension(m),intent(out)::P
+    integer::i,j,k,row
+    doubleprecision::temp
+
+    do k=1,n
+       call max_valP(A,m,n,k,row)
+        do j=k,n
+            temp=A(k,j)
+            A(k,j)=A(row,j)
+            A(row,j)=temp
+        end do
+        P(k)=row
+
+        A(k+1:n,k)=A(k+1:n,k)/A(k,k)
+        do j=k+1,n
+            do i=k+1,n
+                A(i,j)=A(i,j)-A(i,k)*A(k,j)
+            end do
+        end do
+    end do
+    print*,
+    print*,&amp;quot;------------------------------------------------------&amp;quot;
+    print*,&amp;quot;          Partial Pivot A=LU factorized array&amp;quot;
+    print*,&amp;quot;-------------------------------------------------------&amp;quot;
+    print*,
+    do i=1,m
+        print*,A(i,:)
+    end do
+    print*,
+    print*, &amp;quot;Permutation vector P=(&amp;quot;,(P(i),i=1,m-1),&amp;quot;)&amp;quot;
+    print*,
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,
+    call CheckingPartialPivot(m,n,A,A1)
+end subroutine
+
+subroutine CheckingPartialPivot(m,n,A,A1)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    doubleprecision,dimension(n,n):: U
+    doubleprecision,dimension(m,n)::L,A2
+    integer::i,j
+
+    do i=1,m
+        do j=1,n
+            if(i.le.j)then
+                L(i,j)=0
+            else if (i.gt.j) then
+                L(i,j)=A(i,j)
+            end if
+            L(i,i)=1
+        end do
+    end do
+    do i=1,n
+        do j=1,n
+            if(i.le.j)then
+                U(i,j)=A(i,j)
+            else
+                U(i,j)=0.0
+            end if
+        end do
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  Partial Pivot Upper triangular matrix U&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,n
+        print*,U(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  Partial Pivot Lower triangular matrix L&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,L(i,:)
+    end do
+
+    A2=matmul(L,U)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;       Partial Pivot Product of L U=&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,A2(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot; Factoring Accuracy with the Frobenius-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)
+end subroutine
+
+subroutine noPivot(m,n,A,A1)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    integer::i,j,k
+
+    do k=1,n
+        A(k+1:n,k)=A(k+1:n,k)/A(k,k)
+        do j=k+1,n
+            do i=k+1,n
+                A(i,j)=A(i,j)-A(i,k)*A(k,j)
+            end do
+        end do
+    end do
+    print*,
+    print*,&amp;quot;------------------------------------------------------&amp;quot;
+    print*,&amp;quot;          No Pivot A=LU factorized array&amp;quot;
+    print*,&amp;quot;-------------------------------------------------------&amp;quot;
+    print*,
+    do i=1,m
+        print*,A(i,:)
+    end do
+    print*,
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;
+    print*,&amp;quot;*******************************************************&amp;quot;
+    print*,
+    call CheckingNoPivot(m,n,A,A1)
+end subroutine
+
+subroutine CheckingNoPivot(m,n,A,A1)
+    integer,intent(in)::m,n
+    doubleprecision,dimension(m,n),intent(inout)::A,A1
+    doubleprecision,dimension(n,n):: U
+    doubleprecision,dimension(m,n)::L,A2
+    integer::i,j
+
+    do i=1,m
+        do j=1,n
+            if(i.le.j)then
+                L(i,j)=0
+            else if (i.gt.j) then
+                L(i,j)=A(i,j)
+            end if
+            L(i,i)=1
+        end do
+    end do
+    do i=1,n
+        do j=1,n
+            if(i.le.j)then
+                U(i,j)=A(i,j)
+            else
+                U(i,j)=0.0
+            end if
+        end do
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  No Pivot Upper triangular matrix U&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,n
+        print*,U(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;  No Pivot Lower triangular matrix L&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,L(i,:)
+    end do
+
+    A2=matmul(L,U)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,&amp;quot;       No Pivot Product of L U=&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    do i=1,m
+        print*,A2(i,:)
+    end do
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;  Factoring Accuracy with the Frobenius Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)
+    print*,
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;
+    print*, &amp;#39;----------------------------------------------&amp;#39;
+    print*,
+    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)
+    print*
+    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)
+end subroutine
+
+subroutine max_val(A,m,n,k,row,col)
+    implicit none
+    integer,intent(in)::m,n,k
+    integer,intent(out)::row,col
+    doubleprecision,dimension(m,n),intent(inout)::A
+    doubleprecision::maximum
+    integer::i,j
+
+    maximum=maxval(A(k:m,k:n))
+
+    do i=k,m
+        do j=k,n
+            if(A(i,j)==maximum) then
+                row=i
+                col=j
+                goto 100
+            end if
+        end do
+    end do
+100 end subroutine
+
+subroutine max_valP(A,m,n,k,row)
+    implicit none
+    integer,intent(in)::m,n,k
+    integer,intent(out)::row
+    doubleprecision,dimension(m,n),intent(inout)::A
+    doubleprecision::maximum
+    integer::i,j
+
+    maximum=maxval(A(k:m,k))
+
+    do i=k,m
+        if(A(i,k)==maximum) then
+            row=i
+            goto 101
+        end if
+    end do
+101 end subroutine
+
+
+function norm1(m,n,A)
+    integer::m,n,i,j
+    doubleprecision,dimension(m,n)::A
+    doubleprecision,dimension(n):: normvector
+    doubleprecision::normval
+
+    normval=0
+    do j=1,n
+        do i=1,m
+            normval=normval+abs(A(i,j))
+        end do
+        normvector(j)=normval
+    end do
+    norm1=maxval(normvector(1:n))
+    return
+end function
+
+function infinityNorm(m,n,A)
+    integer::m,n,i,j
+    doubleprecision,dimension(m,n)::A
+    doubleprecision,dimension(n):: normvector
+    doubleprecision:: normval
+
+    normval=0
+    do j=1,n
+        do i=1,m
+            normval=normval+abs(A(i,j))
+            normvector(j)=normval
+        end do
+    end do
+    infinityNorm=maxval(normvector(1:m))
+    return
+end function
+
+function Frobenius(m,n,A)
+    integer::m,n,i,j
+    doubleprecision,dimension(m,n)::A
+    doubleprecision:: normval
+
+    normval=0
+    do i=1,m
+        do j=1,n
+            normval=normval+(abs(A(i,j)))**2
+        end do
+    end do
+    Frobenius=sqrt(normval)
+    return
+end function</code></pre>
+<section id="no-pivot" class="level2">
+<h2 class="anchored" data-anchor-id="no-pivot">No Pivot</h2>
+<pre class="{Fortran}"><code>Input Matrix (Stored in a data file in the same directory where the program file .f90 located)
+8 2 9
+4 9 4
+6 7 9
+
+Comand prompt: 
+ Input the number of rows of the matrix A, m
+3
+ Input the number of columns of the matrix A, n
+3
+
+
+ This is the provided working matrix
+
+   8.0000000000000000        2.0000000000000000        9.0000000000000000
+   4.0000000000000000        9.0000000000000000        4.0000000000000000
+   6.0000000000000000        7.0000000000000000        9.0000000000000000
+
+ What method you want to apply?
+ For No Pivot input: N
+ For Partial Pivot input: P
+ For Complete Pivot input: C
+n
+ No Pivoting method has been selected
+
+
+ ------------------------------------------------------
+           No Pivot A=LU factorized array
+ -------------------------------------------------------
+
+   8.0000000000000000        2.0000000000000000        9.0000000000000000
+  0.50000000000000000        8.0000000000000000      -0.50000000000000000
+  0.75000000000000000       0.68750000000000000        2.5937500000000000
+
+ *******************************************************
+        Checking Correctness of the factorization
+ *******************************************************
+
+
+ ----------------------------------------------
+   No Pivot Upper triangular matrix U
+ ----------------------------------------------
+
+   8.0000000000000000        2.0000000000000000        9.0000000000000000
+   0.0000000000000000        8.0000000000000000      -0.50000000000000000
+   0.0000000000000000        0.0000000000000000        2.5937500000000000
+
+ ----------------------------------------------
+   No Pivot Lower triangular matrix L
+ ----------------------------------------------
+
+   1.0000000000000000        0.0000000000000000        0.0000000000000000
+  0.50000000000000000        1.0000000000000000        0.0000000000000000
+  0.75000000000000000       0.68750000000000000        1.0000000000000000
+
+ ----------------------------------------------
+        No Pivot Product of L U=
+ ----------------------------------------------
+
+   8.0000000000000000        2.0000000000000000        9.0000000000000000
+   4.0000000000000000        9.0000000000000000        4.0000000000000000
+   6.0000000000000000        7.0000000000000000        9.0000000000000000
+
+ ----------------------------------------------
+   Factoring Accuracy with the Frobenius Norm
+ ----------------------------------------------
+
+ Relative Error=   0.00000000
+
+ Growth Factor=   1.02520537
+
+ ----------------------------------------------
+      Factoring Accuracy with the 1-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1
+
+ ----------------------------------------------
+      Factoring Accuracy with the Infinity-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1</code></pre>
+</section>
+<section id="partial-pivot" class="level2">
+<h2 class="anchored" data-anchor-id="partial-pivot">Partial Pivot</h2>
+<pre class="{Fortran}"><code>Input Matrix (Stored in a data file in the same directory where the program file .f90 located)
+1 2 4
+2 1 3
+3 2 4
+
+Comand Prompt: 
+ Input the number of rows of the matrix A, m
+3
+ Input the number of columns of the matrix A, n
+3
+
+
+ This is the provided working matrix
+
+   1.0000000000000000        2.0000000000000000        4.0000000000000000
+   2.0000000000000000        1.0000000000000000        3.0000000000000000
+   3.0000000000000000        2.0000000000000000        4.0000000000000000
+
+ What method you want to apply?
+ For No Pivot input: N
+ For Partial Pivot input: P
+ For Complete Pivot input: C
+p
+ Partial Pivoting method has been selected
+
+
+ ------------------------------------------------------
+           Partial Pivot A=LU factorized array
+ -------------------------------------------------------
+
+   3.0000000000000000        2.0000000000000000        4.0000000000000000
+  0.66666666666666663        1.3333333333333335        2.6666666666666670
+  0.33333333333333331      -0.24999999999999992        1.0000000000000000
+
+ Permutation vector P=(           3           3 )
+
+ *******************************************************
+        Checking Correctness of the factorization
+ *******************************************************
+
+
+ ----------------------------------------------
+   Partial Pivot Upper triangular matrix U
+ ----------------------------------------------
+
+   3.0000000000000000        2.0000000000000000        4.0000000000000000
+   0.0000000000000000        1.3333333333333335        2.6666666666666670
+   0.0000000000000000        0.0000000000000000        1.0000000000000000
+
+ ----------------------------------------------
+   Partial Pivot Lower triangular matrix L
+ ----------------------------------------------
+
+   1.0000000000000000        0.0000000000000000        0.0000000000000000
+  0.66666666666666663        1.0000000000000000        0.0000000000000000
+  0.33333333333333331      -0.24999999999999992        1.0000000000000000
+
+ ----------------------------------------------
+        Partial Pivot Product of L U=
+ ----------------------------------------------
+
+   3.0000000000000000        2.0000000000000000        4.0000000000000000
+   2.0000000000000000        2.6666666666666670        5.3333333333333339
+   1.0000000000000000       0.33333333333333337        1.6666666666666667
+
+ ----------------------------------------------
+  Factoring Accuracy with the Frobenius-Norm
+ ----------------------------------------------
+
+ Relative Error=  0.618016541
+
+ Growth Factor=   1.11492395
+
+ ----------------------------------------------
+      Factoring Accuracy with the 1-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1
+
+ ----------------------------------------------
+      Factoring Accuracy with the Infinity-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1</code></pre>
+</section>
+<section id="complete-pivot" class="level2">
+<h2 class="anchored" data-anchor-id="complete-pivot">Complete Pivot</h2>
+<pre class="{Fortran}"><code>Input Matrix (Stored in a data file in the same directory where the program file .f90 located)
+  
+2 3 4
+4 7 5
+4 9 5
+
+Command Prompt:
+ Input the number of rows of the matrix A, m
+3
+ Input the number of columns of the matrix A, n
+3
+
+
+ This is the provided working matrix
+
+   2.0000000000000000        3.0000000000000000        4.0000000000000000
+   4.0000000000000000        7.0000000000000000        5.0000000000000000
+   4.0000000000000000        9.0000000000000000        5.0000000000000000
+
+ What method you want to apply?
+ For No Pivot input: N
+ For Partial Pivot input: P
+ For Complete Pivot input: C
+c
+ Complete Pivoting method has been selected
+
+
+ ------------------------------------------------------
+          Complete Pivot A=LU factorized array
+ -------------------------------------------------------
+
+   9.0000000000000000        4.0000000000000000        5.0000000000000000
+  0.77777777777777779        2.3333333333333335       0.66666666666666674
+  0.33333333333333331       0.47619047619047616       0.57142857142857140
+
+ Permutation vector P=(           3           3 )
+
+ Permutation vector Q=(           2           3 )
+
+ *******************************************************
+        Checking Correctness of the factorization
+ *******************************************************
+
+
+ ----------------------------------------------
+   Complete Pivot Upper triangular matrix U
+ ----------------------------------------------
+
+   9.0000000000000000        4.0000000000000000        5.0000000000000000
+   0.0000000000000000        2.3333333333333335       0.66666666666666674
+   0.0000000000000000        0.0000000000000000       0.57142857142857140
+
+ ----------------------------------------------
+   Complete Pivot Lower triangular matrix L
+ ----------------------------------------------
+
+   1.0000000000000000        0.0000000000000000        0.0000000000000000
+  0.77777777777777779        1.0000000000000000        0.0000000000000000
+  0.33333333333333331       0.47619047619047616        1.0000000000000000
+
+ ----------------------------------------------
+               Product of L U=
+ ----------------------------------------------
+
+   9.0000000000000000        4.0000000000000000        5.0000000000000000
+   7.0000000000000000        5.4444444444444446        4.5555555555555554
+   3.0000000000000000        2.4444444444444442        2.5555555555555554
+
+ ----------------------------------------------
+   Factoring Accuracy with the Frobenius-Norm
+ ----------------------------------------------
+
+ Relative Error=  0.683437467
+
+ Growth Factor=   1.00393677
+
+ ----------------------------------------------
+      Factoring Accuracy with the 1-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1
+
+ ----------------------------------------------
+      Factoring Accuracy with the Infinity-Norm
+ ----------------------------------------------
+
+ Relative Error=           0
+
+ Growth Factor=           1</code></pre>
+<p><strong>Share on</strong></p>
+<div id="fb-root">
+
+</div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/lu/" data-layout="button_count" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Flu%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+</div>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/posts/lu/"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/posts/lu/" data-show-count="true">Tweet</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/posts/lu/" data-width="" data-numposts="5">
+
+</div>
+<p><strong>You may also like</strong></p>
+
+
+
+<!-- -->
+
+</section>
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="TGluZWFyJTIwQWxnZWJyYSUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1611532800000" data-listing-file-modified-sort="1755055564514" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="357">
+<a href="../../posts/eigen/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/eigen/lin3.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Generalized eigenvectors and eigenspaces
+</h5>
+<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, January 25, 2021
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNTdG9jaGFzdGljJTIwR3JhZGllbnQlMjBEZXNjZW50JTJDT3B0aW1pemF0aW9u" data-listing-date-sort="1726704000000" data-listing-file-modified-sort="1755055564533" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2737">
+<a href="../../posts/sgd/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/sgd/sgd.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Implementation of Gradient Descent (GD) and Stochastic Gradient Descent (SGD)
+</h5>
+<div class="listing-reading-time card-text text-muted">14 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, September 19, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="TGluZWFyJTIwQWxnZWJyYSUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1611187200000" data-listing-file-modified-sort="1755055564525" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="580">
+<a href="../../posts/matrixrep/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/matrixrep/lin2.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Matrix Representation: Change of Basis
+</h5>
+<div class="listing-reading-time card-text text-muted">3 min</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, January 21, 2021
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2021,
+  author = {Islam, Rafiq},
+  title = {LU {Factorization} of a {Full} Rank {Matrix} Using {Fortran}},
+  date = {2021-11-09},
+  url = {https://mrislambd.github.io/posts/lu/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2021" class="csl-entry quarto-appendix-citeas" role="listitem">
+Islam, Rafiq. 2021. <span>“LU Factorization of a Full Rank Matrix Using
+Fortran.”</span> November 9, 2021. <a href="https://mrislambd.github.io/posts/lu/">https://mrislambd.github.io/posts/lu/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mrislambd\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "LU Factorization of a Full rank Matrix using Fortran"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2021-11-09"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Rafiq Islam</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Data Science, Machine Learning, Computational Mathematics, Algorithmic Complexity, Programming, Computer Science]</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> true</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> lu.png</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: false</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title, author, reading-time]</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>   </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{Fortran}</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="in">! This program factors a full rank matrix A into lower triangular (or trapezoidal) L and upper</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="in">! triangular matrix U</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="in">program LU_decompostion</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="in">    implicit none</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="in">    !############# #################List of main program variable##################################</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::m,n</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="in">    ! m is the # of rows of the matrix that we are working with</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="in">    ! n is the # of columns that we are working with</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision, allocatable,dimension(:,:)::A,A1</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="in">    ! A is the working matrix, A1 is the original matrix preserved to check correctness of factoring</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,allocatable,dimension(:):: P,Q</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="in">    ! P, Q are the row and column permutation vectors for partial and complete pivoting</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="in">    character::method</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="in">    !################################################################################################</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ############################ Open an Input Data File###########################################</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="in">    open(unit=1,file=&amp;quot;data.txt&amp;quot;)</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ###############################################################################################</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ################################# Read m, n of the matrix A ###################################</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="in">    write(*,*)&amp;quot;Input the number of rows of the matrix A, m&amp;quot;</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="in">    read(*,*) m</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">    write(*,*)&amp;quot;Input the number of columns of the matrix A, n&amp;quot;</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="in">    read(*,*)n</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ##############################################################################################</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ########################### Allocate Space ###################################################</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="in">    allocate(A(m,n),A1(m,n),P(m),Q(n))</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ##############################################################################################</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="in">    ! Create the matrix A</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="in">    call matrixA(m,n,A,A1)</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="in">    !##################################### Choose the method #######################################</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;What method you want to apply?&amp;quot;</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;For No Pivot input: N&amp;quot;</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;For Partial Pivot input: P&amp;quot;</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;For Complete Pivot input: C&amp;quot;</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="in">    read(*,*) method</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">    !###############################################################################################</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">    ! ############################### Execution of the methods #####################################</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">    IF(method.eq.&amp;quot;C&amp;quot;.or.method.eq.&amp;quot;c&amp;quot;) THEN</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="in">        print*, &amp;quot;Complete Pivoting method has been selected&amp;quot;</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="in">        call completePivot(m,n,A,A1,P,Q)</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="in">    ELSE IF(method.eq.&amp;quot;P&amp;quot;.or.method.eq.&amp;quot;p&amp;quot;) then</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,&amp;quot;Partial Pivoting method has been selected&amp;quot;</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">        call partialPivot(m,n,A,A1,P)</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="in">    ELSE IF (method.eq.&amp;quot;N&amp;quot;.or.method.eq.&amp;quot;n&amp;quot;) then</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">        print*, &amp;quot;No Pivoting method has been selected&amp;quot;</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="in">        call noPivot(m,n,A,A1)</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="in">    END IF</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="in">end program</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine matrixA(m,n,A,A1)</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;This is the provided working matrix&amp;quot;</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="in">        read(1,*)A(i,:)</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="in">        A1(i,:)=A(i,:)</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A(i,:)</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="in">        IF(A(i,i)==0) then</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">            print*,&amp;quot;A 0 entry was found in the main diagonal.&amp;quot;</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">            print*, &amp;quot;Therefore, pivoting is a must required&amp;quot;</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="in">        else if(A(i,i).lt.0.0001) then</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">            print*, &amp;quot;WARNING!! Diagonal Element is too small.&amp;quot;</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">        END IF</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine completePivot(m,n,A,A1,P,Q)</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,dimension(m),intent(out)::P</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,dimension(n),intent(out)::Q</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j,k,row,col</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision::temp</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="in">    do k=1,n</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="in">       call max_val(A,m,n,k,row,col)</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="in">       do i=k,n</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="in">            temp=A(i,col)</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="in">            A(i,col)=A(i,k)</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="in">            A(i,k)=temp</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="in">        Q(k)=col</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k,n</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">            temp=A(k,j)</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="in">            A(k,j)=A(row,j)</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="in">            A(row,j)=temp</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="in">        P(k)=row</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="in">        A(k+1:n,k)=A(k+1:n,k)/A(k,k)</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k+1,n</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="in">            do i=k+1,n</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="in">                A(i,j)=A(i,j)-A(i,k)*A(k,j)</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="in">            end do</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;         Complete Pivot A=LU factorized array&amp;quot;</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;-------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A(i,:)</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Permutation vector P=(&amp;quot;,(P(i),i=1,m-1),&amp;quot;)&amp;quot;</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Permutation vector Q=(&amp;quot;,(Q(i),i=1,n-1),&amp;quot;)&amp;quot;</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="in">    call CheckingCompletePivot(m,n,A,A1)</span></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine CheckingCompletePivot(m,n,A,A1)</span></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(n,n):: U</span></span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::L,A2</span></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=0</span></span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="in">            else if (i.gt.j) then</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=A(i,j)</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="in">            L(i,i)=1</span></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=A(i,j)</span></span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="in">            else</span></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=0.0</span></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  Complete Pivot Upper triangular matrix U&amp;quot;</span></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,U(i,:)</span></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  Complete Pivot Lower triangular matrix L&amp;quot;</span></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,L(i,:)</span></span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a><span class="in">    A2=matmul(L,U)</span></span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;              Product of L U=&amp;quot;</span></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A2(i,:)</span></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;  Factoring Accuracy with the Frobenius-Norm&amp;quot;</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)</span></span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)</span></span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;</span></span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)</span></span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)</span></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;</span></span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine partialPivot(m,n,A,A1,P)</span></span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,dimension(m),intent(out)::P</span></span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j,k,row</span></span>
+<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision::temp</span></span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a><span class="in">    do k=1,n</span></span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a><span class="in">       call max_valP(A,m,n,k,row)</span></span>
+<span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k,n</span></span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a><span class="in">            temp=A(k,j)</span></span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a><span class="in">            A(k,j)=A(row,j)</span></span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a><span class="in">            A(row,j)=temp</span></span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a><span class="in">        P(k)=row</span></span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a><span class="in">        A(k+1:n,k)=A(k+1:n,k)/A(k,k)</span></span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k+1,n</span></span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a><span class="in">            do i=k+1,n</span></span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a><span class="in">                A(i,j)=A(i,j)-A(i,k)*A(k,j)</span></span>
+<span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a><span class="in">            end do</span></span>
+<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;          Partial Pivot A=LU factorized array&amp;quot;</span></span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;-------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A(i,:)</span></span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Permutation vector P=(&amp;quot;,(P(i),i=1,m-1),&amp;quot;)&amp;quot;</span></span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;</span></span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a><span class="in">    call CheckingPartialPivot(m,n,A,A1)</span></span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine CheckingPartialPivot(m,n,A,A1)</span></span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(n,n):: U</span></span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::L,A2</span></span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j</span></span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=0</span></span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a><span class="in">            else if (i.gt.j) then</span></span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=A(i,j)</span></span>
+<span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a><span class="in">            L(i,i)=1</span></span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=A(i,j)</span></span>
+<span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a><span class="in">            else</span></span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=0.0</span></span>
+<span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  Partial Pivot Upper triangular matrix U&amp;quot;</span></span>
+<span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,U(i,:)</span></span>
+<span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  Partial Pivot Lower triangular matrix L&amp;quot;</span></span>
+<span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-314"><a href="#cb5-314" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,L(i,:)</span></span>
+<span id="cb5-316"><a href="#cb5-316" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-317"><a href="#cb5-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-318"><a href="#cb5-318" aria-hidden="true" tabindex="-1"></a><span class="in">    A2=matmul(L,U)</span></span>
+<span id="cb5-319"><a href="#cb5-319" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-320"><a href="#cb5-320" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-321"><a href="#cb5-321" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;       Partial Pivot Product of L U=&amp;quot;</span></span>
+<span id="cb5-322"><a href="#cb5-322" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-323"><a href="#cb5-323" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-324"><a href="#cb5-324" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-325"><a href="#cb5-325" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A2(i,:)</span></span>
+<span id="cb5-326"><a href="#cb5-326" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-327"><a href="#cb5-327" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-328"><a href="#cb5-328" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-329"><a href="#cb5-329" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot; Factoring Accuracy with the Frobenius-Norm&amp;quot;</span></span>
+<span id="cb5-330"><a href="#cb5-330" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-331"><a href="#cb5-331" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-332"><a href="#cb5-332" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)</span></span>
+<span id="cb5-333"><a href="#cb5-333" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-334"><a href="#cb5-334" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)</span></span>
+<span id="cb5-335"><a href="#cb5-335" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-336"><a href="#cb5-336" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-337"><a href="#cb5-337" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;</span></span>
+<span id="cb5-338"><a href="#cb5-338" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-339"><a href="#cb5-339" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-340"><a href="#cb5-340" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)</span></span>
+<span id="cb5-341"><a href="#cb5-341" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-342"><a href="#cb5-342" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)</span></span>
+<span id="cb5-343"><a href="#cb5-343" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-344"><a href="#cb5-344" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-345"><a href="#cb5-345" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;</span></span>
+<span id="cb5-346"><a href="#cb5-346" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-347"><a href="#cb5-347" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-348"><a href="#cb5-348" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-349"><a href="#cb5-349" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-350"><a href="#cb5-350" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-351"><a href="#cb5-351" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-352"><a href="#cb5-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-353"><a href="#cb5-353" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine noPivot(m,n,A,A1)</span></span>
+<span id="cb5-354"><a href="#cb5-354" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-355"><a href="#cb5-355" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-356"><a href="#cb5-356" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j,k</span></span>
+<span id="cb5-357"><a href="#cb5-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-358"><a href="#cb5-358" aria-hidden="true" tabindex="-1"></a><span class="in">    do k=1,n</span></span>
+<span id="cb5-359"><a href="#cb5-359" aria-hidden="true" tabindex="-1"></a><span class="in">        A(k+1:n,k)=A(k+1:n,k)/A(k,k)</span></span>
+<span id="cb5-360"><a href="#cb5-360" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k+1,n</span></span>
+<span id="cb5-361"><a href="#cb5-361" aria-hidden="true" tabindex="-1"></a><span class="in">            do i=k+1,n</span></span>
+<span id="cb5-362"><a href="#cb5-362" aria-hidden="true" tabindex="-1"></a><span class="in">                A(i,j)=A(i,j)-A(i,k)*A(k,j)</span></span>
+<span id="cb5-363"><a href="#cb5-363" aria-hidden="true" tabindex="-1"></a><span class="in">            end do</span></span>
+<span id="cb5-364"><a href="#cb5-364" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-365"><a href="#cb5-365" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-366"><a href="#cb5-366" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-367"><a href="#cb5-367" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-368"><a href="#cb5-368" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;          No Pivot A=LU factorized array&amp;quot;</span></span>
+<span id="cb5-369"><a href="#cb5-369" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;-------------------------------------------------------&amp;quot;</span></span>
+<span id="cb5-370"><a href="#cb5-370" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-371"><a href="#cb5-371" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-372"><a href="#cb5-372" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A(i,:)</span></span>
+<span id="cb5-373"><a href="#cb5-373" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-374"><a href="#cb5-374" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-375"><a href="#cb5-375" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-376"><a href="#cb5-376" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;       Checking Correctness of the factorization&amp;quot;</span></span>
+<span id="cb5-377"><a href="#cb5-377" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;*******************************************************&amp;quot;</span></span>
+<span id="cb5-378"><a href="#cb5-378" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-379"><a href="#cb5-379" aria-hidden="true" tabindex="-1"></a><span class="in">    call CheckingNoPivot(m,n,A,A1)</span></span>
+<span id="cb5-380"><a href="#cb5-380" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-381"><a href="#cb5-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-382"><a href="#cb5-382" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine CheckingNoPivot(m,n,A,A1)</span></span>
+<span id="cb5-383"><a href="#cb5-383" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n</span></span>
+<span id="cb5-384"><a href="#cb5-384" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A,A1</span></span>
+<span id="cb5-385"><a href="#cb5-385" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(n,n):: U</span></span>
+<span id="cb5-386"><a href="#cb5-386" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::L,A2</span></span>
+<span id="cb5-387"><a href="#cb5-387" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j</span></span>
+<span id="cb5-388"><a href="#cb5-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-389"><a href="#cb5-389" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-390"><a href="#cb5-390" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-391"><a href="#cb5-391" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-392"><a href="#cb5-392" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=0</span></span>
+<span id="cb5-393"><a href="#cb5-393" aria-hidden="true" tabindex="-1"></a><span class="in">            else if (i.gt.j) then</span></span>
+<span id="cb5-394"><a href="#cb5-394" aria-hidden="true" tabindex="-1"></a><span class="in">                L(i,j)=A(i,j)</span></span>
+<span id="cb5-395"><a href="#cb5-395" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-396"><a href="#cb5-396" aria-hidden="true" tabindex="-1"></a><span class="in">            L(i,i)=1</span></span>
+<span id="cb5-397"><a href="#cb5-397" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-398"><a href="#cb5-398" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-399"><a href="#cb5-399" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-400"><a href="#cb5-400" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-401"><a href="#cb5-401" aria-hidden="true" tabindex="-1"></a><span class="in">            if(i.le.j)then</span></span>
+<span id="cb5-402"><a href="#cb5-402" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=A(i,j)</span></span>
+<span id="cb5-403"><a href="#cb5-403" aria-hidden="true" tabindex="-1"></a><span class="in">            else</span></span>
+<span id="cb5-404"><a href="#cb5-404" aria-hidden="true" tabindex="-1"></a><span class="in">                U(i,j)=0.0</span></span>
+<span id="cb5-405"><a href="#cb5-405" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-406"><a href="#cb5-406" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-407"><a href="#cb5-407" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-408"><a href="#cb5-408" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-409"><a href="#cb5-409" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-410"><a href="#cb5-410" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  No Pivot Upper triangular matrix U&amp;quot;</span></span>
+<span id="cb5-411"><a href="#cb5-411" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-412"><a href="#cb5-412" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-413"><a href="#cb5-413" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,n</span></span>
+<span id="cb5-414"><a href="#cb5-414" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,U(i,:)</span></span>
+<span id="cb5-415"><a href="#cb5-415" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-416"><a href="#cb5-416" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-417"><a href="#cb5-417" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-418"><a href="#cb5-418" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;  No Pivot Lower triangular matrix L&amp;quot;</span></span>
+<span id="cb5-419"><a href="#cb5-419" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-420"><a href="#cb5-420" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-421"><a href="#cb5-421" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-422"><a href="#cb5-422" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,L(i,:)</span></span>
+<span id="cb5-423"><a href="#cb5-423" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-424"><a href="#cb5-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-425"><a href="#cb5-425" aria-hidden="true" tabindex="-1"></a><span class="in">    A2=matmul(L,U)</span></span>
+<span id="cb5-426"><a href="#cb5-426" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-427"><a href="#cb5-427" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-428"><a href="#cb5-428" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;       No Pivot Product of L U=&amp;quot;</span></span>
+<span id="cb5-429"><a href="#cb5-429" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-430"><a href="#cb5-430" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-431"><a href="#cb5-431" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-432"><a href="#cb5-432" aria-hidden="true" tabindex="-1"></a><span class="in">        print*,A2(i,:)</span></span>
+<span id="cb5-433"><a href="#cb5-433" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-434"><a href="#cb5-434" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-435"><a href="#cb5-435" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-436"><a href="#cb5-436" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;  Factoring Accuracy with the Frobenius Norm&amp;quot;</span></span>
+<span id="cb5-437"><a href="#cb5-437" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-438"><a href="#cb5-438" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-439"><a href="#cb5-439" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,Frobenius(m,n,A1-A2)/Frobenius(m,n,A1)</span></span>
+<span id="cb5-440"><a href="#cb5-440" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-441"><a href="#cb5-441" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, Frobenius(m,n,matmul(abs(L),abs(U)))/Frobenius(m,n,A1)</span></span>
+<span id="cb5-442"><a href="#cb5-442" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-443"><a href="#cb5-443" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-444"><a href="#cb5-444" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the 1-Norm&amp;quot;</span></span>
+<span id="cb5-445"><a href="#cb5-445" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-446"><a href="#cb5-446" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-447"><a href="#cb5-447" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,norm1(m,n,A1-A2)/norm1(m,n,A1)</span></span>
+<span id="cb5-448"><a href="#cb5-448" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-449"><a href="#cb5-449" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, norm1(m,n,matmul(abs(L),abs(U)))/norm1(m,n,A1)</span></span>
+<span id="cb5-450"><a href="#cb5-450" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-451"><a href="#cb5-451" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-452"><a href="#cb5-452" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;     Factoring Accuracy with the Infinity-Norm&amp;quot;</span></span>
+<span id="cb5-453"><a href="#cb5-453" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;#39;----------------------------------------------&amp;#39;</span></span>
+<span id="cb5-454"><a href="#cb5-454" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,</span></span>
+<span id="cb5-455"><a href="#cb5-455" aria-hidden="true" tabindex="-1"></a><span class="in">    print*,&amp;quot;Relative Error=&amp;quot;,infinityNorm(m,n,A1-A2)/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-456"><a href="#cb5-456" aria-hidden="true" tabindex="-1"></a><span class="in">    print*</span></span>
+<span id="cb5-457"><a href="#cb5-457" aria-hidden="true" tabindex="-1"></a><span class="in">    print*, &amp;quot;Growth Factor=&amp;quot;, infinityNorm(m,n,matmul(abs(L),abs(U)))/infinityNorm(m,n,A1)</span></span>
+<span id="cb5-458"><a href="#cb5-458" aria-hidden="true" tabindex="-1"></a><span class="in">end subroutine</span></span>
+<span id="cb5-459"><a href="#cb5-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-460"><a href="#cb5-460" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine max_val(A,m,n,k,row,col)</span></span>
+<span id="cb5-461"><a href="#cb5-461" aria-hidden="true" tabindex="-1"></a><span class="in">    implicit none</span></span>
+<span id="cb5-462"><a href="#cb5-462" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n,k</span></span>
+<span id="cb5-463"><a href="#cb5-463" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(out)::row,col</span></span>
+<span id="cb5-464"><a href="#cb5-464" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A</span></span>
+<span id="cb5-465"><a href="#cb5-465" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision::maximum</span></span>
+<span id="cb5-466"><a href="#cb5-466" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j</span></span>
+<span id="cb5-467"><a href="#cb5-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-468"><a href="#cb5-468" aria-hidden="true" tabindex="-1"></a><span class="in">    maximum=maxval(A(k:m,k:n))</span></span>
+<span id="cb5-469"><a href="#cb5-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-470"><a href="#cb5-470" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=k,m</span></span>
+<span id="cb5-471"><a href="#cb5-471" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=k,n</span></span>
+<span id="cb5-472"><a href="#cb5-472" aria-hidden="true" tabindex="-1"></a><span class="in">            if(A(i,j)==maximum) then</span></span>
+<span id="cb5-473"><a href="#cb5-473" aria-hidden="true" tabindex="-1"></a><span class="in">                row=i</span></span>
+<span id="cb5-474"><a href="#cb5-474" aria-hidden="true" tabindex="-1"></a><span class="in">                col=j</span></span>
+<span id="cb5-475"><a href="#cb5-475" aria-hidden="true" tabindex="-1"></a><span class="in">                goto 100</span></span>
+<span id="cb5-476"><a href="#cb5-476" aria-hidden="true" tabindex="-1"></a><span class="in">            end if</span></span>
+<span id="cb5-477"><a href="#cb5-477" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-478"><a href="#cb5-478" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-479"><a href="#cb5-479" aria-hidden="true" tabindex="-1"></a><span class="in">100 end subroutine</span></span>
+<span id="cb5-480"><a href="#cb5-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-481"><a href="#cb5-481" aria-hidden="true" tabindex="-1"></a><span class="in">subroutine max_valP(A,m,n,k,row)</span></span>
+<span id="cb5-482"><a href="#cb5-482" aria-hidden="true" tabindex="-1"></a><span class="in">    implicit none</span></span>
+<span id="cb5-483"><a href="#cb5-483" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(in)::m,n,k</span></span>
+<span id="cb5-484"><a href="#cb5-484" aria-hidden="true" tabindex="-1"></a><span class="in">    integer,intent(out)::row</span></span>
+<span id="cb5-485"><a href="#cb5-485" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n),intent(inout)::A</span></span>
+<span id="cb5-486"><a href="#cb5-486" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision::maximum</span></span>
+<span id="cb5-487"><a href="#cb5-487" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::i,j</span></span>
+<span id="cb5-488"><a href="#cb5-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-489"><a href="#cb5-489" aria-hidden="true" tabindex="-1"></a><span class="in">    maximum=maxval(A(k:m,k))</span></span>
+<span id="cb5-490"><a href="#cb5-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-491"><a href="#cb5-491" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=k,m</span></span>
+<span id="cb5-492"><a href="#cb5-492" aria-hidden="true" tabindex="-1"></a><span class="in">        if(A(i,k)==maximum) then</span></span>
+<span id="cb5-493"><a href="#cb5-493" aria-hidden="true" tabindex="-1"></a><span class="in">            row=i</span></span>
+<span id="cb5-494"><a href="#cb5-494" aria-hidden="true" tabindex="-1"></a><span class="in">            goto 101</span></span>
+<span id="cb5-495"><a href="#cb5-495" aria-hidden="true" tabindex="-1"></a><span class="in">        end if</span></span>
+<span id="cb5-496"><a href="#cb5-496" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-497"><a href="#cb5-497" aria-hidden="true" tabindex="-1"></a><span class="in">101 end subroutine</span></span>
+<span id="cb5-498"><a href="#cb5-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-499"><a href="#cb5-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-500"><a href="#cb5-500" aria-hidden="true" tabindex="-1"></a><span class="in">function norm1(m,n,A)</span></span>
+<span id="cb5-501"><a href="#cb5-501" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::m,n,i,j</span></span>
+<span id="cb5-502"><a href="#cb5-502" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::A</span></span>
+<span id="cb5-503"><a href="#cb5-503" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(n):: normvector</span></span>
+<span id="cb5-504"><a href="#cb5-504" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision::normval</span></span>
+<span id="cb5-505"><a href="#cb5-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-506"><a href="#cb5-506" aria-hidden="true" tabindex="-1"></a><span class="in">    normval=0</span></span>
+<span id="cb5-507"><a href="#cb5-507" aria-hidden="true" tabindex="-1"></a><span class="in">    do j=1,n</span></span>
+<span id="cb5-508"><a href="#cb5-508" aria-hidden="true" tabindex="-1"></a><span class="in">        do i=1,m</span></span>
+<span id="cb5-509"><a href="#cb5-509" aria-hidden="true" tabindex="-1"></a><span class="in">            normval=normval+abs(A(i,j))</span></span>
+<span id="cb5-510"><a href="#cb5-510" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-511"><a href="#cb5-511" aria-hidden="true" tabindex="-1"></a><span class="in">        normvector(j)=normval</span></span>
+<span id="cb5-512"><a href="#cb5-512" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-513"><a href="#cb5-513" aria-hidden="true" tabindex="-1"></a><span class="in">    norm1=maxval(normvector(1:n))</span></span>
+<span id="cb5-514"><a href="#cb5-514" aria-hidden="true" tabindex="-1"></a><span class="in">    return</span></span>
+<span id="cb5-515"><a href="#cb5-515" aria-hidden="true" tabindex="-1"></a><span class="in">end function</span></span>
+<span id="cb5-516"><a href="#cb5-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-517"><a href="#cb5-517" aria-hidden="true" tabindex="-1"></a><span class="in">function infinityNorm(m,n,A)</span></span>
+<span id="cb5-518"><a href="#cb5-518" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::m,n,i,j</span></span>
+<span id="cb5-519"><a href="#cb5-519" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::A</span></span>
+<span id="cb5-520"><a href="#cb5-520" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(n):: normvector</span></span>
+<span id="cb5-521"><a href="#cb5-521" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision:: normval</span></span>
+<span id="cb5-522"><a href="#cb5-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-523"><a href="#cb5-523" aria-hidden="true" tabindex="-1"></a><span class="in">    normval=0</span></span>
+<span id="cb5-524"><a href="#cb5-524" aria-hidden="true" tabindex="-1"></a><span class="in">    do j=1,n</span></span>
+<span id="cb5-525"><a href="#cb5-525" aria-hidden="true" tabindex="-1"></a><span class="in">        do i=1,m</span></span>
+<span id="cb5-526"><a href="#cb5-526" aria-hidden="true" tabindex="-1"></a><span class="in">            normval=normval+abs(A(i,j))</span></span>
+<span id="cb5-527"><a href="#cb5-527" aria-hidden="true" tabindex="-1"></a><span class="in">            normvector(j)=normval</span></span>
+<span id="cb5-528"><a href="#cb5-528" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-529"><a href="#cb5-529" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-530"><a href="#cb5-530" aria-hidden="true" tabindex="-1"></a><span class="in">    infinityNorm=maxval(normvector(1:m))</span></span>
+<span id="cb5-531"><a href="#cb5-531" aria-hidden="true" tabindex="-1"></a><span class="in">    return</span></span>
+<span id="cb5-532"><a href="#cb5-532" aria-hidden="true" tabindex="-1"></a><span class="in">end function</span></span>
+<span id="cb5-533"><a href="#cb5-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-534"><a href="#cb5-534" aria-hidden="true" tabindex="-1"></a><span class="in">function Frobenius(m,n,A)</span></span>
+<span id="cb5-535"><a href="#cb5-535" aria-hidden="true" tabindex="-1"></a><span class="in">    integer::m,n,i,j</span></span>
+<span id="cb5-536"><a href="#cb5-536" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision,dimension(m,n)::A</span></span>
+<span id="cb5-537"><a href="#cb5-537" aria-hidden="true" tabindex="-1"></a><span class="in">    doubleprecision:: normval</span></span>
+<span id="cb5-538"><a href="#cb5-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-539"><a href="#cb5-539" aria-hidden="true" tabindex="-1"></a><span class="in">    normval=0</span></span>
+<span id="cb5-540"><a href="#cb5-540" aria-hidden="true" tabindex="-1"></a><span class="in">    do i=1,m</span></span>
+<span id="cb5-541"><a href="#cb5-541" aria-hidden="true" tabindex="-1"></a><span class="in">        do j=1,n</span></span>
+<span id="cb5-542"><a href="#cb5-542" aria-hidden="true" tabindex="-1"></a><span class="in">            normval=normval+(abs(A(i,j)))**2</span></span>
+<span id="cb5-543"><a href="#cb5-543" aria-hidden="true" tabindex="-1"></a><span class="in">        end do</span></span>
+<span id="cb5-544"><a href="#cb5-544" aria-hidden="true" tabindex="-1"></a><span class="in">    end do</span></span>
+<span id="cb5-545"><a href="#cb5-545" aria-hidden="true" tabindex="-1"></a><span class="in">    Frobenius=sqrt(normval)</span></span>
+<span id="cb5-546"><a href="#cb5-546" aria-hidden="true" tabindex="-1"></a><span class="in">    return</span></span>
+<span id="cb5-547"><a href="#cb5-547" aria-hidden="true" tabindex="-1"></a><span class="in">end function</span></span>
+<span id="cb5-548"><a href="#cb5-548" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb5-549"><a href="#cb5-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-550"><a href="#cb5-550" aria-hidden="true" tabindex="-1"></a><span class="fu">## No Pivot  </span></span>
+<span id="cb5-551"><a href="#cb5-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-554"><a href="#cb5-554" aria-hidden="true" tabindex="-1"></a><span class="in">```{Fortran}</span></span>
+<span id="cb5-555"><a href="#cb5-555" aria-hidden="true" tabindex="-1"></a><span class="in">Input Matrix (Stored in a data file in the same directory where the program file .f90 located)</span></span>
+<span id="cb5-556"><a href="#cb5-556" aria-hidden="true" tabindex="-1"></a><span class="in">8 2 9</span></span>
+<span id="cb5-557"><a href="#cb5-557" aria-hidden="true" tabindex="-1"></a><span class="in">4 9 4</span></span>
+<span id="cb5-558"><a href="#cb5-558" aria-hidden="true" tabindex="-1"></a><span class="in">6 7 9</span></span>
+<span id="cb5-559"><a href="#cb5-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-560"><a href="#cb5-560" aria-hidden="true" tabindex="-1"></a><span class="in">Comand prompt: </span></span>
+<span id="cb5-561"><a href="#cb5-561" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of rows of the matrix A, m</span></span>
+<span id="cb5-562"><a href="#cb5-562" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-563"><a href="#cb5-563" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of columns of the matrix A, n</span></span>
+<span id="cb5-564"><a href="#cb5-564" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-565"><a href="#cb5-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-566"><a href="#cb5-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-567"><a href="#cb5-567" aria-hidden="true" tabindex="-1"></a><span class="in"> This is the provided working matrix</span></span>
+<span id="cb5-568"><a href="#cb5-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-569"><a href="#cb5-569" aria-hidden="true" tabindex="-1"></a><span class="in">   8.0000000000000000        2.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-570"><a href="#cb5-570" aria-hidden="true" tabindex="-1"></a><span class="in">   4.0000000000000000        9.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-571"><a href="#cb5-571" aria-hidden="true" tabindex="-1"></a><span class="in">   6.0000000000000000        7.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-572"><a href="#cb5-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-573"><a href="#cb5-573" aria-hidden="true" tabindex="-1"></a><span class="in"> What method you want to apply?</span></span>
+<span id="cb5-574"><a href="#cb5-574" aria-hidden="true" tabindex="-1"></a><span class="in"> For No Pivot input: N</span></span>
+<span id="cb5-575"><a href="#cb5-575" aria-hidden="true" tabindex="-1"></a><span class="in"> For Partial Pivot input: P</span></span>
+<span id="cb5-576"><a href="#cb5-576" aria-hidden="true" tabindex="-1"></a><span class="in"> For Complete Pivot input: C</span></span>
+<span id="cb5-577"><a href="#cb5-577" aria-hidden="true" tabindex="-1"></a><span class="in">n</span></span>
+<span id="cb5-578"><a href="#cb5-578" aria-hidden="true" tabindex="-1"></a><span class="in"> No Pivoting method has been selected</span></span>
+<span id="cb5-579"><a href="#cb5-579" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-580"><a href="#cb5-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-581"><a href="#cb5-581" aria-hidden="true" tabindex="-1"></a><span class="in"> ------------------------------------------------------</span></span>
+<span id="cb5-582"><a href="#cb5-582" aria-hidden="true" tabindex="-1"></a><span class="in">           No Pivot A=LU factorized array</span></span>
+<span id="cb5-583"><a href="#cb5-583" aria-hidden="true" tabindex="-1"></a><span class="in"> -------------------------------------------------------</span></span>
+<span id="cb5-584"><a href="#cb5-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-585"><a href="#cb5-585" aria-hidden="true" tabindex="-1"></a><span class="in">   8.0000000000000000        2.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-586"><a href="#cb5-586" aria-hidden="true" tabindex="-1"></a><span class="in">  0.50000000000000000        8.0000000000000000      -0.50000000000000000</span></span>
+<span id="cb5-587"><a href="#cb5-587" aria-hidden="true" tabindex="-1"></a><span class="in">  0.75000000000000000       0.68750000000000000        2.5937500000000000</span></span>
+<span id="cb5-588"><a href="#cb5-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-589"><a href="#cb5-589" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-590"><a href="#cb5-590" aria-hidden="true" tabindex="-1"></a><span class="in">        Checking Correctness of the factorization</span></span>
+<span id="cb5-591"><a href="#cb5-591" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-592"><a href="#cb5-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-593"><a href="#cb5-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-594"><a href="#cb5-594" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-595"><a href="#cb5-595" aria-hidden="true" tabindex="-1"></a><span class="in">   No Pivot Upper triangular matrix U</span></span>
+<span id="cb5-596"><a href="#cb5-596" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-597"><a href="#cb5-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-598"><a href="#cb5-598" aria-hidden="true" tabindex="-1"></a><span class="in">   8.0000000000000000        2.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-599"><a href="#cb5-599" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        8.0000000000000000      -0.50000000000000000</span></span>
+<span id="cb5-600"><a href="#cb5-600" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        0.0000000000000000        2.5937500000000000</span></span>
+<span id="cb5-601"><a href="#cb5-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-602"><a href="#cb5-602" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-603"><a href="#cb5-603" aria-hidden="true" tabindex="-1"></a><span class="in">   No Pivot Lower triangular matrix L</span></span>
+<span id="cb5-604"><a href="#cb5-604" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-605"><a href="#cb5-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-606"><a href="#cb5-606" aria-hidden="true" tabindex="-1"></a><span class="in">   1.0000000000000000        0.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-607"><a href="#cb5-607" aria-hidden="true" tabindex="-1"></a><span class="in">  0.50000000000000000        1.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-608"><a href="#cb5-608" aria-hidden="true" tabindex="-1"></a><span class="in">  0.75000000000000000       0.68750000000000000        1.0000000000000000</span></span>
+<span id="cb5-609"><a href="#cb5-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-610"><a href="#cb5-610" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-611"><a href="#cb5-611" aria-hidden="true" tabindex="-1"></a><span class="in">        No Pivot Product of L U=</span></span>
+<span id="cb5-612"><a href="#cb5-612" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-613"><a href="#cb5-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-614"><a href="#cb5-614" aria-hidden="true" tabindex="-1"></a><span class="in">   8.0000000000000000        2.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-615"><a href="#cb5-615" aria-hidden="true" tabindex="-1"></a><span class="in">   4.0000000000000000        9.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-616"><a href="#cb5-616" aria-hidden="true" tabindex="-1"></a><span class="in">   6.0000000000000000        7.0000000000000000        9.0000000000000000</span></span>
+<span id="cb5-617"><a href="#cb5-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-618"><a href="#cb5-618" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-619"><a href="#cb5-619" aria-hidden="true" tabindex="-1"></a><span class="in">   Factoring Accuracy with the Frobenius Norm</span></span>
+<span id="cb5-620"><a href="#cb5-620" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-621"><a href="#cb5-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-622"><a href="#cb5-622" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=   0.00000000</span></span>
+<span id="cb5-623"><a href="#cb5-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-624"><a href="#cb5-624" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=   1.02520537</span></span>
+<span id="cb5-625"><a href="#cb5-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-626"><a href="#cb5-626" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-627"><a href="#cb5-627" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the 1-Norm</span></span>
+<span id="cb5-628"><a href="#cb5-628" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-629"><a href="#cb5-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-630"><a href="#cb5-630" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-631"><a href="#cb5-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-632"><a href="#cb5-632" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-633"><a href="#cb5-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-634"><a href="#cb5-634" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-635"><a href="#cb5-635" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the Infinity-Norm</span></span>
+<span id="cb5-636"><a href="#cb5-636" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-637"><a href="#cb5-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-638"><a href="#cb5-638" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-639"><a href="#cb5-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-640"><a href="#cb5-640" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-641"><a href="#cb5-641" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb5-642"><a href="#cb5-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-643"><a href="#cb5-643" aria-hidden="true" tabindex="-1"></a><span class="fu">## Partial Pivot  </span></span>
+<span id="cb5-644"><a href="#cb5-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-647"><a href="#cb5-647" aria-hidden="true" tabindex="-1"></a><span class="in">```{Fortran}</span></span>
+<span id="cb5-648"><a href="#cb5-648" aria-hidden="true" tabindex="-1"></a><span class="in">Input Matrix (Stored in a data file in the same directory where the program file .f90 located)</span></span>
+<span id="cb5-649"><a href="#cb5-649" aria-hidden="true" tabindex="-1"></a><span class="in">1 2 4</span></span>
+<span id="cb5-650"><a href="#cb5-650" aria-hidden="true" tabindex="-1"></a><span class="in">2 1 3</span></span>
+<span id="cb5-651"><a href="#cb5-651" aria-hidden="true" tabindex="-1"></a><span class="in">3 2 4</span></span>
+<span id="cb5-652"><a href="#cb5-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-653"><a href="#cb5-653" aria-hidden="true" tabindex="-1"></a><span class="in">Comand Prompt: </span></span>
+<span id="cb5-654"><a href="#cb5-654" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of rows of the matrix A, m</span></span>
+<span id="cb5-655"><a href="#cb5-655" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-656"><a href="#cb5-656" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of columns of the matrix A, n</span></span>
+<span id="cb5-657"><a href="#cb5-657" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-658"><a href="#cb5-658" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-659"><a href="#cb5-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-660"><a href="#cb5-660" aria-hidden="true" tabindex="-1"></a><span class="in"> This is the provided working matrix</span></span>
+<span id="cb5-661"><a href="#cb5-661" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-662"><a href="#cb5-662" aria-hidden="true" tabindex="-1"></a><span class="in">   1.0000000000000000        2.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-663"><a href="#cb5-663" aria-hidden="true" tabindex="-1"></a><span class="in">   2.0000000000000000        1.0000000000000000        3.0000000000000000</span></span>
+<span id="cb5-664"><a href="#cb5-664" aria-hidden="true" tabindex="-1"></a><span class="in">   3.0000000000000000        2.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-665"><a href="#cb5-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-666"><a href="#cb5-666" aria-hidden="true" tabindex="-1"></a><span class="in"> What method you want to apply?</span></span>
+<span id="cb5-667"><a href="#cb5-667" aria-hidden="true" tabindex="-1"></a><span class="in"> For No Pivot input: N</span></span>
+<span id="cb5-668"><a href="#cb5-668" aria-hidden="true" tabindex="-1"></a><span class="in"> For Partial Pivot input: P</span></span>
+<span id="cb5-669"><a href="#cb5-669" aria-hidden="true" tabindex="-1"></a><span class="in"> For Complete Pivot input: C</span></span>
+<span id="cb5-670"><a href="#cb5-670" aria-hidden="true" tabindex="-1"></a><span class="in">p</span></span>
+<span id="cb5-671"><a href="#cb5-671" aria-hidden="true" tabindex="-1"></a><span class="in"> Partial Pivoting method has been selected</span></span>
+<span id="cb5-672"><a href="#cb5-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-673"><a href="#cb5-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-674"><a href="#cb5-674" aria-hidden="true" tabindex="-1"></a><span class="in"> ------------------------------------------------------</span></span>
+<span id="cb5-675"><a href="#cb5-675" aria-hidden="true" tabindex="-1"></a><span class="in">           Partial Pivot A=LU factorized array</span></span>
+<span id="cb5-676"><a href="#cb5-676" aria-hidden="true" tabindex="-1"></a><span class="in"> -------------------------------------------------------</span></span>
+<span id="cb5-677"><a href="#cb5-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-678"><a href="#cb5-678" aria-hidden="true" tabindex="-1"></a><span class="in">   3.0000000000000000        2.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-679"><a href="#cb5-679" aria-hidden="true" tabindex="-1"></a><span class="in">  0.66666666666666663        1.3333333333333335        2.6666666666666670</span></span>
+<span id="cb5-680"><a href="#cb5-680" aria-hidden="true" tabindex="-1"></a><span class="in">  0.33333333333333331      -0.24999999999999992        1.0000000000000000</span></span>
+<span id="cb5-681"><a href="#cb5-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-682"><a href="#cb5-682" aria-hidden="true" tabindex="-1"></a><span class="in"> Permutation vector P=(           3           3 )</span></span>
+<span id="cb5-683"><a href="#cb5-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-684"><a href="#cb5-684" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-685"><a href="#cb5-685" aria-hidden="true" tabindex="-1"></a><span class="in">        Checking Correctness of the factorization</span></span>
+<span id="cb5-686"><a href="#cb5-686" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-687"><a href="#cb5-687" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-688"><a href="#cb5-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-689"><a href="#cb5-689" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-690"><a href="#cb5-690" aria-hidden="true" tabindex="-1"></a><span class="in">   Partial Pivot Upper triangular matrix U</span></span>
+<span id="cb5-691"><a href="#cb5-691" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-692"><a href="#cb5-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-693"><a href="#cb5-693" aria-hidden="true" tabindex="-1"></a><span class="in">   3.0000000000000000        2.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-694"><a href="#cb5-694" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        1.3333333333333335        2.6666666666666670</span></span>
+<span id="cb5-695"><a href="#cb5-695" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        0.0000000000000000        1.0000000000000000</span></span>
+<span id="cb5-696"><a href="#cb5-696" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-697"><a href="#cb5-697" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-698"><a href="#cb5-698" aria-hidden="true" tabindex="-1"></a><span class="in">   Partial Pivot Lower triangular matrix L</span></span>
+<span id="cb5-699"><a href="#cb5-699" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-700"><a href="#cb5-700" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-701"><a href="#cb5-701" aria-hidden="true" tabindex="-1"></a><span class="in">   1.0000000000000000        0.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-702"><a href="#cb5-702" aria-hidden="true" tabindex="-1"></a><span class="in">  0.66666666666666663        1.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-703"><a href="#cb5-703" aria-hidden="true" tabindex="-1"></a><span class="in">  0.33333333333333331      -0.24999999999999992        1.0000000000000000</span></span>
+<span id="cb5-704"><a href="#cb5-704" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-705"><a href="#cb5-705" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-706"><a href="#cb5-706" aria-hidden="true" tabindex="-1"></a><span class="in">        Partial Pivot Product of L U=</span></span>
+<span id="cb5-707"><a href="#cb5-707" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-708"><a href="#cb5-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-709"><a href="#cb5-709" aria-hidden="true" tabindex="-1"></a><span class="in">   3.0000000000000000        2.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-710"><a href="#cb5-710" aria-hidden="true" tabindex="-1"></a><span class="in">   2.0000000000000000        2.6666666666666670        5.3333333333333339</span></span>
+<span id="cb5-711"><a href="#cb5-711" aria-hidden="true" tabindex="-1"></a><span class="in">   1.0000000000000000       0.33333333333333337        1.6666666666666667</span></span>
+<span id="cb5-712"><a href="#cb5-712" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-713"><a href="#cb5-713" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-714"><a href="#cb5-714" aria-hidden="true" tabindex="-1"></a><span class="in">  Factoring Accuracy with the Frobenius-Norm</span></span>
+<span id="cb5-715"><a href="#cb5-715" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-716"><a href="#cb5-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-717"><a href="#cb5-717" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=  0.618016541</span></span>
+<span id="cb5-718"><a href="#cb5-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-719"><a href="#cb5-719" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=   1.11492395</span></span>
+<span id="cb5-720"><a href="#cb5-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-721"><a href="#cb5-721" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-722"><a href="#cb5-722" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the 1-Norm</span></span>
+<span id="cb5-723"><a href="#cb5-723" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-724"><a href="#cb5-724" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-725"><a href="#cb5-725" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-726"><a href="#cb5-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-727"><a href="#cb5-727" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-728"><a href="#cb5-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-729"><a href="#cb5-729" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-730"><a href="#cb5-730" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the Infinity-Norm</span></span>
+<span id="cb5-731"><a href="#cb5-731" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-732"><a href="#cb5-732" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-733"><a href="#cb5-733" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-734"><a href="#cb5-734" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-735"><a href="#cb5-735" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-736"><a href="#cb5-736" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb5-737"><a href="#cb5-737" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-738"><a href="#cb5-738" aria-hidden="true" tabindex="-1"></a><span class="fu">## Complete Pivot  </span></span>
+<span id="cb5-739"><a href="#cb5-739" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-742"><a href="#cb5-742" aria-hidden="true" tabindex="-1"></a><span class="in">```{Fortran}</span></span>
+<span id="cb5-743"><a href="#cb5-743" aria-hidden="true" tabindex="-1"></a><span class="in">Input Matrix (Stored in a data file in the same directory where the program file .f90 located)</span></span>
+<span id="cb5-744"><a href="#cb5-744" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb5-745"><a href="#cb5-745" aria-hidden="true" tabindex="-1"></a><span class="in">2 3 4</span></span>
+<span id="cb5-746"><a href="#cb5-746" aria-hidden="true" tabindex="-1"></a><span class="in">4 7 5</span></span>
+<span id="cb5-747"><a href="#cb5-747" aria-hidden="true" tabindex="-1"></a><span class="in">4 9 5</span></span>
+<span id="cb5-748"><a href="#cb5-748" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-749"><a href="#cb5-749" aria-hidden="true" tabindex="-1"></a><span class="in">Command Prompt:</span></span>
+<span id="cb5-750"><a href="#cb5-750" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of rows of the matrix A, m</span></span>
+<span id="cb5-751"><a href="#cb5-751" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-752"><a href="#cb5-752" aria-hidden="true" tabindex="-1"></a><span class="in"> Input the number of columns of the matrix A, n</span></span>
+<span id="cb5-753"><a href="#cb5-753" aria-hidden="true" tabindex="-1"></a><span class="in">3</span></span>
+<span id="cb5-754"><a href="#cb5-754" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-755"><a href="#cb5-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-756"><a href="#cb5-756" aria-hidden="true" tabindex="-1"></a><span class="in"> This is the provided working matrix</span></span>
+<span id="cb5-757"><a href="#cb5-757" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-758"><a href="#cb5-758" aria-hidden="true" tabindex="-1"></a><span class="in">   2.0000000000000000        3.0000000000000000        4.0000000000000000</span></span>
+<span id="cb5-759"><a href="#cb5-759" aria-hidden="true" tabindex="-1"></a><span class="in">   4.0000000000000000        7.0000000000000000        5.0000000000000000</span></span>
+<span id="cb5-760"><a href="#cb5-760" aria-hidden="true" tabindex="-1"></a><span class="in">   4.0000000000000000        9.0000000000000000        5.0000000000000000</span></span>
+<span id="cb5-761"><a href="#cb5-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-762"><a href="#cb5-762" aria-hidden="true" tabindex="-1"></a><span class="in"> What method you want to apply?</span></span>
+<span id="cb5-763"><a href="#cb5-763" aria-hidden="true" tabindex="-1"></a><span class="in"> For No Pivot input: N</span></span>
+<span id="cb5-764"><a href="#cb5-764" aria-hidden="true" tabindex="-1"></a><span class="in"> For Partial Pivot input: P</span></span>
+<span id="cb5-765"><a href="#cb5-765" aria-hidden="true" tabindex="-1"></a><span class="in"> For Complete Pivot input: C</span></span>
+<span id="cb5-766"><a href="#cb5-766" aria-hidden="true" tabindex="-1"></a><span class="in">c</span></span>
+<span id="cb5-767"><a href="#cb5-767" aria-hidden="true" tabindex="-1"></a><span class="in"> Complete Pivoting method has been selected</span></span>
+<span id="cb5-768"><a href="#cb5-768" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-769"><a href="#cb5-769" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-770"><a href="#cb5-770" aria-hidden="true" tabindex="-1"></a><span class="in"> ------------------------------------------------------</span></span>
+<span id="cb5-771"><a href="#cb5-771" aria-hidden="true" tabindex="-1"></a><span class="in">          Complete Pivot A=LU factorized array</span></span>
+<span id="cb5-772"><a href="#cb5-772" aria-hidden="true" tabindex="-1"></a><span class="in"> -------------------------------------------------------</span></span>
+<span id="cb5-773"><a href="#cb5-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-774"><a href="#cb5-774" aria-hidden="true" tabindex="-1"></a><span class="in">   9.0000000000000000        4.0000000000000000        5.0000000000000000</span></span>
+<span id="cb5-775"><a href="#cb5-775" aria-hidden="true" tabindex="-1"></a><span class="in">  0.77777777777777779        2.3333333333333335       0.66666666666666674</span></span>
+<span id="cb5-776"><a href="#cb5-776" aria-hidden="true" tabindex="-1"></a><span class="in">  0.33333333333333331       0.47619047619047616       0.57142857142857140</span></span>
+<span id="cb5-777"><a href="#cb5-777" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-778"><a href="#cb5-778" aria-hidden="true" tabindex="-1"></a><span class="in"> Permutation vector P=(           3           3 )</span></span>
+<span id="cb5-779"><a href="#cb5-779" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-780"><a href="#cb5-780" aria-hidden="true" tabindex="-1"></a><span class="in"> Permutation vector Q=(           2           3 )</span></span>
+<span id="cb5-781"><a href="#cb5-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-782"><a href="#cb5-782" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-783"><a href="#cb5-783" aria-hidden="true" tabindex="-1"></a><span class="in">        Checking Correctness of the factorization</span></span>
+<span id="cb5-784"><a href="#cb5-784" aria-hidden="true" tabindex="-1"></a><span class="in"> *******************************************************</span></span>
+<span id="cb5-785"><a href="#cb5-785" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-786"><a href="#cb5-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-787"><a href="#cb5-787" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-788"><a href="#cb5-788" aria-hidden="true" tabindex="-1"></a><span class="in">   Complete Pivot Upper triangular matrix U</span></span>
+<span id="cb5-789"><a href="#cb5-789" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-790"><a href="#cb5-790" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-791"><a href="#cb5-791" aria-hidden="true" tabindex="-1"></a><span class="in">   9.0000000000000000        4.0000000000000000        5.0000000000000000</span></span>
+<span id="cb5-792"><a href="#cb5-792" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        2.3333333333333335       0.66666666666666674</span></span>
+<span id="cb5-793"><a href="#cb5-793" aria-hidden="true" tabindex="-1"></a><span class="in">   0.0000000000000000        0.0000000000000000       0.57142857142857140</span></span>
+<span id="cb5-794"><a href="#cb5-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-795"><a href="#cb5-795" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-796"><a href="#cb5-796" aria-hidden="true" tabindex="-1"></a><span class="in">   Complete Pivot Lower triangular matrix L</span></span>
+<span id="cb5-797"><a href="#cb5-797" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-798"><a href="#cb5-798" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-799"><a href="#cb5-799" aria-hidden="true" tabindex="-1"></a><span class="in">   1.0000000000000000        0.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-800"><a href="#cb5-800" aria-hidden="true" tabindex="-1"></a><span class="in">  0.77777777777777779        1.0000000000000000        0.0000000000000000</span></span>
+<span id="cb5-801"><a href="#cb5-801" aria-hidden="true" tabindex="-1"></a><span class="in">  0.33333333333333331       0.47619047619047616        1.0000000000000000</span></span>
+<span id="cb5-802"><a href="#cb5-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-803"><a href="#cb5-803" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-804"><a href="#cb5-804" aria-hidden="true" tabindex="-1"></a><span class="in">               Product of L U=</span></span>
+<span id="cb5-805"><a href="#cb5-805" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-806"><a href="#cb5-806" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-807"><a href="#cb5-807" aria-hidden="true" tabindex="-1"></a><span class="in">   9.0000000000000000        4.0000000000000000        5.0000000000000000</span></span>
+<span id="cb5-808"><a href="#cb5-808" aria-hidden="true" tabindex="-1"></a><span class="in">   7.0000000000000000        5.4444444444444446        4.5555555555555554</span></span>
+<span id="cb5-809"><a href="#cb5-809" aria-hidden="true" tabindex="-1"></a><span class="in">   3.0000000000000000        2.4444444444444442        2.5555555555555554</span></span>
+<span id="cb5-810"><a href="#cb5-810" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-811"><a href="#cb5-811" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-812"><a href="#cb5-812" aria-hidden="true" tabindex="-1"></a><span class="in">   Factoring Accuracy with the Frobenius-Norm</span></span>
+<span id="cb5-813"><a href="#cb5-813" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-814"><a href="#cb5-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-815"><a href="#cb5-815" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=  0.683437467</span></span>
+<span id="cb5-816"><a href="#cb5-816" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-817"><a href="#cb5-817" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=   1.00393677</span></span>
+<span id="cb5-818"><a href="#cb5-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-819"><a href="#cb5-819" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-820"><a href="#cb5-820" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the 1-Norm</span></span>
+<span id="cb5-821"><a href="#cb5-821" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-822"><a href="#cb5-822" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-823"><a href="#cb5-823" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-824"><a href="#cb5-824" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-825"><a href="#cb5-825" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-826"><a href="#cb5-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-827"><a href="#cb5-827" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-828"><a href="#cb5-828" aria-hidden="true" tabindex="-1"></a><span class="in">      Factoring Accuracy with the Infinity-Norm</span></span>
+<span id="cb5-829"><a href="#cb5-829" aria-hidden="true" tabindex="-1"></a><span class="in"> ----------------------------------------------</span></span>
+<span id="cb5-830"><a href="#cb5-830" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-831"><a href="#cb5-831" aria-hidden="true" tabindex="-1"></a><span class="in"> Relative Error=           0</span></span>
+<span id="cb5-832"><a href="#cb5-832" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-833"><a href="#cb5-833" aria-hidden="true" tabindex="-1"></a><span class="in"> Growth Factor=           1</span></span>
+<span id="cb5-834"><a href="#cb5-834" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb5-835"><a href="#cb5-835" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-836"><a href="#cb5-836" aria-hidden="true" tabindex="-1"></a>**Share on**</span>
+<span id="cb5-837"><a href="#cb5-837" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-838"><a href="#cb5-838" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"fb-root"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb5-839"><a href="#cb5-839" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async defer crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span></span>
+<span id="cb5-840"><a href="#cb5-840" aria-hidden="true" tabindex="-1"></a><span class="ot"> src</span><span class="op">=</span><span class="st">"https://connect.facebook.net/en_US/sdk.js#xfbml=1</span><span class="er">&amp;</span><span class="st">version=v20.0"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb5-841"><a href="#cb5-841" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-842"><a href="#cb5-842" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"share-buttons"</span><span class="dt">&gt;</span></span>
+<span id="cb5-843"><a href="#cb5-843" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-share-button"</span><span class="ot"> data-href</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/lu/"</span></span>
+<span id="cb5-844"><a href="#cb5-844" aria-hidden="true" tabindex="-1"></a><span class="ot">data-layout</span><span class="op">=</span><span class="st">"button_count"</span><span class="ot"> data-size</span><span class="op">=</span><span class="st">"small"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> </span></span>
+<span id="cb5-845"><a href="#cb5-845" aria-hidden="true" tabindex="-1"></a><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Flu%2F</span><span class="dv">&amp;amp;</span><span class="st">src=sdkpreparse"</span><span class="ot"> </span></span>
+<span id="cb5-846"><a href="#cb5-846" aria-hidden="true" tabindex="-1"></a><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-xfbml-parse-ignore"</span><span class="dt">&gt;</span>Share<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb5-847"><a href="#cb5-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-848"><a href="#cb5-848" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://platform.linkedin.com/in.js"</span><span class="ot"> type=</span><span class="st">"text/javascript"</span><span class="dt">&gt;</span>lang<span class="op">:</span> en_US<span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb5-849"><a href="#cb5-849" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">"IN/Share"</span><span class="ot"> data-url</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/lu/"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span> </span>
+<span id="cb5-850"><a href="#cb5-850" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-851"><a href="#cb5-851" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://twitter.com/share?ref_src=twsrc%5Etfw"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"twitter-share-button"</span><span class="ot"> </span></span>
+<span id="cb5-852"><a href="#cb5-852" aria-hidden="true" tabindex="-1"></a><span class="ot"> data-url</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/lu/"</span><span class="ot"> data-show-count</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>Tweet<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb5-853"><a href="#cb5-853" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://platform.twitter.com/widgets.js"</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb5-854"><a href="#cb5-854" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb5-855"><a href="#cb5-855" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-856"><a href="#cb5-856" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-comments"</span><span class="ot"> data-href</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/lu/"</span></span>
+<span id="cb5-857"><a href="#cb5-857" aria-hidden="true" tabindex="-1"></a><span class="ot"> data-width</span><span class="op">=</span><span class="st">""</span><span class="ot"> data-numposts</span><span class="op">=</span><span class="st">"5"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb5-858"><a href="#cb5-858" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-859"><a href="#cb5-859" aria-hidden="true" tabindex="-1"></a>**You may also like**  </span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.7.33</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2024 @ Rafiq Islam
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.txt">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

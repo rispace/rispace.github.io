@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Mohammad Rafiqul Islam</title>
+<link>https://mrislambd.github.io/portfolio.html</link>
+<atom:link href="https://mrislambd.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.7.33</generator>
+<lastBuildDate>Sun, 04 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Spring 2025: MAC2311 Calculus With Analytic Geometry I</title>
+  <link>https://mrislambd.github.io/teaching/sp25.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p>COURSE MEETING SCHEDULE:</p>
+<p>Mondays, Wednesdays, and Fridays</p>
+<p>Time: 10:40 AM - 11:30 AM Location: HTL 215 Thursdays</p>
+<p>Time: 11:35 AM - 12:50 PM Location: HTL 215</p>
+<p>CREDIT HOURS: 4</p>
+<p>Time Zone: This course is a Main Campus FSU course and all times provided for this course (class meetings, due dates, etc) will be in Eastern Standard Time.</p>
+<p>COURSE INSTRUCTOR</p>
+<p>RAFIQ ISLAM</p>
+<p>rislam@fsu.edu</p>
+<p>Office Hours: Monday 12:00-1:00, Tuesday 11:30-12:30, Wednesday &nbsp;12:00 - 1:00&nbsp; Office: Lov 331</p>
+<p>COURSE DESCRIPTION</p>
+<p>In this course, students will develop problem solving skills, critical thinking, computational proficiency, and contextual fluency through the study of limits, derivatives, and definite and indefinite integrals of functions of one variable, including algebraic, exponential, logarithmic, and trigonometric functions, and applications. Topics will include limits, continuity, differentiation and rates of change, optimization, curve sketching, and introduction to integration and area.</p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/sp25.html</guid>
+  <pubDate>Sun, 04 May 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Auto Loan Decision Model</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/autoloan/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="report.pdf" target="_blank" style="text-decoration:none">Report</a> <a href="presentation.pdf" target="_blank" style="text-decoration:none">Presentation</a>
+</p>
+<section id="objective" class="level2">
+<h2 class="anchored" data-anchor-id="objective">Objective</h2>
+<p style="text-align: justify">
+The Auto Loan Credit Decisioning Model project aimed to enhance the application decision process for auto loans by leveraging machine learning techniques to classify applicants into approved or rejected categories. The project focused on improving prediction accuracy and ensuring fairness across demographic groups while addressing challenges like class imbalance and missing data.
+</p>
+</section>
+<section id="data-overview" class="level2">
+<h2 class="anchored" data-anchor-id="data-overview">Data Overview</h2>
+<ul>
+<li><strong>Dataset</strong>: Auto loan account data with 21,000 training records and 5,400 test records.</li>
+<li><strong>Features</strong>: 43 columns, including borrower creditworthiness, loan application attributes, and demographics.</li>
+<li><strong>Target Variable</strong>: ‘Bad Flag’ (binary), indicating ‘Poor Credit Quality’ (95.5%) or ‘Good Credit Quality’ (4.5%).</li>
+<li><strong>Challenges</strong>: Significant class imbalance and high proportion of missing values in several predictors.</li>
+</ul>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<ol type="1">
+<li><strong>Exploratory Data Analysis (EDA)</strong>:
+<ul>
+<li>Investigated class distributions and correlations with the target variable.</li>
+<li>Addressed missing values using mode and median imputations based on feature types.</li>
+<li>Analyzed key predictors such as FICO scores, loan-to-value ratios, and credit utilization rates.</li>
+</ul></li>
+<li><strong>Model Development</strong>:
+<ul>
+<li>Built models using Logistic Regression, Decision Tree, and Random Forest classifiers.</li>
+<li>Conducted hyperparameter tuning via GridSearchCV for optimal model settings.</li>
+<li>Addressed class imbalance with resampling techniques like SMOTE.</li>
+</ul></li>
+<li><strong>Evaluation Metrics</strong>:
+<ul>
+<li>Prioritized ROC-AUC, F1-Score, and classification reports over accuracy to account for imbalanced data.</li>
+</ul></li>
+</ol>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<ul>
+<li><strong>Best Model</strong>: Random Forest Classifier with an ROC-AUC score of 0.8078.</li>
+<li><strong>Performance</strong>:
+<ul>
+<li>Test data accuracy: 94.08%</li>
+<li>Precision (Class 0): 96.16%</li>
+<li>Recall (Class 0): 97.70%</li>
+</ul></li>
+<li><strong>Fairness Analysis</strong>:
+<ul>
+<li>Gender-neutral approval rates.</li>
+<li>No significant racial bias in decisions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="key-insights" class="level2">
+<h2 class="anchored" data-anchor-id="key-insights">Key Insights</h2>
+<ul>
+<li>FICO scores, loan-to-value ratios, and credit utilization rates were strong predictors of credit quality.</li>
+<li>Higher class imbalance and overfitting issues were observed with resampling techniques.</li>
+</ul>
+</section>
+<section id="innovations" class="level2">
+<h2 class="anchored" data-anchor-id="innovations">Innovations</h2>
+<ul>
+<li>Implemented Local Interpretable Model-agnostic Explanations (LIME) for model transparency, allowing stakeholders to understand prediction outcomes.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The Random Forest Classifier demonstrated strong predictive performance and fairness, providing a reliable foundation for auto loan decisioning. Opportunities for further improvements include advanced resampling methods, enhanced feature engineering, and exploring models like XGBoost or LightGBM for better results.</p>
+<p><strong>Keywords</strong>: Auto Loan, Predictive Modeling, Random Forest, Class Imbalance, Machine Learning, LIME.</p>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {Auto {Loan} {Decision} {Model}},
+  date = {2024-11-20},
+  url = {https://mrislambd.github.io/portfolio/dsp/autoloan/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
+20, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/autoloan/">https://mrislambd.github.io/portfolio/dsp/autoloan/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/autoloan/</guid>
+  <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/autoloan/auto.webp" medium="image" type="image/webp"/>
+</item>
+<item>
+  <title>Predicting Product Success Using Customer Reviews and Sales Data</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/nlp-sales/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="../../../codepages/amazonNLP/index.html" target="_blank" style="text-decoration:none">Notebook</a> <a href="https://github.com/mrislambd/medical-insurance-charge" target="_blank" style="text-decoration:none">GitHub (Private until finished)</a>
+</p>
+<p align="center">
+<img src="https://mrislambd.github.io/_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400">
+</p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {Predicting {Product} {Success} {Using} {Customer} {Reviews}
+    and {Sales} {Data}},
+  date = {2024-10-11},
+  url = {https://mrislambd.github.io/portfolio/dsp/nlp-sales/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2024. <span>“Predicting Product Success Using Customer
+Reviews and Sales Data.”</span> October 11, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/nlp-sales/">https://mrislambd.github.io/portfolio/dsp/nlp-sales/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/nlp-sales/</guid>
+  <pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/nlp-sales/amazon.webp" medium="image" type="image/webp"/>
+</item>
+<item>
+  <title>Insurance Cost Forecast by using Linear Regression</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/medicalcost/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="../../../codepages/medicalcost/index.html" target="_blank" style="text-decoration:none">Notebook</a> <a href="https://github.com/mrislambd/medical-insurance-charge" target="_blank" style="text-decoration:none">GitHub</a> <a href="https://michargepredictor.streamlit.app" target="_blank" style="text-decoration:none">WebApp</a>
+</p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p style="text-align: justify">
+This predictive modeling project involves personal medical data to predict the medical insurance charge by using a linear regression model.
+</p>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>The dataset used in this project is collected from <a href="https://www.kaggle.com/datasets/mirichoi0218/insurance" target="_blank" style="text-decoration:none">Kaggle</a></p>
+<p><strong>Columns</strong></p>
+<p><code>age</code>: age of primary beneficiary</p>
+<p><code>sex</code>: insurance contractor gender, female, male</p>
+<p><code>bmi</code>: Body mass index, providing an understanding of body, weights that are relatively high or low relative to height, objective index of body weight <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bkg%7D%7Bm%5E%202%7D"> using the ratio of height to weight, ideally <img src="https://latex.codecogs.com/png.latex?18.5"> to <img src="https://latex.codecogs.com/png.latex?24.9"></p>
+<p><code>children</code>: Number of children covered by health insurance / Number of dependents</p>
+<p><code>smoker</code>: Smoking</p>
+<p><code>region</code>: the beneficiary’s residential area in the US, northeast, southeast, southwest, northwest.</p>
+<p><code>charges</code>: Individual medical costs billed by health insurance</p>
+<p>Acknowledgements</p>
+<p>The dataset is available on GitHub <a href="https://github.com/stedy/Machine-Learning-with-R-datasets" target="_blank" style="text-decoration:none">here</a>.</p>
+</section>
+<section id="stakeholders" class="level2">
+<h2 class="anchored" data-anchor-id="stakeholders">Stakeholders</h2>
+<p>Can we accurately predict insurance costs?</p>
+</section>
+<section id="key-performance-indicators-kpis" class="level2">
+<h2 class="anchored" data-anchor-id="key-performance-indicators-kpis">Key Performance Indicators (KPIs)</h2>
+<p style="text-align: justify">
+All the features were considered for the modeling purposes. However, from the exploratory data analysis and mathematical analysis, it was found that the <code>charges</code> usually goes up for the factors such as increase in <code>age</code>, living in certain <code>region</code>, having certain number of <code>children</code>. But this is not always the same depending on the <code>smoker</code> variable. Also, there is a strong correlation between <code>age</code> and <code>bmi</code> variable. Age a result new features such as <code>age_bmi</code> and <code>age_bmi_smoker</code> features were created to see how the <code>charges</code> interact.
+</p>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<section id="modeling-approaches" class="level3">
+<h3 class="anchored" data-anchor-id="modeling-approaches">Modeling Approaches</h3>
+<p>We consider the following models</p>
+<ol type="1">
+<li><p><strong>Baseline model:</strong> Assumption that the <code>charges</code> variable can be modeled with the mean value of this <code>charges</code> variable.<br>
+<img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7Bcharges%7D=%5Cmathbb%7BE%7D%5B%5Ctext%7Bcharges%7D%5D+%5Cxi%0A"></p></li>
+<li><p><strong>Linear Regression with <code>age-bmi-smoke</code> interaction</strong><br>
+<img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7Bcharges%7D=%5Cbeta_0+%5Cbeta_1%20(%5Ctext%7Bage%5C_bmi%7D)+%5Cbeta_2%20(%5Ctext%7Bmale%7D)+%5Cbeta_3%20(%5Ctext%7Bsmoke%7D)+%5Cbeta_4%20(%5Ctext%7Bchildren%7D)+%5Cbeta_5%20(%5Ctext%7Bregion%7D)+%5Cbeta_6%20(%5Ctext%7Bage-bmi-smoke%7D)+%5Cxi%0A"></p></li>
+<li><p><strong>K-Neighbor Regression</strong><br>
+<img src="https://latex.codecogs.com/png.latex?k">NN using all the original feature with <img src="https://latex.codecogs.com/png.latex?k=10"></p></li>
+</ol>
+</section>
+<section id="final-model" class="level3">
+<h3 class="anchored" data-anchor-id="final-model">Final Model</h3>
+<p>Finally the modeling was done based on the lowest <code>MSE</code> value found from the 5-fold cross validation and the model has the following form</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%5Ctext%7Bcharges%7D%20&amp;=10621.25+%203346.14%5Ctimes%20%5Ctext%7BAge%5C_BMI%7D+4570.76%5Ctimes%20%5Ctext%7BMale%7D+%20479.61%5Ctimes%20%5Ctext%7BSmoke%7D-315.12%5Ctimes%20%5Ctext%7BChildren%7D%5C%5C%0A&amp;+13274.48%5Ctimes%20%5Ctext%7BRegion%7D-212.22%5Ctimes%20%5Ctext%7BAge%5C_BMI%5C_Smoke%7D%0A%5Cend%7Balign*%7D"></p>
+</section>
+</section>
+<section id="results-and-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-outcomes">Results and Outcomes</h2>
+<section id="model-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="model-accuracy">Model Accuracy</h3>
+<p>The model above returns an RMSE of <img src="https://latex.codecogs.com/png.latex?5853.0"> on the training set and an RMSE of <img src="https://latex.codecogs.com/png.latex?5600.0"> on the test set with an <img src="https://latex.codecogs.com/png.latex?R%5E2=80%5C%25">.</p>
+</section>
+<section id="web-application" class="level3">
+<h3 class="anchored" data-anchor-id="web-application">Web Application</h3>
+<p>The final model was developed and deployed using <code>Streamlit</code>. To try a single instance, fill out the following form and then click predict charges.</p>
+<center>
+<iframe height="600" width="450" src="https://michargepredictor.streamlit.app/?embed=true" title="Medical Insurance Charge Prediction"> </iframe>
+</center>
+</section>
+</section>
+<section id="future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="future-directions">Future Directions</h2>
+<p>Future project on the same data could be adding a neural network and compare the relative performances of the two models.</p>
+<p><strong>Share on</strong></p>
+<div id="fb-root">
+
+</div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/portfolio/dsp/medicalcost/" data-layout="button_count" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fportfolio%2Fdsp%2Fmedicalcost%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+</div>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/portfolio/dsp/medicalcost/"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/portfolio/dsp/medicalcost/" data-show-count="true">Tweet</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/portfolio/dsp/medicalcost/" data-width="" data-numposts="5">
+
+</div>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {Insurance {Cost} {Forecast} by Using {Linear} {Regression}},
+  date = {2024-08-30},
+  url = {https://mrislambd.github.io/portfolio/dsp/medicalcost/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2024. <span>“Insurance Cost Forecast by Using Linear
+Regression.”</span> August 30, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/medicalcost/">https://mrislambd.github.io/portfolio/dsp/medicalcost/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/medicalcost/</guid>
+  <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/medicalcost/ins.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Streamlit Web App</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/spd/webapp/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p style="text-align: justify">
+<img align="right" height="250" width="250" src="https://mrislambd.github.io/portfolio/spd/webapp/stlit.jpeg" alt="Streamlit Web App" style="margin-left: 20px; margin-bottom: 20px"><br>
+<br> Welcome to <code>MiCharge Predictor</code>! This web app is a part of my data science project <a href="https://mrislambd.github.io/portfolio/dsp/medicalcost/" target="_blank" style="text-decoration:none">Insurance Cost Forecast by using Linear Regression</a>, aimed at predicting the medical cost based on various personal and lifestyle factors. By leveraging advanced machine learning techniques, <code>MiCharge Predictor</code> provides an approximate estimates to help users understand potential medical expances.
+</p>
+<section id="key-features" class="level3">
+<h3 class="anchored" data-anchor-id="key-features">Key Features:</h3>
+<ul>
+<li><strong>User-Friendly Interface:</strong> Easily input your personal details and receive instant predictions.<br>
+</li>
+<li><strong>Copmprehensive Data Analysis:</strong> Utilizes sophisticated algorithms to analyze factors such as age, BMI, smoking habits, and more.<br>
+</li>
+<li><strong>Accessibility:</strong> Available both on web and mobile platforms.</li>
+</ul>
+</section>
+<section id="how-it-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-it-works">How it works?</h3>
+<ol type="1">
+<li><strong>Input Your Data:</strong> Enter details such as age, gender, BMI, number of children, smoking status, and region.
+<ul>
+<li><code>age:</code> Minimum 18, maximum 100</li>
+<li><code>gender:</code> Male or Female</li>
+<li><code>BMI</code>: Minimum 15.0, maximum 60</li>
+<li><code>number of children:</code> Takes values from 0 to 5</li>
+<li><code>smoking:</code> Yes or No</li>
+<li><code>region:</code> Takes four string input: Northeast, Northwest, Southeast, Southwest</li>
+</ul></li>
+<li><strong>Analyze:</strong> The algorithm process the given input</li>
+<li><strong>Get Prediction:</strong> Based on the input, you get the output.</li>
+</ol>
+</section>
+</section>
+<section id="usage" class="level2">
+<h2 class="anchored" data-anchor-id="usage">Usage</h2>
+<p>You can use the app directly from <code>streamlit</code> web using this <strong><a href="https://michargepredictor.streamlit.app" target="_blank" style="text-decoration:none">link</a></strong> or just here..</p>
+<center>
+<iframe height="600" width="450" src="https://michargepredictor.streamlit.app/?embed=true" title="Medical Insurance Charge Prediction"> </iframe>
+</center>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {Streamlit {Web} {App}},
+  date = {2024-08-30},
+  url = {https://mrislambd.github.io/portfolio/spd/webapp/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2024. <span>“Streamlit Web App.”</span> August 30, 2024.
+<a href="https://mrislambd.github.io/portfolio/spd/webapp/">https://mrislambd.github.io/portfolio/spd/webapp/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/spd/webapp/</guid>
+  <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/spd/webapp/stlit.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Disease diagnosis using classification and NLP</title>
+  <dc:creator>Rebecca Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam, Nina Adhikari, Viraj Meruliya </dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/dp-nlp/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p><strong>Team Members</strong><br>
+Rebecca Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam, Nina Adhikari, Viraj Meruliya</p>
+<p>Automatic Symptom Detection (ASD) and Automatic Diagnosis (AD) have seen several advances in recent years. Patients and medical professionals would benefit from tools that can aid in diagnosing diseases based on antecedents and presenting symptoms. The lack of quality healthcare in many parts of the world makes solving this problem a matter of utmost urgency. The aim of this project is to build a tool that can diagnose a disease based on a list of symptoms and contribute to our understanding of automatic diagnosis.</p>
+<p><strong>Project Details</strong></p>
+<p><a href="https://www.erdosinstitute.org/_files/ugd/161362_010d1152780f45b6b684df1fee5c4d8c.pdf" target="_blank">Slides</a><br>
+<a href="https://www.erdosinstitute.org/_files/ugd/161362_7030bf123ec149a4876e5b65e2c09a00.pdf" target="_blank">Executive Summary</a><br>
+<a href="https://github.com/nina-adhikari/disease_prediction" target="_blank">GitHub Repo</a></p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ceppas_de_castro,_fulya_tastan,_philip_barron,_mohammad_rafiqul_islam,_nina_adhikari,_viraj_meruliya_2024,
+  author = {Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad
+    Rafiqul Islam, Nina Adhikari, Viraj Meruliya , Rebecca},
+  title = {Disease Diagnosis Using Classification and {NLP}},
+  date = {2024-06-18},
+  url = {https://mrislambd.github.io/portfolio/dsp/dp-nlp/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ceppas_de_castro,_fulya_tastan,_philip_barron,_mohammad_rafiqul_islam,_nina_adhikari,_viraj_meruliya_2024" class="csl-entry quarto-appendix-citeas">
+Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam,
+Nina Adhikari, Viraj Meruliya, Rebecca. 2024. <span>“Disease Diagnosis
+Using Classification and NLP.”</span> June 18, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/dp-nlp/">https://mrislambd.github.io/portfolio/dsp/dp-nlp/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/dp-nlp/</guid>
+  <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/dp-nlp/dpnlp.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Spring 2024: MAP4170 Introduction to Actuarial Mathematics</title>
+  <link>https://mrislambd.github.io/teaching/sp24.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<div style="text-align: justify">
+<p>One of the course objectives is for each student to develop a mastery of financial mathematics used by actuaries, based on the mathematics of interest theory. Other course objectives are for each student to understand the long-term individual study commitment necessary to achieve a designation within one of the actuarial societies and for each student to increase their knowledge of the actuarial profession</p>
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/sp24.html</guid>
+  <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Python Application Library: desgld packaging</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/spd/desgld/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p><a href="pyp.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://mrislambd.github.io/portfolio/spd/desgld/pyp.jpeg" width="250" height="250"></a></p>
+<p>This package is related to my ongoing project “EXTRA decentralized stochastic gradient Langevin dynamics”. The detail of the package can be found <a href="https://mrislambd.github.io/desgld_package/desgld/" target="_blank">here</a></p>
+<p><strong>Share on</strong></p>
+<div id="fb-root">
+
+</div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/portfolio/desgld/" data-layout="button_count" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fportfolio%2Fdesgld%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+</div>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/portfolio/desgld/"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/portfolio/desgld/" data-show-count="true">Tweet</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/portfolio/desgld/" data-width="" data-numposts="5">
+
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {Python {Application} {Library:} Desgld Packaging},
+  date = {2024-05-03},
+  url = {https://mrislambd.github.io/portfolio/spd/desgld/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2024. <span>“Python Application Library: Desgld
+Packaging.”</span> May 3, 2024. <a href="https://mrislambd.github.io/portfolio/spd/desgld/">https://mrislambd.github.io/portfolio/spd/desgld/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/spd/desgld/</guid>
+  <pubDate>Fri, 03 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/spd/desgld/pyp.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Fall 2023: MAP4170 Introduction to Actuarial Mathematics</title>
+  <link>https://mrislambd.github.io/teaching/fall23.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p>Worked as a greader for this course.</p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/fall23.html</guid>
+  <pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Spring 2023: MAC1140 PreCalculus Algebra</title>
+  <link>https://mrislambd.github.io/teaching/sp23.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<div style="text-align: justify">
+<p>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<br> <br> As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</p>
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/sp23.html</guid>
+  <pubDate>Thu, 04 May 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Lendingclub’s loan default prediction</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/lendingclub/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="../../../codepages/lendingclub/index.html" target="_blank" style="text-decoration:none">Notebook</a>
+</p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p style="text-align: justify">
+LendingClub is a U.S.-based financial services company that initially began as a peer-to-peer (P2P) lending platform, allowing individual investors to lend directly to individual borrowers through a marketplace. Founded in 2006, it grew quickly to become one of the largest and most popular P2P lending platforms, helping connect borrowers in need of personal loans with investors looking for alternative investment opportunities.<br> <br> LendingClub has been known for its transparent data-sharing practices, making anonymized loan data available to researchers, data scientists, and investors. This data is widely used in financial research, especially for predictive modeling of loan risk and borrower behavior. <br> <br> The aim of this data science project is to build a machine learning model to predict the likelihood of a loan default.
+</p>
+<section id="more-information-about-lendingclub" class="level3">
+<h3 class="anchored" data-anchor-id="more-information-about-lendingclub">More information about LendingClub</h3>
+<ol type="1">
+<li><strong>P2P Lending Model (Early Focus):</strong>
+<ul>
+<li>Borrowers could apply for loans, typically unsecured personal loans, through LendingClub’s platform.</li>
+<li>Loans were then funded by individual investors who could review borrowers’ profiles, risk grades, and other financial information before committing funds.</li>
+<li>The model offered borrowers a way to access loans outside traditional banks, often at lower interest rates, and allowed investors to diversify by spreading investments across multiple loans.</li>
+</ul></li>
+<li><strong>Risk and Return:</strong>
+<ul>
+<li>LendingClub assigned credit grades (A–G) to each loan based on creditworthiness, which affected interest rates. Higher risk meant potentially higher returns for investors but also higher chances of default.</li>
+<li>Investors bore the risk if a borrower defaulted, which was a notable risk factor compared to FDIC-insured deposits.</li>
+</ul></li>
+<li><strong>Shift to a Bank Model:</strong>
+<ul>
+<li>Over time, LendingClub transitioned away from P2P lending and restructured as a more traditional bank, obtaining a bank charter in 2021.</li>
+<li>It now offers banking products, such as high-yield savings accounts, and operates more like a digital bank while still focusing on lending products.</li>
+</ul></li>
+<li><strong>Borrower and Loan Profiles:</strong>
+<ul>
+<li>LendingClub primarily focuses on personal loans for debt consolidation, credit card refinancing, home improvement, and other purposes.</li>
+<li>Borrowers’ profiles typically include information on income, credit score, debt-to-income ratio, and loan purpose, which is used for assessing risk.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p style="text-align: justify">
+The dataset is a publicly available data from <a href="https://www.kaggle.com/datasets/jeandedieunyandwi/lending-club-dataset" target="_blank" style="text-decoration:none">kaggle.com</a>. It originally contains 396030 entries, with 100.4 MB. However, for easy github push, I reduce the dataset slightly in order to have size smaller than 100 MB. So, in the reduced form, it has 395900 entries with the following columns:
+</p>
+<ul>
+<li><code>loan_amnt:</code> The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value.<br>
+</li>
+<li><code>term:</code> The number of payments on the loan. Values are in months and can be either 36 or 60.<br>
+</li>
+<li><code>int_rate:</code> Interest Rate on the loan installment The monthly payment owed by the borrower if the loan originates.<br>
+</li>
+<li><code>grade:</code> LC assigned loan grade<br>
+</li>
+<li><code>sub_grade:</code> LC assigned loan subgrade<br>
+</li>
+<li><code>emp_title:</code> The job title supplied by the Borrower when applying for the loan.<br>
+</li>
+<li><code>emp_length:</code> Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years.<br>
+</li>
+<li><code>home_ownership:</code> The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER<br>
+</li>
+<li><code>annual_inc:</code> The self-reported annual income provided by the borrower during registration.<br>
+</li>
+<li><code>verification_status:</code> Indicates if income was verified by LC, not verified, or if the income source was verified<br>
+</li>
+<li><code>issue_d:</code> The month which the loan was funded<br>
+</li>
+<li><code>loan_status:</code> Current status of the loan<br>
+</li>
+<li><code>purpose:</code> A category provided by the borrower for the loan request.<br>
+</li>
+<li><code>title:</code> The loan title provided by the borrower<br>
+</li>
+<li><code>zip_code:</code> The first 3 numbers of the zip code provided by the borrower in the loan application.<br>
+</li>
+<li><code>addr_state:</code> The state provided by the borrower in the loan application.<br>
+</li>
+<li><code>dti:</code> A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower’s self-reported monthly income.<br>
+</li>
+<li><code>earliest_cr_line:</code> The month the borrower’s earliest reported credit line was opened.<br>
+</li>
+<li><code>open_acc:</code> The number of open credit lines in the borrower’s credit file.<br>
+</li>
+<li><code>pub_rec:</code> Number of derogatory public records.<br>
+</li>
+<li><code>revol_bal:</code> Total credit revolving balance.<br>
+</li>
+<li><code>revol_util:</code> Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit.<br>
+</li>
+<li><code>total_acc:</code> The total number of credit lines currently in the borrower’s credit file</li>
+<li><code>initial_list_status:</code> The initial listing status of the loan. Possible values are – W, F</li>
+<li><code>application_type:</code> Indicates whether the loan is an individual application or a joint application with two co-borrowers.<br>
+</li>
+<li><code>mort_acc:</code> Number of mortgage accounts.<br>
+</li>
+<li><code>pub_rec_bankruptcies:</code> Number of public record bankruptcies</li>
+</ul>
+<p style="text-align: justify">
+Here <code>loan_status</code> is the predictive or dependent variable and the rest are predicting or independent variables aka features. We want to predict if the loan will be <code>Fully Paid</code> or <code>Charged Off</code> given the feature values.
+</p>
+</section>
+<section id="stakeholders" class="level2">
+<h2 class="anchored" data-anchor-id="stakeholders">Stakeholders</h2>
+</section>
+<section id="key-performance-indicators-kpis-of-lendingclub" class="level2">
+<h2 class="anchored" data-anchor-id="key-performance-indicators-kpis-of-lendingclub">Key Performance Indicators (KPIs) of LendingClub</h2>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+</section>
+<section id="results-and-outcome" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-outcome">Results and Outcome</h2>
+</section>
+<section id="future-directions" class="level2">
+<h2 class="anchored" data-anchor-id="future-directions">Future Directions</h2>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2023,
+  author = {Islam, Rafiq},
+  title = {Lendingclub’s Loan Default Prediction},
+  date = {2023-02-23},
+  url = {https://mrislambd.github.io/portfolio/dsp/lendingclub/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2023" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2023. <span>“Lendingclub’s Loan Default
+Prediction.”</span> February 23, 2023. <a href="https://mrislambd.github.io/portfolio/dsp/lendingclub/">https://mrislambd.github.io/portfolio/dsp/lendingclub/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/lendingclub/</guid>
+  <pubDate>Thu, 23 Feb 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/lendingclub/lending.webp" medium="image" type="image/webp"/>
+</item>
+<item>
+  <title>Fall 2022: MAC2311 Calculus and Analytic Geometry I</title>
+  <link>https://mrislambd.github.io/teaching/fall22.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<div style="text-align: justify">
+<p>Students who have substantial knowledge of precalculus and algebra may require to take this course as a mathematics requirement depending on their majors. The topic of this course includes but is not limited to Foundation for calculus: Functions and Limits, Derivative, The Definite Integral, and Constructing Antiderivatives.<br> <br> As a recitation instructor for this course, I ran two poster presentation sessions of 30 students in each group where they presented mathematical problems and their solutions step by step to their peer classmates followed by a group activity where they solved another set of problems. I also graded their exam scripts and weekly posters.</p>
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/fall22.html</guid>
+  <pubDate>Sun, 04 Dec 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/ecommerce/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="../../../codepages/ecommerce/index.html" target="_blank" style="text-decoration:none">Notebook</a>
+</p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p style="text-align: justify">
+This is a preliminary level linear regression based machine learning project to investigate the feature importance for an e-commerce based company or simply building a predictive model to generate insights on different features.
+</p>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>The data is collected from <a href="https://www.kaggle.com/datasets/srolka/ecommerce-customers" style="text-decoration:none" target="_blank">kaggle.com</a>. It contains 500 observations with the following columns</p>
+<ul>
+<li><code>Email:</code> Email address of the customers</li>
+<li><code>Address:</code> Physical mailing address of the customers<br>
+</li>
+<li><code>Avatar:</code> The fancy avater of the customers<br>
+</li>
+<li><code>Avg. Session Length:</code> Average session lenght spent either on app or web<br>
+</li>
+<li><code>Length of Membership:</code> Length of the membership of the customers with the e-commerce company<br>
+</li>
+<li><code>Time on App:</code> Time spent on the mobile app<br>
+</li>
+<li><code>Time on Website:</code> Time spent on web based browser<br>
+</li>
+<li><code>Yearly Amount Spent:</code> This is the dependent variable.</li>
+</ul>
+</section>
+<section id="stakeholders" class="level2">
+<h2 class="anchored" data-anchor-id="stakeholders">Stakeholders</h2>
+<p>If the company wants to decide whether to focus their efforts on the mobile app or the website.</p>
+</section>
+<section id="key-performance-indicators-kpis" class="level2">
+<h2 class="anchored" data-anchor-id="key-performance-indicators-kpis">Key Performance Indicators (KPIs)</h2>
+<p style="text-align:justify">
+All the quantitative features were considered to find their importance on the <code>Yearly Amount Spent</code> variable. However, it was found that <code>Length of Membership, Time on App, Avg. Session Length</code> have the highest impact on the dependent variable in decreasing order.
+</p>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%5Ctext%7BYearly%20Amount%20Spent%7D&amp;=-1054.215476+25.362665%5Ctimes%20(%5Ctext%7BAvg.%20Session%20Length%7D)%5C%5C%0A&amp;%20+38.823679%5Ctimes%20(%5Ctext%7BTime%20on%20App%7D)+0.803568%5Ctimes%20(%5Ctext%7BTime%20on%20Website%7D)%5C%5C%0A&amp;%20+%2061.549053%5Ctimes%20(%5Ctext%7BLength%20of%20Membership%7D)%0A%5Cend%7Balign*%7D"></p>
+</section>
+<section id="results-and-outcome" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-outcome">Results and Outcome</h2>
+<section id="model-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="model-explanation">Model Explanation</h3>
+<p>Based on the model above, we can sumerize as follows</p>
+<ul>
+<li>If everything else remain unchanged, a 1 unit increase in <code>Avg. Session Length</code> is associated with an increase of <img src="https://latex.codecogs.com/png.latex?25.36"> in total <code>Yearly Amount Spent</code><br>
+</li>
+<li>If everything else remain unchanged, a 1 unit increase in <code>Time on App</code> is associated with an increase of <img src="https://latex.codecogs.com/png.latex?38.82"> in total <code>Yearly Amount Spent</code><br>
+</li>
+<li>If everything else remain unchanged, a 1 unit increase in <code>Time on Website</code> is associated with an increase of <img src="https://latex.codecogs.com/png.latex?0.80"> in total <code>Yearly Amount Spent</code><br>
+</li>
+<li>If everything else remain unchanged, a 1 unit increase in <code>Length of Membership</code> is associated with an increase of <img src="https://latex.codecogs.com/png.latex?61.55"> in total <code>Yearly Amount Spent</code></li>
+</ul>
+<p>Now the key question, <em>should the company focus more on <code>Time on App</code> more?</em></p>
+<p style="text-align:justify">
+The answer to the question above is a little bit tricky. Based on the modeling approach, appearantly it may seems that time on app has more impact than the time on web. However, the most significant factor seems the <code>Length of Memberhsip</code>. So we need further analysis of this two features to properly answer if the company should focus more on app.
+</p>
+</section>
+<section id="model-accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="model-accuracy">Model Accuracy</h3>
+<p>The model above returns a <code>MAE</code> of 7.99, <code>MSE</code> of 102.72, <code>RMSE</code> of 10.14, and <img src="https://latex.codecogs.com/png.latex?R%5E2=98.46%5C%25"></p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2022,
+  author = {Islam, Rafiq},
+  title = {Feature {Selection:} {A} Linear Regression Approach to Find
+    the Impact of the Features of e-Commerce Sales Data},
+  date = {2022-08-30},
+  url = {https://mrislambd.github.io/portfolio/dsp/ecommerce/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2022" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2022. <span>“Feature Selection: A Linear Regression
+Approach to Find the Impact of the Features of e-Commerce Sales
+Data.”</span> August 30, 2022. <a href="https://mrislambd.github.io/portfolio/dsp/ecommerce/">https://mrislambd.github.io/portfolio/dsp/ecommerce/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/ecommerce/</guid>
+  <pubDate>Tue, 30 Aug 2022 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/ecommerce/ecom.webp" medium="image" type="image/webp"/>
+</item>
+<item>
+  <title>Fall 2021 and Spring 2022: PreCalculus and Algebra</title>
+  <link>https://mrislambd.github.io/teaching/fall21.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<div style="text-align: justify">
+<p>As a lecture TA, my job was to facilitate the instructor during the class. This included helping students in class activities such as answering short questions that counted as class attendance, checking students’ eligibility forms for taking this course, and others as needed by the instructor. <br> As a lab TA I worked in a computer lab where students take their weekly quizzes and midterm tests.</p>
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/fall21.html</guid>
+  <pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://mrislambd.github.io/portfolio/dsp/titanic/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p style="text-align:center">
+<a href="../../../codepages/titanic/index.html" target="_blank" style="text-decoration:none">Notebook</a>
+</p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2021,
+  author = {Islam, Rafiq},
+  title = {Classification {Probelm:} {Predict} the Chance of Survival of
+    a Voager on {Titanic} Based on the Voager’s Information},
+  date = {2021-10-15},
+  url = {https://mrislambd.github.io/portfolio/dsp/titanic/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2021" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2021. <span>“Classification Probelm: Predict the Chance of
+Survival of a Voager on Titanic Based on the Voager’s
+Information.”</span> October 15, 2021. <a href="https://mrislambd.github.io/portfolio/dsp/titanic/">https://mrislambd.github.io/portfolio/dsp/titanic/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://mrislambd.github.io/portfolio/dsp/titanic/</guid>
+  <pubDate>Fri, 15 Oct 2021 00:00:00 GMT</pubDate>
+  <media:content url="https://mrislambd.github.io/portfolio/dsp/titanic/titan.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Fall 2018 to Spring 2020: College Algebra, Trigonometry</title>
+  <link>https://mrislambd.github.io/teaching/f18-f21.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p>Responsible for the preparation and delivery of all lectures, making question paper for all exams, and the grading of tests and homework assignments for the following courses: - College Algebra, Fall 2018 - Trigonometry, Fall 2019 and Spring 2020</p>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://mrislambd.github.io/teaching/f18-f21.html</guid>
+  <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

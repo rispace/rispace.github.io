@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rafiq Islam">
+<meta name="dcterms.date" content="2024-08-29">
+
+<title>K Nearest Neighbors Regression – Mohammad Rafiqul Islam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//_assets/images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z5NP67GHFC"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z5NP67GHFC', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="K Nearest Neighbors Regression – Mohammad Rafiqul Islam">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://mrislambd.github.io/dsandml/knn/knn.jpeg">
+<meta property="og:site_name" content="Mohammad Rafiqul Islam">
+<meta name="twitter:title" content="K Nearest Neighbors Regression – Mohammad Rafiqul Islam">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://mrislambd.github.io/dsandml/knn/knn.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../dsandml/knn/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../dsandml/knn/index.html">
+    <span class="navbar-title">Mohammad Rafiqul Islam</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Blog</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
+        <li>
+    <a class="dropdown-item" href="../../posts/machinelearning/index.html">
+ <span class="dropdown-text">Data Science and Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/jobandintern/index.html">
+ <span class="dropdown-text">Job and Intern</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">All Other Blogs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mrislambd" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-non-parametric-models" id="toc-introduction-non-parametric-models" class="nav-link active" data-scroll-target="#introduction-non-parametric-models">Introduction: Non-parametric Models</a></li>
+  <li><a href="#k-nearest-neighbors-knn-algorithm" id="toc-k-nearest-neighbors-knn-algorithm" class="nav-link" data-scroll-target="#k-nearest-neighbors-knn-algorithm"><span class="math inline">\(K-\)</span>Nearest Neighbors (KNN) Algorithm</a>
+  <ul>
+  <li><a href="#k-nearest-neighbors-classification" id="toc-k-nearest-neighbors-classification" class="nav-link" data-scroll-target="#k-nearest-neighbors-classification"><span class="math inline">\(K-\)</span>Nearest Neighbors Classification</a>
+  <ul class="collapse">
+  <li><a href="#knn-classifier-using-python" id="toc-knn-classifier-using-python" class="nav-link" data-scroll-target="#knn-classifier-using-python">KNN Classifier Using Python</a></li>
+  </ul></li>
+  <li><a href="#k-nearest-neighbors-regression" id="toc-k-nearest-neighbors-regression" class="nav-link" data-scroll-target="#k-nearest-neighbors-regression"><span class="math inline">\(K-\)</span>Nearest Neighbors Regression</a>
+  <ul class="collapse">
+  <li><a href="#knn-regressor-using-python" id="toc-knn-regressor-using-python" class="nav-link" data-scroll-target="#knn-regressor-using-python">KNN Regressor Using Python</a></li>
+  </ul></li>
+  <li><a href="#choosing-the-value-of-k" id="toc-choosing-the-value-of-k" class="nav-link" data-scroll-target="#choosing-the-value-of-k">Choosing the Value of <strong>K</strong></a></li>
+  <li><a href="#distance-metrics" id="toc-distance-metrics" class="nav-link" data-scroll-target="#distance-metrics">Distance Metrics</a></li>
+  <li><a href="#knn-implementation" id="toc-knn-implementation" class="nav-link" data-scroll-target="#knn-implementation">KNN Implementation</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#when-to-use-knn-over-linear-regression" id="toc-when-to-use-knn-over-linear-regression" class="nav-link" data-scroll-target="#when-to-use-knn-over-linear-regression">When to Use KNN Over Linear Regression?</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.ipynb" download="index.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="index.epub"><i class="bi bi-file"></i>ePub</a></li><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(56)</span></div><div class="category" data-category="Algorithms">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Artificial Intelligence">Artificial Intelligence <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Bayesian Inference">Bayesian Inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Bayesian Statistics">Bayesian Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Engineering">Data Engineering <span class="quarto-category-count">(9)</span></div><div class="category" data-category="Data Science">Data Science <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Programming">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PyTorch">PyTorch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Statistics">Statistics <span class="quarto-category-count">(4)</span></div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">K Nearest Neighbors Regression</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Artificial Intelligence</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rafiq Islam </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 29, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-non-parametric-models" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-non-parametric-models">Introduction: Non-parametric Models</h2>
+<p style="text-align: justify">
+Non-parametric model is a statistical model that does not make any assumptions about the underlying data distributions, meaning it does not require specifying functional form for the relationships between variables, instead learning directly from the data points without pre-defined parameters.
+</p>
+</section>
+<section id="k-nearest-neighbors-knn-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="k-nearest-neighbors-knn-algorithm"><span class="math inline">\(K-\)</span>Nearest Neighbors (KNN) Algorithm</h2>
+<p style="text-align:justify">
+K-Nearest Neighbors (KNN) is one of the simplest yet effective algorithms used in supervised learning for both classification and regression problems. It’s a <strong>lazy learner</strong>—meaning it does not perform any specific training of a model but memorizes the training dataset and makes predictions based on proximity in feature space.
+</p>
+<p>We are given a set of data points <span class="math inline">\((\bar{x}_i,y_i)\)</span> with <span class="math inline">\(\bar{x}_i\in \mathbb{R}^d\)</span> and <span class="math inline">\(y_i\in \mathbb{R}\)</span><br>
+1. Choose the number of neighbors <span class="math inline">\(K\)</span><br>
+2. Compute the distance between the new data point and all the training samples<br>
+3. Select the <span class="math inline">\(K\)</span> nearest neighbors based on distance.<br>
+4. For <strong>classification</strong>, the output is the most common class among the <span class="math inline">\(K\)</span> neighbors.<br>
+5. For <strong>regression</strong>, the output is the average of the target values of <span class="math inline">\(K\)</span> neighbors</p>
+<section id="k-nearest-neighbors-classification" class="level3">
+<h3 class="anchored" data-anchor-id="k-nearest-neighbors-classification"><span class="math inline">\(K-\)</span>Nearest Neighbors Classification</h3>
+<p>The KNN classification algorithm can be summarized with the following steps:</p>
+<p>Given:</p>
+<ul>
+<li><span class="math inline">\(X_{train} = [x_1, x_2, \ldots, x_n]\)</span> (the training data features)<br>
+</li>
+<li><span class="math inline">\(y_{train} = [y_1, y_2, \ldots, y_n]\)</span> (the training data labels)<br>
+</li>
+<li><span class="math inline">\(x_{test}\)</span> (the new data point for which we want to predict the class)</li>
+</ul>
+<p><strong>Steps</strong></p>
+<p><strong>1. Compute Distance</strong>: For each training point <span class="math inline">\(x_i\)</span>, calculate the distance <span class="math inline">\(d(x_i, x_{test})\)</span> using a distance metric like <strong>Euclidean distance</strong>: <span class="math display">\[
+   d(x_i, x_{test}) = \sqrt{\sum_{j=1}^{m} (x_{i,j} - x_{test,j})^2}
+   \]</span> where <span class="math inline">\(m\)</span> is the number of features.</p>
+<p><strong>2. Find K Nearest Neighbors</strong>: Sort the distances and pick the <strong>K</strong> closest points.</p>
+<p><strong>3. Majority Voting</strong>: Look at the labels <span class="math inline">\(y_i\)</span> of the <strong>K</strong> nearest neighbors. The predicted label for <span class="math inline">\(x_{test}\)</span> is the most frequent label (majority vote) among the neighbors.</p>
+<p>For example, let’s say our data looks like this</p>
+<div>
+
+</div>
+<div id="tb1-panel" class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<caption>Training Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">area</th>
+<th style="text-align: center;">bedroom</th>
+<th style="text-align: center;">bathroom</th>
+<th style="text-align: center;">price</th>
+<th style="text-align: center;">condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">7420</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1300000</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7520</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1450000</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6420</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1110000</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5423</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1363400</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5423</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1263400</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<caption>Test Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">area</th>
+<th style="text-align: center;">bedroom</th>
+<th style="text-align: center;">bathroom</th>
+<th style="text-align: center;">price</th>
+<th style="text-align: center;">condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5420</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">1302000</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7120</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1453000</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>For the data points <span class="math inline">\(x_i\)</span> from the training set and a single test data point <span class="math inline">\(xt=[5420,3,2.5,1302000]\)</span></p>
+<p><span class="math display">\[\begin{align*}
+    d(x_1, xt) &amp; = \sqrt{(x_{11}-xt_1)^2 + (x_{12}-xt_2)^2 + (x_{13}-xt_3)^2 + (x_{14}-xt_4)^2}\\
+               &amp; = \sqrt{(7420-5420)^2 + (4-5)^2 + (2-2.5)^2 + (1300000-1302000)^2} \approx 2828.43\\
+    d(x_2,xt)  &amp; = \sqrt{(x_{21}-xt_1)^2 + (x_{22}-xt_2)^2 + (x_{23}-xt_3)^2 + (x_{24}-xt_4)^2} \\     
+               &amp; = \sqrt{(7520-5420)^2 + (3-5)^2 + (3-2.5)^2 + (1450000-1302000)^2} \approx 14805.92\\
+    d(x_3,xt)  &amp; = \sqrt{(x_{31}-xt_1)^2 + (x_{32}-xt_2)^2 + (x_{33}-xt_3)^2 + (x_{34}-xt_4)^2}   \\
+               &amp; = \sqrt{(6420-5420)^2 + (2-5)^2 + (1-2.5)^2 + (1110000-1302000)^2} \approx 19209.38\\
+    d(x_4,xt)  &amp; = \sqrt{(x_{41}-xt_1)^2 + (x_{42}-xt_2)^2 + (x_{43}-xt_3)^2 + (x_{44}-xt_4)^2}\\
+               &amp; = \sqrt{(6420-5420)^2 + (2-5)^2 + (1-2.5)^2 + (1110000-1302000)^2} \approx 19209.38\\
+    d(x_5,xt)  &amp; = \sqrt{(x_{51}-xt_1)^2 + (x_{52}-xt_2)^2 + (x_{53}-xt_3)^2 + (x_{54}-xt_4)^2} \\
+               &amp; = \sqrt{(5423-5420)^2 + (3-5)^2 + (1-2.5)^2 + (1263400-1302000)^2} \approx 38602.95
+\end{align*}\]</span></p>
+<p>So the distances</p>
+<ul>
+<li><span class="math inline">\(d_1=d(x_1, xt) \approx 2828.43\)</span></li>
+<li><span class="math inline">\(d_2=d(x_2, xt) \approx 14805.92\)</span></li>
+<li><span class="math inline">\(d_3=d(x_3, xt) \approx 19209.38\)</span></li>
+<li><span class="math inline">\(d_4=d(x_4, xt) \approx 61405.03\)</span></li>
+<li><span class="math inline">\(d_5=d(x_5, xt) \approx 38602.95\)</span></li>
+</ul>
+<p>If we sort the above distances, we get <span class="math inline">\(d_1&lt;d_2&lt;d_3&lt;d_5&lt;d_4\)</span> and if we choose <span class="math inline">\(K=3\)</span> nearest neighbors, then <span class="math inline">\(d_1&lt;d_2&lt;d_3\)</span> and</p>
+<ul>
+<li>Data point <span class="math inline">\(x_1\)</span> has class label <code>condition</code><span class="math inline">\(=1\)</span><br>
+</li>
+<li>Data point <span class="math inline">\(x_2\)</span> has class label <code>condition</code><span class="math inline">\(=1\)</span><br>
+</li>
+<li>Data point <span class="math inline">\(x_3\)</span> has class label <code>condition</code><span class="math inline">\(=0\)</span></li>
+</ul>
+<p>We can clearly see that the majority class (2 out of 3) is <code>condition</code><span class="math inline">\(=1\)</span>. Therefore, for the given test data, the label would be also <code>condition</code><span class="math inline">\(=1\)</span>.</p>
+<section id="knn-classifier-using-python" class="level4">
+<h4 class="anchored" data-anchor-id="knn-classifier-using-python">KNN Classifier Using Python</h4>
+<p>Here’s how to implement KNN for classification in Python from scratch:</p>
+<div id="417f42e3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomKNNclassifier:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, X, Y):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X <span class="op">=</span> X</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y <span class="op">=</span> Y</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, X):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        predictions <span class="op">=</span> [<span class="va">self</span>._predict(x) <span class="cf">for</span> x <span class="kw">in</span> X.to_numpy()] </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array(predictions)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _predict(<span class="va">self</span>, x):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the Euclidean distances </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> [np.linalg.norm(x <span class="op">-</span> X_train) <span class="cf">for</span> X_train <span class="kw">in</span> <span class="va">self</span>.X.to_numpy()]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the indices of the k nearest neighbors</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        k_indices <span class="op">=</span> np.argsort(distances)[:<span class="va">self</span>.k]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the labels of k nearest neighbors</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        k_nearest_neighbors <span class="op">=</span> [<span class="va">self</span>.Y[i] <span class="cf">for</span> i <span class="kw">in</span> k_indices]</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the most common label</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        common_label <span class="op">=</span> Counter(k_nearest_neighbors).most_common(<span class="dv">1</span>)[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> common_label</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">7420</span>, <span class="dv">7520</span>, <span class="dv">6420</span>, <span class="dv">5423</span>, <span class="dv">5423</span>],</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>],</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">'price'</span>: [<span class="dv">1300000</span>, <span class="dv">1450000</span>, <span class="dv">1110000</span>, <span class="dv">1363400</span>, <span class="dv">1263400</span>],</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">'condition'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">5420</span>, <span class="dv">7120</span>],</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">3</span>, <span class="dv">5</span>],</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="fl">2.5</span>, <span class="dv">4</span>],</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">'price'</span>: [<span class="dv">1302000</span>, <span class="dv">1453000</span>]</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> train_data.drop(<span class="st">'condition'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train_data[<span class="st">'condition'</span>]</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> test_data</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize and train the KNN model</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> CustomKNNclassifier(k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>classifier.fit(X_train, y_train)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> classifier.predict(X_test)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1 1]</code></pre>
+</div>
+</div>
+<p>So the complete test set would be</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">area</th>
+<th style="text-align: center;">bedroom</th>
+<th style="text-align: center;">bathroom</th>
+<th style="text-align: center;">price</th>
+<th style="text-align: center;">condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5420</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">1302000</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7120</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1453000</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:red">Note: We did not scale the data before applying the classifier. If we scaled, the result might have been different (?). In practice, we need to scale the data before applying KNN algorithm. Because computing a large number of distances with big numbers may get us wrong order and also time cosuming.</span></p>
+</section>
+</section>
+<section id="k-nearest-neighbors-regression" class="level3">
+<h3 class="anchored" data-anchor-id="k-nearest-neighbors-regression"><span class="math inline">\(K-\)</span>Nearest Neighbors Regression</h3>
+<p>KNN regression is slightly different from classification. Instead of taking a majority vote, we predict the output by averaging the values of the <strong>K</strong> nearest neighbors.</p>
+<p>Given:</p>
+<ul>
+<li><span class="math inline">\(X_{train} = [x_1, x_2, \ldots, x_n]\)</span> (the training data features)</li>
+<li><span class="math inline">\(y_{train} = [y_1, y_2, \ldots, y_n]\)</span> (the continuous target values)</li>
+<li><span class="math inline">\(x_{test}\)</span> (the new data point for which we want to predict the value)</li>
+</ul>
+<p><strong>Step-by-Step:</strong></p>
+<p><strong>1. Compute Distance</strong>: Calculate the Euclidean distance between <span class="math inline">\(x_{test}\)</span> and each training point <span class="math inline">\(x_i\)</span>.<br>
+<strong>2. Find K Nearest Neighbors</strong>: Sort the distances and select the <strong>K</strong> nearest points.<br>
+<strong>3. Averaging</strong>: The predicted value for <span class="math inline">\(x_{test}\)</span> is the average of the target values <span class="math inline">\(y_i\)</span> of the <strong>K</strong> nearest neighbors:</p>
+<p><span class="math display">\[
+\hat{y}_{test} = \frac{1}{K} \sum_{i=1}^{K} y_i
+\]</span></p>
+<section id="knn-regressor-using-python" class="level4">
+<h4 class="anchored" data-anchor-id="knn-regressor-using-python">KNN Regressor Using Python</h4>
+<p>Now we use the same training data and test data for this regression. But this time, our target variable is <code>price</code> and test data looks like this</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">area</th>
+<th style="text-align: center;">bedroom</th>
+<th style="text-align: center;">bathroom</th>
+<th style="text-align: center;">Condition</th>
+<th style="text-align: center;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5420</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7120</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>After scaling the data looks like this</p>
+<div>
+
+</div>
+<div id="tb1-panel" class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<caption>Training Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">area</th>
+<th style="text-align: left;">bedroom</th>
+<th style="text-align: left;">bathroom</th>
+<th style="text-align: left;">condition</th>
+<th style="text-align: left;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.213</td>
+<td style="text-align: left;">1.414</td>
+<td style="text-align: left;">0.267</td>
+<td style="text-align: left;">0.730</td>
+<td style="text-align: left;">1300000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.336</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">1.603</td>
+<td style="text-align: left;">0.730</td>
+<td style="text-align: left;">1450000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-0.026</td>
+<td style="text-align: left;">-1.414</td>
+<td style="text-align: left;">-1.336</td>
+<td style="text-align: left;">-1.095</td>
+<td style="text-align: left;">1110000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-1.261</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">0.267</td>
+<td style="text-align: left;">-1.095</td>
+<td style="text-align: left;">1363400</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-1.261</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">-1.336</td>
+<td style="text-align: left;">0.730</td>
+<td style="text-align: left;">1263400</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top table">
+<caption>Test Data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">area</th>
+<th style="text-align: left;">bedroom</th>
+<th style="text-align: left;">bathroom</th>
+<th style="text-align: left;">condition</th>
+<th style="text-align: left;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">-1.266</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">0.803</td>
+<td style="text-align: left;">0.730</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0.854</td>
+<td style="text-align: left;">2.828</td>
+<td style="text-align: left;">3.876</td>
+<td style="text-align: left;">0.730</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Now we see that</p>
+<p><span class="math display">\[\begin{align*}
+    d_1=d(x_1, x_t) &amp; = \sqrt{(1.213 - (-1.266))^2 + (1.414 - 0)^2 + (0.267 - 0.803)^2 + (0.730 - 0.730)^2}  \approx 2.904\\
+    d_2=d(x_2, x_t) &amp; = \sqrt{(1.336 - (-1.266))^2 + (0.000 - 0)^2 + (1.603 - 0.803)^2 + (0.730 - 0.730)^2} \approx 2.721\\
+    d_3=d(x_3, x_t) &amp; = \sqrt{(-0.026 - (-1.266))^2 + (-1.414 - 0)^2 + (-1.336 - 0.803)^2 + (-1.095 - 0.730)^2}  \approx 3.382\\
+    d_4=d(x_4, x_t) &amp; = \sqrt{(-1.261 - (-1.266))^2 + (0.000 - 0)^2 + (0.267 - 0.803)^2 + (-1.095 - 0.730)^2}  \approx 1.902\\
+    d_5=d(x_5, x_t) &amp; = \sqrt{(-1.261 - (-1.266))^2 + (0.000 - 0)^2 + (-1.336 - 0.803)^2 + (0.730 - 0.730)^2} \approx 2.140
+\end{align*}\]</span></p>
+<p>But this time, the order is <span class="math inline">\(d_4&lt;d_5&lt;d_2&lt;d_1&lt;d_3\)</span> and for <span class="math inline">\(k=3\)</span> we have <span class="math inline">\(d_4&lt;d_5&lt;d_2\)</span>. The price for this distances</p>
+<ul>
+<li>For data point <span class="math inline">\(x_4\)</span>, the <code>price</code><span class="math inline">\(=1363400\)</span><br>
+</li>
+<li>For data point <span class="math inline">\(x_5\)</span>, the <code>price</code><span class="math inline">\(=1263400\)</span><br>
+</li>
+<li>For data point <span class="math inline">\(x_2\)</span>, the <code>price</code><span class="math inline">\(=1450000\)</span></li>
+</ul>
+<p>So the predicted price should be the average of this three prices, that for <span class="math inline">\(xt=[5420,3,2.5,1]\)</span> the price we expect<br>
+<span class="math display">\[
+price = \frac{1363400+1263400+1450000}{3}=1358933.33
+\]</span></p>
+<p>Here’s how to implement KNN for regression in Python from scratch and we see if we get the same as the hand calculation.</p>
+<div id="1c53eb1c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomKNNRegressor:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, X_train, y_train):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_train <span class="op">=</span> X_train</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y_train <span class="op">=</span> y_train.to_numpy()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, X_test):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        predictions <span class="op">=</span> [<span class="va">self</span>._predict(x) <span class="cf">for</span> x <span class="kw">in</span> X_test]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array(predictions)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _predict(<span class="va">self</span>, x):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> [np.linalg.norm(x<span class="op">-</span>x_train) <span class="cf">for</span> x_train <span class="kw">in</span> <span class="va">self</span>.X_train]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        k_indices <span class="op">=</span> np.argsort(distances)[:<span class="va">self</span>.k]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        k_nearest_values <span class="op">=</span> [<span class="va">self</span>.y_train[i] <span class="cf">for</span> i <span class="kw">in</span> k_indices]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.mean(k_nearest_values)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> train_data.drop(<span class="st">'price'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train_data[<span class="st">'price'</span>]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">5420</span>, <span class="dv">7120</span>],</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">3</span>, <span class="dv">5</span>],</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="fl">2.5</span>, <span class="dv">4</span>],</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">'condition'</span>: [<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> test_data</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>X_train_sc <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>X_test_sc <span class="op">=</span> scaler.transform(X_test)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize and train the KNN regressor</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>regressor <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>regressor.fit(X_train_sc, y_train)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> regressor.predict(X_test_sc)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(predictions,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1358933.33 1371133.33]</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="choosing-the-value-of-k" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-the-value-of-k">Choosing the Value of <strong>K</strong></h3>
+<p>The value of <strong>K</strong> significantly affects the performance of the KNN algorithm:</p>
+<ul>
+<li><strong>Small K</strong>: If <strong>K</strong> is too small, the model is sensitive to noise, and the predictions can be unstable.<br>
+</li>
+<li><strong>Large K</strong>: If <strong>K</strong> is too large, the model becomes more biased, and the predictions may be overly smoothed.</li>
+</ul>
+<p>A typical way to choose <strong>K</strong> is by trying different values and using cross-validation to see which value yields the best performance.</p>
+<hr>
+</section>
+<section id="distance-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="distance-metrics">Distance Metrics</h3>
+<p>The default metric for KNN is <strong>Euclidean distance</strong>, but depending on the dataset, other metrics like <strong>Manhattan distance</strong> or <strong>Minkowski distance</strong> might be more suitable.</p>
+<ul>
+<li><p><strong>Euclidean Distance</strong> (L2 Norm): <span class="math display">\[
+d(x_i, x_j) = \sqrt{\sum_{k=1}^{m} (x_{i,k} - x_{j,k})^2}
+\]</span></p></li>
+<li><p><strong>Manhattan Distance</strong> (L1 Norm): <span class="math display">\[
+d(x_i, x_j) = \sum_{k=1}^{m} |x_{i,k} - x_{j,k}|
+\]</span></p></li>
+</ul>
+</section>
+<section id="knn-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="knn-implementation">KNN Implementation</h3>
+<p>In this section we use KNN regression for <code>Boston Housing</code> dataset and find the optimal <span class="math inline">\(K\)</span> using the <code>KFold</code> cross-validation.</p>
+<div id="a5308966" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'HousingData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next we see if there is any missing values. If we have any, we will skip those observations.</p>
+<div id="598ca694" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.dropna(axis<span class="op">=</span><span class="dv">1</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CRIM       20
+ZN         20
+INDUS      20
+CHAS       20
+NOX         0
+RM          0
+AGE        20
+DIS         0
+RAD         0
+TAX         0
+PTRATIO     0
+B           0
+LSTAT      20
+MEDV        0
+dtype: int64</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NOX</th>
+<th data-quarto-table-cell-role="th">RM</th>
+<th data-quarto-table-cell-role="th">DIS</th>
+<th data-quarto-table-cell-role="th">RAD</th>
+<th data-quarto-table-cell-role="th">TAX</th>
+<th data-quarto-table-cell-role="th">PTRATIO</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">MEDV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.538</td>
+<td>6.575</td>
+<td>4.0900</td>
+<td>1</td>
+<td>296</td>
+<td>15.3</td>
+<td>396.90</td>
+<td>24.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.469</td>
+<td>6.421</td>
+<td>4.9671</td>
+<td>2</td>
+<td>242</td>
+<td>17.8</td>
+<td>396.90</td>
+<td>21.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.469</td>
+<td>7.185</td>
+<td>4.9671</td>
+<td>2</td>
+<td>242</td>
+<td>17.8</td>
+<td>392.83</td>
+<td>34.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.458</td>
+<td>6.998</td>
+<td>6.0622</td>
+<td>3</td>
+<td>222</td>
+<td>18.7</td>
+<td>394.63</td>
+<td>33.4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.458</td>
+<td>7.147</td>
+<td>6.0622</td>
+<td>3</td>
+<td>222</td>
+<td>18.7</td>
+<td>396.90</td>
+<td>36.2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p style="text-align:justify">
+The data looks clean and ready to implement to the KNNRegressor. Note that, for predictive modeling we need a lot of things, such as exporatory data analysis (EDA), feature engineering, preprocessing and others. However, we will simply apply the <code>KNNRegressor</code> that we built from scratch and built-in library function from <code>scikit-learn</code> to explore the algorithm and find the optimal <span class="math inline">\(K\)</span>.
+</p>
+<div id="9124b8e1" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold, train_test_split</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error,r2_score</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(<span class="st">'MEDV'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'MEDV'</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    X,y, test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">123</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>X_train_sc <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>X_test_sc <span class="op">=</span> scaler.transform(X_test)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">30</span>,<span class="dv">40</span>]</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>kfold <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>mses <span class="op">=</span> np.zeros((<span class="dv">7</span>,<span class="dv">4</span>))</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,(train_index,test_index) <span class="kw">in</span> <span class="bu">enumerate</span>(kfold.split(X_train_sc)):</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    X_train_train <span class="op">=</span> X_train_sc[train_index]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    X_train_holdout <span class="op">=</span> X_train_sc[test_index]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    y_train_train <span class="op">=</span> y_train.iloc[train_index]</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    y_train_holdout <span class="op">=</span> y_train.iloc[test_index]</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j,k <span class="kw">in</span> <span class="bu">enumerate</span>(k_values):</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        regressor1 <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span>k)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        regressor1.fit(X_train_train, y_train_train)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        preds <span class="op">=</span> regressor1.predict(X_train_holdout)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        mses[i,j] <span class="op">=</span> mean_squared_error(preds, y_train_holdout)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.zeros(<span class="dv">7</span>),mses[:,<span class="dv">0</span>], s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Single Split'</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.ones(<span class="dv">7</span>),mses[:,<span class="dv">1</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">2</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">2</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">3</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">3</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>plt.scatter([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], np.mean(mses, axis<span class="op">=</span><span class="dv">0</span>), s<span class="op">=</span><span class="dv">60</span>,c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="st">'K=5'</span>,<span class="st">'K=15'</span>,<span class="st">'K=30'</span>,<span class="st">'K=40'</span>])</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MSE'</span>)</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>plt.gca().set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>plt.gcf().patch.set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-6-output-1.png" width="585" height="411" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So, <span class="math inline">\(K=5\)</span> seems optimal based on our custom built regressor. Now if we do the same thing using the <code>scikit-learn</code> library</p>
+<div id="68cf679c" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mses <span class="op">=</span> np.zeros((<span class="dv">7</span>,<span class="dv">4</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,(train_index,test_index) <span class="kw">in</span> <span class="bu">enumerate</span>(kfold.split(X_train_sc)):</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    X_train_train <span class="op">=</span> X_train_sc[train_index]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    X_train_holdout <span class="op">=</span> X_train_sc[test_index]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    y_train_train <span class="op">=</span> y_train.iloc[train_index]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    y_train_holdout <span class="op">=</span> y_train.iloc[test_index]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j,k <span class="kw">in</span> <span class="bu">enumerate</span>(k_values):</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        regressor2 <span class="op">=</span> KNeighborsRegressor(k)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        regressor2.fit(X_train_train, y_train_train)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        preds <span class="op">=</span> regressor2.predict(X_train_holdout)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        mses[i,j] <span class="op">=</span> mean_squared_error(preds, y_train_holdout)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.zeros(<span class="dv">7</span>),mses[:,<span class="dv">0</span>], s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Single Split'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.ones(<span class="dv">7</span>),mses[:,<span class="dv">1</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">2</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">2</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">3</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">3</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.scatter([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], np.mean(mses, axis<span class="op">=</span><span class="dv">0</span>), s<span class="op">=</span><span class="dv">60</span>,c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="st">'K=5'</span>,<span class="st">'K=15'</span>,<span class="st">'K=30'</span>,<span class="st">'K=40'</span>])</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MSE'</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.gca().set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>plt.gcf().patch.set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-7-output-1.png" width="585" height="411" class="figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In both method, we got <span class="math inline">\(K=5\)</span> is the optimal number of neighbors for KNN regression. Let’s apply this in our test dataset</p>
+<div id="1d866ff9" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>regressor <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>regressor.fit(X_train_sc, y_train)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> regressor.predict(X_test_sc)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(predictions,y_test)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>rsquared <span class="op">=</span> r2_score(predictions,y_test)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MSE = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(np.<span class="bu">round</span>(mse,<span class="dv">2</span>)),<span class="st">' and R-square = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(np.<span class="bu">round</span>(rsquared,<span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MSE = 41.26  and R-square = 0.23</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p style="text-align: justify">
+K-Nearest Neighbors is a simple, intuitive algorithm that can be highly effective in both classification and regression problems. Its simplicity comes from the fact that it doesn’t make any assumptions about the underlying data distribution (it’s non-parametric). However, its performance can be sensitive to the choice of <strong>K</strong> and the distance metric. <br> <br> Although it’s easy to implement, KNN can become computationally expensive for large datasets, as it requires calculating distances between the test point and all training samples. <br> <br> If you need an efficient version, it’s always possible to use optimized libraries like scikit-learn, but writing the algorithm from scratch helps build a solid understanding.
+</p>
+</section>
+<section id="when-to-use-knn-over-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-knn-over-linear-regression">When to Use KNN Over Linear Regression?</h3>
+<p>We would consider using KNN regression over linear regression in the following situations:</p>
+<ul>
+<li><strong>Non-linear relationships</strong>: When the data shows non-linear patterns or complex relationships between features and target variables that cannot be captured by a straight line.<br>
+</li>
+<li><strong>Local behavior</strong>: When data has local patterns or clusters, and you believe that predictions should rely on the nearest data points.<br>
+</li>
+<li><strong>Minimal assumptions</strong>: If you do not want to assume a specific relationship between the features and target, KNN’s non-parametric nature might be more appropriate.<br>
+</li>
+<li><strong>Smaller datasets</strong>: KNN works well with smaller datasets and lower-dimensional data where calculating distances is feasible and efficient.</li>
+</ul>
+<p>However, KNN becomes less efficient and struggles in high dimensions or when the dataset is large. In those cases, linear regression or other more scalable models may be more appropriate</p>
+<hr>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><strong>KNN Regressor Overview:</strong>
+<ul>
+<li>Géron, Aurélien. <em>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems</em>. O’Reilly Media, 2019. This book provides an in-depth explanation of KNN, including its behavior in non-linear data and high-dimensionality challenges.</li>
+<li>Bishop, Christopher M. <em>Pattern Recognition and Machine Learning</em>. Springer, 2006. This book covers non-parametric methods like KNN, highlighting the “curse of dimensionality” and distance-based approaches.</li>
+</ul></li>
+<li><strong>KNN vs.&nbsp;Linear Regression (Model Assumptions &amp; Complexity of Data):</strong>
+<ul>
+<li>Hastie, Trevor, Tibshirani, Robert, and Friedman, Jerome. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. Springer, 2009. This source discusses the assumptions behind linear regression and the flexibility of non-parametric models like KNN.</li>
+<li>Kuhn, Max, and Johnson, Kjell. <em>Applied Predictive Modeling</em>. Springer, 2013. The comparison between parametric (like linear regression) and non-parametric models (like KNN) is elaborated in this book.</li>
+</ul></li>
+<li><strong>Interpretability:</strong>
+<ul>
+<li>Molnar, Christoph. <em>Interpretable Machine Learning: A Guide for Making Black Box Models Explainable</em>. 2019. This book emphasizes the trade-offs between interpretable models like linear regression and more black-box models like KNN.</li>
+<li>Murdoch, W. James, et al.&nbsp;“Definitions, methods, and applications in interpretable machine learning.” <em>Proceedings of the National Academy of Sciences</em> 116.44 (2019): 22071-22080.</li>
+</ul></li>
+<li><strong>Sensitivity to Outliers:</strong>
+<ul>
+<li>Aggarwal, Charu C. <em>Data Classification: Algorithms and Applications</em>. Chapman and Hall/CRC, 2014. This discusses the impact of outliers on different models, including linear regression and KNN.</li>
+<li>Friedman, Jerome, et al.&nbsp;<em>The Elements of Statistical Learning</em>. Springer Series in Statistics, 2001. Sensitivity to outliers is compared across various regression techniques, including KNN.</li>
+</ul></li>
+<li><strong>Handling High-Dimensional Data:</strong>
+<ul>
+<li>Domingos, Pedro. “A few useful things to know about machine learning.” <em>Communications of the ACM</em> 55.10 (2012): 78-87. This paper discusses challenges like the curse of dimensionality in models like KNN.</li>
+<li>Verleysen, Michel, and François, Damien. “The curse of dimensionality in data mining and time series prediction.” <em>International Work-Conference on Artificial Neural Networks</em>. Springer, 2005.</li>
+</ul></li>
+<li><strong>Training and Prediction Time:</strong>
+<ul>
+<li>Shalev-Shwartz, Shai, and Ben-David, Shai. <em>Understanding Machine Learning: From Theory to Algorithms</em>. Cambridge University Press, 2014. Provides insights into the computational cost differences between linear and non-parametric models like KNN.</li>
+<li>Li, Zhe, et al.&nbsp;“Fast k-nearest neighbor search using GPU.” <em>International Conference on Image and Graphics</em>. Springer, 2015. This paper discusses computational complexity related to KNN.</li>
+</ul></li>
+<li><strong>Overfitting and Flexibility:</strong>
+<ul>
+<li>Yao, Ying, et al.&nbsp;“Overfitting and Underfitting: A Visual Explanation.” Towards Data Science, 2019. Offers a visual and intuitive explanation of the bias-variance tradeoff in KNN and linear models.</li>
+<li>Rasmussen, Carl E., and Williams, Christopher KI. <em>Gaussian Processes for Machine Learning</em>. MIT Press, 2006. Discusses overfitting in KNN due to small values of <code>k</code> and regularization techniques for linear models.</li>
+</ul></li>
+</ol>
+<hr>
+<p><strong>Share on</strong></p>
+<div id="fb-root">
+
+</div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/dsandml/knn/" data-layout="button_count" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fdsandml%2Fknn%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+</div>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/dsandml/knn/"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/dsandml/knn/" data-show-count="true">Tweet</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/knn/" data-width="" data-numposts="5">
+
+</div>
+<p><strong>You may also like</strong></p>
+
+
+
+<!-- -->
+
+</section>
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Machine Learning,Data Science,Bayesian Inference,Bayesian Statistics,Statistics" data-listing-date-sort="1729569600000" data-listing-file-modified-sort="1730179317257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../dsandml/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../dsandml/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Statistics,Data Science,Data Engineering,Machine Learning,Artificial Intelligence" data-listing-date-sort="1728532800000" data-listing-file-modified-sort="1728684641298" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2195">
+<a href="../../dsandml/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../lda/lda.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+11 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Data Science,Machine Learning,Artificial Intelligence,Data Engineering" data-listing-date-sort="1729137600000" data-listing-file-modified-sort="1730179690185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5383">
+<a href="../../dsandml/lda/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../dsandml/lda/lda.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification: Linear Discriminant Analysis (LDA)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+27 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 17, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2024,
+  author = {Islam, Rafiq},
+  title = {K {Nearest} {Neighbors} {Regression}},
+  date = {2024-08-29},
+  url = {https://mrislambd.github.io/dsandml/knn/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Islam, Rafiq. 2024. <span>“K Nearest Neighbors Regression.”</span>
+August 29, 2024. <a href="https://mrislambd.github.io/dsandml/knn/">https://mrislambd.github.io/dsandml/knn/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mrislambd\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "K Nearest Neighbors Regression"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2024-08-29"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Rafiq Islam</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Data Science, Machine Learning, Artificial Intelligence]</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> true</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> knn.jpeg</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title, author, reading-time]</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">    html: default</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">    ipynb: default</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">    docx: </span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">    epub:</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">    pdf: </span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="co">      pdf-engine: pdflatex</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co">      number-sections: false</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co">      colorlinks: true</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="co">      cite-method: biblatex</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 4</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction: Non-parametric Models </span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt;</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    Non-parametric model is a statistical model that does not make any assumptions about the underlying data distributions, meaning it does not require specifying functional form for the relationships between variables, instead learning directly from the data points without pre-defined parameters.  </span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## $K-$Nearest Neighbors (KNN) Algorithm  </span></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align:justify"&gt;</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>K-Nearest Neighbors (KNN) is one of the simplest yet effective algorithms used in supervised learning for both classification and regression problems. It's a **lazy learner**—meaning it does not perform any specific training of a model but memorizes the training dataset and makes predictions based on proximity in feature space.  </span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>We are given a set of data points $(\bar{x}_i,y_i)$ with $\bar{x}_i\in \mathbb{R}^d$ and $y_i\in \mathbb{R}$  </span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Choose the number of neighbors $K$  </span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compute the distance between the new data point and all the training samples  </span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Select the $K$ nearest neighbors based on distance.  </span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>For **classification**, the output is the most common class among the $K$ neighbors.  </span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>For **regression**, the output is the average of the target values of $K$ neighbors</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### $K-$Nearest Neighbors Classification  </span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>The KNN classification algorithm can be summarized with the following steps:</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>Given:  </span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$X_{train} = <span class="co">[</span><span class="ot">x_1, x_2, \ldots, x_n</span><span class="co">]</span>$ (the training data features)  </span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$y_{train} = <span class="co">[</span><span class="ot">y_1, y_2, \ldots, y_n</span><span class="co">]</span>$ (the training data labels)  </span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x_{test}$ (the new data point for which we want to predict the class)</span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>**Steps**  </span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>**1. Compute Distance**: </span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>   For each training point $x_i$, calculate the distance $d(x_i, x_{test})$ using a distance metric like **Euclidean distance**:</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>   d(x_i, x_{test}) = \sqrt{\sum_{j=1}^{m} (x_{i,j} - x_{test,j})^2}</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>   $$</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>   where $m$ is the number of features.  </span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>**2. Find K Nearest Neighbors**: </span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>   Sort the distances and pick the **K** closest points.  </span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>**3. Majority Voting**: </span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>   Look at the labels $y_i$ of the **K** nearest neighbors. The predicted label for $x_{test}$ is the most frequent label (majority vote) among the neighbors.  </span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>For example, let's say our data looks like this  </span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>::: {#tb1-panel layout-ncol=2}</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>| area   | bedroom   |   bathroom |   price   |   condition |  </span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>|:------:|:---------:|:----------:|:---------:|:-----------:|   </span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>| 7420   | 4         | 2          | 1300000   | 1           |  </span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>| 7520   | 3         | 3          | 1450000   | 1           |  </span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>| 6420   | 2         | 1          | 1110000   | 0           |  </span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>| 5423   | 3         | 2          | 1363400   | 0           |  </span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>| 5423   | 3         | 1          | 1263400   | 1           |  </span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>: Training Data   </span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>| area   | bedroom   |   bathroom |   price   |   condition |  </span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>|:------:|:---------:|:----------:|:---------:|:-----------:|   </span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>| 5420   | 3         | 2.5        | 1302000   |             |  </span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>| 7120   | 5         | 4          | 1453000   |             |  </span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>: Test Data </span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>For the data points $x_i$ from the training set and a single test data point $xt=<span class="co">[</span><span class="ot">5420,3,2.5,1302000</span><span class="co">]</span>$</span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>    d(x_1, xt) &amp; = \sqrt{(x_{11}-xt_1)^2 + (x_{12}-xt_2)^2 + (x_{13}-xt_3)^2 + (x_{14}-xt_4)^2}<span class="sc">\\</span></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>               &amp; = \sqrt{(7420-5420)^2 + (4-5)^2 + (2-2.5)^2 + (1300000-1302000)^2} \approx 2828.43<span class="sc">\\</span></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>    d(x_2,xt)  &amp; = \sqrt{(x_{21}-xt_1)^2 + (x_{22}-xt_2)^2 + (x_{23}-xt_3)^2 + (x_{24}-xt_4)^2} <span class="sc">\\</span>     </span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>               &amp; = \sqrt{(7520-5420)^2 + (3-5)^2 + (3-2.5)^2 + (1450000-1302000)^2} \approx 14805.92<span class="sc">\\</span></span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>    d(x_3,xt)  &amp; = \sqrt{(x_{31}-xt_1)^2 + (x_{32}-xt_2)^2 + (x_{33}-xt_3)^2 + (x_{34}-xt_4)^2}   <span class="sc">\\</span></span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>               &amp; = \sqrt{(6420-5420)^2 + (2-5)^2 + (1-2.5)^2 + (1110000-1302000)^2} \approx 19209.38<span class="sc">\\</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>    d(x_4,xt)  &amp; = \sqrt{(x_{41}-xt_1)^2 + (x_{42}-xt_2)^2 + (x_{43}-xt_3)^2 + (x_{44}-xt_4)^2}<span class="sc">\\</span></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>               &amp; = \sqrt{(6420-5420)^2 + (2-5)^2 + (1-2.5)^2 + (1110000-1302000)^2} \approx 19209.38<span class="sc">\\</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>    d(x_5,xt)  &amp; = \sqrt{(x_{51}-xt_1)^2 + (x_{52}-xt_2)^2 + (x_{53}-xt_3)^2 + (x_{54}-xt_4)^2} <span class="sc">\\</span></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>               &amp; = \sqrt{(5423-5420)^2 + (3-5)^2 + (1-2.5)^2 + (1263400-1302000)^2} \approx 38602.95</span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>So the distances  </span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$d_1=d(x_1, xt) \approx 2828.43$</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$d_2=d(x_2, xt) \approx 14805.92$</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$d_3=d(x_3, xt) \approx 19209.38$</span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$d_4=d(x_4, xt) \approx 61405.03$</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$d_5=d(x_5, xt) \approx 38602.95$</span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>If we sort the above distances, we get $d_1&lt;d_2&lt;d_3&lt;d_5&lt;d_4$ and if we choose $K=3$ nearest neighbors, then $d_1&lt;d_2&lt;d_3$ and  </span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data point $x_1$ has class label <span class="in">`condition`</span>$=1$  </span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data point $x_2$ has class label <span class="in">`condition`</span>$=1$  </span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data point $x_3$ has class label <span class="in">`condition`</span>$=0$  </span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>We can clearly see that the majority class (2 out of 3) is <span class="in">`condition`</span>$=1$. Therefore, for the given test data, the label would be also <span class="in">`condition`</span>$=1$.</span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="fu">#### KNN Classifier Using Python  </span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>Here’s how to implement KNN for classification in Python from scratch:</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomKNNclassifier:</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, X, Y):</span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X <span class="op">=</span> X</span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y <span class="op">=</span> Y</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, X):</span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>        predictions <span class="op">=</span> [<span class="va">self</span>._predict(x) <span class="cf">for</span> x <span class="kw">in</span> X.to_numpy()] </span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array(predictions)</span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _predict(<span class="va">self</span>, x):</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the Euclidean distances </span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> [np.linalg.norm(x <span class="op">-</span> X_train) <span class="cf">for</span> X_train <span class="kw">in</span> <span class="va">self</span>.X.to_numpy()]</span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the indices of the k nearest neighbors</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>        k_indices <span class="op">=</span> np.argsort(distances)[:<span class="va">self</span>.k]</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the labels of k nearest neighbors</span></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>        k_nearest_neighbors <span class="op">=</span> [<span class="va">self</span>.Y[i] <span class="cf">for</span> i <span class="kw">in</span> k_indices]</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the most common label</span></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>        common_label <span class="op">=</span> Counter(k_nearest_neighbors).most_common(<span class="dv">1</span>)[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> common_label</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">7420</span>, <span class="dv">7520</span>, <span class="dv">6420</span>, <span class="dv">5423</span>, <span class="dv">5423</span>],</span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>],</span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>],</span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>        <span class="st">'price'</span>: [<span class="dv">1300000</span>, <span class="dv">1450000</span>, <span class="dv">1110000</span>, <span class="dv">1363400</span>, <span class="dv">1263400</span>],</span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>        <span class="st">'condition'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">5420</span>, <span class="dv">7120</span>],</span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">3</span>, <span class="dv">5</span>],</span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="fl">2.5</span>, <span class="dv">4</span>],</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>        <span class="st">'price'</span>: [<span class="dv">1302000</span>, <span class="dv">1453000</span>]</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> train_data.drop(<span class="st">'condition'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train_data[<span class="st">'condition'</span>]</span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> test_data</span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize and train the KNN model</span></span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> CustomKNNclassifier(k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>classifier.fit(X_train, y_train)</span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> classifier.predict(X_test)</span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(predictions)</span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>So the complete test set would be  </span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>| area   | bedroom   |   bathroom |   price   |   condition |  </span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>|:------:|:---------:|:----------:|:---------:|:-----------:|   </span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>| 5420   | 3         | 2.5        | 1302000   |          1  |  </span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>| 7120   | 5         | 4          | 1453000   |          1  |  </span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Note: We did not scale the data before applying the classifier. If we scaled, the result might have been different (?). In practice, we need to scale the data before applying KNN algorithm. Because computing a large number of distances with big numbers may get us wrong order and also time cosuming.</span><span class="co">]</span>{style="color:red"}</span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### $K-$Nearest Neighbors Regression</span></span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a>KNN regression is slightly different from classification. Instead of taking a majority vote, we predict the output by averaging the values of the **K** nearest neighbors.</span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>Given:  </span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$X_{train} = <span class="co">[</span><span class="ot">x_1, x_2, \ldots, x_n</span><span class="co">]</span>$ (the training data features)</span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$y_{train} = <span class="co">[</span><span class="ot">y_1, y_2, \ldots, y_n</span><span class="co">]</span>$ (the continuous target values)</span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x_{test}$ (the new data point for which we want to predict the value)</span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>**Step-by-Step:**  </span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a>**1. Compute Distance**: Calculate the Euclidean distance between $x_{test}$ and each training point $x_i$.  </span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a>**2. Find K Nearest Neighbors**: Sort the distances and select the **K** nearest points.  </span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>**3. Averaging**: The predicted value for $x_{test}$ is the average of the target values $y_i$ of the **K** nearest neighbors:  </span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a>\hat{y}_{test} = \frac{1}{K} \sum_{i=1}^{K} y_i</span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a><span class="fu">#### KNN Regressor Using Python</span></span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a>Now we use the same training data and test data for this regression. But this time, our target variable is <span class="in">`price`</span> and test data looks like this   </span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>| area   | bedroom   |   bathroom | Condition |   price     |  </span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a>|:------:|:---------:|:----------:|:---------:|:-----------:|   </span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a>| 5420   | 3         | 2.5        | 1         |             |  </span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a>| 7120   | 5         | 4          | 1         |             |  </span>
+<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a>After scaling the data looks like this  </span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a>::: {#tb1-panel layout-ncol=2}</span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a>| area    | bedroom | bathroom | condition | price   |</span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a>|---------|---------|----------|-----------|---------|</span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a>| 1.213   | 1.414   | 0.267    | 0.730     | 1300000 |</span>
+<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a>| 1.336   | 0.000   | 1.603    | 0.730     | 1450000 |</span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>| -0.026  | -1.414  | -1.336   | -1.095    | 1110000 |</span>
+<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a>| -1.261  | 0.000   | 0.267    | -1.095    | 1363400 |</span>
+<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a>| -1.261  | 0.000   | -1.336   | 0.730     | 1263400 |</span>
+<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a>: Training Data   </span>
+<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a>| area    | bedroom | bathroom | condition | price |</span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a>|---------|---------|----------|-----------|-------|</span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a>| -1.266  | 0.000   | 0.803    | 0.730     |       |</span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a>| 0.854   | 2.828   | 3.876    | 0.730     |       |</span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a>: Test Data </span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a>Now we see that  </span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a>    d_1=d(x_1, x_t) &amp; = \sqrt{(1.213 - (-1.266))^2 + (1.414 - 0)^2 + (0.267 - 0.803)^2 + (0.730 - 0.730)^2}  \approx 2.904<span class="sc">\\</span></span>
+<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a>    d_2=d(x_2, x_t) &amp; = \sqrt{(1.336 - (-1.266))^2 + (0.000 - 0)^2 + (1.603 - 0.803)^2 + (0.730 - 0.730)^2} \approx 2.721<span class="sc">\\</span></span>
+<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a>    d_3=d(x_3, x_t) &amp; = \sqrt{(-0.026 - (-1.266))^2 + (-1.414 - 0)^2 + (-1.336 - 0.803)^2 + (-1.095 - 0.730)^2}  \approx 3.382<span class="sc">\\</span></span>
+<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a>    d_4=d(x_4, x_t) &amp; = \sqrt{(-1.261 - (-1.266))^2 + (0.000 - 0)^2 + (0.267 - 0.803)^2 + (-1.095 - 0.730)^2}  \approx 1.902<span class="sc">\\</span></span>
+<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a>    d_5=d(x_5, x_t) &amp; = \sqrt{(-1.261 - (-1.266))^2 + (0.000 - 0)^2 + (-1.336 - 0.803)^2 + (0.730 - 0.730)^2} \approx 2.140 </span>
+<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a>But this time, the order is $d_4&lt;d_5&lt;d_2&lt;d_1&lt;d_3$ and for $k=3$ we have $d_4&lt;d_5&lt;d_2$. The price for this distances  </span>
+<span id="cb12-284"><a href="#cb12-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For data point $x_4$, the <span class="in">`price`</span>$=1363400$  </span>
+<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For data point $x_5$, the <span class="in">`price`</span>$=1263400$  </span>
+<span id="cb12-287"><a href="#cb12-287" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For data point $x_2$, the <span class="in">`price`</span>$=1450000$  </span>
+<span id="cb12-288"><a href="#cb12-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-289"><a href="#cb12-289" aria-hidden="true" tabindex="-1"></a>So the predicted price should be the average of this three prices, that for $xt=<span class="co">[</span><span class="ot">5420,3,2.5,1</span><span class="co">]</span>$ the price we expect  </span>
+<span id="cb12-290"><a href="#cb12-290" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-291"><a href="#cb12-291" aria-hidden="true" tabindex="-1"></a>price = \frac{1363400+1263400+1450000}{3}=1358933.33</span>
+<span id="cb12-292"><a href="#cb12-292" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb12-293"><a href="#cb12-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-294"><a href="#cb12-294" aria-hidden="true" tabindex="-1"></a>Here’s how to implement KNN for regression in Python from scratch and we see if we get the same as the hand calculation.</span>
+<span id="cb12-295"><a href="#cb12-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-302"><a href="#cb12-302" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomKNNRegressor:</span>
+<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, X_train, y_train):</span>
+<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_train <span class="op">=</span> X_train</span>
+<span id="cb12-308"><a href="#cb12-308" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y_train <span class="op">=</span> y_train.to_numpy()</span>
+<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, X_test):</span>
+<span id="cb12-311"><a href="#cb12-311" aria-hidden="true" tabindex="-1"></a>        predictions <span class="op">=</span> [<span class="va">self</span>._predict(x) <span class="cf">for</span> x <span class="kw">in</span> X_test]</span>
+<span id="cb12-312"><a href="#cb12-312" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array(predictions)</span>
+<span id="cb12-313"><a href="#cb12-313" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-314"><a href="#cb12-314" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _predict(<span class="va">self</span>, x):</span>
+<span id="cb12-315"><a href="#cb12-315" aria-hidden="true" tabindex="-1"></a>        distances <span class="op">=</span> [np.linalg.norm(x<span class="op">-</span>x_train) <span class="cf">for</span> x_train <span class="kw">in</span> <span class="va">self</span>.X_train]</span>
+<span id="cb12-316"><a href="#cb12-316" aria-hidden="true" tabindex="-1"></a>        k_indices <span class="op">=</span> np.argsort(distances)[:<span class="va">self</span>.k]</span>
+<span id="cb12-317"><a href="#cb12-317" aria-hidden="true" tabindex="-1"></a>        k_nearest_values <span class="op">=</span> [<span class="va">self</span>.y_train[i] <span class="cf">for</span> i <span class="kw">in</span> k_indices]</span>
+<span id="cb12-318"><a href="#cb12-318" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.mean(k_nearest_values)</span>
+<span id="cb12-319"><a href="#cb12-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-320"><a href="#cb12-320" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> train_data.drop(<span class="st">'price'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-321"><a href="#cb12-321" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> train_data[<span class="st">'price'</span>]</span>
+<span id="cb12-322"><a href="#cb12-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-323"><a href="#cb12-323" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb12-324"><a href="#cb12-324" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb12-325"><a href="#cb12-325" aria-hidden="true" tabindex="-1"></a>        <span class="st">'area'</span>: [<span class="dv">5420</span>, <span class="dv">7120</span>],</span>
+<span id="cb12-326"><a href="#cb12-326" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bedroom'</span>: [<span class="dv">3</span>, <span class="dv">5</span>],</span>
+<span id="cb12-327"><a href="#cb12-327" aria-hidden="true" tabindex="-1"></a>        <span class="st">'bathroom'</span>: [<span class="fl">2.5</span>, <span class="dv">4</span>],</span>
+<span id="cb12-328"><a href="#cb12-328" aria-hidden="true" tabindex="-1"></a>        <span class="st">'condition'</span>: [<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb12-329"><a href="#cb12-329" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-330"><a href="#cb12-330" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-331"><a href="#cb12-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-332"><a href="#cb12-332" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> test_data</span>
+<span id="cb12-333"><a href="#cb12-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-334"><a href="#cb12-334" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb12-335"><a href="#cb12-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-336"><a href="#cb12-336" aria-hidden="true" tabindex="-1"></a>X_train_sc <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb12-337"><a href="#cb12-337" aria-hidden="true" tabindex="-1"></a>X_test_sc <span class="op">=</span> scaler.transform(X_test)</span>
+<span id="cb12-338"><a href="#cb12-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-339"><a href="#cb12-339" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize and train the KNN regressor</span></span>
+<span id="cb12-340"><a href="#cb12-340" aria-hidden="true" tabindex="-1"></a>regressor <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a>regressor.fit(X_train_sc, y_train)</span>
+<span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> regressor.predict(X_test_sc)</span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(predictions,<span class="dv">2</span>))</span>
+<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a><span class="fu">### Choosing the Value of **K**</span></span>
+<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-353"><a href="#cb12-353" aria-hidden="true" tabindex="-1"></a>The value of **K** significantly affects the performance of the KNN algorithm:  </span>
+<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Small K**: If **K** is too small, the model is sensitive to noise, and the predictions can be unstable.  </span>
+<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Large K**: If **K** is too large, the model becomes more biased, and the predictions may be overly smoothed.</span>
+<span id="cb12-357"><a href="#cb12-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-358"><a href="#cb12-358" aria-hidden="true" tabindex="-1"></a>A typical way to choose **K** is by trying different values and using cross-validation to see which value yields the best performance.</span>
+<span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-361"><a href="#cb12-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a><span class="fu">### Distance Metrics</span></span>
+<span id="cb12-363"><a href="#cb12-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a>The default metric for KNN is **Euclidean distance**, but depending on the dataset, other metrics like **Manhattan distance** or **Minkowski distance** might be more suitable.</span>
+<span id="cb12-365"><a href="#cb12-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Euclidean Distance** (L2 Norm):</span>
+<span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a>  d(x_i, x_j) = \sqrt{\sum_{k=1}^{m} (x_{i,k} - x_{j,k})^2}</span>
+<span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Manhattan Distance** (L1 Norm):</span>
+<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a>  d(x_i, x_j) = \sum_{k=1}^{m} |x_{i,k} - x_{j,k}|</span>
+<span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a><span class="fu">### KNN Implementation  </span></span>
+<span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a>In this section we use KNN regression for <span class="in">`Boston Housing`</span> dataset and find the optimal $K$ using the <span class="in">`KFold`</span> cross-validation. </span>
+<span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'HousingData.csv'</span>)</span>
+<span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-387"><a href="#cb12-387" aria-hidden="true" tabindex="-1"></a>Next we see if there is any missing values. If we have any, we will skip those observations. </span>
+<span id="cb12-388"><a href="#cb12-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span>
+<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a>df.dropna(axis<span class="op">=</span><span class="dv">1</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align:justify"&gt;</span>
+<span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a>The data looks clean and ready to implement to the KNNRegressor. Note that, for predictive modeling we need a lot of things, such as exporatory data analysis (EDA), feature engineering, preprocessing and others. However, we will simply apply the <span class="in">`KNNRegressor`</span> that we built from scratch and built-in library function from <span class="in">`scikit-learn`</span> to explore the algorithm and find the optimal $K$.</span>
+<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;  </span>
+<span id="cb12-401"><a href="#cb12-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold, train_test_split</span>
+<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error,r2_score</span>
+<span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-410"><a href="#cb12-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df.drop(<span class="st">'MEDV'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'MEDV'</span>]</span>
+<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a>    X,y, test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">123</span></span>
+<span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a>X_train_sc <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>X_test_sc <span class="op">=</span> scaler.transform(X_test)</span>
+<span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">30</span>,<span class="dv">40</span>]</span>
+<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>kfold <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a>mses <span class="op">=</span> np.zeros((<span class="dv">7</span>,<span class="dv">4</span>))</span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,(train_index,test_index) <span class="kw">in</span> <span class="bu">enumerate</span>(kfold.split(X_train_sc)):</span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a>    X_train_train <span class="op">=</span> X_train_sc[train_index]</span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a>    X_train_holdout <span class="op">=</span> X_train_sc[test_index]</span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a>    y_train_train <span class="op">=</span> y_train.iloc[train_index]</span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a>    y_train_holdout <span class="op">=</span> y_train.iloc[test_index]</span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j,k <span class="kw">in</span> <span class="bu">enumerate</span>(k_values):</span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a>        regressor1 <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span>k)</span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>        regressor1.fit(X_train_train, y_train_train)</span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a>        preds <span class="op">=</span> regressor1.predict(X_train_holdout)</span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a>        mses[i,j] <span class="op">=</span> mean_squared_error(preds, y_train_holdout)</span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.zeros(<span class="dv">7</span>),mses[:,<span class="dv">0</span>], s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Single Split'</span>)</span>
+<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.ones(<span class="dv">7</span>),mses[:,<span class="dv">1</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">2</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">2</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">3</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">3</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a>plt.scatter([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], np.mean(mses, axis<span class="op">=</span><span class="dv">0</span>), s<span class="op">=</span><span class="dv">60</span>,c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="st">'K=5'</span>,<span class="st">'K=15'</span>,<span class="st">'K=30'</span>,<span class="st">'K=40'</span>])</span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MSE'</span>)</span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a>plt.gca().set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a>plt.gcf().patch.set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a>So, $K=5$ seems optimal based on our custom built regressor. Now if we do the same thing using the <span class="in">`scikit-learn`</span> library  </span>
+<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
+<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a>mses <span class="op">=</span> np.zeros((<span class="dv">7</span>,<span class="dv">4</span>))</span>
+<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,(train_index,test_index) <span class="kw">in</span> <span class="bu">enumerate</span>(kfold.split(X_train_sc)):</span>
+<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a>    X_train_train <span class="op">=</span> X_train_sc[train_index]</span>
+<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a>    X_train_holdout <span class="op">=</span> X_train_sc[test_index]</span>
+<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a>    y_train_train <span class="op">=</span> y_train.iloc[train_index]</span>
+<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a>    y_train_holdout <span class="op">=</span> y_train.iloc[test_index]</span>
+<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j,k <span class="kw">in</span> <span class="bu">enumerate</span>(k_values):</span>
+<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a>        regressor2 <span class="op">=</span> KNeighborsRegressor(k)</span>
+<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a>        regressor2.fit(X_train_train, y_train_train)</span>
+<span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a>        preds <span class="op">=</span> regressor2.predict(X_train_holdout)</span>
+<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a>        mses[i,j] <span class="op">=</span> mean_squared_error(preds, y_train_holdout)</span>
+<span id="cb12-475"><a href="#cb12-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.zeros(<span class="dv">7</span>),mses[:,<span class="dv">0</span>], s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Single Split'</span>)</span>
+<span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a>plt.scatter(np.ones(<span class="dv">7</span>),mses[:,<span class="dv">1</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">2</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">2</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">3</span><span class="op">*</span>np.ones(<span class="dv">7</span>),mses[:,<span class="dv">3</span>],s<span class="op">=</span><span class="dv">60</span>, c<span class="op">=</span><span class="st">'white'</span>, edgecolors<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a>plt.scatter([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], np.mean(mses, axis<span class="op">=</span><span class="dv">0</span>), s<span class="op">=</span><span class="dv">60</span>,c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
+<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="st">'K=5'</span>,<span class="st">'K=15'</span>,<span class="st">'K=30'</span>,<span class="st">'K=40'</span>])</span>
+<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MSE'</span>)</span>
+<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a>plt.gca().set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb12-485"><a href="#cb12-485" aria-hidden="true" tabindex="-1"></a>plt.gcf().patch.set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
+<span id="cb12-486"><a href="#cb12-486" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb12-487"><a href="#cb12-487" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb12-488"><a href="#cb12-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-489"><a href="#cb12-489" aria-hidden="true" tabindex="-1"></a>In both method, we got $K=5$ is the optimal number of neighbors for KNN regression. Let's apply this in our test dataset  </span>
+<span id="cb12-490"><a href="#cb12-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-493"><a href="#cb12-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-494"><a href="#cb12-494" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb12-495"><a href="#cb12-495" aria-hidden="true" tabindex="-1"></a>regressor <span class="op">=</span> CustomKNNRegressor(k<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb12-496"><a href="#cb12-496" aria-hidden="true" tabindex="-1"></a>regressor.fit(X_train_sc, y_train)</span>
+<span id="cb12-497"><a href="#cb12-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-498"><a href="#cb12-498" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> regressor.predict(X_test_sc)</span>
+<span id="cb12-499"><a href="#cb12-499" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-500"><a href="#cb12-500" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(predictions,y_test)</span>
+<span id="cb12-501"><a href="#cb12-501" aria-hidden="true" tabindex="-1"></a>rsquared <span class="op">=</span> r2_score(predictions,y_test)</span>
+<span id="cb12-502"><a href="#cb12-502" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MSE = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(np.<span class="bu">round</span>(mse,<span class="dv">2</span>)),<span class="st">' and R-square = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(np.<span class="bu">round</span>(rsquared,<span class="dv">2</span>)))</span>
+<span id="cb12-503"><a href="#cb12-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-504"><a href="#cb12-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-505"><a href="#cb12-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-506"><a href="#cb12-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-507"><a href="#cb12-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-508"><a href="#cb12-508" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conclusion</span></span>
+<span id="cb12-509"><a href="#cb12-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-510"><a href="#cb12-510" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt;</span>
+<span id="cb12-511"><a href="#cb12-511" aria-hidden="true" tabindex="-1"></a>K-Nearest Neighbors is a simple, intuitive algorithm that can be highly effective in both classification and regression problems. Its simplicity comes from the fact that it doesn't make any assumptions about the underlying data distribution (it's non-parametric). However, its performance can be sensitive to the choice of **K** and the distance metric.</span>
+<span id="cb12-512"><a href="#cb12-512" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb12-513"><a href="#cb12-513" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb12-514"><a href="#cb12-514" aria-hidden="true" tabindex="-1"></a>Although it's easy to implement, KNN can become computationally expensive for large datasets, as it requires calculating distances between the test point and all training samples.</span>
+<span id="cb12-515"><a href="#cb12-515" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb12-516"><a href="#cb12-516" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb12-517"><a href="#cb12-517" aria-hidden="true" tabindex="-1"></a>If you need an efficient version, it's always possible to use optimized libraries like scikit-learn, but writing the algorithm from scratch helps build a solid understanding.</span>
+<span id="cb12-518"><a href="#cb12-518" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb12-519"><a href="#cb12-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-520"><a href="#cb12-520" aria-hidden="true" tabindex="-1"></a><span class="fu">### When to Use KNN Over Linear Regression?</span></span>
+<span id="cb12-521"><a href="#cb12-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-522"><a href="#cb12-522" aria-hidden="true" tabindex="-1"></a>We would consider using KNN regression over linear regression in the following situations:  </span>
+<span id="cb12-523"><a href="#cb12-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-524"><a href="#cb12-524" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Non-linear relationships**: When the data shows non-linear patterns or complex relationships between features and target variables that cannot be captured by a straight line.  </span>
+<span id="cb12-525"><a href="#cb12-525" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Local behavior**: When data has local patterns or clusters, and you believe that predictions should rely on the nearest data points.  </span>
+<span id="cb12-526"><a href="#cb12-526" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Minimal assumptions**: If you do not want to assume a specific relationship between the features and target, KNN’s non-parametric nature might be more appropriate.  </span>
+<span id="cb12-527"><a href="#cb12-527" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Smaller datasets**: KNN works well with smaller datasets and lower-dimensional data where calculating distances is feasible and efficient.</span>
+<span id="cb12-528"><a href="#cb12-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-529"><a href="#cb12-529" aria-hidden="true" tabindex="-1"></a>However, KNN becomes less efficient and struggles in high dimensions or when the dataset is large. In those cases, linear regression or other more scalable models may be more appropriate  </span>
+<span id="cb12-530"><a href="#cb12-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-531"><a href="#cb12-531" aria-hidden="true" tabindex="-1"></a>---  </span>
+<span id="cb12-532"><a href="#cb12-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-533"><a href="#cb12-533" aria-hidden="true" tabindex="-1"></a><span class="fu">## References  </span></span>
+<span id="cb12-534"><a href="#cb12-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-535"><a href="#cb12-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-536"><a href="#cb12-536" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**KNN Regressor Overview:**</span>
+<span id="cb12-537"><a href="#cb12-537" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Géron, Aurélien. *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems*. O'Reilly Media, 2019. This book provides an in-depth explanation of KNN, including its behavior in non-linear data and high-dimensionality challenges.</span>
+<span id="cb12-538"><a href="#cb12-538" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Bishop, Christopher M. *Pattern Recognition and Machine Learning*. Springer, 2006. This book covers non-parametric methods like KNN, highlighting the "curse of dimensionality" and distance-based approaches.</span>
+<span id="cb12-539"><a href="#cb12-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-540"><a href="#cb12-540" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**KNN vs. Linear Regression (Model Assumptions &amp; Complexity of Data):**</span>
+<span id="cb12-541"><a href="#cb12-541" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Hastie, Trevor, Tibshirani, Robert, and Friedman, Jerome. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. Springer, 2009. This source discusses the assumptions behind linear regression and the flexibility of non-parametric models like KNN.</span>
+<span id="cb12-542"><a href="#cb12-542" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Kuhn, Max, and Johnson, Kjell. *Applied Predictive Modeling*. Springer, 2013. The comparison between parametric (like linear regression) and non-parametric models (like KNN) is elaborated in this book.</span>
+<span id="cb12-543"><a href="#cb12-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-544"><a href="#cb12-544" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Interpretability:**</span>
+<span id="cb12-545"><a href="#cb12-545" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Molnar, Christoph. *Interpretable Machine Learning: A Guide for Making Black Box Models Explainable*. 2019. This book emphasizes the trade-offs between interpretable models like linear regression and more black-box models like KNN.</span>
+<span id="cb12-546"><a href="#cb12-546" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Murdoch, W. James, et al. "Definitions, methods, and applications in interpretable machine learning." *Proceedings of the National Academy of Sciences* 116.44 (2019): 22071-22080.</span>
+<span id="cb12-547"><a href="#cb12-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-548"><a href="#cb12-548" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Sensitivity to Outliers:**</span>
+<span id="cb12-549"><a href="#cb12-549" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Aggarwal, Charu C. *Data Classification: Algorithms and Applications*. Chapman and Hall/CRC, 2014. This discusses the impact of outliers on different models, including linear regression and KNN.</span>
+<span id="cb12-550"><a href="#cb12-550" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Friedman, Jerome, et al. *The Elements of Statistical Learning*. Springer Series in Statistics, 2001. Sensitivity to outliers is compared across various regression techniques, including KNN.</span>
+<span id="cb12-551"><a href="#cb12-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-552"><a href="#cb12-552" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Handling High-Dimensional Data:**</span>
+<span id="cb12-553"><a href="#cb12-553" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Domingos, Pedro. "A few useful things to know about machine learning." *Communications of the ACM* 55.10 (2012): 78-87. This paper discusses challenges like the curse of dimensionality in models like KNN.</span>
+<span id="cb12-554"><a href="#cb12-554" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Verleysen, Michel, and François, Damien. "The curse of dimensionality in data mining and time series prediction." *International Work-Conference on Artificial Neural Networks*. Springer, 2005.</span>
+<span id="cb12-555"><a href="#cb12-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-556"><a href="#cb12-556" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Training and Prediction Time:**</span>
+<span id="cb12-557"><a href="#cb12-557" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Shalev-Shwartz, Shai, and Ben-David, Shai. *Understanding Machine Learning: From Theory to Algorithms*. Cambridge University Press, 2014. Provides insights into the computational cost differences between linear and non-parametric models like KNN.</span>
+<span id="cb12-558"><a href="#cb12-558" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Li, Zhe, et al. "Fast k-nearest neighbor search using GPU." *International Conference on Image and Graphics*. Springer, 2015. This paper discusses computational complexity related to KNN.</span>
+<span id="cb12-559"><a href="#cb12-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-560"><a href="#cb12-560" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Overfitting and Flexibility:**</span>
+<span id="cb12-561"><a href="#cb12-561" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Yao, Ying, et al. "Overfitting and Underfitting: A Visual Explanation." Towards Data Science, 2019. Offers a visual and intuitive explanation of the bias-variance tradeoff in KNN and linear models.</span>
+<span id="cb12-562"><a href="#cb12-562" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Rasmussen, Carl E., and Williams, Christopher KI. *Gaussian Processes for Machine Learning*. MIT Press, 2006. Discusses overfitting in KNN due to small values of <span class="in">`k`</span> and regularization techniques for linear models.</span>
+<span id="cb12-563"><a href="#cb12-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-564"><a href="#cb12-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-565"><a href="#cb12-565" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-566"><a href="#cb12-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-567"><a href="#cb12-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-568"><a href="#cb12-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-569"><a href="#cb12-569" aria-hidden="true" tabindex="-1"></a>**Share on**  </span>
+<span id="cb12-570"><a href="#cb12-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-571"><a href="#cb12-571" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
+<span id="cb12-572"><a href="#cb12-572" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
+<span id="cb12-573"><a href="#cb12-573" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
+<span id="cb12-574"><a href="#cb12-574" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-575"><a href="#cb12-575" aria-hidden="true" tabindex="-1"></a>&lt;div class="share-buttons"&gt;</span>
+<span id="cb12-576"><a href="#cb12-576" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-share-button" data-href="https://mrislambd.github.io/dsandml/knn/"</span>
+<span id="cb12-577"><a href="#cb12-577" aria-hidden="true" tabindex="-1"></a>data-layout="button_count" data-size="small"&gt;&lt;a target="_blank" </span>
+<span id="cb12-578"><a href="#cb12-578" aria-hidden="true" tabindex="-1"></a> href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fdsandml%2Fknn%2F<span class="dv">&amp;amp;</span>src=sdkpreparse" </span>
+<span id="cb12-579"><a href="#cb12-579" aria-hidden="true" tabindex="-1"></a> class="fb-xfbml-parse-ignore"&gt;Share&lt;/a&gt;&lt;/div&gt;</span>
+<span id="cb12-580"><a href="#cb12-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-581"><a href="#cb12-581" aria-hidden="true" tabindex="-1"></a>&lt;script src="https://platform.linkedin.com/in.js" type="text/javascript"&gt;lang<span class="op">:</span> en_US&lt;/script&gt;</span>
+<span id="cb12-582"><a href="#cb12-582" aria-hidden="true" tabindex="-1"></a>&lt;script type="IN/Share" data-url="https://mrislambd.github.io/dsandml/knn/"&gt;&lt;/script&gt; </span>
+<span id="cb12-583"><a href="#cb12-583" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-584"><a href="#cb12-584" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" </span>
+<span id="cb12-585"><a href="#cb12-585" aria-hidden="true" tabindex="-1"></a> data-url="https://mrislambd.github.io/dsandml/knn/" data-show-count="true"&gt;Tweet&lt;/a&gt;</span>
+<span id="cb12-586"><a href="#cb12-586" aria-hidden="true" tabindex="-1"></a>&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;</span>
+<span id="cb12-587"><a href="#cb12-587" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb12-588"><a href="#cb12-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-589"><a href="#cb12-589" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/knn/"</span>
+<span id="cb12-590"><a href="#cb12-590" aria-hidden="true" tabindex="-1"></a> data-width="" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb12-591"><a href="#cb12-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-592"><a href="#cb12-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-593"><a href="#cb12-593" aria-hidden="true" tabindex="-1"></a>**You may also like**  </span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.5.54</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2024 @ Rafiq Islam
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.txt">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
