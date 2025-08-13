@@ -31,11 +31,19 @@ To get started with this template, follow these steps:
 2. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/mrislambd.github.io.git
+   git clone https://github.com/<your-username>/rispace.github.io.git
    cd <your-username>.github.io
    ```
 
-3. **Install Quarto**
+3. **Create a new branch**
+
+   ```bash
+   git checkout -b gh-pages
+   ```  
+   
+   Then from the settings of your repository, set the GitHub Pages source to the `gh-pages` branch.
+
+4. **Install Quarto**
 
    Follow the instructions [here](https://quarto.org/docs/get-started/) to install Quarto on your machine.
 
@@ -57,11 +65,74 @@ To get started with this template, follow these steps:
 
 ### Building and Deploying
 
-1. **Render the site using GitHub Actions**
 
-   This template uses GitHub Actions for rendering. The rendering process is set up in the `.github/workflows/publish.yml` file.
+1. **Build the site locally**
 
-2. **Deploy to GitHub Pages**
+   To preview your site locally, run the following command:
+
+   ```bash
+   quarto preview
+   ```
+
+   This will generate the static files in the `docs` directory.
+
+2. **Render the site using GitHub Actions**
+
+   This template uses GitHub Actions for rendering. The rendering process is set up in the `.github/workflows/publish.yml` file. You can modify this file to change the rendering settings if needed. For my case it has both renv and python environments, so it will render both R and Python code chunks. But if you only use R or Python, you can remove the unnecessary parts. This environments are only required if you use R or Python code chunks in your website. If you only use markdown, you can remove the `renv` and `python` parts.
+
+   ```bash
+   on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      
+      - name: Install TinyTeX
+        run: |
+          quarto install tinytex
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Install Python and Dependencies
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install jupyter
+      - run: pip install -r requirements.txt
+
+      - name: Configure Kaggle API
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: |
+          mkdir -p ~/.kaggle
+          echo "{\"username\":\"$KAGGLE_USERNAME\",\"key\":\"$KAGGLE_KEY\"}" > ~/.kaggle/kaggle.json
+          chmod 600 ~/.kaggle/kaggle.json
+
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   ```
+
+3. **Deploy to GitHub Pages**
 
    Push your changes to the `main` branch:
 
