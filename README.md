@@ -90,16 +90,16 @@ To get started with this template, follow these steps:
 
    ```bash
    on:
-     workflow_dispatch:
-     push:
-       branches: main
+  workflow_dispatch:
+  push:
+    branches: main
 
    name: Quarto Publish
 
-   jobs:
-     build-deploy:
-     runs-on: ubuntu-latest
-     permissions:
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
       contents: write
      steps:
       - name: Check out repository
