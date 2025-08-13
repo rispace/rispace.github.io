@@ -11,7 +11,7 @@ website:
   open-graph: true
   bread-crumbs: true
   back-to-top-navigation: true
-  site-url: "https://mrislambd.github.io/" 
+  site-url: "https://rispace.github.io/" 
   twitter-card: true
   navbar:
     tools-collapse: true
@@ -31,18 +31,18 @@ website:
       - text: Blog
         menu: 
           - text: "Data Science and Machine Learning"
-            href: https://mrislambd.github.io/dsandml/
+            href: https://rispace.github.io/dsandml/
           - text: "Data Structure and Algorithm"
-            href: https://mrislambd.github.io/letscode/
+            href: https://rispace.github.io/letscode/
           - text: "Statistics and Probability"
-            href: https://mrislambd.github.io/statandprob/
+            href: https://rispace.github.io/statandprob/
           - text: "Other Blogs"
             href: blog.qmd
       - icon: linkedin
         href: https://www.linkedin.com/in/mohammad-rafiqul-islam/
         target: _blank
       - icon: github
-        href: "https://github.com/mrislambd"
+        href: "https://github.com/rispace"
         target: _blank
       
       
