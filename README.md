@@ -1,3 +1,11 @@
+[![GitHub stars](https://img.shields.io/github/stars/rispace/rispace.github.io?style=for-the-badge)](https://github.com/rispace/rispace.github.io/)
+[![GitHub forks](https://img.shields.io/github/forks/rispace/rispace.github.io?style=for-the-badge)](https://github.com/rispace/rispace.github.io/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/rispace/rispace.github.io?style=for-the-badge)](https://github.com/rispace/rispace.github.io/issues)
+[![Follow on GitHub](https://img.shields.io/github/followers/rispace?label=Follow&style=for-the-badge)](https://github.com/rispace)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=for-the-badge&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=rispace%2Fholmc)
+
+
+
 # Personal Academic Website Template Powered by Quarto
 
 Welcome to the repository for my personal academic [website](https://mrislambd.github.io). This template is designed to help you create a professional and customizable academic website with ease.
@@ -78,22 +86,22 @@ To get started with this template, follow these steps:
 
 2. **Render the site using GitHub Actions**
 
-   This template uses GitHub Actions for rendering. The rendering process is set up in the `.github/workflows/publish.yml` file. You can modify this file to change the rendering settings if needed. For my case it has both renv and python environments, so it will render both R and Python code chunks. But if you only use R or Python, you can remove the unnecessary parts. This environments are only required if you use R or Python code chunks in your website. If you only use markdown, you can remove the `renv` and `python` parts.
+   This template uses GitHub Actions for rendering. The rendering process is set up in the `.github/workflows/publish.yml` file. You can modify this file to change the rendering settings if needed. For my case, it has both renv and python environments, so it will render both R and Python code chunks. But if you only use R or Python, you can remove the unnecessary parts. These environments are only required if you use R or Python code chunks in your website. If you only use markdown, you can remove the `renv` and `python` parts.
 
    ```bash
    on:
-  workflow_dispatch:
-  push:
-    branches: main
+     workflow_dispatch:
+     push:
+       branches: main
 
-name: Quarto Publish
+   name: Quarto Publish
 
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
+   jobs:
+     build-deploy:
+     runs-on: ubuntu-latest
+     permissions:
       contents: write
-    steps:
+     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
