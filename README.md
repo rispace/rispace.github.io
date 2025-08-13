@@ -8,7 +8,7 @@
 
 # Personal Academic Website Template Powered by Quarto
 
-Welcome to the repository for my personal academic [website](https://mrislambd.github.io). This template is designed to help you create a professional and customizable academic website with ease.
+Welcome to the repository for my personal academic [website](https://rispace.github.io). This template is designed to help you create a professional and customizable academic website with ease.
 
 ## Features
 
