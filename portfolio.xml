@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Mohammad Rafiqul Islam</title>
-<link>https://mrislambd.github.io/portfolio.html</link>
-<atom:link href="https://mrislambd.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
+<link>https://rispace.github.io/portfolio.html</link>
+<atom:link href="https://rispace.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
 <lastBuildDate>Sun, 04 May 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Spring 2025: MAC2311 Calculus With Analytic Geometry I</title>
-  <link>https://mrislambd.github.io/teaching/sp25.html</link>
+  <link>https://rispace.github.io/teaching/sp25.html</link>
   <description><![CDATA[ 
 
 
@@ -39,13 +39,13 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp25.html</guid>
+  <guid>https://rispace.github.io/teaching/sp25.html</guid>
   <pubDate>Sun, 04 May 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Auto Loan Decision Model</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/autoloan/</link>
+  <link>https://rispace.github.io/portfolio/dsp/autoloan/</link>
   <description><![CDATA[ 
 
 
@@ -135,21 +135,21 @@ The Auto Loan Credit Decisioning Model project aimed to enhance the application 
   author = {Islam, Rafiq},
   title = {Auto {Loan} {Decision} {Model}},
   date = {2024-11-20},
-  url = {https://mrislambd.github.io/portfolio/dsp/autoloan/},
+  url = {https://rispace.github.io/portfolio/dsp/autoloan/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
-20, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/autoloan/">https://mrislambd.github.io/portfolio/dsp/autoloan/</a>.
+20, 2024. <a href="https://rispace.github.io/portfolio/dsp/autoloan/">https://rispace.github.io/portfolio/dsp/autoloan/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/autoloan/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/autoloan/</guid>
   <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/autoloan/auto.webp" medium="image" type="image/webp"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/autoloan/auto.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Predicting Product Success Using Customer Reviews and Sales Data</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/nlp-sales/</link>
+  <link>https://rispace.github.io/portfolio/dsp/nlp-sales/</link>
   <description><![CDATA[ 
 
 
@@ -160,7 +160,7 @@ Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
 <a href="../../../codepages/amazonNLP/index.html" target="_blank" style="text-decoration:none">Notebook</a> <a href="https://github.com/mrislambd/medical-insurance-charge" target="_blank" style="text-decoration:none">GitHub (Private until finished)</a>
 </p>
 <p align="center">
-<img src="https://mrislambd.github.io/_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400">
+<img src="https://rispace.github.io/_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400">
 </p>
 
 
@@ -172,21 +172,21 @@ Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
   title = {Predicting {Product} {Success} {Using} {Customer} {Reviews}
     and {Sales} {Data}},
   date = {2024-10-11},
-  url = {https://mrislambd.github.io/portfolio/dsp/nlp-sales/},
+  url = {https://rispace.github.io/portfolio/dsp/nlp-sales/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Predicting Product Success Using Customer
-Reviews and Sales Data.”</span> October 11, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/nlp-sales/">https://mrislambd.github.io/portfolio/dsp/nlp-sales/</a>.
+Reviews and Sales Data.”</span> October 11, 2024. <a href="https://rispace.github.io/portfolio/dsp/nlp-sales/">https://rispace.github.io/portfolio/dsp/nlp-sales/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/nlp-sales/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/nlp-sales/</guid>
   <pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/nlp-sales/amazon.webp" medium="image" type="image/webp"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/nlp-sales/amazon.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Insurance Cost Forecast by using Linear Regression</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/medicalcost/</link>
+  <link>https://rispace.github.io/portfolio/dsp/medicalcost/</link>
   <description><![CDATA[ 
 
 
@@ -290,21 +290,21 @@ All the features were considered for the modeling purposes. However, from the ex
   author = {Islam, Rafiq},
   title = {Insurance {Cost} {Forecast} by Using {Linear} {Regression}},
   date = {2024-08-30},
-  url = {https://mrislambd.github.io/portfolio/dsp/medicalcost/},
+  url = {https://rispace.github.io/portfolio/dsp/medicalcost/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Insurance Cost Forecast by Using Linear
-Regression.”</span> August 30, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/medicalcost/">https://mrislambd.github.io/portfolio/dsp/medicalcost/</a>.
+Regression.”</span> August 30, 2024. <a href="https://rispace.github.io/portfolio/dsp/medicalcost/">https://rispace.github.io/portfolio/dsp/medicalcost/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/medicalcost/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/medicalcost/</guid>
   <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/medicalcost/ins.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/medicalcost/ins.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Streamlit Web App</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/spd/webapp/</link>
+  <link>https://rispace.github.io/portfolio/spd/webapp/</link>
   <description><![CDATA[ 
 
 
@@ -314,7 +314,7 @@ Regression.”</span> August 30, 2024. <a href="https://mrislambd.github.io/port
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p style="text-align: justify">
-<img align="right" height="250" width="250" src="https://mrislambd.github.io/portfolio/spd/webapp/stlit.jpeg" alt="Streamlit Web App" style="margin-left: 20px; margin-bottom: 20px"><br>
+<img align="right" height="250" width="250" src="https://rispace.github.io/portfolio/spd/webapp/stlit.jpeg" alt="Streamlit Web App" style="margin-left: 20px; margin-bottom: 20px"><br>
 <br> Welcome to <code>MiCharge Predictor</code>! This web app is a part of my data science project <a href="https://mrislambd.github.io/portfolio/dsp/medicalcost/" target="_blank" style="text-decoration:none">Insurance Cost Forecast by using Linear Regression</a>, aimed at predicting the medical cost based on various personal and lifestyle factors. By leveraging advanced machine learning techniques, <code>MiCharge Predictor</code> provides an approximate estimates to help users understand potential medical expances.
 </p>
 <section id="key-features" class="level3">
@@ -360,21 +360,21 @@ Regression.”</span> August 30, 2024. <a href="https://mrislambd.github.io/port
   author = {Islam, Rafiq},
   title = {Streamlit {Web} {App}},
   date = {2024-08-30},
-  url = {https://mrislambd.github.io/portfolio/spd/webapp/},
+  url = {https://rispace.github.io/portfolio/spd/webapp/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Streamlit Web App.”</span> August 30, 2024.
-<a href="https://mrislambd.github.io/portfolio/spd/webapp/">https://mrislambd.github.io/portfolio/spd/webapp/</a>.
+<a href="https://rispace.github.io/portfolio/spd/webapp/">https://rispace.github.io/portfolio/spd/webapp/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/spd/webapp/</guid>
+  <guid>https://rispace.github.io/portfolio/spd/webapp/</guid>
   <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/spd/webapp/stlit.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://rispace.github.io/portfolio/spd/webapp/stlit.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Disease diagnosis using classification and NLP</title>
   <dc:creator>Rebecca Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam, Nina Adhikari, Viraj Meruliya </dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/dp-nlp/</link>
+  <link>https://rispace.github.io/portfolio/dsp/dp-nlp/</link>
   <description><![CDATA[ 
 
 
@@ -399,21 +399,21 @@ Rebecca Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam, N
     Rafiqul Islam, Nina Adhikari, Viraj Meruliya , Rebecca},
   title = {Disease Diagnosis Using Classification and {NLP}},
   date = {2024-06-18},
-  url = {https://mrislambd.github.io/portfolio/dsp/dp-nlp/},
+  url = {https://rispace.github.io/portfolio/dsp/dp-nlp/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ceppas_de_castro,_fulya_tastan,_philip_barron,_mohammad_rafiqul_islam,_nina_adhikari,_viraj_meruliya_2024" class="csl-entry quarto-appendix-citeas">
 Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam,
 Nina Adhikari, Viraj Meruliya, Rebecca. 2024. <span>“Disease Diagnosis
-Using Classification and NLP.”</span> June 18, 2024. <a href="https://mrislambd.github.io/portfolio/dsp/dp-nlp/">https://mrislambd.github.io/portfolio/dsp/dp-nlp/</a>.
+Using Classification and NLP.”</span> June 18, 2024. <a href="https://rispace.github.io/portfolio/dsp/dp-nlp/">https://rispace.github.io/portfolio/dsp/dp-nlp/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/dp-nlp/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/dp-nlp/</guid>
   <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/dp-nlp/dpnlp.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/dp-nlp/dpnlp.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Spring 2024: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://mrislambd.github.io/teaching/sp24.html</link>
+  <link>https://rispace.github.io/teaching/sp24.html</link>
   <description><![CDATA[ 
 
 
@@ -430,13 +430,13 @@ Using Classification and NLP.”</span> June 18, 2024. <a href="https://mrislamb
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp24.html</guid>
+  <guid>https://rispace.github.io/teaching/sp24.html</guid>
   <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Python Application Library: desgld packaging</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/spd/desgld/</link>
+  <link>https://rispace.github.io/portfolio/spd/desgld/</link>
   <description><![CDATA[ 
 
 
@@ -444,7 +444,7 @@ Using Classification and NLP.”</span> June 18, 2024. <a href="https://mrislamb
 
 
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p><a href="pyp.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://mrislambd.github.io/portfolio/spd/desgld/pyp.jpeg" width="250" height="250"></a></p>
+<p><a href="pyp.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://rispace.github.io/portfolio/spd/desgld/pyp.jpeg" width="250" height="250"></a></p>
 <p>This package is related to my ongoing project “EXTRA decentralized stochastic gradient Langevin dynamics”. The detail of the package can be found <a href="https://mrislambd.github.io/desgld_package/desgld/" target="_blank">here</a></p>
 <p><strong>Share on</strong></p>
 <div id="fb-root">
@@ -472,20 +472,20 @@ Using Classification and NLP.”</span> June 18, 2024. <a href="https://mrislamb
   author = {Islam, Rafiq},
   title = {Python {Application} {Library:} Desgld Packaging},
   date = {2024-05-03},
-  url = {https://mrislambd.github.io/portfolio/spd/desgld/},
+  url = {https://rispace.github.io/portfolio/spd/desgld/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Python Application Library: Desgld
-Packaging.”</span> May 3, 2024. <a href="https://mrislambd.github.io/portfolio/spd/desgld/">https://mrislambd.github.io/portfolio/spd/desgld/</a>.
+Packaging.”</span> May 3, 2024. <a href="https://rispace.github.io/portfolio/spd/desgld/">https://rispace.github.io/portfolio/spd/desgld/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/spd/desgld/</guid>
+  <guid>https://rispace.github.io/portfolio/spd/desgld/</guid>
   <pubDate>Fri, 03 May 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/spd/desgld/pyp.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://rispace.github.io/portfolio/spd/desgld/pyp.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Fall 2023: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://mrislambd.github.io/teaching/fall23.html</link>
+  <link>https://rispace.github.io/teaching/fall23.html</link>
   <description><![CDATA[ 
 
 
@@ -500,12 +500,12 @@ Packaging.”</span> May 3, 2024. <a href="https://mrislambd.github.io/portfolio
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall23.html</guid>
+  <guid>https://rispace.github.io/teaching/fall23.html</guid>
   <pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Spring 2023: MAC1140 PreCalculus Algebra</title>
-  <link>https://mrislambd.github.io/teaching/sp23.html</link>
+  <link>https://rispace.github.io/teaching/sp23.html</link>
   <description><![CDATA[ 
 
 
@@ -522,13 +522,13 @@ Packaging.”</span> May 3, 2024. <a href="https://mrislambd.github.io/portfolio
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp23.html</guid>
+  <guid>https://rispace.github.io/teaching/sp23.html</guid>
   <pubDate>Thu, 04 May 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Lendingclub’s loan default prediction</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/lendingclub/</link>
+  <link>https://rispace.github.io/portfolio/dsp/lendingclub/</link>
   <description><![CDATA[ 
 
 
@@ -656,20 +656,20 @@ Here <code>loan_status</code> is the predictive or dependent variable and the re
   author = {Islam, Rafiq},
   title = {Lendingclub’s Loan Default Prediction},
   date = {2023-02-23},
-  url = {https://mrislambd.github.io/portfolio/dsp/lendingclub/},
+  url = {https://rispace.github.io/portfolio/dsp/lendingclub/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2023" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2023. <span>“Lendingclub’s Loan Default
-Prediction.”</span> February 23, 2023. <a href="https://mrislambd.github.io/portfolio/dsp/lendingclub/">https://mrislambd.github.io/portfolio/dsp/lendingclub/</a>.
+Prediction.”</span> February 23, 2023. <a href="https://rispace.github.io/portfolio/dsp/lendingclub/">https://rispace.github.io/portfolio/dsp/lendingclub/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/lendingclub/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/lendingclub/</guid>
   <pubDate>Thu, 23 Feb 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/lendingclub/lending.webp" medium="image" type="image/webp"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/lendingclub/lending.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Fall 2022: MAC2311 Calculus and Analytic Geometry I</title>
-  <link>https://mrislambd.github.io/teaching/fall22.html</link>
+  <link>https://rispace.github.io/teaching/fall22.html</link>
   <description><![CDATA[ 
 
 
@@ -686,13 +686,13 @@ Prediction.”</span> February 23, 2023. <a href="https://mrislambd.github.io/po
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall22.html</guid>
+  <guid>https://rispace.github.io/teaching/fall22.html</guid>
   <pubDate>Sun, 04 Dec 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/ecommerce/</link>
+  <link>https://rispace.github.io/portfolio/dsp/ecommerce/</link>
   <description><![CDATA[ 
 
 
@@ -776,21 +776,21 @@ The answer to the question above is a little bit tricky. Based on the modeling a
   title = {Feature {Selection:} {A} Linear Regression Approach to Find
     the Impact of the Features of e-Commerce Sales Data},
   date = {2022-08-30},
-  url = {https://mrislambd.github.io/portfolio/dsp/ecommerce/},
+  url = {https://rispace.github.io/portfolio/dsp/ecommerce/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2022" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2022. <span>“Feature Selection: A Linear Regression
 Approach to Find the Impact of the Features of e-Commerce Sales
-Data.”</span> August 30, 2022. <a href="https://mrislambd.github.io/portfolio/dsp/ecommerce/">https://mrislambd.github.io/portfolio/dsp/ecommerce/</a>.
+Data.”</span> August 30, 2022. <a href="https://rispace.github.io/portfolio/dsp/ecommerce/">https://rispace.github.io/portfolio/dsp/ecommerce/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/ecommerce/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/ecommerce/</guid>
   <pubDate>Tue, 30 Aug 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/ecommerce/ecom.webp" medium="image" type="image/webp"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/ecommerce/ecom.webp" medium="image" type="image/webp"/>
 </item>
 <item>
   <title>Fall 2021 and Spring 2022: PreCalculus and Algebra</title>
-  <link>https://mrislambd.github.io/teaching/fall21.html</link>
+  <link>https://rispace.github.io/teaching/fall21.html</link>
   <description><![CDATA[ 
 
 
@@ -807,13 +807,13 @@ Data.”</span> August 30, 2022. <a href="https://mrislambd.github.io/portfolio/
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall21.html</guid>
+  <guid>https://rispace.github.io/teaching/fall21.html</guid>
   <pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information</title>
   <dc:creator>Rafiq Islam</dc:creator>
-  <link>https://mrislambd.github.io/portfolio/dsp/titanic/</link>
+  <link>https://rispace.github.io/portfolio/dsp/titanic/</link>
   <description><![CDATA[ 
 
 
@@ -833,21 +833,21 @@ Data.”</span> August 30, 2022. <a href="https://mrislambd.github.io/portfolio/
   title = {Classification {Probelm:} {Predict} the Chance of Survival of
     a Voager on {Titanic} Based on the Voager’s Information},
   date = {2021-10-15},
-  url = {https://mrislambd.github.io/portfolio/dsp/titanic/},
+  url = {https://rispace.github.io/portfolio/dsp/titanic/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2021" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2021. <span>“Classification Probelm: Predict the Chance of
 Survival of a Voager on Titanic Based on the Voager’s
-Information.”</span> October 15, 2021. <a href="https://mrislambd.github.io/portfolio/dsp/titanic/">https://mrislambd.github.io/portfolio/dsp/titanic/</a>.
+Information.”</span> October 15, 2021. <a href="https://rispace.github.io/portfolio/dsp/titanic/">https://rispace.github.io/portfolio/dsp/titanic/</a>.
 </div></div></section></div> ]]></description>
-  <guid>https://mrislambd.github.io/portfolio/dsp/titanic/</guid>
+  <guid>https://rispace.github.io/portfolio/dsp/titanic/</guid>
   <pubDate>Fri, 15 Oct 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://mrislambd.github.io/portfolio/dsp/titanic/titan.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://rispace.github.io/portfolio/dsp/titanic/titan.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Fall 2018 to Spring 2020: College Algebra, Trigonometry</title>
-  <link>https://mrislambd.github.io/teaching/f18-f21.html</link>
+  <link>https://rispace.github.io/teaching/f18-f21.html</link>
   <description><![CDATA[ 
 
 
@@ -862,7 +862,7 @@ Information.”</span> October 15, 2021. <a href="https://mrislambd.github.io/po
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/f18-f21.html</guid>
+  <guid>https://rispace.github.io/teaching/f18-f21.html</guid>
   <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
 </item>
 </channel>

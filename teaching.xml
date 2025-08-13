@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Mohammad Rafiqul Islam</title>
-<link>https://mrislambd.github.io/teaching.html</link>
-<atom:link href="https://mrislambd.github.io/teaching.xml" rel="self" type="application/rss+xml"/>
+<link>https://rispace.github.io/teaching.html</link>
+<atom:link href="https://rispace.github.io/teaching.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
 <lastBuildDate>Sun, 04 May 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Spring 2025: MAC2311 Calculus With Analytic Geometry I</title>
-  <link>https://mrislambd.github.io/teaching/sp25.html</link>
+  <link>https://rispace.github.io/teaching/sp25.html</link>
   <description><![CDATA[ 
 
 
@@ -39,12 +39,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp25.html</guid>
+  <guid>https://rispace.github.io/teaching/sp25.html</guid>
   <pubDate>Sun, 04 May 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Spring 2024: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://mrislambd.github.io/teaching/sp24.html</link>
+  <link>https://rispace.github.io/teaching/sp24.html</link>
   <description><![CDATA[ 
 
 
@@ -61,12 +61,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp24.html</guid>
+  <guid>https://rispace.github.io/teaching/sp24.html</guid>
   <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fall 2023: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://mrislambd.github.io/teaching/fall23.html</link>
+  <link>https://rispace.github.io/teaching/fall23.html</link>
   <description><![CDATA[ 
 
 
@@ -81,12 +81,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall23.html</guid>
+  <guid>https://rispace.github.io/teaching/fall23.html</guid>
   <pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Spring 2023: MAC1140 PreCalculus Algebra</title>
-  <link>https://mrislambd.github.io/teaching/sp23.html</link>
+  <link>https://rispace.github.io/teaching/sp23.html</link>
   <description><![CDATA[ 
 
 
@@ -103,12 +103,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/sp23.html</guid>
+  <guid>https://rispace.github.io/teaching/sp23.html</guid>
   <pubDate>Thu, 04 May 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fall 2022: MAC2311 Calculus and Analytic Geometry I</title>
-  <link>https://mrislambd.github.io/teaching/fall22.html</link>
+  <link>https://rispace.github.io/teaching/fall22.html</link>
   <description><![CDATA[ 
 
 
@@ -125,12 +125,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall22.html</guid>
+  <guid>https://rispace.github.io/teaching/fall22.html</guid>
   <pubDate>Sun, 04 Dec 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fall 2021 and Spring 2022: PreCalculus and Algebra</title>
-  <link>https://mrislambd.github.io/teaching/fall21.html</link>
+  <link>https://rispace.github.io/teaching/fall21.html</link>
   <description><![CDATA[ 
 
 
@@ -147,12 +147,12 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/fall21.html</guid>
+  <guid>https://rispace.github.io/teaching/fall21.html</guid>
   <pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Fall 2018 to Spring 2020: College Algebra, Trigonometry</title>
-  <link>https://mrislambd.github.io/teaching/f18-f21.html</link>
+  <link>https://rispace.github.io/teaching/f18-f21.html</link>
   <description><![CDATA[ 
 
 
@@ -167,7 +167,7 @@
 
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://mrislambd.github.io/teaching/f18-f21.html</guid>
+  <guid>https://rispace.github.io/teaching/f18-f21.html</guid>
   <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
 </item>
 </channel>
