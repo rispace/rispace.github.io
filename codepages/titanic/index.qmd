@@ -1,0 +1,177 @@
+---
+title: "Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager's information"
+author: "Rafiq Islam"
+date: "2021-10-15"
+collection: portfolio
+citation: true
+search: true
+lightbox: true
+format: 
+    html: default
+    ipynb: default
+---   
+
+
+## The Data  
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns 
+from mywebstyle import plot_style
+plot_style('#f4f4f4')
+
+titanic = pd.read_csv('titanic_train.csv')
+```  
+
+## Exploratory Data Analysis  
+
+### Descriptive Statistics  
+
+```{python}
+titanic.head()
+```  
+
+```{python}
+titanic.info()
+```  
+
+Seems like there are some missing data for the `Age`, `Cabin`, and `Emberked` features. To see with visualization 
+
+```{python}
+sns.heatmap(titanic.isnull(), yticklabels=False, cbar=False, cmap='viridis')
+```  
+
+<p style="text-align: justify">
+Approximately $20\%$ of the `Age` variable is missing. For the feature `Cabin`, it's too many observations missing. For the `Emberked`, there are only two missing observations. So, we need to take extra care of these features in the data cleaning and preparation stage.</p>
+
+### Data Visualization  
+
+```{python}
+sns.countplot(x='Survived', hue='Sex', data= titanic, palette='RdBu_r')
+```  
+
+Looks like maximum of the passenger who didn't survived are male.  
+
+```{python}
+sns.countplot(x='Survived', hue='Pclass', data=titanic, palette='rainbow')
+```  
+
+From this plot we see that people from class 3 has the highest proportion who didn't survive. In the survival class, passenger class 1 has the highest proportion.  
+
+```{python}
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.9, 4))
+titanic['Age'].hist(bins=35, color='darkred', alpha=0.6, ax=ax1)
+ax1.set_xlabel('Age')
+ax1.set_title('Age Distribution')
+titanic['Fare'].hist(bins=30, color='darkred', alpha=0.6, ax=ax2)
+ax2.set_xlabel('Fare')
+ax2.set_title('Fare Distribution')
+plt.tight_layout()
+plt.show()
+```
+
+Seems like `Age` is almost normally distributed. However, the the `Fare` is positively skewed. Other categorical features  
+
+```{python}
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.9, 4))
+
+
+sns.countplot(
+    x='SibSp',data=titanic, ax=ax1
+    )
+ax1.set_title('Number of Siblings/Spouse')
+
+
+sns.countplot(
+    x='Parch', data=titanic, ax=ax2
+    )
+ax2.set_title('Number of Parents/Children')
+
+plt.tight_layout()
+plt.show()
+```  
+
+## Data Cleaning and Preparation  
+
+### Handling Missing Data  
+
+<p style="text-align: justify">
+Here, the `Age` feature is a continuous feature and almost normally distributed. So we can impute this by the mean of the `Age` variable. However, this feature can be classified by other categorical features such as `Sex`, `Pclass`, `SibSp`, or `Perch`. But we can be smarter by taking consideration of greater and homogeneously diversified categorical feature. In this case, `Pclass` is the perfect one. </p> 
+
+```{python}
+sns.boxplot(
+    x='Pclass', y='Age', hue='Pclass',
+    data=titanic, palette='winter'
+    )
+```  
+
+So, whenever a passenger is in the 1st class, the mean `Age` is around 37 and for the 2nd class and 3rd class the mean `Age` are 29 and 24, respectively.  
+
+```{python}
+#| warning: false
+def age_imputation(cols):
+    Age = cols[0]
+    Pclass = cols[1]
+    if pd.isnull(Age):
+        if Pclass==1:
+            return 37
+        elif Pclass==2:
+            return 29
+        else:
+            return 24
+    else:
+        return Age
+titanic.Age = titanic[['Age','Pclass']].apply(age_imputation, axis=1)
+sns.heatmap(titanic.isnull(), yticklabels=False, cbar=False, cmap='viridis')
+```  
+
+Since there are too many missing in `Cabin`, so we can drop it along with two missing values from the `Emberked` feature.  
+
+```{python}
+titanic.drop('Cabin', axis=1, inplace=True)
+titanic.dropna(inplace=True)
+sns.heatmap(titanic.isnull(), yticklabels=False, cbar=False, cmap='viridis')
+```  
+
+So there is no missing value in any column. Next we convert the categorical features  
+
+### Converting the Categorical Features  
+
+```{python}
+titanic['Male'] = pd.get_dummies(titanic.Sex,dtype=int)['male']
+emb = pd.get_dummies(titanic['Embarked'],drop_first=True, dtype=int)
+titanic = pd.concat([titanic, emb], axis=1)
+titanic.drop(['Sex','Embarked','Name','Ticket'], axis = 1, inplace=True)
+titanic.head()
+```  
+
+## Modeling  
+
+```{python}
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+
+X_train, X_test, y_train, y_test = train_test_split(
+    titanic.drop('Survived', axis=1),
+    titanic.Survived, test_size=0.30,
+    random_state=123
+    )
+logreg = LogisticRegression()
+logreg.fit(X_train, y_train)
+pred = logreg.predict(X_test)
+```  
+
+## Evaluation  
+
+```{python}
+print(metrics.classification_report(y_test,pred))
+```
+
+
+
+
+
+

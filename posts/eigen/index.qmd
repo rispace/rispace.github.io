@@ -1,0 +1,45 @@
+---
+title: "Generalized eigenvectors and eigenspaces"
+date: "2021-01-25"
+author: Rafiq Islam
+categories: [Linear Algebra, Mathematics]
+citation: true
+search: true
+image: lin3.jpg
+lightbox: true
+listing: 
+    contents: "/../../posts"
+    max-items: 3
+    type: grid
+    categories: false
+    date-format: full
+    fields: [image, date, title, author, reading-time]
+---  
+
+<p>    Definition: Let $\alpha\in End(V)$ and $\lambda\in spec(\alpha)$. A non-zero vector $v$ is called a generalized eigenvector vector of $\alpha$ associated with $\lambda$ if $(\alpha-\lambda I)^{k}(v)=0$ and $(\alpha-\lambda I)^{k-1}(v)\ne 0$ for some $k\ge 1$ where $k$ is called the degree of nilpotence for $v$.</p><p>Let $\lambda\in spec(\alpha)$. Then, $M_{\lambda}=\bigcup\limits_{m=1} ker(\lambda I-\alpha)^m$ is what we call it the generalized eigenspace corresponding to $\lambda$. Clearly, $M_{\lambda}$ is the union of the zero vector and the set of all generalized eigenvectors of $\alpha$ associated with $\lambda$</p><p><b>Fact: </b>$M_{\lambda}$ is a subspace and $\alpha-$invariant and if $v$ is a generalized vector of index $k$ then $\{v,(\alpha-\lambda I)v,\cdots, (\alpha-\lambda I)^{k-1}v\}$ is linearly independent.    </p><p><b>Proof: </b>Let $a\in \mathbb{F}$ and let $v,w\in V$ be generalized eigenvectors of $\alpha$ associated with $\lambda$ of degrees $k$ and $h$ respectively. Then,</p><p>$(\alpha-\lambda I)^k(v)=0$ and $(\alpha-\lambda I)^h(w)=0$</p><p>$\implies v\in ker (\alpha-\lambda I)^k$ and $w\in ker(\alpha-\lambda I)^h$</p><p>$\implies v\in ker (\alpha-\lambda I)^{k+h}$ and $w\in ker(\alpha-\lambda I)^{k+h}$ because $(\alpha-\lambda I)^{k+h}(v)=0$ and $(\alpha-\lambda I)^{k+h}(w)=0$    </p><p>$\implies v+w \in ker(\alpha-\lambda)^{k+h}$    </p><p>And, $(\alpha-\lambda I)^{k+h}(av)=a.(\alpha-\lambda I)^{k+h}(v)=0$.</p><p>This implies that $M_{\lambda}$ is a subspace of $V$.</p><p><u>Invariance:</u>    If $\beta\in End(V)$ commutes with $\alpha$ and if $v$ is a generalized eigenvector of $\alpha$ associated with $\lambda$ such that $v\in ker(\alpha-\lambda I)^k$ then,</p><p>$(\alpha-\lambda I)^k\beta(v)=\beta(\alpha-\lambda I)^k(v)=0_V$</p><p>$\implies \beta(v)$ is also a generalized eigenvector of $\alpha$ associated with $\lambda$</p><p><br /></p><p><u>Linearly Independence:</u>    If $v$ is a generalized vector of $\alpha$ associated with $\lambda$ then $(\alpha-\lambda I)^k(v)=0$ and $(\alpha-\lambda I)^{k-1}(v)\ne 0$. Now we assume that,</p><p>$c_0v+c_1(\alpha-\lambda I)(v)+\cdots+c_{k-1}(\alpha-\lambda I)^{k-1}(v)=0$.    </p><p>We need to show that $c_i's$ are zero for $0\le i\le k-1$.    </p><p>Applying $(\alpha-\lambda)^{k-1}$ we get,</p><p>$(\alpha-\lambda)^{k-1}(c_0v+c_1(\alpha-\lambda I)(v)+\cdots+c_{k-1}(\alpha-\lambda I)^{k-1}(v))=0$</p><p>$\implies c_0(\alpha-\lambda I)^{k-1}(v)=0$. Since $(\alpha-\lambda I)^{k-1}(v)\ne 0$ so we get $c_0=0$.    </p><p>Similarly applying $(\alpha-\lambda I)^{k-2},(\alpha-\lambda I)^{k-3},$ and so on, we have</p><p>$c_i=0$ for $1\le i\le k-1$.</p><p>Hence, $\{v,(\alpha-\lambda I)v,\cdots, (\alpha-\lambda I)^{k-1}v\}$ is linearly independent.    </p>  
+
+**Share on** 
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
+ 
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/eigen/index.html"
+data-layout="button_count" data-size="small"><a target="_blank" 
+ href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Feigen%2Findex.html&amp;src=sdkpreparse" 
+ class="fb-xfbml-parse-ignore">Share</a></div>
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/posts/eigen/index.html"></script> 
+ 
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
+ data-url="https://mrislambd.github.io/posts/eigen/index.html" data-show-count="true">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<div class="fb-comments" data-href="https://mrislambd.github.io/posts/eigen/index.html"
+ data-width="" data-numposts="5"></div>
+  
+
+**You may also like**

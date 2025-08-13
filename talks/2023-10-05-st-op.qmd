@@ -1,0 +1,17 @@
+---
+title: "Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo"
+collection: talks
+author: "Mert Gürbüzbalaban, Xuefeng Gao, Yuanhan Hu, Lingjiong Zhu"
+type: "Presentation"
+permalink: /talks/2023-10-05-st-op
+venue: "James J Love Building, Florida State University"
+date: 2023-10-05
+location: "Tallahassee, Florida"
+---  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
+     crossorigin="anonymous"></script>
+
+This presentation is based on the paper <a href="https://www.jmlr.org/papers/v22/21-0307.html" target="_blank">Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo</a> by <a href="https://sites.google.com/view/lingjiongzhu" target="_blank">Dr. Lingjiong Zhu</a>
+
+A copy of the presentation can be found <a href="/_assets/documents/st_optimization.pdf" target="_blank">here</a> 

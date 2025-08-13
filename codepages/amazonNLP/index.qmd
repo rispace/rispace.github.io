@@ -1,0 +1,12 @@
+---
+title: "Notebook: Predicting Product Success Using Customer Reviews and Sales Data"
+author: "Rafiq Islam"
+date: 2024-10-11
+collection: portfolio
+citation: true
+search: true
+lightbox: true
+image: amazon.webp
+---    
+
+## Data Collection  

@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rafiq Islam">
+<meta name="dcterms.date" content="2024-09-20">
+
+<title>Data Science &amp; Machine Learning Basics – Mohammad Rafiqul Islam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//_assets/images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z5NP67GHFC"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z5NP67GHFC', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Data Science &amp; Machine Learning Basics – Mohammad Rafiqul Islam">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://mrislambd.github.io/posts/machinelearning/ml.jpeg">
+<meta property="og:site_name" content="Mohammad Rafiqul Islam">
+<meta name="twitter:title" content="Data Science &amp; Machine Learning Basics – Mohammad Rafiqul Islam">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://mrislambd.github.io/posts/machinelearning/ml.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../posts/machinelearning/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../posts/machinelearning/index.html">
+    <span class="navbar-title">Mohammad Rafiqul Islam</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Blog</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
+        <li>
+    <a class="dropdown-item" href="../../posts/machinelearning/index.html">
+ <span class="dropdown-text">Data Science and Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://mrislambd.github.io/letscode/">
+ <span class="dropdown-text">Data Structure and Algorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/jobandintern/index.html">
+ <span class="dropdown-text">Statistics and Probability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blog.html">
+ <span class="dropdown-text">Other Blogs</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mrislambd" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#textdata-science" id="toc-textdata-science" class="nav-link active" data-scroll-target="#textdata-science"><strong><span class="math inline">\(\text{Data Science}\)</span></strong></a></li>
+  <li><a href="#textmachine-learning-algorithms" id="toc-textmachine-learning-algorithms" class="nav-link" data-scroll-target="#textmachine-learning-algorithms"><strong><span class="math inline">\(\text{Machine Learning Algorithms}\)</span></strong></a>
+  <ul class="collapse">
+  <li><a href="#textsupervised-learning" id="toc-textsupervised-learning" class="nav-link" data-scroll-target="#textsupervised-learning"><span class="math inline">\(\text{Supervised Learning}\)</span></a></li>
+  <li><a href="#textunsupervised-learning" id="toc-textunsupervised-learning" class="nav-link" data-scroll-target="#textunsupervised-learning"><span class="math inline">\(\text{Unsupervised Learning}\)</span></a></li>
+  <li><a href="#textsemi-supervised-learning" id="toc-textsemi-supervised-learning" class="nav-link" data-scroll-target="#textsemi-supervised-learning"><span class="math inline">\(\text{Semi-Supervised Learning}\)</span></a></li>
+  <li><a href="#textreinforcement-learning" id="toc-textreinforcement-learning" class="nav-link" data-scroll-target="#textreinforcement-learning"><span class="math inline">\(\text{Reinforcement Learning}\)</span></a></li>
+  </ul></li>
+  <li><a href="#textdeep-learnings" id="toc-textdeep-learnings" class="nav-link" data-scroll-target="#textdeep-learnings"><strong><span class="math inline">\(\text{Deep Learnings}\)</span></strong></a></li>
+  <li><a href="#textmodel-evaluation-and-fine-tuning" id="toc-textmodel-evaluation-and-fine-tuning" class="nav-link" data-scroll-target="#textmodel-evaluation-and-fine-tuning"><strong><span class="math inline">\(\text{Model Evaluation and Fine Tuning}\)</span></strong></a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(28)</span></div><div class="category" data-category="Algorithmic Complexity">Algorithmic Complexity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Applied Mathematics">Applied Mathematics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Artificial Intelligence">Artificial Intelligence <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Computational Mathematics">Computational Mathematics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Computer Science">Computer Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Science">Data Science <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Linear Algebra">Linear Algebra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Math Biology">Math Biology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Mathematical Modeling">Mathematical Modeling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Mathematics">Mathematics <span class="quarto-category-count">(3)</span></div><div class="category" data-category="News">News <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Optimization">Optimization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Probability">Probability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Programming">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Statistics">Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stochastic Gradient Descent">Stochastic Gradient Descent <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Technology">Technology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Website">Website <span class="quarto-category-count">(1)</span></div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Data Science &amp; Machine Learning Basics</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Machine Learning</div>
+    <div class="quarto-category">Artificial Intelligence</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rafiq Islam </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p align="center">
+<img src="../../_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400">
+</p>
+<p style="text-align: justify">
+This page is my personal repository of most common and useful machine learning algorithms using Python and other data science tricks and tips.
+</p>
+<section id="textdata-science" class="level2">
+<h2 class="anchored" data-anchor-id="textdata-science"><strong><span class="math inline">\(\text{Data Science}\)</span></strong></h2>
+<p>Data science involves extracting knowledge from structured and unstructured data. It combines principle from statistics, machine learning, data analysis, and domain knoledge to understand and interpret the data</p>
+<section id="data-collection-accuisition" class="level4">
+<h4 class="anchored" data-anchor-id="data-collection-accuisition">Data Collection &amp; Accuisition</h4>
+<ul>
+<li><strong><a href="../../dsandml/datacollection/index.html" target="_blank" style="text-decoration:none">Web srcaping</a>:</strong> Data collection through Webscraping<br>
+</li>
+<li>API integration<br>
+</li>
+<li>Data Lakes, Data Warehouse</li>
+</ul>
+</section>
+<section id="data-cleaning-preprocessing" class="level4">
+<h4 class="anchored" data-anchor-id="data-cleaning-preprocessing">Data Cleaning &amp; Preprocessing</h4>
+<p>This involves <em><a href="../../codepages/titanic/index.html#handling-missing-data" target="_blank" style="text-decoration:none">Handling Missing Values, Data Transformation</a>, <a href="../../dsandml/eda/index.html#feature-engineering" target="_blank" style="text-decoration:none">Feature Engineering</a>, <a href="../../codepages/titanic/index.html" target="_blank" style="text-decoration:none">Encoding Categorical Variables</a>, Handling Outliers</em></p>
+</section>
+<section id="exploratory-data-analysis-eda" class="level4">
+<h4 class="anchored" data-anchor-id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h4>
+<p>This usually includes the <em><a href="../../dsandml/eda/index.html#discriptive-statistics" target="_blank" style="text-decoration:none">Descriptive Statistics</a>, <a href="../../dsandml/dataviz/index.html" target="_blank" style="text-decoration:none">Data Visualization, Identifying Patterns, Trends, Correlations</a></em> of the features and labels.</p>
+</section>
+<section id="statistical-methods" class="level4">
+<h4 class="anchored" data-anchor-id="statistical-methods">Statistical Methods</h4>
+<ul>
+<li><strong><a href="../../dsandml/dataengineering/index.html" target="_blank" style="text-decoration:none">ANOVA - Categorical Features’</a>:</strong> How do we treat the categorical features for our data science project?</li>
+<li>Hypothesis Testing<br>
+</li>
+<li>Probability Distributions<br>
+</li>
+<li>Inferential Statistics<br>
+</li>
+<li>Sampling Methods</li>
+</ul>
+</section>
+<section id="big-data-techniques" class="level4">
+<h4 class="anchored" data-anchor-id="big-data-techniques">Big Data Techniques</h4>
+<ul>
+<li>Hadoop, Spark<br>
+</li>
+<li>Distributed Data Storage (e.g., HDFS, NoSQL)</li>
+<li>Data PipeLines, ETL (Extract, Transform, Load)</li>
+</ul>
+</section>
+</section>
+<section id="textmachine-learning-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="textmachine-learning-algorithms"><strong><span class="math inline">\(\text{Machine Learning Algorithms}\)</span></strong></h2>
+<section id="textsupervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="textsupervised-learning"><span class="math inline">\(\text{Supervised Learning}\)</span></h3>
+<p>(Training with labeled data: input-output pairs)</p>
+<section id="regression" class="level4">
+<h4 class="anchored" data-anchor-id="regression"><strong>Regression</strong></h4>
+<div class="grid">
+<section id="parametric" class="level5 g-col-6">
+<h5 class="anchored" data-anchor-id="parametric">Parametric</h5>
+<ul>
+<li><a href="../../dsandml/simplelinreg/index.html" target="_blank" style="text-decoration:none">Simple Linear Regression</a></li>
+<li><a href="../../dsandml/multiplelinreg/index.html" target="_blank" style="text-decoration:none">Multiple Linear Regression</a></li>
+<li><a href="../../dsandml/polyreg/index.html" target="_blank" style="text-decoration:none">Polynomial Regression</a></li>
+</ul>
+</section>
+<section id="non-parametric" class="level5 g-col-6">
+<h5 class="anchored" data-anchor-id="non-parametric">Non-Parametric</h5>
+<ul>
+<li><a href="../../dsandml/knn/index.html" target="_blank" style="text-decoration:none">K-Nearest Neighbor (KNN) Regression</a></li>
+<li><a href="../../dsandml/decisiontree/index.html" target="_blank" style="text-decoration:none">Decesion Trees Regression</a></li>
+<li><a href="../../dsandml/randomforest/index.html" target="_blank" style="text-decoration:none">Random Forest Regression</a></li>
+<li><a href="../../dsandml/svm/index.html" target="_blank" style="text-decoration:none">Support Vector Machine (SVM) Regression</a></li>
+</ul>
+</section>
+</div>
+</section>
+<section id="classification" class="level4">
+<h4 class="anchored" data-anchor-id="classification"><strong>Classification</strong></h4>
+<div class="columns">
+<div class="column" style="width:33%;">
+<section id="parametric-1" class="level5">
+<h5 class="anchored" data-anchor-id="parametric-1">Parametric</h5>
+<ul>
+<li><a href="../../dsandml/logreg/index.html" target="_blank" style="text-decoration:none">Logistic Regression</a></li>
+<li><a href="../../dsandml/naivebayes/index.html" target="_blank" style="text-decoration:none">Naive Bayes</a></li>
+<li><a href="../../dsandml/lda/index.html" target="_blank" style="text-decoration:none">Linear Discriminant Analysis (LDA)</a><br>
+</li>
+<li>Quadratic Discriminant Analysis (QDA)</li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="non-parametric-1" class="level5">
+<h5 class="anchored" data-anchor-id="non-parametric-1">Non-Parametric</h5>
+<ul>
+<li><a href="../../dsandml/knn/index.html" target="_blank" style="text-decoration:none">KNN Classification</a></li>
+<li><a href="../../dsandml/decisiontree/index.html" target="_blank" style="text-decoration:none">Decision Tree Classification</a></li>
+<li><a href="../../dsandml/randomforest/index.html" target="_blank" style="text-decoration:none">Random Forest Classification</a></li>
+<li><a href="../../dsandml/svm/index.html" target="_blank" style="text-decoration:none">Support Vector Machine (SVM) Classification</a></li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="multi-class-classification" class="level5">
+<h5 class="anchored" data-anchor-id="multi-class-classification">Multi-Class Classification</h5>
+<ul>
+<li><a href="../../dsandml/multiclass/index.html" target="_blank" style="text-decoration:none">Multi-class Classification</a></li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="bayesian-or-probabilistic-classification" class="level5">
+<h5 class="anchored" data-anchor-id="bayesian-or-probabilistic-classification">Bayesian or Probabilistic Classification</h5>
+<ul>
+<li><a href="../../dsandml/bayesianclassification/index.html" target="_blank" style="text-decoration:none">What is Bayesian or Probabilistic Classification?</a><br>
+</li>
+<li><a href="../../dsandml/lda/index.html" target="_blank" style="text-decoration:none">Linear Discriminant Analysis (LDA)</a><br>
+</li>
+<li>Quadratic Discriminant Analysis (QDA)<br>
+</li>
+<li>Naive Bayes</li>
+<li>Bayesian Network Classifier (Tree Augmented Naive Bayes (TAN))</li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="non-probabilistic-classification" class="level5">
+<h5 class="anchored" data-anchor-id="non-probabilistic-classification">Non-probabilistic Classification</h5>
+<ul>
+<li><a href="../../dsandml/svm/index.html" target="_blank" style="text-decoration:none">Support Vector Machine (SVM) Classification</a><br>
+</li>
+<li><a href="../../dsandml/decisiontree/index.html" target="_blank" style="text-decoration:none">Decision Tree Classification</a><br>
+</li>
+<li><a href="../../dsandml/randomforest/index.html" target="_blank" style="text-decoration:none">Random Forest Classification</a><br>
+</li>
+<li><a href="../../dsandml/knn/index.html" target="_blank" style="text-decoration:none">KNN Classification</a><br>
+</li>
+<li>Perceptron</li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="ensemble-methods" class="level5">
+<h5 class="anchored" data-anchor-id="ensemble-methods">Ensemble Methods</h5>
+<ul>
+<li><a href="../../dsandml/decisiontree/index.html" target="_blank" style="text-decoration:none">Bagging: Decision Tree Classification</a><br>
+</li>
+<li><a href="../../dsandml/randomforest/index.html" target="_blank" style="text-decoration:none">Bagging: Random Forest Classification</a><br>
+</li>
+<li><a href="../../dsandml/adaboost/index.html" target="_blank" style="text-decoration:none">Boosting: Adaptive Boosting</a><br>
+</li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+</section>
+<section id="textunsupervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="textunsupervised-learning"><span class="math inline">\(\text{Unsupervised Learning}\)</span></h3>
+<p>(Training with unlabeled data)</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<section id="clustering" class="level5">
+<h5 class="anchored" data-anchor-id="clustering">Clustering</h5>
+<ul>
+<li><a href="../../dsandml/kmeans/index.html" target="_blank" style="text-decoration:none">k-Means Clustering</a><br>
+</li>
+<li>Hierarchical Clustering<br>
+</li>
+<li>DBSCAN (Density-Based Spatial Clustering)<br>
+</li>
+<li>Gaussian Mixture Models (GMM)</li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="dimensionality-reduction" class="level5">
+<h5 class="anchored" data-anchor-id="dimensionality-reduction">Dimensionality Reduction</h5>
+<ul>
+<li><a href="../../dsandml/pca/index.html" target="_blank" style="text-decoration:none">Principal Component Analysis</a><br>
+</li>
+<li>Latent Dirichlet Allocation (LDA)</li>
+<li>t-SNE (t-distributed Stochastic Neihbor Embedding)<br>
+</li>
+<li>Factor Analysis<br>
+</li>
+<li>Autoencoders<br>
+</li>
+</ul>
+</section>
+</div><div class="column" style="width:33%;">
+<section id="anomaly-detection" class="level5">
+<h5 class="anchored" data-anchor-id="anomaly-detection">Anomaly Detection</h5>
+<ul>
+<li>Isolation Forests<br>
+</li>
+<li>One-Class SVM</li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="textsemi-supervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="textsemi-supervised-learning"><span class="math inline">\(\text{Semi-Supervised Learning}\)</span></h3>
+<p>(Combination of labeled and unlabeled data)</p>
+<ul>
+<li>Self-training<br>
+</li>
+<li>Co-training<br>
+</li>
+<li>Label Propagation</li>
+</ul>
+</section>
+<section id="textreinforcement-learning" class="level3">
+<h3 class="anchored" data-anchor-id="textreinforcement-learning"><span class="math inline">\(\text{Reinforcement Learning}\)</span></h3>
+<p>(Learning via rewards and penalties)</p>
+<ul>
+<li>Markov Decision Process (MDP)<br>
+</li>
+<li>Q-Learning<br>
+</li>
+<li>Deep Q-Networks (DQN)<br>
+</li>
+<li>Policy Gradient Method</li>
+</ul>
+</section>
+</section>
+<section id="textdeep-learnings" class="level2">
+<h2 class="anchored" data-anchor-id="textdeep-learnings"><strong><span class="math inline">\(\text{Deep Learnings}\)</span></strong></h2>
+<ul>
+<li><a href="../../dsandml/pytorch/index.html" target="_blank" style="text-decoration:none">PyTorch</a><br>
+</li>
+<li>Artificial Neural Networks (ANN)<br>
+</li>
+<li>Convolutional Neural Networks (CNN)<br>
+</li>
+<li>Recurrent Neural Networks (RNN)<br>
+</li>
+<li>Long Short-Term Memory (LSTM)<br>
+</li>
+<li>Generative Adversarial Networks (GAN)</li>
+</ul>
+</section>
+<section id="textmodel-evaluation-and-fine-tuning" class="level2">
+<h2 class="anchored" data-anchor-id="textmodel-evaluation-and-fine-tuning"><strong><span class="math inline">\(\text{Model Evaluation and Fine Tuning}\)</span></strong></h2>
+<section id="model-evaluation-metrics" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics">Model Evaluation Metrics</h4>
+<ul>
+<li><strong>For Regression:</strong> Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), <span class="math inline">\(R^2\)</span> score<br>
+</li>
+<li><strong>For Classification:</strong> <a href="../../dsandml/classificationmetrics/index.html" target="_blank" style="text-decoration:none">Accuracy, Precision, Recall, F1 Score, ROC-AUC</a><br>
+</li>
+<li><strong>Cross-validation:</strong> kFold, Stratified k-fold, leave-one-out</li>
+</ul>
+</section>
+<section id="model-optimization" class="level4">
+<h4 class="anchored" data-anchor-id="model-optimization">Model Optimization</h4>
+<ul>
+<li><strong>Bias-Variance:</strong> <a href="../../dsandml/biasvariance/index.html" target="_blank" style="text-decoration:none">Bias Variance Trade off</a><br>
+</li>
+<li><strong>Hyperparameter Tuning:</strong> Grid Search, Random Search, Bayesian Optimization<br>
+</li>
+<li><strong>Features Selection Techniques:</strong> Recursive Feature Elimination (RFE), <a href="../../dsandml/regularization/index.html" target="_blank" style="text-decoration:none">L1 or Rasso Regurlarization</a>, <a href="../../dsandml/regularization/index.html" target="_blank" style="text-decoration:none">L2 or Ridge Regularization</a><br>
+</li>
+<li><strong>Model Interpretability:</strong> SHAP (Shapley values), LIME (Local Interpretable Model-agnostic Explanations)</li>
+</ul>
+</section>
+<section id="ensemble-methods-1" class="level4">
+<h4 class="anchored" data-anchor-id="ensemble-methods-1">Ensemble Methods</h4>
+<ul>
+<li><strong>Bagging:</strong> <a href="../../dsandml/randomforest/index.html" target="_blank" style="text-decoration:none">Random Forest</a>, Bootstrap Aggregating<br>
+</li>
+<li><strong>Boosting:</strong> <a href="../../dsandml/gradientboosting/index.html" target="_blank" style="text-decoration:none">Gradient Boosting</a>, AdaBoost, XGBoost, CatBoost<br>
+</li>
+<li><strong>Stacking:</strong> Stacked Generalization</li>
+</ul>
+<!---
+## Machine Learning Algorithms  
+
+
+
+
+
+```{=html}
+<style>
+  tr:nth-child(even){
+    background-color: #dddddd
+  }
+</style>
+
+<table class="caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Learning Type</th>
+<th data-quarto-table-cell-role="th">Parametric</th>
+<th data-quarto-table-cell-role="th">Non-Parametric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Supervised</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li><a href="../../dsandml/simplelinreg/index.qmd" style="text-decoration:none" target="_blank">Simple Linear Regression</a></li>
+<li><a href="../../dsandml/multiplelinreg/index.qmd" style="text-decoration:none" target="_blank">Multiple Linear Regression</a></li>
+<li><a href="../../dsandml/polyreg/index.qmd" style="text-decoration:none" target="_blank">Polynomial Regression</a></li>
+<li><a href="../../dsandml/logreg/index.qmd" style="text-decoration:none" target="_blank">Logistic Regression</a></li>
+<li><a href="../../dsandml/naivebayes/index.qmd" style="text-decoration:none" target="_blank">Naive Bayes</a></li>
+</ul></td>
+<td data-quarto-table-cell-role="th"><ul>
+<li><a href="../../dsandml/knn/index.qmd" style="text-decoration:none" target="_blank">KNN Regression and Classification</a></li>
+<li><a href="../../dsandml/decisiontree/index.qmd" style="text-decoration:none" target="_blank">Decision Trees</a></li>
+<li><a href="../../dsandml/randomforest/index.qmd" style="text-decoration:none" target="_blank">Random Forest</a></li>
+<li><span style="text-decoration:none">Support Vector Machine (SVM)</span></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Unsupervised</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<a href="../../dsandml/pca/index.qmd" style="text-decoration:none" target="_blank">Principle Component Analysis (PCA)</a>
+</li>
+<li>
+<span style="text-decoration:none">Gaussian Mixture Model (GMM)</span>
+</li>
+<li>
+<span style="text-decoration:none">Latent Dirichilet Allocation (LDA)</span>
+</li></td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<a href="../../dsandml/kmeans/index.qmd" style="text-decoration:none" target="_blank">K-Means</a>
+</li>
+<li>
+<span style="text-decoration:none">Hierarchial Clustering</span>
+</li>
+<li>
+<span style="text-decoration:none">Density-Based Spatial Clustering of Applications with Noise (DBSCAN)</span>
+</li></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Semi-Supervised</td>
+<td data-quarto-table-cell-role="th">Self-training</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Reinforcement Learning</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<span style="text-decoration:none">Q-Learning</span>
+</li>
+<li>
+<span style="text-decoration:none">DQN</span>
+</li>
+<li>
+<span style="text-decoration:none">Policy Gradient</span>
+</li></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dimensionality Reduction</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<a href="../../dsandml/pca/index.qmd" style="text-decoration:none" target="_blank">Principle Component Analysis (PCA)</a>
+</li>
+<li>
+<span style="text-decoration:none">Linear Discriminant Analysis (LDA)</span>
+</li></td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<span style="text-decoration:none">t-SNE</span>
+</li>
+<li>
+<span style="text-decoration:none">Autoencoders</span>
+</li></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Ensemble Methods</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<span style="text-decoration:none">Bagging</span>
+</li>
+<li>
+<a href="../../dsandml/gradientboosting/index.qmd" style="text-decoration:none" target="_blank">Gradient Boosting</a>
+</li></td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<span style="text-decoration:none">Stacking</span>
+</li></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Deep Learning</td>
+<td data-quarto-table-cell-role="th"><ul>
+<li>
+<span style="text-decoration:none">Artificial Neural Networks (ANN)</span>
+</li>
+<li>
+<span style="text-decoration:none">Convolutional Neural Networks (CNN)</span>
+</li>
+<li>
+<span style="text-decoration:none">Recurrent Neural Networks (RNN)</span>
+</li>
+<li>
+<span style="text-decoration:none">Long Short-Term Memory (LSTM)</span>
+</li>
+<li>
+<span style="text-decoration:none">Generative Adversarial Networks (GAN)</span>
+</li></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+```  
+
+
+
+
+
+## Data Science Techniques  
+ 
+
+
+
+
+
+```{=html}
+<style>
+  tr:nth-child(even){
+    background-color: #dddddd
+  }
+</style>
+
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Techniques</th>
+<th data-quarto-table-cell-role="th">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><a href="../../dsandml/dataengineering/index.qmd" style="text-decoration:none" target="_blank">Categorical Features</a></td>
+<td data-quarto-table-cell-role="th">How do we treat the categorical features for our data science project?</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th"><a href="../../dsandml/datacollection/index.qmd" style="text-decoration:none" target="_blank">Webscraping</a></td>
+<td data-quarto-table-cell-role="th">Data collection through Webscraping</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"><a href="../../dsandml/biasvariance/index.qmd" style="text-decoration:none" target="_blank">Bias-Variance</a></td>
+<td data-quarto-table-cell-role="th">Model Fine Tuning: Bias-Variance Trade Off</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th"><a href="../../dsandml/regularization/index.qmd" style="text-decoration:none" target="_blank">Regularization</a></td>
+<td data-quarto-table-cell-role="th">Model Fine Tuning: Regularization</td>
+</tr>
+</tbody>
+</table>
+
+```
+
+
+
+
+
+---  
+
+-->
+<hr>
+<p><strong>You may also like</strong></p>
+
+
+
+<!-- -->
+
+</section>
+</section>
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Data Science,Machine Learning,Artificial Intelligence,Statistics,Probability" data-listing-date-sort="1724126400000" data-listing-file-modified-sort="1739674617139" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="../../posts/jobandintern/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/jobandintern/job.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Basic Statistics and Probability
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, August 20, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Linear Algebra,Mathematics" data-listing-date-sort="1611550800000" data-listing-file-modified-sort="1721279787000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="357">
+<a href="../../posts/eigen/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/eigen/lin3.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Generalized eigenvectors and eigenspaces
+</h5>
+<div class="listing-reading-time card-text text-muted">
+2 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, January 25, 2021
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="News,Technology,Website" data-listing-date-sort="1721188800000" data-listing-file-modified-sort="1723165412401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="230">
+<a href="../../posts/socialshare/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/socialshare/ss.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+How to generate social share buttons
+</h5>
+<div class="listing-reading-time card-text text-muted">
+2 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Wednesday, July 17, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mrislambd\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Data Science &amp; Machine Learning Basics"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2024-09-20"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Rafiq Islam</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Data Science, Machine Learning, Artificial Intelligence]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> ml.jpeg</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title, author, reading-time]</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;p align="center"&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  &lt;img src="/_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400"/&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    This page is my personal repository of most common and useful machine learning algorithms using Python and other data science tricks and tips.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;  </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## **$\text{Data Science}$**  </span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Data science involves extracting knowledge from structured and unstructured data. It combines principle from statistics, machine learning, data analysis, and domain knoledge to understand and interpret the data</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Data Collection \&amp; Accuisition  </span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[Web srcaping](/dsandml/datacollection/index.qmd){target="_blank" style="text-decoration:none"}:** Data collection through Webscraping  </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>API integration  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Lakes, Data Warehouse  </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Data Cleaning \&amp; Preprocessing  </span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>This involves *[Handling Missing Values, Data Transformation](/codepages/titanic/index.qmd#handling-missing-data){target="_blank" style="text-decoration:none"}, [Feature Engineering](/dsandml/eda/index.qmd#feature-engineering){target="_blank" style="text-decoration:none"}, [Encoding Categorical Variables](/codepages/titanic/index.qmd){target="_blank" style="text-decoration:none"}, Handling Outliers*  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Exploratory Data Analysis (EDA)  </span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>This usually includes the *[Descriptive Statistics](/dsandml/eda/index.qmd#discriptive-statistics){target="_blank" style="text-decoration:none"}, [Data Visualization, Identifying Patterns, Trends, Correlations](/dsandml/dataviz/index.qmd){target="_blank" style="text-decoration:none"}* of the features and labels.  </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Statistical Methods  </span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[ANOVA - Categorical Features'](/dsandml/dataengineering/index.qmd){target="_blank" style="text-decoration:none"}:** How do we treat the categorical features for our data science project?</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hypothesis Testing  </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Probability Distributions  </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inferential Statistics  </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sampling Methods  </span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Big Data Techniques  </span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hadoop, Spark  </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Distributed Data Storage  (e.g., HDFS, NoSQL)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data PipeLines, ETL (Extract, Transform, Load)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## **$\text{Machine Learning Algorithms}$**  </span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### $\text{Supervised Learning}$  </span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>(Training with labeled data: input-output pairs)  </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Regression**  </span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>::::{.grid}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>:::{.g-col-6}</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Parametric    </span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Simple Linear Regression</span><span class="co">](/dsandml/simplelinreg/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Multiple Linear Regression</span><span class="co">](/dsandml/multiplelinreg/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Polynomial Regression</span><span class="co">](/dsandml/polyreg/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>:::{.g-col-6}</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Non-Parametric  </span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">K-Nearest Neighbor (KNN) Regression</span><span class="co">](/dsandml/knn/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Decesion Trees Regression</span><span class="co">](/dsandml/decisiontree/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Random Forest Regression</span><span class="co">](/dsandml/randomforest/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Support Vector Machine (SVM) Regression</span><span class="co">](/dsandml/svm/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>::::  </span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">#### **Classification**  </span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Parametric    </span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Logistic Regression</span><span class="co">](/dsandml/logreg/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Naive Bayes</span><span class="co">](/dsandml/naivebayes/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Linear Discriminant Analysis (LDA)</span><span class="co">](/dsandml/lda/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quadratic Discriminant Analysis (QDA)</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Non-Parametric  </span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">KNN Classification</span><span class="co">](/dsandml/knn/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Decision Tree Classification</span><span class="co">](/dsandml/decisiontree/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Random Forest Classification</span><span class="co">](/dsandml/randomforest/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Support Vector Machine (SVM) Classification</span><span class="co">](/dsandml/svm/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Multi-Class Classification  </span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Multi-class Classification</span><span class="co">](/dsandml/multiclass/index.qmd)</span>{target="_blank" style="text-decoration:none"}</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Bayesian or Probabilistic Classification  </span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">What is Bayesian or Probabilistic Classification?</span><span class="co">](/dsandml/bayesianclassification/index.qmd)</span>{target="_blank" style="text-decoration:none"}    </span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Linear Discriminant Analysis (LDA)</span><span class="co">](/dsandml/lda/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quadratic Discriminant Analysis (QDA)  </span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Naive Bayes </span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Bayesian Network Classifier (Tree Augmented Naive Bayes (TAN))</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Non-probabilistic Classification  </span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Support Vector Machine (SVM) Classification</span><span class="co">](/dsandml/svm/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Decision Tree Classification</span><span class="co">](/dsandml/decisiontree/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Random Forest Classification</span><span class="co">](/dsandml/randomforest/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">KNN Classification</span><span class="co">](/dsandml/knn/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Perceptron</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ensemble Methods  </span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Bagging: Decision Tree Classification</span><span class="co">](/dsandml/decisiontree/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Bagging: Random Forest Classification</span><span class="co">](/dsandml/randomforest/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Boosting: Adaptive Boosting</span><span class="co">](/dsandml/adaboost/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>::::  </span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### $\text{Unsupervised Learning}$  </span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>(Training with unlabeled data)  </span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Clustering      </span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">k-Means Clustering</span><span class="co">](/dsandml/kmeans/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Hierarchical Clustering  </span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>DBSCAN (Density-Based Spatial Clustering)  </span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Gaussian Mixture Models (GMM)</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Dimensionality Reduction  </span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Principal Component Analysis</span><span class="co">](/dsandml/pca/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Latent Dirichlet Allocation (LDA)</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>t-SNE (t-distributed Stochastic Neihbor Embedding)  </span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Factor Analysis  </span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Autoencoders  </span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Anomaly Detection  </span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Isolation Forests  </span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One-Class SVM</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>::::    </span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### $\text{Semi-Supervised Learning}$  </span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>(Combination of labeled and unlabeled data)  </span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Self-training  </span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Co-training  </span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Label Propagation </span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### $\text{Reinforcement Learning}$  </span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>(Learning via rewards and penalties)  </span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markov Decision Process (MDP)  </span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Q-Learning  </span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Deep Q-Networks (DQN)  </span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Policy Gradient Method  </span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## **$\text{Deep Learnings}$**  </span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">PyTorch</span><span class="co">](/dsandml/pytorch/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Artificial Neural Networks (ANN)  </span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Convolutional Neural Networks (CNN)  </span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Recurrent Neural Networks (RNN)  </span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Long Short-Term Memory (LSTM)  </span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generative Adversarial Networks (GAN)  </span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## **$\text{Model Evaluation and Fine Tuning}$**  </span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Model Evaluation Metrics  </span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**For Regression:** Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), $R^2$ score  </span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**For Classification:** <span class="co">[</span><span class="ot">Accuracy, Precision, Recall, F1 Score, ROC-AUC</span><span class="co">](/dsandml/classificationmetrics/index.qmd)</span>{target="_blank" style="text-decoration:none"}    </span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cross-validation:** kFold, Stratified k-fold, leave-one-out  </span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Model Optimization  </span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bias-Variance:** <span class="co">[</span><span class="ot">Bias Variance Trade off</span><span class="co">](/dsandml/biasvariance/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hyperparameter Tuning:** Grid Search, Random Search, Bayesian Optimization  </span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Features Selection Techniques:** Recursive Feature Elimination (RFE), <span class="co">[</span><span class="ot">L1 or Rasso Regurlarization</span><span class="co">](/dsandml/regularization/index.qmd)</span>{target="_blank" style="text-decoration:none"}, <span class="co">[</span><span class="ot">L2 or Ridge Regularization</span><span class="co">](/dsandml/regularization/index.qmd)</span>{target="_blank" style="text-decoration:none"}  </span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Model Interpretability:** SHAP (Shapley values), LIME (Local Interpretable Model-agnostic Explanations)  </span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ensemble Methods  </span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Bagging:** <span class="co">[</span><span class="ot">Random Forest</span><span class="co">](/dsandml/randomforest/index.qmd)</span>{target="_blank" style="text-decoration:none"}, Bootstrap Aggregating  </span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Boosting:** <span class="co">[</span><span class="ot">Gradient Boosting</span><span class="co">](/dsandml/gradientboosting/index.qmd)</span>{target="_blank" style="text-decoration:none"}, AdaBoost, XGBoost, CatBoost  </span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Stacking:** Stacked Generalization</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!---</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="co">## Machine Learning Algorithms  </span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="co">```{=html}</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;style&gt;</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="co">  tr:nth-child(even){</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="co">    background-color: #dddddd</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="co">  }</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/style&gt;</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;table&gt;</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;thead&gt;</span></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Learning Type &lt;/th&gt;</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Parametric &lt;/th&gt;</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Non-Parametric &lt;/th&gt;</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;/thead&gt;</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;tbody&gt;</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Supervised &lt;/th&gt;</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/simplelinreg/index.qmd" style="text-decoration:none" target="_blank"&gt;Simple Linear Regression&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/multiplelinreg/index.qmd" style="text-decoration:none" target="_blank"&gt;Multiple Linear Regression&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/polyreg/index.qmd" style="text-decoration:none" target="_blank"&gt;Polynomial Regression&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/logreg/index.qmd" style="text-decoration:none" target="_blank"&gt;Logistic Regression&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/naivebayes/index.qmd" style="text-decoration:none" target="_blank"&gt;Naive Bayes&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;/ul&gt;</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; </span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/knn/index.qmd" style="text-decoration:none" target="_blank"&gt;KNN Regression and Classification&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/decisiontree/index.qmd" style="text-decoration:none" target="_blank"&gt;Decision Trees&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  href="/dsandml/randomforest/index.qmd" style="text-decoration:none" target="_blank"&gt;Random Forest&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Support Vector Machine (SVM)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;/ul&gt;</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Unsupervised &lt;/th&gt;</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/pca/index.qmd" style="text-decoration:none" target="_blank"&gt;Principle Component Analysis (PCA)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Gaussian Mixture Model (GMM)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Latent Dirichilet Allocation (LDA)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  href="/dsandml/kmeans/index.qmd" style="text-decoration:none" target="_blank"&gt;K-Means&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Hierarchial Clustering&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Density-Based Spatial Clustering of Applications with Noise (DBSCAN)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Semi-Supervised &lt;/th&gt;</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; Self-training&lt;/th&gt;</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Reinforcement Learning &lt;/th&gt;</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Q-Learning&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;DQN&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Policy Gradient&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Dimensionality Reduction &lt;/th&gt;</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/pca/index.qmd" style="text-decoration:none" target="_blank"&gt;Principle Component Analysis (PCA)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Linear Discriminant Analysis (LDA)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;t-SNE&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Autoencoders&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Ensemble Methods &lt;/th&gt;</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Bagging&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a href="/dsandml/gradientboosting/index.qmd" style="text-decoration:none" target="_blank"&gt;Gradient Boosting&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Stacking&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Deep Learning &lt;/th&gt;</span></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="co">        &lt;ul&gt;</span></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Artificial Neural Networks (ANN)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Convolutional Neural Networks (CNN)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Recurrent Neural Networks (RNN)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Long Short-Term Memory (LSTM)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="co">          &lt;li&gt;&lt;a  style="text-decoration:none"&gt;Generative Adversarial Networks (GAN)&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;/th&gt;</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;/tbody&gt;</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/table&gt;</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="co">```  </span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="co">## Data Science Techniques  </span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="co">```{=html}</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;style&gt;</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="co">  tr:nth-child(even){</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="co">    background-color: #dddddd</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="co">  }</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/style&gt;</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;table&gt;</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;thead&gt;</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Techniques&lt;/th&gt;</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Description&lt;/th&gt;</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;/thead&gt;</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;tbody&gt;</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;&lt;a href="/dsandml/dataengineering/index.qmd" style="text-decoration:none" target="_blank"&gt;Categorical Features&lt;/a&gt;&lt;/th&gt;</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt; How do we treat the categorical features for our data science project?&lt;/th&gt;</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;&lt;a href="/dsandml/datacollection/index.qmd" style="text-decoration:none" target="_blank"&gt;Webscraping&lt;/a&gt;&lt;/th&gt;</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Data collection through Webscraping&lt;/th&gt;</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;&lt;a href="/dsandml/biasvariance/index.qmd" style="text-decoration:none" target="_blank"&gt;Bias-Variance&lt;/a&gt;&lt;/th&gt;</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Model Fine Tuning: Bias-Variance Trade Off&lt;/th&gt;</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;tr&gt;</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;&lt;a href="/dsandml/regularization/index.qmd" style="text-decoration:none" target="_blank"&gt;Regularization&lt;/a&gt;&lt;/th&gt;</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="co">      &lt;th&gt;Model Fine Tuning: Regularization&lt;/th&gt;</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="co">    &lt;/tr&gt;</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="co">  &lt;/tbody&gt;</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/table&gt;</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="co">```</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="co">---  </span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>**You may also like**</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.5.54</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2024 @ Rafiq Islam
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.txt">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

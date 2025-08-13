@@ -1,0 +1,109 @@
+project:
+  type: website
+  output-dir: docs
+  resources: 
+    - ads.txt
+
+website:
+  page-navigation: true
+  title: "Mohammad Rafiqul Islam"
+  favicon: "/_assets/images/favicon.ico"
+  open-graph: true
+  bread-crumbs: true
+  back-to-top-navigation: true
+  site-url: "https://mrislambd.github.io/" 
+  twitter-card: true
+  navbar:
+    tools-collapse: true
+    pinned: true
+    logo: "/_assets/images/fsu-logo.png"
+    logo-alt: "Florida State University"
+    logo-href: index.qmd
+    right:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: portfolio.qmd
+        text: Portfolio
+      - href: cv.qmd
+        text: CV
+      - text: Blog
+        menu: 
+          - text: "Data Science and Machine Learning"
+            href: https://mrislambd.github.io/dsandml/
+          - text: "Data Structure and Algorithm"
+            href: https://mrislambd.github.io/letscode/
+          - text: "Statistics and Probability"
+            href: https://mrislambd.github.io/statandprob/
+          - text: "Other Blogs"
+            href: blog.qmd
+      - icon: linkedin
+        href: https://www.linkedin.com/in/mohammad-rafiqul-islam/
+        target: _blank
+      - icon: github
+        href: "https://github.com/mrislambd"
+        target: _blank
+      
+      
+      
+  page-footer: 
+    background: "#782F40"
+    left: "Powered by [Quarto](https://quarto.org/) <?quarto.version?>"
+    center:
+      - text: "Copyright 2024 @ Rafiq Islam"
+      - text: "License"
+        href: license.txt
+    right: 
+      - icon: twitter 
+        href: https://twitter.com/rafiqr35 
+        target: _blank
+      - icon: youtube
+        href: https://youtube.com/@quanttube
+        target: _blank
+      - icon: envelope
+        href: mailto:rafiqfsu@gmail.com?subject&body
+        target: _blank
+      
+
+    border: true
+  reader-mode: true
+
+
+  # Google stuffs
+  google-analytics: 
+    tracking-id: "G-Z5NP67GHFC"
+    anonymize-ip: true
+adsense: 
+  publisher-id: ca-pub-6878992848042528
+filters:
+  - adsense
+  - quarto-version.lua
+  
+format:
+  html:
+    theme: 
+      light: [cosmo, theme-light.scss]
+      dark: [cosmo, theme-dark.scss]
+    css: styles.css
+    toc: true
+    grid: 
+      sidebar-width: 330px
+    code-copy: true
+    code-overflow: scroll
+    mainfont: lualatex
+    code-line-numbers: false
+    highlight-style: ayu-dark
+    code-tools: true
+    code-fold: false
+    code-block-bg: false
+    code-block-border-left: true
+    minimal: false
+    anchor-sections: true
+    smooth-scroll: true
+    toc-location: left
+    
+    
+
+
+

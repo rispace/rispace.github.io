@@ -1,0 +1,25 @@
+---
+title: "Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager's information"
+author: "Rafiq Islam"
+date: "2021-10-15"
+collection: portfolio
+citation: true
+search: true
+lightbox: true
+image: titan.jpg
+format: 
+    html: default
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
+---  
+
+<p style="text-align:center">
+  [Notebook](/codepages/titanic/index.qmd){target="_blank" style="text-decoration:none"}
+</p>

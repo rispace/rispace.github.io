@@ -1,0 +1,9 @@
+setup.py
+mywebstyle/__init__.py
+mywebstyle/plot_style.py
+mywebstyle/social_share.py
+mywebstyle.egg-info/PKG-INFO
+mywebstyle.egg-info/SOURCES.txt
+mywebstyle.egg-info/dependency_links.txt
+mywebstyle.egg-info/requires.txt
+mywebstyle.egg-info/top_level.txt

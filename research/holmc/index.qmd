@@ -1,0 +1,28 @@
+---
+title: "Higher-order Langevin Algorithms" 
+categories: [Bayesian Inference, Sampling, MCMC, Theoretical Machine Learning]
+author: 
+  - Thanh L. Dang
+  - Mert Gurbuzbalaban
+  - Mohammad Rafiqul Islam 
+  - Nihan Yao 
+  - Lingjiong Zhu
+date: "07/23/2025"
+image: o3o4reg.png
+citation: true
+---  
+
+<p style="text-align:justify">
+Langevin algorithms are popular Markov chain Monte Carlo (MCMC) methods
+for large-scale sampling problems that often arise in data science. 
+We propose Monte Carlo algorithms based
+on $P$-th order Langevin dynamics for any $P\geq 3$. Our design of $P$-th order Langevin Monte Carlo (LMC) algorithms is by combining splitting and accurate integration methods. 
+We obtain Wasserstein convergence guarantees for sampling from distributions with log-concave and smooth densities. Specifically, the mixing time of the $P$-th order LMC algorithm scales as $O\left(d^{\frac{1}{\mathcal{R}}}/\epsilon^{\frac{1}{2\mathcal{R}}} \right)$ for $\mathcal{R}=4\cdot\mathbf{1}_{\{ P=3\}}+ (2P-1)\cdot\mathbf{1}_{\{ P\geq 4\}}$, which have better dependence on the dimension and the accuracy level as $P$ grows. Numerical experiments illustrate the efficiency of
+our proposed algorithms.
+</p>  
+
+<p float="left">
+    <img src="o3reg.png" width="230" />
+    <img src="o4reg.png" width="230" />
+    <img src="o3o4reg.png" width="230" />
+</p>

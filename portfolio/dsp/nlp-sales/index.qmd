@@ -1,0 +1,18 @@
+---
+title: "Predicting Product Success Using Customer Reviews and Sales Data"
+author: "Rafiq Islam"
+date: 2024-10-11
+collection: portfolio
+citation: true
+search: true
+lightbox: true
+image: amazon.webp
+---  
+
+<p style="text-align:center">
+  [Notebook](/codepages/amazonNLP/index.qmd){target="_blank" style="text-decoration:none"} [GitHub (Private until finished)](https://github.com/mrislambd/medical-insurance-charge){target="_blank" style="text-decoration:none"}  
+</p>  
+
+<p align="center">
+  <img src="/_assets/images/uc.jpeg" alt="Post under construction" width="400" height="400"/>
+</p>

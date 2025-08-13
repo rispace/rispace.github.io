@@ -1,0 +1,44 @@
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
+     crossorigin="anonymous"></script>  
+
+:::: {.columns}
+::: {.column width="35%"}
+<img align="center" src='/_assets/images/profile.png' class='oval-image' alt='Profile Picture' style='align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'>  
+
+## Rafiq Islam  
+Ph.D. Candidate in Mathematics  
+<a href='https://fsu.edu' target='_blank' style='text-decoration:none'>Florida State University</a>  
+
+<span style='font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'>Contact</span>  
+    Email: <a href="mailto:rislam@fsu.edu" style="text-decoration:none"> rislam@fsu.edu</a>  
+    Office: <a href="https://maps.app.goo.gl/p25RvKR6jiecRYsG9" target="_blank" style="text-decoration:none"> Love Building: Room 331A</a>  
+    Office Hours: <br>
+    M, W: 12:00 pm -1:00 pm <br>
+    T: 11:30 am - 12:30 pm  
+
+<span style='font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'>Find me on</span>  
+<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en" alt='Google Scholar' target="_blank" style="text-decoration:none"> {{< ai google-scholar size=3x >}} </a> <a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" alt='ResearchGate' target="_blank" style="text-decoration:none"> {{< ai researchgate size=3x >}} </a> 
+
+
+{{< ai GitHub >}}
+
+
+:::  
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="63%"}
+
+## About
+<p style="text-align: justify">   
+    Hi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am
+    a Ph.D. candidate in the Mathematics Department at Florida State University. My research focuses on *Theoretical Machine Learning*, particularly optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints. My research is conducted under the supervision of professor <a href="https://www.math.fsu.edu/DepartmentNews/Articles/Fac_Zhu.math" style="text-decoration:none" target="_blank"> Lingjiong Zhu</a>.<br>
+    <br>
+    I hold a Bachelor of Science (BS) in Mathematics degree from the <a href="https://www.du.ac.bd" style="text-decoration: none" target="_blank"> University of Dhaka, Bangladesh</a>, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master's degree in Applied Mathematics from the same institution. During my master's studies, I pursued actuarial exams and passed several professional exams from the <a href="https://www.ifoa.org.uk" style="text-decoration:none" target="_blank">Institute and Faculty of Actuaries (IFoA), UK </a> which are equivalent to the exams P, FM, and Life Contingencies of <a href="https://www.soa.org" style="text-decoration:none" target="_blank"> Society of Actuaries (SOA), USA </a>. With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.<br>
+    <br>
+    In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at Youngstown State University, Ohio. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D. in Mathematics with a focus on Theoretical Machine Learning.
+</p>  
+
+:::
+::::

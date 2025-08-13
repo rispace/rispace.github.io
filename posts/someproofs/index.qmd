@@ -1,0 +1,104 @@
+---
+date: "2021-01-24"
+author: Rafiq Islam
+categories: [Linear Algebra, Mathematics]
+citation: true
+search: true
+lightbox: true
+image: lin1.jpg
+listing: 
+    contents: "/../../posts"
+    max-items: 3
+    type: grid
+    categories: false
+    date-format: full
+    fields: [image, date, title, author, reading-time]
+---  
+
+# Some Linear Algebra Proofs
+
+## 1. Let $n$ be a positive integer. Show that every matrix $A \in M_{n \times n}(\mathbb{R})$ can be written as the sum of two non-singular matrices.  
+
+**Proof**: To prove this, we will use two known properties of matrices.  
+
+1. $det(A)=$ Product of the eigenvalues of $A$  
+2. If $\lambda$ is an eigenvalue of $A$ then $\lambda+n$ is an eigenvalue of $A+nI$ matrix.  
+
+Since, $A\in M_{n\times n}(\mathbb{R}),$ let $\lambda_i$ for $1\le i\le n$ be the eigenvalues of $A$. The matrix $A+(n+1)I$ has eigenvalues $\lambda_{i+n+1}$ for  $1\le i\le n$.  
+
+Let,  
+\begin{align*}
+n&=max\{|\lambda_i| : 1\le i \le n\}\\
+\implies& -n\le \lambda_i \le n \text{ for all }1\le i \le n\\
+\implies& -n+n+1\le \lambda_i+n+1 \le n+n+1\text{ for all }1\le i \le n\\
+\implies& 1\le \lambda_i+n+1 \le 2n+1\text{ for all }1\le i \le n
+\end{align*}
+Thus, $\lambda_i+n+1\ge 1$ that is $\lambda_i+n+1 \ne 0$ and $0$ is not an eigenvalue of $A$.  
+
+Now, from property (1), we have,  
+$det(A)=\prod_{i=1}^{n}\lambda_i$  
+and  
+\begin{align*}
+det(A+(n+1)I)&=\prod_{i=1}^{n}(\lambda_i+n+1)\ne 0\\
+\end{align*}
+$\implies A\text{ or }A+(n+1)I$ both are non-singular.  
+
+$-(n+1)I$ is of course non-singular.  
+
+Then  
+$A=(A+(n+1)I)+(-(n+1)I)$  
+
+## 2. Let $\alpha \in \mathcal{L}(V)$ and $\dim V=n< \infty$  
+<p> Suppose that $\alpha$ has two distinct eigenvalues $\lambda$ and $\mu$. Prove that if $\dim E_{\lambda}=n-1$ then $\alpha$ is diagonalizable.</p><p>Proof: Since $\mu$ and $\lambda$ are two distinct eigenvalues associated with $\alpha$, so $V=E_{\lambda}\bigoplus E_{\mu}$ and $\dim E_{\lambda}(\alpha)+\dim E_{\mu}(\alpha)=n$.</p><p>Here, $\dim E_{\mu}(\alpha)\ge 1$ and $\dim E_{\lambda}(\alpha)=n-1$. So,</p><p>$\dim E_{\lambda}(\alpha)+\dim E_{\mu}(\alpha)=n-1+1=n$</p>  
+
+## 3. Let $\alpha\in \mathcal{L}(V)$ and $0\ne v\in V$ where $\dim V=n< \infty$.  
+
+<p> (i) Prove that there is a unique monic polynomial $p(t)$ of the smallest degree such that $p(\alpha)(v)=0$</p><p>Proof: Since $V$ is finite-dimensional so there exists smallest $k$ such that $\{v,\alpha(v),\cdots,\alpha^{k-1}(v)\}$ is linearly independent but $\{v,\alpha(v),\cdots,\alpha^{k-1}(v),\alpha^k(v)\}$ is linearly dependent. So there exists $c_0,c_1,\cdots,c_k\in \mathbb{F}$ not all zero such that</p><p>$c_0v+c_1\alpha(v)+c_2\alpha^2(v)+\cdots+c_{k-1}\alpha^{k-1}(v)+c_k\alpha^k(v)=0$</p><p>Without loss of generality, let's assume that $c_k\ne 0$. Then</p><p>$a_0v+a_1\alpha(v)+a_2\alpha^2(v)+\cdots+a_{k-1}\alpha^{k-1}(v)+\alpha^k(v)=0$</p><p>where, $a_i=\frac{c_i}{c_k}$ for $1\le i \le k$. </p><p>Thus, $p(t)=a_0+a_1t+a_2t^2+\cdots+a_{k-1}t^{k-1}+t^k$, a unique monic polynomial such that $p(\alpha)(v)=0$</p><p><br /></p><p><b>(ii) Prove that $p(t)$ from (i) divides the minimal polynomial of $\alpha$</b></p><p><b>Proof: </b>By polynomial division we have,</p><p>$m(t)=p(t)h(t)+r(t)$ where, $m(t)$ is the minimal polynomial.</p><p>Then, $m(\alpha)(v)=p(\alpha)h(\alpha)(v)+r(\alpha)(v)$</p><p>$\implies 0=0+r(\alpha)(v)$</p><p>$\implies r(\alpha)(v)=0$</p>  
+
+## 4. Let $A,B\in M_{n\times n}(\mathbb{F})$ such that there exists an invertible matrix $S\in M_{n\times n}(\mathbb{F})$ such that $SAS^{-1}$ and $SBS^{-1}$ are upper triangular matrices. Show that every eigenvalue of $AB-BA$ is zero  
+
+<p> Proof: To prove the above statement, it is enough to show that $spec(AB-BA)=\{0\}$</p><p>We know that if $C$ and $D$ are upper triangular matrices then $spec(CD-DC)=\{0\}$. Now let's assume that $C=SAS^{-1}$ and $D=SBS^{-1}$. Then,</p><p>$CD-DC=SAS^{-1}SBS^{-1}-SBS^{-1}SAS^{-1}$</p><p>$\implies CD-DC=SABS^{-1}-SBAS^{-1}$</p><p>$\implies CD-DC=S(AB-BA)S^{-1}$</p><p>Hence $CD-DC$ and $AB-BA$ are similar matrices. So they have the same eigenvalues, that is $spec(AB-BA)=\{0\}$.</p>  
+
+## 5. Caley-Hamilton Theorem
+
+<p style="text-align: justify;"><b>Theorem: </b>Let $p(t)$ be the characteristic polynomial of a matrix $A$. Then $p(A)=0$</p><p style="text-align: justify;">Before we start proving the theorem, we need to discuss some basics.</p><p style="text-align: justify;"><b>For Linear Operator: </b>If $\alpha\in \mathcal{L}(V)$ and $A=\Phi_{BB}(\alpha)$ is a representation matrix of $\alpha$ with respect to the basis $B$, then $p(A)$ is the representation matrix of $p(\alpha)$. Thus we also have $p(\alpha)=0$ if $p$ is the characteristic polynomial of $\alpha$</p><p style="text-align: justify;"><b>Adjoint Matrix Method: </b>If we have a matrix $A=[a_{ij}]\in M_{n\times n}(\mathbb{F})$ then we define the $\textit{adjoint}$ of $A$ to be the matrix $adj(A)=[b_{ij}]\in M_{n\times n}(\mathbb{F})$, where $b_{ij}=(-1)^{i+j}|A_{ji}|$ for all $1 \le i,j \le n$</p><p style="text-align: justify;">And, $A_{ji}$ is the matrix obtained by deleting the i-th row and j-th column.</p><p style="text-align: justify;">Example: Let $A=\left(\begin{array}{ccc}1 &4 &7\\2 &5 &8\\3 &6 &9\end{array}\right)$</p><p style="text-align: justify;">$b_{11}=(-1)^{1+1}|A_{11}|=det\left(\begin{array}{cc}5 &8\\6 &9\end{array}\right)=-3$</p><p style="text-align: justify;">$b_{12}=(-1)^{1+2}|A_{21}|=-det\left(\begin{array}{cc}4 &7\\6 &9\end{array}\right)=6$</p><p style="text-align: justify;">$b_{13}=(-1)^{1+3}|A_{21}|=det\left(\begin{array}{cc}4 &7\\5 &8\end{array}\right)=-3$</p><p style="text-align: justify;">$b_{21}=(-1)^{2+1}|A_{12}|=-det\left(\begin{array}{cc}2 &8\\3 &9\end{array}\right)=6$</p><p style="text-align: justify;">$b_{22}=(-1)^{2+2}|A_{22}|=det\left(\begin{array}{cc}1 &7\\3 &9\end{array}\right)=-12$</p><p style="text-align: justify;">$b_{23}=(-1)^{2+3}|A_{32}|=-det\left(\begin{array}{cc}1 &7\\2 &8\end{array}\right)=6$</p><p style="text-align: justify;">$b_{31}=(-1)^{3+1}|A_{13}|=det\left(\begin{array}{cc}2 &5\\3 &6\end{array}\right)=-3$</p><p style="text-align: justify;">$b_{32}=(-1)^{3+2}|A_{23}|=-det\left(\begin{array}{cc}1 &4\\3 &6\end{array}\right)=6$</p><p style="text-align: justify;">$b_{33}=(-1)^{3+3}|A_{33}|=-det\left(\begin{array}{cc}1 &4\\2 &5\end{array}\right)=-3$</p><p style="text-align: justify;">Thus, </p><p style="text-align: justify;">$adj(A)=\left(\begin{array}{ccc}-3 &6 &-3\\6 &-12 &6\\-3 &6 &-3\end{array}\right)$.</p><p style="text-align: justify;">The important formula that we are going to use is that, </p><p style="text-align: justify;">$AA^{-1}=I \implies A\frac{adj(A)}{det(A)}=I \implies A.adj(A)=det(A).I$           (*)</p><p style="text-align: justify;"><br /></p><p style="text-align: justify;"><b>Proof: </b>Let $A\in M_{n\times n}(\mathbb{F})$  have the minimal polynomial $p(t)=t^n+\sum_{i=0}^{n-1}a_it^i$. </p><p style="text-align: justify;">Now let, $adj(tI-A)=[g_{ij}(t)]=\left(\begin{array}{cccc}g_{11}(t) &g_{12}(t) &\cdots &g_{1n}(t)\\g_{21}(t) &g_{22}(t) &\cdots &g_{2n}(t)\\\vdots &\vdots &\ddots &\vdots\\g_{n1}(t) &g_{n2}(t) &\cdots &g_{nn}(t)\end{array}\right)$ be the adjoint matrix of $(tI-A)$. </p><p style="text-align: justify;">Since each $g_{ij}(t)$ is a polynomial of degree at most $n-1$, we can write this as, $adj(tI-A)=\sum_{i=1}^{n}B_it^{n-i}$ where $B_i\in M_{n\times n}(\mathbb{F})$. </p><p style="text-align: justify;">Then by (*) we have,</p>  
+
+\begin{align*}
+p(t)I&=det(tI-A).I=(tI-A)adj(tI-A)=(tI-A)\sum_{i=1}^{n}B_it^{n-i}\\
+\implies& (a_0+a_1t+a_2t^2+\cdots+a_{n-1}t^{n-1}+t^n)I=(tI-A)B_1t^{n-1}+\cdots+(tI-A)B_{n-1}t+(tI-A)B_n\\
+\implies& (a_0+a_1t+a_2t^2+\cdots+a_{n-1}t^{n-1}+t^n)I=B_1t^n-AB_1t^{n-1}+B_2t^{n-1}-AB_2t^{n-2}+\cdots+B_{n-1}t^2-AB_n
+\end{align*}  
+
+<p style="text-align: justify;">By comparing the coefficients, we get</p><p style="text-align: center;">$B_1=I$</p><p style="text-align: center;">$B_2-AB_1=a_{n-1}I$</p><p style="text-align: center;">$B_3-AB_2=a_{n-2}I$</p><p style="text-align: center;">$\vdots$</p><p style="text-align: center;">$B_n-AB_{n-1}=a_1I$</p><p style="text-align: center;">$-AB_n=a_0I$</p><p style="text-align: justify;">Now multiply $A^{n+1-j}$ to the $j-th$ equation, and then sum up both sides we get,</p><p style="text-align: justify;">$A^{n+1-1}B_1=IA^{n+1-1}\hspace{2.3in} \implies A^nB_1=A^n$</p><p style="text-align: justify;">$A^{n+1-2}(B_2-AB_1)=a_{n-1}A^{n+1-2}\hspace{1in} \implies A^{n-1}B_2-AB_1=a_{n-1}A^{n-1}$</p><p style="text-align: justify;">$A^{n+1-3}(B_3-AB_2)=a_{n-2}A^{n+1-3}\hspace{1in} \implies A^{n-2}B_3-A^{n-1}B_2=a_{n-1}A^{n-2}$</p><p style="text-align: justify;">$\vdots\hspace{5in} \vdots$</p><p style="text-align: justify;">$A^{n+1-n}(B_n-AB_{n-1})=a_1A^{n+1-n}\hspace{1in} \implies AB_n-A^2B_{n-1}=a_1A$</p><p style="text-align: justify;">$-AB_n=a_0I\hspace{3.2in}\implies -AB_n=a_0I$</p><p style="text-align: justify;">If we add both sides then we obtain, $p(A)=0$</p><p style="text-align: center;"><br /></p><p style="text-align: center;"><br /></p>  
+
+## 6. Prove that the spectral radius of the $\textit{Markov}$ matrix is less than or equal to 1  
+
+<p style="text-align: justify;">We need to prove that if $A$ is a Markov matrix then $\rho(A)\le 1$. Now, what is a Markov matrix?</p><p style="text-align: justify;"><b>Markov Matrix: </b>A matrix $A=[a_{i,j}]_{n\times n}$ is called a Markov matrix if $a_{i,j}\ge 0$ for all $1\le i,j \le n$ and $\sum_{j=1}^{n} a_i=1$, that is the sum of the elements in any row is equal to 1.</p><p style="text-align: justify;">Example: If we have a matrix like this, $A=\left(\begin{array}{ccc}0.2 &0.4 &0.4\\0.1 &0.4 &0.5\\0.9 &0.1 &0\end{array}\right)$ then $A$ is a Markov matrix.</p><p style="text-align: justify;"><br /></p><p style="text-align: justify;"><b>Proof: </b>Let $\lambda \in spec(A)$ and $x=\left(\begin{array}{c}x_1\\x_2\\\vdots\\x_n\end{array}\right)\ne 0$ be a column vector. Then we define, 
+$x_h=max\{|x_i|: 1\le i \le n\}$ \& $>0$. Here we are assuming $x_h >0$ because $x\ne 0$, as a result at least one of the coordinate of $x$ must be greater than $0$.</p><p style="text-align: justify;">Now,</p><p style="text-align: justify;">$Ax=\lambda x=\left(\begin{array}{c}\lambda x_1\\ \lambda x_2 \\ \vdots \\ \lambda x_n\end{array}\right)$</p><p style="text-align: justify;">$\implies \lambda x_h =\sum_{j=1}^{n} a_{hj}x_j$</p><p style="text-align: justify;">$\implies |\lambda x_h|=|\lambda |.|x_h|=|\sum_{j=1}^{n} a_{hj}x_j|\le \sum_{j=1}^{n} |a_{hj}| |x_j|$</p><p style="text-align: justify;">$\implies |\lambda |.|x_h| \le (\sum_{j=1}^{n} |a_{hj}|) |x_h|=1. |x_h|$</p><p style="text-align: justify;">$\implies |\lambda| \le 1$</p>  
+
+**Share on**  
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
+ 
+<div class="share-buttons">
+<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/someproofs/"
+data-layout="button_count" data-size="small"><a target="_blank" 
+ href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fsomeproofs%2F&amp;src=sdkpreparse" 
+ class="fb-xfbml-parse-ignore">Share</a></div>
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://mrislambd.github.io/posts/someproofs/"></script> 
+ 
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
+ data-url="https://mrislambd.github.io/posts/someproofs/" data-show-count="true">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<div class="fb-comments" data-href="https://mrislambd.github.io/posts/someproofs/"
+ data-width="" data-numposts="5"></div>
+
+
+  
+**You may also like**

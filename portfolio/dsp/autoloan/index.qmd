@@ -1,0 +1,62 @@
+---
+title: "Auto Loan Decision Model"
+author: "Rafiq Islam"
+date: 2024-11-20
+collection: portfolio
+citation: true
+search: true
+lightbox: true
+image: auto.webp
+---  
+
+<p style="text-align:center">
+  [Report](report.pdf){target="_blank" style="text-decoration:none"} [Presentation](presentation.pdf){target="_blank" style="text-decoration:none"}
+</p>
+
+
+## Objective  
+<p style="text-align: justify">
+The Auto Loan Credit Decisioning Model project aimed to enhance the application decision process for auto loans by leveraging machine learning techniques to classify applicants into approved or rejected categories. The project focused on improving prediction accuracy and ensuring fairness across demographic groups while addressing challenges like class imbalance and missing data.</p>
+
+## Data Overview  
+- **Dataset**: Auto loan account data with 21,000 training records and 5,400 test records.
+- **Features**: 43 columns, including borrower creditworthiness, loan application attributes, and demographics.
+- **Target Variable**: ‘Bad Flag’ (binary), indicating ‘Poor Credit Quality’ (95.5%) or ‘Good Credit Quality’ (4.5%).
+- **Challenges**: Significant class imbalance and high proportion of missing values in several predictors.
+
+## Methodology  
+1. **Exploratory Data Analysis (EDA)**:
+   - Investigated class distributions and correlations with the target variable.
+   - Addressed missing values using mode and median imputations based on feature types.
+   - Analyzed key predictors such as FICO scores, loan-to-value ratios, and credit utilization rates.
+
+2. **Model Development**:
+   - Built models using Logistic Regression, Decision Tree, and Random Forest classifiers.
+   - Conducted hyperparameter tuning via GridSearchCV for optimal model settings.
+   - Addressed class imbalance with resampling techniques like SMOTE.
+
+3. **Evaluation Metrics**:
+   - Prioritized ROC-AUC, F1-Score, and classification reports over accuracy to account for imbalanced data.
+
+## Results  
+- **Best Model**: Random Forest Classifier with an ROC-AUC score of 0.8078.
+- **Performance**:
+  - Test data accuracy: 94.08%
+  - Precision (Class 0): 96.16%
+  - Recall (Class 0): 97.70%
+- **Fairness Analysis**:
+  - Gender-neutral approval rates.
+  - No significant racial bias in decisions.
+
+## Key Insights  
+- FICO scores, loan-to-value ratios, and credit utilization rates were strong predictors of credit quality.
+- Higher class imbalance and overfitting issues were observed with resampling techniques.
+
+## Innovations  
+- Implemented Local Interpretable Model-agnostic Explanations (LIME) for model transparency, allowing stakeholders to understand prediction outcomes.
+
+## Conclusion 
+The Random Forest Classifier demonstrated strong predictive performance and fairness, providing a reliable foundation for auto loan decisioning. Opportunities for further improvements include advanced resampling methods, enhanced feature engineering, and exploring models like XGBoost or LightGBM for better results.
+
+**Keywords**: Auto Loan, Predictive Modeling, Random Forest, Class Imbalance, Machine Learning, LIME.
+

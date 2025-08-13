@@ -1,0 +1,32 @@
+from sklearn.datasets import make_circles
+from mpl_toolkits.mplot3d import Axes3D
+
+# Generate a dataset that is not linearly separable
+X, y = make_circles(n_samples=300, factor=0.3, noise=0.1, random_state=42)
+
+# Plot the original dataset
+fig = plt.figure(figsize=(10, 4))
+ax1 = fig.add_subplot(121)
+ax1.scatter(X[y == 0][:, 0], X[y == 0][:, 1], color='red', label='Class 0')
+ax1.scatter(X[y == 1][:, 0], X[y == 1][:, 1], color='blue', label='Class 1')
+ax1.set_title('Original Data')
+ax1.legend()
+
+# Apply polynomial kernel transformation
+X_transformed = np.hstack((X, (X[:, 0]**2 + X[:, 1]**2).reshape(-1, 1)))
+
+# Plot the transformed dataset in 3D
+ax2 = fig.add_subplot(122, projection='3d')
+ax2.scatter(X_transformed[y == 0][:, 0], X_transformed[y == 0][:, 1], X_transformed[y == 0][:, 2], color='red', label='Class 0')
+ax2.scatter(X_transformed[y == 1][:, 0], X_transformed[y == 1][:, 1], X_transformed[y == 1][:, 2], color='blue', label='Class 1')
+ax2.set_title('2D to 3D transformed')
+ax2.set_xlabel('Feature 1')
+ax2.set_ylabel('Feature 2')
+ax2.set_zlabel('Polynomial Feature')
+ax2.legend()
+
+axes = [ax1, ax2]
+for ax in axes:
+    ax.set_facecolor('#f4f4f4')
+plt.gcf().patch.set_facecolor('#f4f4f4')
+plt.show()

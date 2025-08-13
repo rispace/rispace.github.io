@@ -1,0 +1,14 @@
+---
+title: "Fall 2023: MAP4170 Introduction to Actuarial Mathematics"
+collection: teaching
+type: "Grader"
+permalink: /teaching/2023-fall-teaching
+venue: "Department of Mathematics, Florida State University"
+date: 2023-12-04
+location: "Tallahassee, Florida"
+---  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
+     crossorigin="anonymous"></script>  
+
+Worked as a greader for this course.

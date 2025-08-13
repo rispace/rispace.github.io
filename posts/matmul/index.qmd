@@ -1,0 +1,228 @@
+---
+title: "Matrix multiplication: Let's make it less expensive!"
+date: "2024-07-01"
+author: Rafiq Islam
+categories: [Data Science, Machine Learning, Computational Mathematics, Algorithmic Complexity]
+citation: true
+search: true
+lightbox: true
+image: matmul.jpeg
+listing: 
+    contents: "/../../posts"
+    max-items: 3
+    type: grid
+    categories: false
+    date-format: full
+    fields: [image, date, title, author, reading-time]
+---  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
+     crossorigin="anonymous"></script>
+
+
+Have you ever wondered why your code takes forever to run? Sometimes a simple code may take significant time because of an inefficient implementation approach. Let's take a simple example of matrix multiplication, and explore the time and space complexity, specifically focusing on multiplying matrices where one of the matrices is formed as an outer product of a vector with itself.  
+
+<img src="matmul.jpeg" width=300 height=300>
+
+
+Matrix multiplication is a fundamental operation in many areas such as computer graphics, machine learning, and scientific computing. Given two matrices $\mathbf{A}$ and $\mathbf{B}$, the product $\mathbf{AB}$ or $\mathbf{BA}$ is a new matrix where each element is computed as the dot product of the corresponding row of $\mathbf{A}$ and the column of $\mathbf{B}$ or the other way around.  
+
+Consider the scenario where  $\mathbf{A}$  is an outer product of a column vector $\mathbf{a}$ with itself, i.e.,
+
+$$\begin{align*}
+\mathbf{A}=\mathbf{a} \mathbf{a}^T&=\begin{pmatrix}a_1\\a_2\\\vdots \\a_n\end{pmatrix}\begin{pmatrix}a_1&a_2&\cdots &a_n\end{pmatrix}\\
+&=\begin{pmatrix}
+a_1a_1 & a_1a_2& \cdots &a_1a_n\\
+a_2a_1& a_2a_2&\cdots &a_2a_n\\
+\vdots & \vdots & \ddots & \vdots \\
+a_na_1 & a_na_2 &\cdots& a_na_n\end{pmatrix}\\
+\end{align*}
+$$
+
+Now simply, if $\mathbf{B}$  is another $n\times n$ matrix, then  
+
+$$
+\begin{align*}
+\mathbf{BA}&=\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1n}\\
+b_{21} & b_{22} & \cdots & b_{2n}\\
+\vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{nn}\\
+\end{pmatrix}\begin{pmatrix}
+a_1a_1 & a_1a_2& \cdots &a_1a_n\\
+a_2a_1& a_2a_2&\cdots &a_2a_n\\
+\vdots & \vdots & \ddots & \vdots \\
+a_na_1 & a_na_2 &\cdots& a_na_n\end{pmatrix}
+\end{align*}
+$$  
+
+Let's analyze the complexity of this matrix matrix multiplication.  
+
+**Worst Case:** The worst case scenario would be performing the multiplication naively without exploiting the rank-1 structure. How? When we compute any element in the resultant matrix  $\mathbf{BA}$  or $\mathbf{AB}$ we precisely perform $n$ multiplication and there are total $n^2$ elements to compute for a matrix of $n\times n$. This would result in the standard matrix multiplication time complexity of $O(n^3)$.
+
+$$
+\begin{align*}
+\mathbf{BA}&=\begin{pmatrix}
+b_{11}a_1a_1+\cdots+b_{1n}a_na_1& b_{11}a_1a_2+\cdots+b_{1n}a_na_2 &\cdots &
+b_{11}a_1a_n+\cdots+b_{1n}a_na_n\\
+b_{21}a_1a_1+\cdots+b_{2n}a_na_1&b_{21}a_1a_2+\cdots+b_{2n}a_na_2 &\cdots &
+b_{21}a_1a_n+\cdots+b_{2n}a_na_n\\
+\vdots & \vdots &\ddots & \vdots\\ 
+b_{n1}a_1a_1+\cdots+b_{nn}a_na_1&b_{n1}a_1a_2+\cdots+b_{nn}a_na_2 &\cdots &
+b_{n1}a_1a_n+\cdots+b_{nn}a_na_n\end{pmatrix}
+\end{align*}
+$$
+
+**Best Case:** The best case scenario in terms of time complexity occurs when we exploit the structure of $\mathbf{A}$. Since $\mathbf{A}$  is a rank-1 matrix, we can simplify the multiplication:
+$$
+\begin{align*}
+\mathbf{BA}&=\mathbf{B}\begin{pmatrix}
+a_1a_1 & a_1a_2& \cdots &a_1a_n\\
+a_2a_1& a_2a_2&\cdots &a_2a_n\\
+\vdots & \vdots & \ddots & \vdots \\
+a_na_1 & a_na_2 &\cdots& a_na_n\end{pmatrix}\\
+&\\
+&=\mathbf{B}\begin{pmatrix}a_1 \mathbf{a} & a_2 \mathbf{a} &\cdots a_n \mathbf{a}\end{pmatrix}\\
+&=\begin{pmatrix}a_1 \mathbf{B}\mathbf{a} & a_2 \mathbf{B}\mathbf{a} &\cdots a_n \mathbf{B}\mathbf{a}\end{pmatrix}\\
+&= (\mathbf{Ba}) a^T
+\end{align*}
+$$
+
+We break this algorithm in to two steps.  
+
+Step 1: Since $\mathbf{B}$ is a matrix of $n\times n$ and $\mathbf{a}$ is a matrix of $n\times 1$, therefore  $\mathbf{Ba}$ is a matrix of size $n\times 1$  or just a vector of size $n$. 
+
+$$
+\begin{align*}
+\mathbf{Ba}&=\begin{pmatrix}
+b_{11} & b_{12} & \cdots & b_{1n}\\
+b_{21} & b_{22} & \cdots & b_{2n}\\
+\vdots & \vdots & \ddots & \vdots \\
+b_{n1} & b_{n2} & \cdots & b_{nn}\\
+\end{pmatrix}\begin{pmatrix}a_1\\a_2\\ \vdots \\a_n \end{pmatrix}\\
+&\\
+&=\begin{pmatrix}
+    b_{11}a_1+b_{12}a_2+\cdots b_{1n}a_n\\
+    b_{21}a_1+b_{22}a_2+\cdots b_{2n}a_n\\
+    \vdots\\
+    b_{n1}a_1+b_{n2}a_2+\cdots b_{nn}a_n\\
+\end{pmatrix}
+\end{align*}
+$$
+The matrix $\mathbf{Ba}$ contains $n$ elements where each element takes $n$ multiplications. Thus, computing $\mathbf{Ba}$ takes $O(n^2)$ time.  
+
+Step 2:</i> Next, we compute $(\mathbf{Ba})\mathbf{a}^T$.  
+$$
+\begin{align*}
+(\mathbf{Ba})\mathbf{a}^T&=\begin{pmatrix}ba_1\\ ba_2\\ \vdots\\ ba_n \end{pmatrix}
+\begin{pmatrix}a_{1}& a_{2}& \cdots a_{n} \end{pmatrix}\\
+&\\
+&=\begin{pmatrix}
+(ba_1)a_1 & (ba_1)a_2 &\cdots &(ba_1)a_n\\
+(ba_2)a_1 & (ba_2)a_2 &\cdots &(ba_2)a_n\\ 
+\vdots & \vdots & \ddots & \vdots \\
+(ba_n)a_1 & (ba_n)a_2 &\cdots &(ba_n)a_n\\
+\end{pmatrix}
+\end{align*}
+$$
+Forming the outer product of $\mathbf{Ba}$ and $\mathbf{a}^T$ also takes $O(n^2)$ time. Thus, the best case time complexity is $O(n^2)$.  
+
+Well, how about the other way around? What's the optimal strategy for $\mathbf{AB}$? We can reach similar results in the following way
+$$
+\begin{align*}
+\mathbf{AB}&=(\mathbf{a} \mathbf{a}^T) \mathbf{B} = \mathbf{a} (\mathbf{a}^T \mathbf{B})
+\end{align*}
+$$ 
+
+Here, $\mathbf{a}^T \mathbf{B}$ is a row vector of size $n$. Computing $\mathbf{a}^T \mathbf{B}$ takes $O(n^2)$ time. Then, multiplying the column vector $\mathbf{a}$ by the resulting row vector forms an $n \times n$ matrix, also in $O(n^2)$ time. Thus, the best case time complexity is $O(n^2)$. Note, that $\mathbf{AB}\ne \mathbf{BA}$.
+
+**Comparison:** So, what's the big difference? There is a significant difference in two algorithms. In the first algorithm the time complexity is $O(n^3)$ where as in the second algorithm the time complexity is $O(n^2)+O(n^2)$ or $2O(n^2)$ or just $C\hspace{1mm} O(n^2)$. For example, if $n=500$ then the first algorithm requires 125 million multiplications and the second one just takes 500,000 multiplications which is 250 times faster.  
+
+Understanding the structure of the matrices involved in multiplication can significantly optimize the performance of our code. By exploiting the rank-1 structure of the outer product matrix $\mathbf{a} = \mathbf{a} \mathbf{a}^T$, we can reduce the time complexity from $O(n^3)$ to $O(n^2)$ in the best case scenario. This optimization can lead to considerable performance improvements, especially for large matrices.  
+
+**Space Complexity:** Regardless of the case, the space complexity remains $O(n^2)$ since we need to store the resulting $n \times n$ matrix $\mathbf{BA}$.  
+
+**Python Code:**
+
+```python
+import numpy as np
+import time
+
+# Function to perform naive matrix multiplication
+def naive_multiplication(B, a):
+    n = len(a)
+    A = np.outer(a, a)
+    result = np.zeros((n, n))
+    for i in range(n):
+        for j in range(n):
+            result[i, j] = sum(B[i, k] * A[k, j] for k in range(n))
+    return result
+
+# Function to perform optimized matrix multiplication (exploiting rank-1 structure)
+def optimized_multiplication(B, a):
+    Ba = np.dot(B, a)
+    result = np.outer(Ba, a)
+    return result
+
+# Generate random vector a and matrix B
+n = 500  # Size of the matrix and vector
+a = np.random.rand(n)
+B = np.random.rand(n, n)
+
+# Measure time for naive multiplication
+start_time = time.time()
+naive_result = naive_multiplication(B, a)
+naive_duration = time.time() - start_time
+
+# Measure time for optimized multiplication
+start_time = time.time()
+optimized_result = optimized_multiplication(B, a)
+optimized_duration = time.time() - start_time
+
+print(f"Naive Multiplication Time: {naive_duration:.6f} seconds")
+print(f"Optimized Multiplication Time: {optimized_duration:.6f} seconds")
+```  
+
+## Output
+
+```python
+Naive Multiplication Time: 27.198208 seconds
+Optimized Multiplication Time: 0.001841 seconds
+```  
+
+What about when $\mathbf{A}$ is not given as $\mathbf{A}=\mathbf{aa}^T$ (i.e., it's not a rank-1 matrix)? We simply cannot exploit the same optimization based on the outer product. In this case, we have to use the general matrix multiplication approach, which typically has a time complexity of $O(n^3)$ for naive multiplication. However, there are optimized algorithms that can reduce the time complexity: 
+
+1. Strassen's Algorithm: Reduces the time complexity to approximately $O(n^{2.81})$  
+2. Coppersmith-Winograd Algorithm: Further reduces the time complexity to approximately $O(n^{2.376})$  
+3. Parallel Algorithms: Use parallel computing techniques to perform matrix multiplication more efficiently.  
+
+May be some other day we can talk about these algorithms.  
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0" nonce="6uoW7pC8"></script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0" nonce="xi3MqdlY"></script>  
+
+**Share on**  
+
+<div class="share-buttons">
+ <div class="fb-share-button" data-href="https://mrislambd.github.io/posts/matmul/" data-layout="button_count"       data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fmatmul%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>  
+ 
+ <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>  
+ <script type="IN/Share" data-url="https://mrislambd.github.io/posts/matmul/"></script>  
+ 
+ <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://mrislambd.github.io/posts/matmul/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+
+<div class="fb-comments" data-href="https://mrislambd.github.io/posts/matmul/" data-width="650" data-numposts="5"></div>  
+
+
+
+**You may also like**
+
+
+
+
