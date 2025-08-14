@@ -3,8 +3,9 @@ listing:
   - id: ds-projects
     contents: "/portfolio/dsp"
     type: grid
-    grid-columns: 2
-    grid-item-align: center
+    sort: "date desc"
+    date-format: full
+    fields: [image, date, title]
     sort-ui: true
     feed: true
     
