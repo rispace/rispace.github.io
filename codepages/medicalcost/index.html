@@ -497,7 +497,7 @@ window.Quarto = {
 <h1>Data Gathering, Defining Stakeholders and KPIs</h1>
 <section id="data-loading" class="level2">
 <h2 class="anchored" data-anchor-id="data-loading">Data Loading</h2>
-<div id="aeb22adb" class="cell" data-execution_count="1">
+<div id="a7cc9602" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>insurance <span class="op">=</span> pd.read_csv(<span class="st">'insurance.csv'</span>)</span>
@@ -582,7 +582,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h2>
 <section id="data-information" class="level3">
 <h3 class="anchored" data-anchor-id="data-information">Data Information</h3>
-<div id="8cc6befb" class="cell" data-execution_count="2">
+<div id="78fe82dd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>insurance.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -606,7 +606,7 @@ memory usage: 73.3+ KB</code></pre>
 <section id="data-description" class="level3">
 <h3 class="anchored" data-anchor-id="data-description">Data Description</h3>
 <p>Statistical properties of the non-categorical variables</p>
-<div id="10e14e26" class="cell" data-execution_count="3">
+<div id="7cd6e207" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(insurance.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               age          bmi     children       charges
@@ -625,7 +625,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 <h3 class="anchored" data-anchor-id="data-visualization">Data visualization</h3>
 <section id="distribution-of-the-features-and-target" class="level4">
 <h4 class="anchored" data-anchor-id="distribution-of-the-features-and-target">Distribution of the features and target</h4>
-<div id="a0394b45" class="cell" data-execution_count="4">
+<div id="16e7e127" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -651,7 +651,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </section>
 <section id="relationship-of-the-features-and-target" class="level4">
 <h4 class="anchored" data-anchor-id="relationship-of-the-features-and-target">Relationship of the features and target</h4>
-<div id="064996ad" class="cell" data-execution_count="5">
+<div id="563a933c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">9.5</span>,<span class="dv">4</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>sns.stripplot(data<span class="op">=</span>insurance, x<span class="op">=</span><span class="st">'smoker'</span>, y<span class="op">=</span><span class="st">'charges'</span>, hue<span class="op">=</span><span class="st">'smoker'</span> ,palette<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'orange'</span>], legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>g.set_yticklabels([<span class="st">'0k'</span>,<span class="st">'10k'</span>,<span class="st">'20k'</span>,<span class="st">'30k'</span>,<span class="st">'40k'</span>,<span class="st">'50k'</span>,<span class="st">'60k'</span>,<span class="st">'65k'</span>])</span>
@@ -685,7 +685,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </div>
 </div>
 <p>Clearly from the plots above we can see that the somoking status has effect on the insurance charges in relation with bmi</p>
-<div id="d0a790f8" class="cell" data-execution_count="6">
+<div id="680b29d6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="fl">9.5</span>,<span class="dv">4</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>g1<span class="op">=</span>sns.stripplot(x<span class="op">=</span><span class="st">'region'</span>, y<span class="op">=</span><span class="st">'charges'</span>, data<span class="op">=</span>insurance, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
@@ -705,7 +705,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </div>
 </div>
 </div>
-<div id="eabc50dd" class="cell" data-execution_count="7">
+<div id="466dd0bc" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>g1<span class="op">=</span>sns.stripplot(x<span class="op">=</span><span class="st">'children'</span>, y<span class="op">=</span><span class="st">'charges'</span>,data<span class="op">=</span>insurance,hue<span class="op">=</span><span class="st">'children'</span>,palette<span class="op">=</span><span class="st">'Set1'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
@@ -726,7 +726,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </div>
 </div>
 <p>To see the combined effect of all the features</p>
-<div id="58c237e8" class="cell" data-execution_count="8">
+<div id="99c9eafc" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(insurance, col<span class="op">=</span><span class="st">'smoker'</span>, row<span class="op">=</span><span class="st">'sex'</span>,hue<span class="op">=</span><span class="st">'region'</span>, margin_titles<span class="op">=</span><span class="va">True</span>, height<span class="op">=</span><span class="fl">2.4</span>, aspect<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.scatterplot, <span class="st">'age'</span>,<span class="st">'charges'</span>)</span>
@@ -755,7 +755,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 <h3 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h3>
 <section id="contineous-features" class="level4">
 <h4 class="anchored" data-anchor-id="contineous-features">Contineous Features</h4>
-<div id="83bea8ed" class="cell" data-execution_count="9">
+<div id="ac76d992" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> insurance[[<span class="st">'age'</span>,<span class="st">'bmi'</span>,<span class="st">'charges'</span>]].corr()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -774,7 +774,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </section>
 <section id="categorical-features" class="level4">
 <h4 class="anchored" data-anchor-id="categorical-features">Categorical Features</h4>
-<div id="41ee7d0b" class="cell" data-execution_count="10">
+<div id="583736e6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>anova_sex, p_value1 <span class="op">=</span> st.f_oneway(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    insurance[insurance[<span class="st">'sex'</span>]<span class="op">==</span><span class="st">'male'</span>][<span class="st">'charges'</span>],</span>
@@ -829,7 +829,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 <h2 class="anchored" data-anchor-id="pre-processing">Pre-processing</h2>
 <section id="data-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h3>
-<div id="8dd8a43a" class="cell" data-execution_count="11">
+<div id="cc28a03c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binary Encoding for the variables with two categories</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -863,54 +863,54 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">685</td>
-<td>53</td>
-<td>26.410</td>
+<td data-quarto-table-cell-role="th">902</td>
+<td>26</td>
+<td>27.265</td>
 <td>1</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>11244.38</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1082</td>
-<td>38</td>
-<td>19.950</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>5855.90</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">619</td>
-<td>55</td>
-<td>37.100</td>
-<td>0</td>
-<td>0</td>
 <td>0</td>
 <td>3</td>
-<td>10713.64</td>
+<td>0</td>
+<td>4661.29</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">133</td>
-<td>19</td>
-<td>25.555</td>
+<td data-quarto-table-cell-role="th">689</td>
+<td>27</td>
+<td>31.130</td>
 <td>1</td>
-<td>0</td>
-<td>0</td>
 <td>1</td>
-<td>1632.56</td>
+<td>1</td>
+<td>2</td>
+<td>34806.47</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">962</td>
-<td>63</td>
-<td>35.200</td>
-<td>0</td>
+<td data-quarto-table-cell-role="th">380</td>
+<td>27</td>
+<td>17.955</td>
 <td>0</td>
 <td>1</td>
 <td>2</td>
-<td>14474.68</td>
+<td>0</td>
+<td>15006.58</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">671</td>
+<td>29</td>
+<td>31.160</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3943.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">518</td>
+<td>35</td>
+<td>31.000</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>5240.77</td>
 </tr>
 </tbody>
 </table>
@@ -921,7 +921,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 </section>
 <section id="check-for-multicollinearity" class="level3">
 <h3 class="anchored" data-anchor-id="check-for-multicollinearity">Check for Multicollinearity</h3>
-<div id="859d4f4e" class="cell" data-execution_count="12">
+<div id="d8b77d05" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.outliers_influence <span class="im">import</span> variance_inflation_factor</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> insurance.drop(<span class="st">'charges'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
@@ -945,7 +945,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 <h3 class="anchored" data-anchor-id="feature-engineering">Feature Engineering</h3>
 <section id="interaction-term" class="level4">
 <h4 class="anchored" data-anchor-id="interaction-term">Interaction term</h4>
-<div id="6140cab6" class="cell" data-execution_count="13">
+<div id="eb3ab7b3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(insurance.age,insurance.bmi)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'AGE'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'BMI'</span>)</span>
@@ -964,7 +964,7 @@ max      64.000000    53.130000     5.000000  63770.428010</code></pre>
 <p style="text-align: justify">
 Since there is no clear linear relationship or any pattern, the Multicollinearity issue can be ignored. However, older individuals with a certain BMI range might have different risks or costs associated with their health. We could explore interaction terms like <code>age</code> * <code>bmi</code> in our model to capture any potential synergistic effects.
 </p>
-<div id="e52fb195" class="cell" data-execution_count="14">
+<div id="0339506f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>insurance.insert(<span class="dv">6</span>,<span class="st">'age_bmi'</span>,insurance.age<span class="op">*</span>insurance.bmi)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>insurance.insert(<span class="dv">7</span>,<span class="st">'age_bmi_smoke'</span>,insurance.age_bmi<span class="op">*</span>insurance.smoke)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>insurance.sample(<span class="dv">5</span>,random_state<span class="op">=</span><span class="dv">111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1058,7 +1058,7 @@ Since there is no clear linear relationship or any pattern, the Multicollinearit
 </section>
 <section id="data-splitting" class="level3">
 <h3 class="anchored" data-anchor-id="data-splitting">Data Splitting</h3>
-<div id="c21b3b4e" class="cell" data-execution_count="15">
+<div id="c22f84fe" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> insurance.drop(<span class="st">'charges'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> insurance[<span class="st">'charges'</span>].to_frame()</span>
@@ -1069,7 +1069,7 @@ Since there is no clear linear relationship or any pattern, the Multicollinearit
 </section>
 <section id="standardization" class="level3">
 <h3 class="anchored" data-anchor-id="standardization">Standardization</h3>
-<div id="05bc3905" class="cell" data-execution_count="16">
+<div id="19c9aa6d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1105,7 +1105,7 @@ Since there is no clear linear relationship or any pattern, the Multicollinearit
 <li><p><strong>K-Neighbor Regression</strong><br>
 <span class="math inline">\(k\)</span>NN using all the original feature</p></li>
 </ol>
-<div id="575bc088" class="cell" data-execution_count="17">
+<div id="84e172d8" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
@@ -1160,7 +1160,7 @@ Since there is no clear linear relationship or any pattern, the Multicollinearit
 </div>
 </div>
 </div>
-<div id="3f96daf6" class="cell" data-execution_count="18">
+<div id="c984bcec" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.mean(np.sqrt(mses),axis<span class="op">=</span><span class="dv">1</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Minimum RMSE=</span><span class="sc">{}</span><span class="st"> </span><span class="ch">\n</span><span class="st"> Model </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="bu">min</span>(np.mean(np.sqrt(mses),axis<span class="op">=</span><span class="dv">1</span>)),np.argmin(np.mean(np.sqrt(mses),axis<span class="op">=</span><span class="dv">1</span>))) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1175,7 +1175,7 @@ Minimum RMSE=5938.572755308773
 </section>
 <section id="final-model" class="level2">
 <h2 class="anchored" data-anchor-id="final-model">Final Model</h2>
-<div id="f6b98aaa" class="cell" data-execution_count="19">
+<div id="0e1377ee" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.base <span class="im">import</span> BaseEstimator, TransformerMixin</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
@@ -1252,7 +1252,7 @@ Minimum RMSE=5938.572755308773
 <h2 class="anchored" data-anchor-id="model-validation">Model Validation</h2>
 <section id="root-mean-squared-error-rmse" class="level3">
 <h3 class="anchored" data-anchor-id="root-mean-squared-error-rmse">Root Mean Squared Error (RMSE)</h3>
-<div id="7f0ae3d5" class="cell" data-execution_count="20">
+<div id="f630a006" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>train_prediction <span class="op">=</span> pipe.predict(X_train)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>test_prediction <span class="op">=</span> pipe.predict(X_test)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1270,7 +1270,7 @@ Test set RMSE: 5600.0</code></pre>
 </section>
 <section id="r-squared-r2" class="level3">
 <h3 class="anchored" data-anchor-id="r-squared-r2">R-Squared (<span class="math inline">\(R^2\)</span>)</h3>
-<div id="8f79efc5" class="cell" data-execution_count="21">
+<div id="516f9bff" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> r2_score</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> pipe.predict(X_test)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
@@ -1282,7 +1282,7 @@ Test set RMSE: 5600.0</code></pre>
 </section>
 <section id="residuals" class="level3">
 <h3 class="anchored" data-anchor-id="residuals">Residuals</h3>
-<div id="a769cc00" class="cell" data-execution_count="22">
+<div id="823fdeca" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_pred, res)</span>
@@ -1301,7 +1301,7 @@ Test set RMSE: 5600.0</code></pre>
 </div>
 </div>
 </div>
-<div id="684312df" class="cell" data-execution_count="23">
+<div id="5c73103a" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sns.displot(res,kind<span class="op">=</span><span class="st">'kde'</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>plt.gca().set_facecolor(<span class="st">'#f4f4f4'</span>) </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>plt.gcf().patch.set_facecolor(<span class="st">'#f4f4f4'</span>)</span>
@@ -1319,7 +1319,7 @@ Test set RMSE: 5600.0</code></pre>
 </section>
 <section id="development-and-deployment" class="level1">
 <h1>Development and Deployment</h1>
-<div id="a50a0572" class="cell" data-execution_count="24">
+<div id="db912b6b" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>pickle.dump(pipe, <span class="bu">open</span>(<span class="st">'regmodel.pkl'</span>,<span class="st">'wb'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

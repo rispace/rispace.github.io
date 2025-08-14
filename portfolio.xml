@@ -10,7 +10,63 @@
 <atom:link href="https://rispace.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
-<lastBuildDate>Sun, 04 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 14 Aug 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Python Package: holmc</title>
+  <dc:creator>Rafiq Islam</dc:creator>
+  <link>https://rispace.github.io/portfolio/spd/holmc/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<p><a href="holmc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://rispace.github.io/portfolio/spd/holmc/holmc.png" width="250" height="250"></a></p>
+<p>A Higher-Order Langevin Monte Carlo Sampler for Bayesian Learning</p>
+<p>Holmc provides third- and fourth-order Langevin MCMC samplers designed for efficient sampling in Bayesian regression and classification problems. The detail of the package can be found <a href="https://rispace.github.io/higher-order-Langevin-dynamics/" target="_blank">here</a></p>
+<p><strong>Share on</strong></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1877F2; text-decoration: none;">
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1877F2; text-decoration: none;"><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i> </a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#0077B5; text-decoration: none;">
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#0077B5; text-decoration: none;"><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i> </a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://rispace.github.io/portfolio/spd/holmc/" target="_blank" style="color:#1DA1F2; text-decoration: none;"><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i> </a></p>
+</div>
+</div>
+<script src="https://giscus.app/client.js" data-repo="rispace/rispace.github.io" data-repo-id="R_kgDOPdB7AQ" data-category="Ideas" data-category-id="DIC_kwDOPdB7Ac4CuMVL" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<div id="fb-root">
+
+</div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
+<div class="fb-comments" data-href="https://rispace.github.io/portfolio/spd/holmc/" data-width="750" data-numposts="5">
+
+</div>
+
+
+<!-- -->
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{islam2025,
+  author = {Islam, Rafiq},
+  title = {Python {Package:} Holmc},
+  date = {2025-08-14},
+  url = {https://rispace.github.io/portfolio/spd/holmc/},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2025" class="csl-entry quarto-appendix-citeas">
+Islam, Rafiq. 2025. <span>“Python Package: Holmc.”</span> August 14,
+2025. <a href="https://rispace.github.io/portfolio/spd/holmc/">https://rispace.github.io/portfolio/spd/holmc/</a>.
+</div></div></section></div> ]]></description>
+  <guid>https://rispace.github.io/portfolio/spd/holmc/</guid>
+  <pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://rispace.github.io/portfolio/spd/holmc/holmc.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
 <item>
   <title>Spring 2025: MAC2311 Calculus With Analytic Geometry I</title>
   <link>https://rispace.github.io/teaching/sp25.html</link>
