@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,18 +71,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-03325b20210ee815536666ba4a3739ba.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ae1bb5360fe300377eee8a19330887f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-1a59b09419522dbebee53c6a2974832a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ae1bb5360fe300377eee8a19330887f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-18417ff060fd5ece5955af48b7eac42d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-d95d693f80be24294e4cc401574ebfbb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-18417ff060fd5ece5955af48b7eac42d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -139,14 +140,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   })
   </script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z5NP67GHFC"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J42B20L4ER"></script>
 
 <script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-Z5NP67GHFC', { 'anonymize_ip': true});
+gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
@@ -165,7 +166,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -362,7 +363,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../posts/bengalitrial/index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
+    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo light-content">
+    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../posts/bengalitrial/index.html">
     <span class="navbar-title">Mohammad Rafiqul Islam</span>
@@ -501,7 +503,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1755210077888" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1762151377725" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <a href="../../banglablog/welcomepost/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -518,7 +520,7 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1755210402239">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1762151579345">
 <a href="../../banglablog/welcomepost/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -598,13 +600,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -997,7 +1000,7 @@ window.Quarto = {
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> বাংলা ভাষায় আমার লেখা || My Blog in Benglali Language </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> মোহাম্মদ রকিবুল ইসলাম </span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-10-23</span></span>
@@ -1015,13 +1018,13 @@ window.Quarto = {
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## আপনাকে স্বাগতম   </span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>"বাংলায় ব্লগিং করতে পারলে ভালই হতো" এমন ভাবনা থেকেই ঘাটাঘটি শুরু করলাম কিভাবে নিজের ব্লগে বাংলায় লিখতে পারি। বাংলায় মনের ভাব প্রকাশের অসংখ্য মাধ্যম রয়েছে। সামাজিক যোগাযোগের মাধ্যম, পত্রিকা, কিংবা অন্যান্য প্রতিষ্ঠিত ব্লগ। কিন্তু নিজের ব্লগে নিজে বাংলায় লিখতে পারবো কিনা তা নিয়ে একটু সংশয় ছিল কারিগরি দিকটা নিয়ে। কোয়ার্তো দিয়ে আমার এই ব্লগ সাইট বানানো। তাই কোয়ার্তোর ওয়েবসাইট ঘাঁটতে ঘাঁটতে আজ পেয়ে গেলাম কিভাবে ইউনিকোড দিয়ে লিখা যায়। এখন থেকে মাঝে মধ্যেই এখানে বাংলায় পোষ্ট করবো। দেখা যাক। <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>"বাংলায় ব্লগিং করতে পারলে ভালই হতো" এমন ভাবনা থেকেই ঘাটাঘটি শুরু করলাম কিভাবে নিজের ব্লগে বাংলায় লিখতে পারি। বাংলায় মনের ভাব প্রকাশের অসংখ্য মাধ্যম রয়েছে। সামাজিক যোগাযোগের মাধ্যম, পত্রিকা, কিংবা অন্যান্য প্রতিষ্ঠিত ব্লগ। কিন্তু নিজের ব্লগে নিজে বাংলায় লিখতে পারবো কিনা তা নিয়ে একটু সংশয় ছিল কারিগরি দিকটা নিয়ে। কোয়ার্তো দিয়ে আমার এই ব্লগ সাইট বানানো। তাই কোয়ার্তোর ওয়েবসাইট ঘাঁটতে ঘাঁটতে আজ পেয়ে গেলাম কিভাবে ইউনিকোড দিয়ে লিখা যায়। এখন থেকে মাঝে মধ্যেই এখানে বাংলায় পোষ্ট করবো। দেখা যাক। <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.7.33</p>
+<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.8.25</p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
