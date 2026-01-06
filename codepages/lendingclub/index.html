@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,9 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-f8de076aeb9658a6c96d343f1d6c5546.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f8de076aeb9658a6c96d343f1d6c5546.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-f8de076aeb9658a6c96d343f1d6c5546.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-41d496c310c9ff203d706f2225c5f6ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -500,7 +500,7 @@ window.Quarto = {
 </section>
 <section id="primary-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="primary-libraries">Primary Libraries</h2>
-<div id="dbce5ada" class="cell" data-execution_count="1">
+<div id="a0ebbf35" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mywebstyle <span class="im">import</span> plot_style</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -621,7 +621,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="48aafb59" class="cell" data-execution_count="2">
+<div id="a0cfe02f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>second_13_cols <span class="op">=</span> loandata.iloc[:, <span class="dv">13</span>:]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>second_13_cols.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -745,7 +745,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
-<div id="4137448f" class="cell" data-execution_count="3">
+<div id="0110a828" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>loandata.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -784,7 +784,7 @@ dtypes: float64(7), int64(5), object(15)
 memory usage: 81.6+ MB</code></pre>
 </div>
 </div>
-<div id="a9a45381" class="cell" data-execution_count="4">
+<div id="03c713b0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(loandata.isnull(), yticklabels<span class="op">=</span><span class="va">False</span>, cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -797,7 +797,7 @@ memory usage: 81.6+ MB</code></pre>
 <p style="text-align: justify">
 Seems like there are some missing data in the <code>emp_length</code>, <code>emp_title</code>, and <code>mort_acc</code> columns. Around 4.62<span class="math inline">\(\%\)</span> missing data in <code>emp_length</code> column, 5.79<span class="math inline">\(\%\)</span> missing data in <code>emp_title</code> column, and 9.54<span class="math inline">\(\%\)</span> in the <code>mort_acc</code> coulumn. Also, there is very small proportion, 0.07<span class="math inline">\(\%\)</span> of missing data in the <code>revol_util</code> column. <br> <br> We need to take care of this missing observations. We may drop the missing values if it is insignificantly missing or doesn’t seem to be very strongly related to the predictive/dependent variable.
 </p>
-<div id="415a8d73" class="cell" data-execution_count="6">
+<div id="2d976e1e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>loandata.describe().T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -962,7 +962,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <section id="loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="loan-status">Loan Status</h4>
 <p>First, let’s look at the class balance in the dependent variable</p>
-<div id="b803331c" class="cell" data-execution_count="7">
+<div id="17740253" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'loan_status'</span>, data<span class="op">=</span>loandata)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> np.<span class="bu">round</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">len</span>(loandata[loandata[<span class="st">'loan_status'</span>] <span class="op">==</span> <span class="st">'Fully Paid'</span>])<span class="op">/</span><span class="bu">len</span>(loandata)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span></span>
@@ -988,7 +988,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <section id="loan-amount-and-installment-interaction-with-loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="loan-amount-and-installment-interaction-with-loan-status">Loan Amount and Installment Interaction With Loan Status</h4>
 <p>Next, let’s see how the features interacts with the dependent variable</p>
-<div id="b37309eb" class="cell" data-execution_count="8">
+<div id="eda1f674" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>loandata[loandata[<span class="st">'loan_status'</span>] <span class="op">==</span> <span class="st">'Charged Off'</span>][<span class="st">'loan_amnt'</span>].hist(</span>
@@ -1024,7 +1024,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </div>
 </div>
 <p>Both the <code>loan_amnt</code> and <code>installment</code> are slightly positively skewed. How about their mean, upper quartile, lower quartile based on <code>loan_status</code>?</p>
-<div id="2f38f1a8" class="cell" data-execution_count="9">
+<div id="9945ccd0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">8.8</span>, <span class="dv">4</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
@@ -1054,7 +1054,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="term-grade-and-sub-grade-interaction-with-loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="term-grade-and-sub-grade-interaction-with-loan-status">Term, Grade, and Sub-grade Interaction With Loan Status</h4>
-<div id="5dda0da4" class="cell" data-execution_count="10">
+<div id="637b8b11" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">8.8</span>, <span class="dv">4</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
@@ -1076,7 +1076,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </div>
 </div>
 </div>
-<div id="ebe287f4" class="cell" data-execution_count="11">
+<div id="64aac670" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">'sub_grade'</span>, hue<span class="op">=</span><span class="st">'loan_status'</span>, data<span class="op">=</span>loandata, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1090,7 +1090,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="employment-title-and-employment-length" class="level4">
 <h4 class="anchored" data-anchor-id="employment-title-and-employment-length">Employment Title and Employment Length</h4>
-<div id="980645d9" class="cell" data-execution_count="12">
+<div id="7bdff5d6" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'emp_title'</span>] <span class="op">=</span> loandata[<span class="st">'emp_title'</span>].<span class="bu">str</span>.lower()</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>loandata.emp_title.value_counts()[:<span class="dv">25</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -1110,8 +1110,8 @@ truck driver                1288
 director                    1192
 engineer                    1187
 police officer              1041
-sales manager                961
 vice president               961
+sales manager                961
 operations manager           960
 store manager                941
 president                    877
@@ -1124,7 +1124,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Let’s work with the employment length column</p>
-<div id="6e3a9375" class="cell" data-execution_count="13">
+<div id="4e563e18" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'emp_length'</span>] <span class="op">=</span> loandata[<span class="st">'emp_length'</span>].replace({</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'&lt; 1 year'</span>: <span class="dv">0</span>,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'1 year'</span>: <span class="dv">1</span>,</span>
@@ -1154,7 +1154,7 @@ Name: count, dtype: int64</code></pre>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    stat<span class="op">=</span><span class="st">'count'</span></span>
 <span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3549/3832649202.py:1: FutureWarning:
+<pre><code>/tmp/ipykernel_3651/3832649202.py:1: FutureWarning:
 
 Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
 </code></pre>
@@ -1173,7 +1173,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="home-ownership-and-annual-income" class="level4">
 <h4 class="anchored" data-anchor-id="home-ownership-and-annual-income">Home Ownership and Annual Income</h4>
-<div id="f515a870" class="cell" data-execution_count="14">
+<div id="d51ddfc5" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">10</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">211</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
@@ -1202,7 +1202,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="issue-date-and-verification-status" class="level4">
 <h4 class="anchored" data-anchor-id="issue-date-and-verification-status">Issue Date and Verification Status</h4>
-<div id="a07634b1" class="cell" data-execution_count="15">
+<div id="ce208d63" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'issue_d'</span>] <span class="op">=</span> pd.to_datetime(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    loandata[<span class="st">'issue_d'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%b-%y'</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1239,7 +1239,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="purpose-and-debt-to-income-ratio" class="level4">
 <h4 class="anchored" data-anchor-id="purpose-and-debt-to-income-ratio">Purpose and Debt-to-Income Ratio</h4>
-<div id="f970803e" class="cell" data-execution_count="16">
+<div id="f701287c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'purpose'</span>].value_counts()</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">4</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
@@ -1276,7 +1276,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="number-of-credit-accounts-and-number-of-public-records" class="level4">
 <h4 class="anchored" data-anchor-id="number-of-credit-accounts-and-number-of-public-records">Number of Credit Accounts and Number of Public Records</h4>
-<div id="aff69be0" class="cell" data-execution_count="17">
+<div id="f1855e61" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>filtered_open_account_threshold <span class="op">=</span> loandata[<span class="st">'open_acc'</span>].quantile(<span class="fl">0.98</span>)</span>
@@ -1316,7 +1316,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </div>
 </div>
 </div>
-<div id="c74dff1f" class="cell" data-execution_count="18">
+<div id="f2b3bd0d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'open_acc'</span>, x<span class="op">=</span><span class="st">'loan_status'</span>,</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'loan_status'</span>,</span>
@@ -1336,7 +1336,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="revolving-balance-and-utilization" class="level4">
 <h4 class="anchored" data-anchor-id="revolving-balance-and-utilization">Revolving Balance and Utilization</h4>
-<div id="0727baf2" class="cell" data-execution_count="19">
+<div id="ff5a1d4d" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">4</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>revol_bal_threshold <span class="op">=</span> loandata[<span class="st">'revol_bal'</span>].quantile(<span class="fl">0.95</span>)</span>
@@ -1378,7 +1378,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="total-account-and-initial-list-status" class="level4">
 <h4 class="anchored" data-anchor-id="total-account-and-initial-list-status">Total Account and Initial List Status</h4>
-<div id="5441de08" class="cell" data-execution_count="20">
+<div id="d91578ce" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>filtered_total_account_threshold <span class="op">=</span> loandata[<span class="st">'total_acc'</span>].quantile(<span class="fl">0.95</span>)</span>
@@ -1414,7 +1414,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </div>
 </div>
 <p>next,</p>
-<div id="d7bdf00e" class="cell" data-execution_count="21">
+<div id="c21aad66" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'total_acc'</span>, x<span class="op">=</span><span class="st">'loan_status'</span>,</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'loan_status'</span>,</span>
@@ -1434,7 +1434,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="number-of-mortgage-account-and-number-of-public-record-of-bankruptcies" class="level4">
 <h4 class="anchored" data-anchor-id="number-of-mortgage-account-and-number-of-public-record-of-bankruptcies">Number of Mortgage Account and Number of Public Record of Bankruptcies</h4>
-<div id="fcbca842" class="cell" data-execution_count="22">
+<div id="ffe6c6b3" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">4</span>))</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
@@ -1492,7 +1492,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </section>
 <section id="application-type" class="level4">
 <h4 class="anchored" data-anchor-id="application-type">Application Type</h4>
-<div id="a7dc8a9b" class="cell" data-execution_count="23">
+<div id="49581dad" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'loan_status'</span>, hue<span class="op">=</span> <span class="st">'application_type'</span>, </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>loandata, palette<span class="op">=</span><span class="st">'winter'</span></span>
@@ -1507,7 +1507,7 @@ Downcasting behavior in `replace` is deprecated and will be removed in a future 
 </div>
 <p>We see only the individual type applications have impact on loans being charged off.</p>
 <p>Now that we have analyzed all the features, how about the correlations among the features?</p>
-<div id="fca3763d" class="cell" data-execution_count="24">
+<div id="c8952f2d" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>numeric_loandata <span class="op">=</span> loandata.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>,<span class="st">'int64'</span>])</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(numeric_loandata.corr(), annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
@@ -2515,7 +2515,7 @@ Prediction.”</span> February 23, 2023. <a href="https://rispace.github.io/code
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.8.25</p>
+<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.8.26</p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
