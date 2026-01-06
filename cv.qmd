@@ -7,7 +7,7 @@ published-title: CV last updated
 
 ```{=html}
 <div class="text-center">
-    <a class="cv-download" href="/_assets/documents/CV.pdf" target="_blank">
+    <a class="cv-download" href="/_assets/documents/cv.pdf" target="_blank">
         Download a PDF
     </a>
 </div>
@@ -28,7 +28,7 @@ published-title: CV last updated
 * Graduate Teaching Assistant (Fall 2021- To Date)
   * Florida State University
   * Duties includes: Teaching, Proctoring, and Grading
-  * Supervisor: Penelope Kirby, Ph.D
+  * Teaching Supervisor: Penelope Kirby, Ph.D
 
 * Graduate Teaching Assistant (Fall 2018 - Spring 2020)
   * Youngstown State University University
@@ -56,6 +56,9 @@ published-title: CV last updated
 * Musical Instrument: Amateur/Novice Bamboo flute player
 
 ## Publications
+
+- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
+  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*
 
 - <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
   Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *arXiv preprint arXiv.2412.01993*  

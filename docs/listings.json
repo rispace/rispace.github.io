@@ -538,6 +538,7 @@
   {
     "listing": "/research.html",
     "items": [
+      "/research/dpsgld/index.html",
       "/research/holmc/index.html",
       "/research/rulmc/index.html",
       "/research/extrasgld/index.html",
@@ -559,6 +560,8 @@
       "/portfolio/spd/holmc/index.html",
       "/portfolio/spd/webapp/index.html",
       "/portfolio/spd/desgld/index.html",
+      "/teaching/sp26.html",
+      "/teaching/fall25.html",
       "/teaching/sp25.html",
       "/teaching/sp24.html",
       "/teaching/fall23.html",

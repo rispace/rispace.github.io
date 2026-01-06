@@ -20,12 +20,17 @@ listing:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>  
 
+
+
 ## Current Research  
 
 ::: {#phdrs}
 :::
 
-## Publications
+## Publications  
+
+- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
+  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*
 
 - <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
   Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *arXiv preprint arXiv.2412.01993*

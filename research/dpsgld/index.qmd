@@ -1,0 +1,15 @@
+---
+title: "Decentralized Proximal Stochastic Gradient Langevin Dynamics" 
+categories: [Bayesian Inference, Sampling, MCMC, Theoretical Machine Learning]
+author: 
+  - Mohammad Rafiqul Islam 
+  - Mert Gurbuzbalaban
+  - Lingjiong Zhu
+date: "01/06/2026"
+image: 1dsampling_density_compare.png
+citation: true
+---  
+
+Ongoing research. The details will be available soon.  
+
+<img src="1dsampling_density_compare.png" style="max-width: 100%; height: auto;">  
