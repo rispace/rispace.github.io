@@ -7,7 +7,7 @@ published-title: CV last updated
 
 ```{=html}
 <div class="text-center">
-    <a class="cv-download" href="/_assets/documents/cv.pdf" target="_blank">
+    <a class="cv-download" href="/_assets/documents/CV.pdf" target="_blank">
         Download a PDF
     </a>
 </div>
