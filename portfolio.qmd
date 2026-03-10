@@ -2,7 +2,7 @@
 listing: 
   - id: ds-projects
     contents: "/portfolio/dsp"
-    type: grid
+    type: table
     sort: "date desc"
     date-format: full
     fields: [image, date, title]
@@ -11,7 +11,7 @@ listing:
     
   - id: spd-projects
     contents: "/portfolio/spd"
-    type: grid
+    type: table
     sort: "date desc"
     date-format: full
     fields: [image, date, title]
@@ -28,20 +28,6 @@ listing:
 
 
 
-## Data Science and Machine Learning Projects  
-
-
-
-::: {#ds-projects}  
-:::  
-
-
-
-## Software, Package, and Development  
-
-::: {#spd-projects}  
-:::  
-
 
 ## Teaching  
 
@@ -50,7 +36,19 @@ listing:
 :::  
 
 
+## Software, Package, and Development  
 
+::: {#spd-projects}  
+:::  
+
+
+
+## Data Science and Machine Learning (Toy) Projects  
+
+
+
+::: {#ds-projects}  
+::: 
 
 
 

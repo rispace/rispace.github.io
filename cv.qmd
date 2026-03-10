@@ -70,6 +70,12 @@ published-title: CV last updated
   
 ## Talks and Presentations  
 
+- <a href="/talks/2026-03-03-icerm.qmd" style="text-decoration:none"> Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a>  
+  March 03, 2026  
+  Poster Presentation at Institute for Computational and Experimental Research in Mathematics (ICERM), Brown University, Providence, Rhode Island   
+- <a href="/talks/2026-01-30-gradseminar.qmd" style="text-decoration:none"> High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference </a>  
+  January 30, 2026  
+  Presentation at Department of Mathematics, Florida State University, Tallahassee, Florida
 - <a href="/talks/2023-11-20-candi.qmd" style="text-decoration:none"> The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</a>  
   November 20, 2023  
   Presentation at James J Love Building, Florida State University, Tallahassee, Florida  
@@ -82,6 +88,8 @@ published-title: CV last updated
   
 ## Teaching
 
+  - <a href="/teaching/sp26.qmd" style="text-decoration:none"> Spring 2026: MAC2311 Calculus and Analytic Geometry II</a>
+  - <a href="/teaching/fa25.qmd" style="text-decoration:none"> Fall 2025: MAC2311 Calculus and Analytic Geometry II</a>
   - <a href="/teaching/sp25.qmd" style="text-decoration:none"> Spring 2025: MAC2311 Calculus and Analytic Geometry I</a> 
   - <a href="/teaching/sp24.qmd" style="text-decoration:none"> Spring 2024: MAP4170 Introduction to Actuarial Mathematics</a>  
   - <a href="/teaching/sp23.qmd" style="text-decoration:none"> Fall 2023: MAP4170 Introduction to Actuarial Mathematics</a>  
@@ -91,16 +99,25 @@ published-title: CV last updated
   - <a href="/teaching/f18-f21.qmd" style="text-decoration:none"> Fall 2018 to Spring 2020: College Algebra, Trigonometry</a>  
   
 
-## Awards and Affiliations
-### Awards  
-- Bettye Anne Busbee Case Graduate Fellowship & Doctoral Mentorship Recognition 2024  
-- Outstanding Graduate Student in Statistics Award for the 2019-2020 academic year, Youngstown State University.  
-- Graduate College Premiere Scholarship, Youngstown State University.  
-- MetLife Bangladesh Actuarial Study Program 2015
+## Funding, Awards & Scholarships
 
+* **[2026]** AMS Spring Eastern Sectional Meeting Graduate Student Travel Grant ($400.00)
+* **[2026]** Florida State Undergraduate Research Opportunity Program (UROP) Mentorship Fund for the 2025-2026 Academic Year ($490.10)
+* **[2026]** The Institute for Computational and Experimental Research in Mathematics (ICERM) Workshop Grant ($967.44)
+* **[2026]** Florida State Mathematics Department Travel Grant ($400.00)
+* **[2026]** Student Government Association (SGA)-Congress of Graduate Students (COGS) Conference Presentation and Attendance Grants ($350.00)
+* **[2024]** Bettye Anne Busbee Case Graduate Fellowship & Doctoral Mentorship Recognition 2024 ($1000.00)
+* **[2020]** Outstanding Graduate Student in Statistics Award for the 2019-2020 academic year ($150.00)
+* **[2019]** Society of Actuaries (SOA) travel grant to attend 6th Annual Midwest Actuarial Student Conference, University of Wisconsin, Milwaukee, WI ($125.00)
+* **[2018]** Graduate College Premiere Scholarship, Youngstown State University
+* **[2015]** MetLife Bangladesh Actuarial Study Program 2015 Fellowship
 
-### Affiliations  
-- [Bangladesh Mathematical Society: Life Member](https://www.bdmathsociety.org/){target="_blank" style="text-decoration:none"}
-- [Society of Actuaries, SOA: Student Member](https://www.soa.org){target="_blank" style="text-decoration:none"}
-- [American Mathematical Society, AMS](https://www.ams.org){target="_blank" style="text-decoration:none"}
-- [Society for Industrial and Applied Mathematics](https://www.siam.org/){target="_blank" style="text-decoration:none"}
+***
+
+## Memberships
+
+1. [Bangladesh Mathematical Society](https://www.bdmathsociety.org/){target="_blank" style="text-decoration:none"}: **Life Member**
+2. [Society of Actuaries (SOA), USA](https://www.soa.org){target="_blank" style="text-decoration:none"}: **Student Member**
+3. [Society for Industrial and Applied Mathematics (SIAM), USA](https://www.siam.org/){target="_blank" style="text-decoration:none"}: **Student Member**
+4. [American Mathematical Society (AMS)](https://www.ams.org){target="_blank" style="text-decoration:none"}: **Student Member**
+5. Graduate Student Council: FSU Mathematics Department

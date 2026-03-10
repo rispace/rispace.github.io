@@ -39,6 +39,22 @@ listing:
 - <a href="/publication/pub1/index.qmd" target="_blank" style="text-decoration:none">Comparison of Financial Models for Stock Price Prediction </a>  
   Islam, Mohammad R.; Nguyen, N. (2020) "Comparison of financial models for stock price prediction." *Journal of Risk and Financial Management*. 
 
+## Undergraduate Research Mentorship  
+
+- <a href="https://www.linkedin.com/in/lily-g-kinney/" target="_blank" style="text-decoration:none">Lily Kinney</a>   
+- <a href="https://www.linkedin.com/in/kieraagic/" target="_blank" style="text-decoration:none">Kiera Agic</a> 
+  <a href="https://fsumathdrp.wixsite.com/fsumathdrp" target="_blank" style="text-decoration:none">  
+  FSU Mathematics Directed Reading Program (DRP)</a> (2024-2025)  
+  Project: Comparative study of predictive models in Machine Learning
+- <a href="https://www.linkedin.com/in/sarah-thapa-4aa751318/" target="_blank" style="text-decoration:none">Sarah Thapa</a>  
+  <a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) </a>  
+  Undergraduate Research Opportunity Program (UROP)  
+  Project: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes. 
+- <a href="https://www.linkedin.com/in/aiden-marin/" target="_blank" style="text-decoration:none">Aiden Marin</a>  
+  <a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) </a>  
+  Undergraduate Research Opportunity Program (UROP)  
+  Project: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.
+
 ## Course Projects  
 - <a href="https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method" target="_blank" style="text-decoration:none">Option pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method</a>  
   Advisor: <a href="https://www.math.fsu.edu/~okten/" target="_blank" style="text-decoration:none">Prof. Giray Ökten</a>

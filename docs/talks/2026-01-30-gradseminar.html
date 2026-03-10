@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, Lingjiong Zhu">
+<meta name="dcterms.date" content="2026-01-30">
 
-<title>portfolio – Mohammad Rafiqul Islam</title>
+<title>High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference – Mohammad Rafiqul Islam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,26 +59,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//_assets/images/favicon.ico" rel="icon">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//_assets/images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,91 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-ds-projects .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-ds-projects'] = new List('listing-ds-projects', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-spd-projects .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-spd-projects'] = new List('listing-spd-projects', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-tcng .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-tcng'] = new List('listing-tcng', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J42B20L4ER"></script>
 
 <script type="text/javascript">
@@ -201,40 +116,13 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Mohammad Rafiqul Islam" href="portfolio.xml" data-external="1"><meta property="og:title" content="Mohammad Rafiqul Islam">
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference – Mohammad Rafiqul Islam">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
-<meta name="twitter:title" content="Mohammad Rafiqul Islam">
+<meta name="twitter:title" content="High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference – Mohammad Rafiqul Islam">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -245,10 +133,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
+    <a href="index.qmd" class="navbar-brand navbar-brand-logo">
+    <img src="../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="index.qmd">
     <span class="navbar-title">Mohammad Rafiqul Islam</span>
     </a>
   </div>
@@ -259,19 +147,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./portfolio.html" aria-current="page"> 
+    <a class="nav-link" href="../portfolio.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -292,7 +180,7 @@ window.Quarto = {
  <span class="dropdown-text">Statistics and Probability</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blog.html">
+    <a class="dropdown-item" href="../blog.html">
  <span class="dropdown-text">Other Blogs</span></a>
   </li>  
     </ul>
@@ -324,314 +212,60 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#teaching" id="toc-teaching" class="nav-link active" data-scroll-target="#teaching">Teaching</a></li>
-  <li><a href="#software-package-and-development" id="toc-software-package-and-development" class="nav-link" data-scroll-target="#software-package-and-development">Software, Package, and Development</a></li>
-  <li><a href="#data-science-and-machine-learning-toy-projects" id="toc-data-science-and-machine-learning-toy-projects" class="nav-link" data-scroll-target="#data-science-and-machine-learning-toy-projects">Data Science and Machine Learning (Toy) Projects</a></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<div id="listing-tcng" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-tcng-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-tcng'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, Lingjiong Zhu </p>
+          </div>
   </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 30, 2026</p>
     </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1767675600000" data-listing-file-modified-sort="1767730347694" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="86" data-listing-title-sort="Spring 2026: MAC2312 Calculus With Analytic Geometry II" data-listing-filename-sort="sp26.qmd">
-<td>
-<a href="./teaching/sp26.html" class="title listing-title">Spring 2026: MAC2312 Calculus With Analytic Geometry II</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1756094400000" data-listing-file-modified-sort="1767730336545" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="86" data-listing-title-sort="Fall 2025: MAC2312 Calculus With Analytic Geometry II" data-listing-filename-sort="fall25.qmd">
-<td>
-<a href="./teaching/fall25.html" class="title listing-title">Fall 2025: MAC2312 Calculus With Analytic Geometry II</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1746331200000" data-listing-file-modified-sort="1736558274000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="139" data-listing-title-sort="Spring 2025: MAC2311 Calculus With Analytic Geometry I" data-listing-filename-sort="sp25.qmd">
-<td>
-<a href="./teaching/sp25.html" class="title listing-title">Spring 2025: MAC2311 Calculus With Analytic Geometry I</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1714795200000" data-listing-file-modified-sort="1720942352000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="Spring 2024: MAP4170 Introduction to Actuarial Mathematics" data-listing-filename-sort="sp24.qmd">
-<td>
-<a href="./teaching/sp24.html" class="title listing-title">Spring 2024: MAP4170 Introduction to Actuarial Mathematics</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1701666000000" data-listing-file-modified-sort="1720942373000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="16" data-listing-title-sort="Fall 2023: MAP4170 Introduction to Actuarial Mathematics" data-listing-filename-sort="fall23.qmd">
-<td>
-<a href="./teaching/fall23.html" class="title listing-title">Fall 2023: MAP4170 Introduction to Actuarial Mathematics</a>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1683172800000" data-listing-file-modified-sort="1720942363000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117" data-listing-title-sort="Spring 2023: MAC1140 PreCalculus Algebra" data-listing-filename-sort="sp23.qmd">
-<td>
-<a href="./teaching/sp23.html" class="title listing-title">Spring 2023: MAC1140 PreCalculus Algebra</a>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1670130000000" data-listing-file-modified-sort="1720942388000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="112" data-listing-title-sort="Fall 2022: MAC2311 Calculus and Analytic Geometry I" data-listing-filename-sort="fall22.qmd">
-<td>
-<a href="./teaching/fall22.html" class="title listing-title">Fall 2022: MAC2311 Calculus and Analytic Geometry I</a>
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1651636800000" data-listing-file-modified-sort="1720942398000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76" data-listing-title-sort="Fall 2021 and Spring 2022: PreCalculus and Algebra" data-listing-filename-sort="fall21.qmd">
-<td>
-<a href="./teaching/fall21.html" class="title listing-title">Fall 2021 and Spring 2022: PreCalculus and Algebra</a>
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1588564800000" data-listing-file-modified-sort="1720942408000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="46" data-listing-title-sort="Fall 2018 to Spring 2020: College Algebra, Trigonometry" data-listing-filename-sort="f18-f21.qmd">
-<td>
-<a href="./teaching/f18-f21.html" class="title listing-title">Fall 2018 to Spring 2020: College Algebra, Trigonometry</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="software-package-and-development" class="level2">
-<h2 class="anchored" data-anchor-id="software-package-and-development">Software, Package, and Development</h2>
-<div id="listing-spd-projects" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-spd-projects-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-spd-projects'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
   </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1755144000000" data-listing-file-modified-sort="1755209989131" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="209" data-listing-title-sort="Python Package: holmc" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/spd/holmc/holmc.png" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Thursday, August 14, 2025</span>
-</td>
-<td>
-<a href="./portfolio/spd/holmc/index.html" class="title listing-title">Python Package: holmc</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1724990400000" data-listing-file-modified-sort="1728664482000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="254" data-listing-title-sort="Streamlit Web App" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/spd/webapp/stlit.jpeg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Friday, August 30, 2024</span>
-</td>
-<td>
-<a href="./portfolio/spd/webapp/index.html" class="title listing-title">Streamlit Web App</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1714708800000" data-listing-file-modified-sort="1728663897000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="Python Application Library: desgld packaging" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/spd/desgld/pyp.jpeg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Friday, May 3, 2024</span>
-</td>
-<td>
-<a href="./portfolio/spd/desgld/index.html" class="title listing-title">Python Application Library: desgld packaging</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="data-science-and-machine-learning-toy-projects" class="level2">
-<h2 class="anchored" data-anchor-id="data-science-and-machine-learning-toy-projects">Data Science and Machine Learning (Toy) Projects</h2>
-<div id="listing-ds-projects" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-ds-projects-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-ds-projects'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
+  
+    
   </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1732078800000" data-listing-file-modified-sort="1737518355000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369" data-listing-title-sort="Auto Loan Decision Model" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/autoloan/auto.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Wednesday, November 20, 2024</span>
-</td>
-<td>
-<a href="./portfolio/dsp/autoloan/index.html" class="title listing-title">Auto Loan Decision Model</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1728619200000" data-listing-file-modified-sort="1728664641000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="23" data-listing-title-sort="Predicting Product Success Using Customer Reviews and Sales Data" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/nlp-sales/amazon.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Friday, October 11, 2024</span>
-</td>
-<td>
-<a href="./portfolio/dsp/nlp-sales/index.html" class="title listing-title">Predicting Product Success Using Customer Reviews and Sales Data</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1724990400000" data-listing-file-modified-sort="1726555599000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="487" data-listing-title-sort="Insurance Cost Forecast by using Linear Regression" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/medicalcost/ins.jpeg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Friday, August 30, 2024</span>
-</td>
-<td>
-<a href="./portfolio/dsp/medicalcost/index.html" class="title listing-title">Insurance Cost Forecast by using Linear Regression</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1718683200000" data-listing-file-modified-sort="1721599088000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="131" data-listing-title-sort="Disease diagnosis using classification and NLP" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/dp-nlp/dpnlp.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Tuesday, June 18, 2024</span>
-</td>
-<td>
-<a href="./portfolio/dsp/dp-nlp/index.html" class="title listing-title">Disease diagnosis using classification and NLP</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1677128400000" data-listing-file-modified-sort="1731369859000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="876" data-listing-title-sort="Lendingclub's loan default prediction" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/lendingclub/lending.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Thursday, February 23, 2023</span>
-</td>
-<td>
-<a href="./portfolio/dsp/lendingclub/index.html" class="title listing-title">Lendingclub’s loan default prediction</a>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1661832000000" data-listing-file-modified-sort="1731299890000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="460" data-listing-title-sort="Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/ecommerce/ecom.webp" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Tuesday, August 30, 2022</span>
-</td>
-<td>
-<a href="./portfolio/dsp/ecommerce/index.html" class="title listing-title">Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</a>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1634270400000" data-listing-file-modified-sort="1731300927000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5" data-listing-title-sort="Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager's information" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img loading="lazy" src="./portfolio/dsp/titanic/titan.jpg" style="height: 40px;"></span>
-</td>
-<td>
-<span class="listing-date">Friday, October 15, 2021</span>
-</td>
-<td>
-<a href="./portfolio/dsp/titanic/index.html" class="title listing-title">Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+  
+
+
+</header>
+
+
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<div style="width: 100%; aspect-ratio: 16 / 9; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <embed src="../_assets/documents/extra-present.pdf#toolbar=1&amp;view=FitH" type="application/pdf" width="100%" height="100%">
+</div>
 
+<p style="text-align: center;">
+    <a href="../_assets/documents/extra-present.pdf" target="_blank" class="btn">
+       Full Screen / Download Slides
+    </a>
+</p>
 
 
 <!-- -->
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1250,61 +884,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: ds-projects</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/portfolio/dsp"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    type: table</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title]</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: true</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    feed: true</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: spd-projects</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/portfolio/spd"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    type: table</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title]</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: [title, date]</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">    feed: true</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: tcng</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: teaching</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">    type: table</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [title]</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">    feed: true</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>   </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Teaching  </span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>::: {#tcng}</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>:::  </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software, Package, and Development  </span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>::: {#spd-projects}  </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>:::  </span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Science and Machine Learning (Toy) Projects  </span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>::: {#ds-projects}  </span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>&lt;script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>     crossorigin="anonymous"&gt;&lt;/script&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference "</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">collection:</span><span class="co"> talks</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, Lingjiong Zhu"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> "Presentation"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">permalink:</span><span class="co"> /talks/2026-01-30-gradseminar</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">venue:</span><span class="co"> "Department of Mathematics, Florida State University"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-01-30</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">location:</span><span class="co"> "Tallahassee, Florida"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&lt;script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     crossorigin="anonymous"&gt;&lt;/script&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div style="width: 100%; aspect-ratio: 16 / 9; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;embed </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">        src="/_assets/documents/extra-present.pdf#toolbar=1&amp;view=FitH" </span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">        type="application/pdf" </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">        width="100%" </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">        height="100%" /&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p style="text-align: center;"&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;a href="/_assets/documents/extra-present.pdf" target="_blank" class="btn"&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">       Full Screen / Download Slides</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/a&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/p&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1318,7 +927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  Copyright 2024 @ Rafiq Islam
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./license.txt">
+    <a class="nav-link" href="../license.txt">
 <p>License</p>
 </a>
   </li>  
@@ -1352,5 +961,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

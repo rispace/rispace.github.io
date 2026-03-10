@@ -935,14 +935,14 @@
     "href": "cv.html#talks-and-presentations",
     "title": "CV",
     "section": "Talks and Presentations",
-    "text": "Talks and Presentations\n\n The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent\nNovember 20, 2023\nPresentation at James J Love Building, Florida State University, Tallahassee, Florida\n\n Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo\nOctober 05, 2023\nPresentation at James J Love Building, Florida State University, Tallahassee, Florida\n\n Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing\nApril 28, 2020\nPresentation at Cafaro Hall, Youngstown State University, Youngstown, Ohio"
+    "text": "Talks and Presentations\n\n Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning\nMarch 03, 2026\nPoster Presentation at Institute for Computational and Experimental Research in Mathematics (ICERM), Brown University, Providence, Rhode Island\n\n High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference \nJanuary 30, 2026\nPresentation at Department of Mathematics, Florida State University, Tallahassee, Florida\n The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent\nNovember 20, 2023\nPresentation at James J Love Building, Florida State University, Tallahassee, Florida\n\n Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo\nOctober 05, 2023\nPresentation at James J Love Building, Florida State University, Tallahassee, Florida\n\n Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing\nApril 28, 2020\nPresentation at Cafaro Hall, Youngstown State University, Youngstown, Ohio"
   },
   {
     "objectID": "cv.html#teaching",
     "href": "cv.html#teaching",
     "title": "CV",
     "section": "Teaching",
-    "text": "Teaching\n\n Spring 2025: MAC2311 Calculus and Analytic Geometry I\n Spring 2024: MAP4170 Introduction to Actuarial Mathematics\n\n Fall 2023: MAP4170 Introduction to Actuarial Mathematics\n\n Spring 2023: MAC1140 PreCalculus Algebra\n\n Fall 2022: MAC2311 Calculus and Analytic Geometry I\n\n Fall 2021 and Spring 2022: PreCalculus and Algebra\n\n Fall 2018 to Spring 2020: College Algebra, Trigonometry"
+    "text": "Teaching\n\n Spring 2026: MAC2311 Calculus and Analytic Geometry II\n Fall 2025: MAC2311 Calculus and Analytic Geometry II\n Spring 2025: MAC2311 Calculus and Analytic Geometry I\n Spring 2024: MAP4170 Introduction to Actuarial Mathematics\n\n Fall 2023: MAP4170 Introduction to Actuarial Mathematics\n\n Spring 2023: MAC1140 PreCalculus Algebra\n\n Fall 2022: MAC2311 Calculus and Analytic Geometry I\n\n Fall 2021 and Spring 2022: PreCalculus and Algebra\n\n Fall 2018 to Spring 2020: College Algebra, Trigonometry"
   },
   {
     "objectID": "cv.html#awards-and-affiliations",
@@ -963,14 +963,14 @@
     "href": "portfolio.html#data-science-and-machine-learning-projects",
     "title": "",
     "section": "Data Science and Machine Learning Projects",
-    "text": "Data Science and Machine Learning Projects\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nAuto Loan Decision Model\n\n\n\nWednesday, November 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Product Success Using Customer Reviews and Sales Data\n\n\n\nFriday, October 11, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInsurance Cost Forecast by using Linear Regression\n\n\n\nFriday, August 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDisease diagnosis using classification and NLP\n\n\n\nTuesday, June 18, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLendingclub’s loan default prediction\n\n\n\nThursday, February 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeature Selection: A linear regression approach to find the impact of the features of e-commerce sales data\n\n\n\nTuesday, August 30, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClassification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information\n\n\n\nFriday, October 15, 2021\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Science and Machine Learning Projects\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nWednesday, November 20, 2024\n\n\nAuto Loan Decision Model\n\n\n\n\n\n\n\nFriday, October 11, 2024\n\n\nPredicting Product Success Using Customer Reviews and Sales Data\n\n\n\n\n\n\n\nFriday, August 30, 2024\n\n\nInsurance Cost Forecast by using Linear Regression\n\n\n\n\n\n\n\nTuesday, June 18, 2024\n\n\nDisease diagnosis using classification and NLP\n\n\n\n\n\n\n\nThursday, February 23, 2023\n\n\nLendingclub’s loan default prediction\n\n\n\n\n\n\n\nTuesday, August 30, 2022\n\n\nFeature Selection: A linear regression approach to find the impact of the features of e-commerce sales data\n\n\n\n\n\n\n\nFriday, October 15, 2021\n\n\nClassification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "portfolio.html#software-package-and-development",
     "href": "portfolio.html#software-package-and-development",
     "title": "",
     "section": "Software, Package, and Development",
-    "text": "Software, Package, and Development\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\n\n\nPython Package: holmc\n\n\n\nThursday, August 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStreamlit Web App\n\n\n\nFriday, August 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython Application Library: desgld packaging\n\n\n\nFriday, May 3, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Software, Package, and Development\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nThursday, August 14, 2025\n\n\nPython Package: holmc\n\n\n\n\n\n\n\nFriday, August 30, 2024\n\n\nStreamlit Web App\n\n\n\n\n\n\n\nFriday, May 3, 2024\n\n\nPython Application Library: desgld packaging\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "portfolio.html#teaching",
@@ -1901,7 +1901,7 @@
     "href": "index.html#about",
     "title": "",
     "section": "About",
-    "text": "About\n\nHi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am a Ph.D. candidate in the Mathematics Department at Florida State University. My research focuses on Theoretical Machine Learning, particularly optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints. My research is conducted under the supervision of professor  Lingjiong Zhu.  I hold a Bachelor of Science (BS) in Mathematics degree from the  University of Dhaka, Bangladesh, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master’s degree in Applied Mathematics from the same institution. During my master’s studies, I pursued actuarial exams and passed several professional exams from the Institute and Faculty of Actuaries (IFoA), UK  which are equivalent to the exams P, FM, and Life Contingencies of  Society of Actuaries (SOA), USA . With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.  In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at Youngstown State University, Ohio. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D. in Mathematics with a focus on Theoretical Machine Learning"
+    "text": "About\n\nHi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am a Ph.D. candidate in the Mathematics Department at Florida State University. My research focuses on Theoretical Machine Learning, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints. My research is conducted under the supervision of professor  Lingjiong Zhu.  I hold a Bachelor of Science (BS) in Mathematics degree from the  University of Dhaka, Bangladesh, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master’s degree in Applied Mathematics from the same institution. During my master’s studies, I pursued actuarial exams and passed several professional exams from the Institute and Faculty of Actuaries (IFoA), UK  which are equivalent to the exams P, FM, and Life Contingencies of  Society of Actuaries (SOA), USA . With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.  In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at Youngstown State University, Ohio. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D. in Mathematics with a focus on Theoretical Machine Learning"
   },
   {
     "objectID": "publication/pub1/index.html",
@@ -2014,5 +2014,82 @@
     "title": "Fall 2025: MAC2312 Calculus With Analytic Geometry II",
     "section": "",
     "text": "COURSE MEETING SCHEDULE:\nMondays, Tuesdays, and Thursdays\nTime: 03:05 PM - 03:55 PM on Mondays, and 03:05 PM - 04:15 PM on Tuesdays and Thursdays Location: LOV 107\nCREDIT HOURS: 4\nTime Zone: This course is a Main Campus FSU course and all times provided for this course (class meetings, due dates, etc) will be in Eastern Standard Time.\nCOURSE INSTRUCTOR\nRAFIQ ISLAM\nrislam@fsu.edu\nOffice Hours: Monday, Tuesday, and Thursday at 04:30-5:30 Office: Lov 331A\nCOURSE DESCRIPTION\nPlease see the details here\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "talks/2026-03-03-icerm.html",
+    "href": "talks/2026-03-03-icerm.html",
+    "title": "Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "portfolio/spd/webapp/index.html",
+    "href": "portfolio/spd/webapp/index.html",
+    "title": "Streamlit Web App",
+    "section": "",
+    "text": "Welcome to MiCharge Predictor! This web app is a part of my data science project Insurance Cost Forecast by using Linear Regression, aimed at predicting the medical cost based on various personal and lifestyle factors. By leveraging advanced machine learning techniques, MiCharge Predictor provides an approximate estimates to help users understand potential medical expances.\n\n\n\n\nUser-Friendly Interface: Easily input your personal details and receive instant predictions.\n\nCopmprehensive Data Analysis: Utilizes sophisticated algorithms to analyze factors such as age, BMI, smoking habits, and more.\n\nAccessibility: Available both on web and mobile platforms.\n\n\n\n\n\nInput Your Data: Enter details such as age, gender, BMI, number of children, smoking status, and region.\n\nage: Minimum 18, maximum 100\ngender: Male or Female\nBMI: Minimum 15.0, maximum 60\nnumber of children: Takes values from 0 to 5\nsmoking: Yes or No\nregion: Takes four string input: Northeast, Northwest, Southeast, Southwest\n\nAnalyze: The algorithm process the given input\nGet Prediction: Based on the input, you get the output."
+  },
+  {
+    "objectID": "portfolio/spd/webapp/index.html#about",
+    "href": "portfolio/spd/webapp/index.html#about",
+    "title": "Streamlit Web App",
+    "section": "",
+    "text": "Welcome to MiCharge Predictor! This web app is a part of my data science project Insurance Cost Forecast by using Linear Regression, aimed at predicting the medical cost based on various personal and lifestyle factors. By leveraging advanced machine learning techniques, MiCharge Predictor provides an approximate estimates to help users understand potential medical expances.\n\n\n\n\nUser-Friendly Interface: Easily input your personal details and receive instant predictions.\n\nCopmprehensive Data Analysis: Utilizes sophisticated algorithms to analyze factors such as age, BMI, smoking habits, and more.\n\nAccessibility: Available both on web and mobile platforms.\n\n\n\n\n\nInput Your Data: Enter details such as age, gender, BMI, number of children, smoking status, and region.\n\nage: Minimum 18, maximum 100\ngender: Male or Female\nBMI: Minimum 15.0, maximum 60\nnumber of children: Takes values from 0 to 5\nsmoking: Yes or No\nregion: Takes four string input: Northeast, Northwest, Southeast, Southwest\n\nAnalyze: The algorithm process the given input\nGet Prediction: Based on the input, you get the output."
+  },
+  {
+    "objectID": "portfolio/spd/webapp/index.html#usage",
+    "href": "portfolio/spd/webapp/index.html#usage",
+    "title": "Streamlit Web App",
+    "section": "Usage",
+    "text": "Usage\nYou can use the app directly from streamlit web using this link or just here.."
+  },
+  {
+    "objectID": "talks/2026-01-30-gradseminar.html",
+    "href": "talks/2026-01-30-gradseminar.html",
+    "title": "High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference",
+    "section": "",
+    "text": "Full Screen / Download Slides\n    \n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "cv.html#funding-awards-scholarships",
+    "href": "cv.html#funding-awards-scholarships",
+    "title": "CV",
+    "section": "Funding, Awards & Scholarships",
+    "text": "Funding, Awards & Scholarships\n\n[2026] AMS Spring Eastern Sectional Meeting Graduate Student Travel Grant ($400.00)\n[2026] Florida State Undergraduate Research Opportunity Program (UROP) Mentorship Fund for the 2025-2026 Academic Year ($490.10)\n[2026] The Institute for Computational and Experimental Research in Mathematics (ICERM) Workshop Grant ($967.44)\n[2026] Florida State Mathematics Department Travel Grant ($400.00)\n[2026] Student Government Association (SGA)-Congress of Graduate Students (COGS) Conference Presentation and Attendance Grants ($350.00)\n[2024] Bettye Anne Busbee Case Graduate Fellowship & Doctoral Mentorship Recognition 2024 ($1000.00)\n[2020] Outstanding Graduate Student in Statistics Award for the 2019-2020 academic year ($150.00)\n[2019] Society of Actuaries (SOA) travel grant to attend 6th Annual Midwest Actuarial Student Conference, University of Wisconsin, Milwaukee, WI ($125.00)\n[2018] Graduate College Premiere Scholarship, Youngstown State University\n[2015] MetLife Bangladesh Actuarial Study Program 2015 Fellowship"
+  },
+  {
+    "objectID": "cv.html#memberships",
+    "href": "cv.html#memberships",
+    "title": "CV",
+    "section": "Memberships",
+    "text": "Memberships\n\nBangladesh Mathematical Society: Life Member\nSociety of Actuaries (SOA), USA: Student Member\nSociety for Industrial and Applied Mathematics (SIAM), USA: Student Member\nAmerican Mathematical Society (AMS): Student Member\nGraduate Student Council: FSU Mathematics Department"
+  },
+  {
+    "objectID": "portfolio.html#data-science-and-machine-learning-toy-projects",
+    "href": "portfolio.html#data-science-and-machine-learning-toy-projects",
+    "title": "",
+    "section": "Data Science and Machine Learning (Toy) Projects",
+    "text": "Data Science and Machine Learning (Toy) Projects\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nWednesday, November 20, 2024\n\n\nAuto Loan Decision Model\n\n\n\n\n\n\n\nFriday, October 11, 2024\n\n\nPredicting Product Success Using Customer Reviews and Sales Data\n\n\n\n\n\n\n\nFriday, August 30, 2024\n\n\nInsurance Cost Forecast by using Linear Regression\n\n\n\n\n\n\n\nTuesday, June 18, 2024\n\n\nDisease diagnosis using classification and NLP\n\n\n\n\n\n\n\nThursday, February 23, 2023\n\n\nLendingclub’s loan default prediction\n\n\n\n\n\n\n\nTuesday, August 30, 2022\n\n\nFeature Selection: A linear regression approach to find the impact of the features of e-commerce sales data\n\n\n\n\n\n\n\nFriday, October 15, 2021\n\n\nClassification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "research.html#research-mentorship",
+    "href": "research.html#research-mentorship",
+    "title": "",
+    "section": "Research Mentorship",
+    "text": "Research Mentorship\n\nLily Kinney\n\nKiera Agic \nFSU Mathematics Directed Reading Program (DRP) (2024-2025)\nProject: Comparative study of predictive models in Machine Learning\nSarah Thapa\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.\nAiden Marin\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing."
+  },
+  {
+    "objectID": "research.html#undergraduateresearch-mentorship",
+    "href": "research.html#undergraduateresearch-mentorship",
+    "title": "",
+    "section": "UndergraduateResearch Mentorship",
+    "text": "UndergraduateResearch Mentorship\n\nLily Kinney\n\nKiera Agic \nFSU Mathematics Directed Reading Program (DRP) (2024-2025)\nProject: Comparative study of predictive models in Machine Learning\nSarah Thapa\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.\nAiden Marin\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing."
+  },
+  {
+    "objectID": "research.html#undergraduate-research-mentorship",
+    "href": "research.html#undergraduate-research-mentorship",
+    "title": "",
+    "section": "Undergraduate Research Mentorship",
+    "text": "Undergraduate Research Mentorship\n\nLily Kinney\n\nKiera Agic \nFSU Mathematics Directed Reading Program (DRP) (2024-2025)\nProject: Comparative study of predictive models in Machine Learning\nSarah Thapa\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.\nAiden Marin\n Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) \nUndergraduate Research Opportunity Program (UROP)\nProject: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing."
   }
 ]

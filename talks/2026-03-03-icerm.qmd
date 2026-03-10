@@ -1,0 +1,25 @@
+---
+title: "Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning"
+collection: posters
+author: "Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, Lingjiong Zhu"
+type: "Presentation"
+permalink: /talks/2026-03-03-icerm
+venue: "Institute for Computational and Experimental Research in Mathematics (ICERM), Brown University"
+date: 2026-03-03
+location: "Providence, Rhode Island"
+---  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
+     crossorigin="anonymous"></script>
+
+
+
+```{=html}
+<div style="width: 100%; aspect-ratio: 91.44 / 60.94; margin: 20px 0; border: 1px solid #ccc;">
+    <embed 
+        src="/_assets/documents/icerm_poster.pdf#view=Fit" 
+        type="application/pdf" 
+        width="100%" 
+        height="100%" />
+</div>
+```

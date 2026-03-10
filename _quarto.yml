@@ -51,7 +51,7 @@ website:
     background: "#782F40"
     left: "Powered by [Quarto](https://quarto.org/) <?quarto.version?>"
     center:
-      - text: "Copyright 2024 @ Rafiq Islam"
+      - text: "Copyright 2026 @ Rafiq Islam"
       - text: "License"
         href: license.txt
     right: 
