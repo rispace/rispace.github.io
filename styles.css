@@ -4,7 +4,7 @@
     border-radius: 50%;
     height: 220px;
     width: 180px;
-    border: 2px solid #CEB888;
+    border: 2px solid #F1BE48;
   }
 
   .sidebar-item {
@@ -71,8 +71,8 @@ pre {
   padding: 12px 24px;
   font-size: 18px;
   font-weight: bold;
-  color: white;
-  background-color: #007BFF; /* Bootstrap Blue */
+  color: #F1BE48;
+  background-color: #C8102E; /* Bootstrap Blue */
   border: none;
   border-radius: 5px;
   text-align: center;
