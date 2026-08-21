@@ -755,6 +755,8 @@
   {
     "listing": "/teaching.html",
     "items": [
+      "/teaching/sp26.html",
+      "/teaching/fall25.html",
       "/teaching/sp25.html",
       "/teaching/sp24.html",
       "/teaching/fall23.html",
@@ -784,6 +786,54 @@
       "/posts/lu/index.html",
       "/posts/matrixrep/index.html",
       "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/matrixrep/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/lu/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/someproofs/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/matmul/index.html",
+    "items": [
+      "/posts/eigen/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
       "/posts/mathbiology/index.html",
       "/posts/someproofs/index.html",
       "/posts/bengalitrial/index.html"

@@ -20,7 +20,9 @@ listing:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>  
 
-
+<p style="text-align: justify">  
+  My research focuses on *Theoretical Machine Learning*, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints.
+</p>
 
 ## Current Research  
 
@@ -29,11 +31,19 @@ listing:
 
 ## Publications  
 
+### Preprints 
+
+- <a href="/research/dpsgld/index.qmd" target="_blank" style="text-decoration:none">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a>  
+  Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2026) "Decentralized Proximal Stochastic Gradient Langevin Dynamics." *<a href="https://arxiv.org/abs/2605.00723" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2605.00723</a>*
+
 - <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
-  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*
+  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *<a href="https://arxiv.org/abs/2508.17545" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2508.17545</a>*
 
 - <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
-  Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *arXiv preprint arXiv.2412.01993*
+  Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *<a href="https://arxiv.org/abs/2412.01993" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2412.01993</a>*  
+
+### Peer-Reviewed Publications  
+
 - <a href="/publication/pub2/index.qmd" target="_blank" style="text-decoration:none">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies </a>  
   Mostafa, F; Saha, P; Islam, Mohammad R.; Nguyen, N. (2020) "GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies." *Journal of Risk and Financial Management*.
 - <a href="/publication/pub1/index.qmd" target="_blank" style="text-decoration:none">Comparison of Financial Models for Stock Price Prediction </a>  
@@ -41,19 +51,28 @@ listing:
 
 ## Undergraduate Research Mentorship  
 
+### FSU Mathematics Directed Reading Program (DRP) 2024-2025  
+
+<p style="text-align: justify"> 
+<a href="https://fsumathdrp.wixsite.com/fsumathdrp" target="_blank" style="text-decoration:none"> Directed Reading Program (DRP) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with graduate students on research projects in mathematics and related fields. The following students have been mentored by me in the DRP program:</p>  
+
 - <a href="https://www.linkedin.com/in/lily-g-kinney/" target="_blank" style="text-decoration:none">Lily Kinney</a>   
-- <a href="https://www.linkedin.com/in/kieraagic/" target="_blank" style="text-decoration:none">Kiera Agic</a> 
-  <a href="https://fsumathdrp.wixsite.com/fsumathdrp" target="_blank" style="text-decoration:none">  
-  FSU Mathematics Directed Reading Program (DRP)</a> (2024-2025)  
-  Project: Comparative study of predictive models in Machine Learning
+- <a href="https://www.linkedin.com/in/kieraagic/" target="_blank" style="text-decoration:none">Kiera Agic</a>  
+
+**Project:** Comparative study of predictive models in Machine Learning  
+
+### Undergraduate Research Opportunity Program (UROP) 2025-2026  
+
+<p style="text-align: justify">
+<a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with faculty members, postdocs, and graduate students on research projects in various fields. The following students have been mentored by me in the UROP program:</p>
+
 - <a href="https://www.linkedin.com/in/sarah-thapa-4aa751318/" target="_blank" style="text-decoration:none">Sarah Thapa</a>  
-  <a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) </a>  
-  Undergraduate Research Opportunity Program (UROP)  
-  Project: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes. 
+
+**Project:** Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.   
+
 - <a href="https://www.linkedin.com/in/aiden-marin/" target="_blank" style="text-decoration:none">Aiden Marin</a>  
-  <a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) (2025-2026) </a>  
-  Undergraduate Research Opportunity Program (UROP)  
-  Project: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.
+ 
+**Project:** Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.
 
 ## Course Projects  
 - <a href="https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method" target="_blank" style="text-decoration:none">Option pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method</a>  
@@ -61,13 +80,8 @@ listing:
   
   <div style="text-align:justify">
     Pricing financial derivatives such as options with desired accuracy can be hard due to the nature of the functions and complicated integrals required by the pricing techniques. In this paper we investigate the pricing methodology of the European style options using two advanced numerical methods, namely, Quasi-Monte Carlo and Fourier Cosine (COS). For the RQMC method, we use the random-start Halton sequence. We use the Black-Scholes-Merton model to measure the pricing quality of both of the methods. For the numerical results we compute the option price of the call option and we found a few reasons to prefer the RQMC method over the COS method to approximate the European style options.
-  </div>
-- <a href="https://www.academia.edu/37973800/The_Relationship_Between_Forced_Sexual_Activities_And_Suicidal_Attempts_Of_The_Victims" target="_blank" style="text-decoration:none">The Relationship Between Forced Sexual Activities And Suicidal Attempts Of The Victims</a>  
-  Advisor: <a href="https://ysu.edu/people/andy-chang" target="_blank" style="text-decoration:none">Dr. Andy Chang</a>  
-
-  <div style="text-align: justify">
-    In project, we apply data-analytic methods to further explore the relationship between forced sexual activities and suicidal behavior among adolescents in the United States. Our findings build on existing literature that explores this relationship. The sample of the study was taken from the Youth Risk Behavior Surveillance System survey 2017. We used a chi-squared test to find the association of forced sexual activities and suicidal behavior, and we found a strong association. Then we used bi-variate logistic regression analysis to ascertain the association of race, age, sex, and education with suicidal attempts after experiencing forced sexual activity (sexual assault). The results of the following paper provide greater insight into the relationship between forced sexual activities and suicide attempts by the adolescents.
-  </div>
+  </div>  
+  
 - <a href="https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications" target="_blank" style="text-decoration:none">Study of Runge-Kutta Method of Higher orders and its Applications</a>  
   Advisor: <a href="http://appliedmath.du.ac.bd/details-ofdr-md-abdus-samad/" target="_blank" style="text-decoration:none">Dr. Md. Abdus Samad </a>
 

@@ -16,8 +16,8 @@ website:
   navbar:
     tools-collapse: true
     pinned: true
-    logo: "/_assets/images/fsu-logo.png"
-    logo-alt: "Florida State University"
+    logo: "/_assets/images/isu-logo2.png"
+    logo-alt: "Iowa State University"
     logo-href: index.qmd
     right:
       - href: index.qmd

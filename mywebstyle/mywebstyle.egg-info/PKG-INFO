@@ -1,4 +1,8 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: mywebstyle
 Version: 0.1
 Summary: A package to custom design my website
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Dynamic: requires-dist
+Dynamic: summary
