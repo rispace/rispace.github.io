@@ -17,7 +17,7 @@ published-title: CV last updated
      crossorigin="anonymous"></script>
 
 ## Education  
-- Ph.D in Mathematics, Florida State University; Florida, USA 2026 (expected)
+- Ph.D in Mathematics, Florida State University; Florida, USA 2026
 - M.S. in Mathematics, Youngstown State University; Ohio, USA 2020
 - M.S. in Applied Mathematics, University of Dhaka; Dhaka, Bangladesh 2016
 - B.S. in Mathematics, University of Dhaka; Dhaka, Bangladesh 2014
@@ -25,12 +25,17 @@ published-title: CV last updated
 
 ## Work experience  
 
-* Graduate Teaching Assistant (Fall 2021- To Date)
+* Postdoctoral Research Associate (August 2026 - To Date)
+  * Iowa State University
+  * Duties includes: Research, Mentorship, and Teaching
+  * Research Supervisor: David P. Herzog, Ph.D
+
+* Graduate Teaching Assistant (August 2021- July 2026)
   * Florida State University
   * Duties includes: Teaching, Proctoring, and Grading
   * Teaching Supervisor: Penelope Kirby, Ph.D
 
-* Graduate Teaching Assistant (Fall 2018 - Spring 2020)
+* Graduate Teaching Assistant (August 2018 - May 2020)
   * Youngstown State University University
   * Duties included: Teaching, Proctoring, and Grading
   * Supervisor: G. Jay Kerns, Ph.D
@@ -57,11 +62,17 @@ published-title: CV last updated
 
 ## Publications
 
-- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
-  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*
+### Preprints  
 
+- <a href="/research/dpsgld/index.qmd" target="_blank" style="text-decoration:none">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a>  
+  Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2026) "Decentralized Proximal Stochastic Gradient Langevin Dynamics." *arXiv preprint arXiv.2605.00723*  
+- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
+  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*  
 - <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
   Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *arXiv preprint arXiv.2412.01993*  
+
+### Peer-Reviewed Publications  
+
 - <a href="/publication/pub2/index.qmd" target="_blank" style="text-decoration:none">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies </a>  
   Mostafa, F; Saha, P; Islam, Mohammad R.; Nguyen, N. (2020) "GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies." *Journal of Risk and Financial Management*.
 - <a href="/publication/pub1/index.qmd" style="text-decoration:none">Comparison of Financial Models for Stock Price Prediction </a>  
