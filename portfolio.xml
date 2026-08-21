@@ -9,7 +9,7 @@
 <link>https://rispace.github.io/portfolio.html</link>
 <atom:link href="https://rispace.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.27</generator>
+<generator>quarto-1.10.18</generator>
 <lastBuildDate>Tue, 06 Jan 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Spring 2026: MAC2312 Calculus With Analytic Geometry II</title>
@@ -120,8 +120,7 @@
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2025" class="csl-entry quarto-appendix-citeas">
-Islam, Rafiq. 2025. <span>“Python Package: Holmc.”</span> August 14,
-2025. <a href="https://rispace.github.io/portfolio/spd/holmc/">https://rispace.github.io/portfolio/spd/holmc/</a>.
+Islam, Rafiq. 2025. <span>“Python Package: Holmc.”</span> August 14. <a href="https://rispace.github.io/portfolio/spd/holmc/">https://rispace.github.io/portfolio/spd/holmc/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/spd/holmc/</guid>
   <pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate>
@@ -256,7 +255,7 @@ The Auto Loan Credit Decisioning Model project aimed to enhance the application 
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
-20, 2024. <a href="https://rispace.github.io/portfolio/dsp/autoloan/">https://rispace.github.io/portfolio/dsp/autoloan/</a>.
+20. <a href="https://rispace.github.io/portfolio/dsp/autoloan/">https://rispace.github.io/portfolio/dsp/autoloan/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/autoloan/</guid>
   <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
@@ -293,7 +292,7 @@ Islam, Rafiq. 2024. <span>“Auto Loan Decision Model.”</span> November
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Predicting Product Success Using Customer
-Reviews and Sales Data.”</span> October 11, 2024. <a href="https://rispace.github.io/portfolio/dsp/nlp-sales/">https://rispace.github.io/portfolio/dsp/nlp-sales/</a>.
+Reviews and Sales Data.”</span> October 11. <a href="https://rispace.github.io/portfolio/dsp/nlp-sales/">https://rispace.github.io/portfolio/dsp/nlp-sales/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/nlp-sales/</guid>
   <pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
@@ -411,7 +410,7 @@ All the features were considered for the modeling purposes. However, from the ex
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Insurance Cost Forecast by Using Linear
-Regression.”</span> August 30, 2024. <a href="https://rispace.github.io/portfolio/dsp/medicalcost/">https://rispace.github.io/portfolio/dsp/medicalcost/</a>.
+Regression.”</span> August 30. <a href="https://rispace.github.io/portfolio/dsp/medicalcost/">https://rispace.github.io/portfolio/dsp/medicalcost/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/medicalcost/</guid>
   <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
@@ -480,8 +479,7 @@ Regression.”</span> August 30, 2024. <a href="https://rispace.github.io/portfo
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
-Islam, Rafiq. 2024. <span>“Streamlit Web App.”</span> August 30, 2024.
-<a href="https://rispace.github.io/portfolio/spd/webapp/">https://rispace.github.io/portfolio/spd/webapp/</a>.
+Islam, Rafiq. 2024. <span>“Streamlit Web App.”</span> August 30. <a href="https://rispace.github.io/portfolio/spd/webapp/">https://rispace.github.io/portfolio/spd/webapp/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/spd/webapp/</guid>
   <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
@@ -521,7 +519,7 @@ Rebecca Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam, N
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ceppas_de_castro,_fulya_tastan,_philip_barron,_mohammad_rafiqul_islam,_nina_adhikari,_viraj_meruliya_2024" class="csl-entry quarto-appendix-citeas">
 Ceppas de Castro, Fulya Tastan, Philip Barron, Mohammad Rafiqul Islam,
 Nina Adhikari, Viraj Meruliya, Rebecca. 2024. <span>“Disease Diagnosis
-Using Classification and NLP.”</span> June 18, 2024. <a href="https://rispace.github.io/portfolio/dsp/dp-nlp/">https://rispace.github.io/portfolio/dsp/dp-nlp/</a>.
+Using Classification and NLP.”</span> June 18. <a href="https://rispace.github.io/portfolio/dsp/dp-nlp/">https://rispace.github.io/portfolio/dsp/dp-nlp/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/dp-nlp/</guid>
   <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
@@ -593,7 +591,7 @@ Using Classification and NLP.”</span> June 18, 2024. <a href="https://rispace.
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2024" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2024. <span>“Python Application Library: Desgld
-Packaging.”</span> May 3, 2024. <a href="https://rispace.github.io/portfolio/spd/desgld/">https://rispace.github.io/portfolio/spd/desgld/</a>.
+Packaging.”</span> May 3. <a href="https://rispace.github.io/portfolio/spd/desgld/">https://rispace.github.io/portfolio/spd/desgld/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/spd/desgld/</guid>
   <pubDate>Fri, 03 May 2024 00:00:00 GMT</pubDate>
@@ -777,7 +775,7 @@ Here <code>loan_status</code> is the predictive or dependent variable and the re
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2023" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2023. <span>“Lendingclub’s Loan Default
-Prediction.”</span> February 23, 2023. <a href="https://rispace.github.io/portfolio/dsp/lendingclub/">https://rispace.github.io/portfolio/dsp/lendingclub/</a>.
+Prediction.”</span> February 23. <a href="https://rispace.github.io/portfolio/dsp/lendingclub/">https://rispace.github.io/portfolio/dsp/lendingclub/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/lendingclub/</guid>
   <pubDate>Thu, 23 Feb 2023 00:00:00 GMT</pubDate>
@@ -898,7 +896,7 @@ The answer to the question above is a little bit tricky. Based on the modeling a
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2022" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2022. <span>“Feature Selection: A Linear Regression
 Approach to Find the Impact of the Features of e-Commerce Sales
-Data.”</span> August 30, 2022. <a href="https://rispace.github.io/portfolio/dsp/ecommerce/">https://rispace.github.io/portfolio/dsp/ecommerce/</a>.
+Data.”</span> August 30. <a href="https://rispace.github.io/portfolio/dsp/ecommerce/">https://rispace.github.io/portfolio/dsp/ecommerce/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/ecommerce/</guid>
   <pubDate>Tue, 30 Aug 2022 00:00:00 GMT</pubDate>
@@ -955,7 +953,7 @@ Data.”</span> August 30, 2022. <a href="https://rispace.github.io/portfolio/ds
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2021" class="csl-entry quarto-appendix-citeas">
 Islam, Rafiq. 2021. <span>“Classification Probelm: Predict the Chance of
 Survival of a Voager on Titanic Based on the Voager’s
-Information.”</span> October 15, 2021. <a href="https://rispace.github.io/portfolio/dsp/titanic/">https://rispace.github.io/portfolio/dsp/titanic/</a>.
+Information.”</span> October 15. <a href="https://rispace.github.io/portfolio/dsp/titanic/">https://rispace.github.io/portfolio/dsp/titanic/</a>.
 </div></div></section></div> ]]></description>
   <guid>https://rispace.github.io/portfolio/dsp/titanic/</guid>
   <pubDate>Fri, 15 Oct 2021 00:00:00 GMT</pubDate>

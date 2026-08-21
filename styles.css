@@ -182,3 +182,29 @@ pre {
       margin-top: 10px;
   }
 }
+
+/* Navbar text */
+.navbar .navbar-brand,
+.navbar .navbar-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Navbar menu items */
+.navbar .nav-link {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Make home-page content wider on desktop */
+@media (min-width: 992px) {
+  #quarto-content {
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main.content {
+    max-width: 1400px;
+  }
+}
