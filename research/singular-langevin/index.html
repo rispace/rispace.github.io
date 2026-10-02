@@ -6,9 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-05-04">
+<meta name="author" content="Mohammad Rafiqul Islam">
+<meta name="author" content="David P. Herzog">
+<meta name="dcterms.date" content="2026-10-01">
+<meta name="description" content="Stable sampling for constrained interacting-particle systems with collision-avoiding forces.">
 
-<title>Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam</title>
+<title>Constrained Langevin Dynamics with Singular Repulsion – Mohammad Rafiqul Islam</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -65,27 +68,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="..//_assets/images/favicon.ico" rel="icon">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-861c8cbcf83536ffdaf3293223188c31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//_assets/images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-861c8cbcf83536ffdaf3293223188c31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,11 +129,15 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Constrained Langevin Dynamics with Singular Repulsion – Mohammad Rafiqul Islam">
+<meta property="og:description" content="Stable sampling for constrained interacting-particle systems with collision-avoiding forces.">
+<meta property="og:image" content="https://rispace.github.io/research/singular-langevin/singular-langevin.svg">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
-<meta name="twitter:title" content="Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Constrained Langevin Dynamics with Singular Repulsion – Mohammad Rafiqul Islam">
+<meta name="twitter:description" content="Stable sampling for constrained interacting-particle systems with collision-avoiding forces.">
+<meta name="twitter:image" content="https://rispace.github.io/research/singular-langevin/singular-langevin.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -313,23 +320,23 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research.html"> 
+    <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html"> 
+    <a class="nav-link" href="../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../portfolio.html"> 
+    <a class="nav-link" href="../../portfolio.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -350,7 +357,7 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
  <span class="dropdown-text">Statistics and Probability</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../blog.html">
+    <a class="dropdown-item" href="../../blog.html">
  <span class="dropdown-text">Other Blogs</span></a>
   </li>  
     </ul>
@@ -382,7 +389,16 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The problem</a></li>
+  <li><a href="#why-standard-updates-break-down" id="toc-why-standard-updates-break-down" class="nav-link" data-scroll-target="#why-standard-updates-break-down">Why standard updates break down</a></li>
+  <li><a href="#our-approach" id="toc-our-approach" class="nav-link" data-scroll-target="#our-approach">Our approach</a></li>
+  <li><a href="#research-goals" id="toc-research-goals" class="nav-link" data-scroll-target="#research-goals">Research goals</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -394,18 +410,30 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Spring 2023: MAC1140 PreCalculus Algebra</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Constrained Langevin Dynamics with Singular Repulsion</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
+<div>
+  <div class="description">
+    Stable sampling for constrained interacting-particle systems with collision-avoiding forces.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mohammad Rafiqul Islam </p>
+             <p>David P. Herzog </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 4, 2023</p>
+      <p class="date">October 1, 2026</p>
     </div>
   </div>
   
@@ -417,14 +445,38 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </header>
 
 
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div style="text-align: justify">
-<p>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<br> <br> As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="singular-langevin.svg" class="research-hero img-fluid figure-img"></p>
+<figcaption>A conceptual view of constrained particles, repulsive interactions, and a stable numerical trajectory.</figcaption>
+</figure>
 </div>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<p>Many sampling and molecular-dynamics problems describe particles that diffuse inside a constrained region while strongly repelling one another at short distances. The constraint keeps the system inside its admissible domain; the singular interaction makes collisions energetically impossible. Together they create a delicate mathematical and computational problem: the state space is constrained, yet removing collision configurations can make it nonconvex.</p>
+</section>
+<section id="why-standard-updates-break-down" class="level2">
+<h2 class="anchored" data-anchor-id="why-standard-updates-break-down">Why standard updates break down</h2>
+<p>A direct explicit step may place too much probability near a collision, causing important energy or force averages to diverge even when an exact collision has probability zero. Adding an ordinary projection is not enough: when particles cross, projection onto an ordering constraint can collapse them to the same position and create a collision itself.</p>
+</section>
+<section id="our-approach" class="level2">
+<h2 class="anchored" data-anchor-id="our-approach">Our approach</h2>
+<p>We are developing a tamed-proximal Langevin method that incorporates the singular repulsion directly into the numerical update while enforcing the outer constraint. The goal is a scheme that remains collision-free, is stable near singular configurations, and faithfully samples the intended equilibrium distribution.</p>
+</section>
+<section id="research-goals" class="level2">
+<h2 class="anchored" data-anchor-id="research-goals">Research goals</h2>
+<ul>
+<li>Establish well-posedness and collision avoidance for the constrained stochastic dynamics.</li>
+<li>Identify conditions guaranteeing the desired invariant distribution.</li>
+<li>Design a practical discretization that controls singular forces without artificial collisions.</li>
+<li>Prove quantitative convergence and discretization-error guarantees.</li>
+</ul>
+<p>This is ongoing work with <strong>David P. Herzog</strong> at Iowa State University.</p>
 
 
 <!-- -->
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
@@ -950,23 +1002,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Spring 2023: MAC1140 PreCalculus Algebra"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">collection:</span><span class="co"> teaching</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> "Instructor of Record"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">permalink:</span><span class="co"> /teaching/2023-spring-teaching</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">venue:</span><span class="co"> "Department of Mathematics, Florida State University"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2023-05-04</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">location:</span><span class="co"> "Tallahassee, Florida"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Constrained Langevin Dynamics with Singular Repulsion"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Stable sampling for constrained interacting-particle systems with collision-avoiding forces."</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Mohammad Rafiqul Islam</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - David P. Herzog</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2026-10-01</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> singular-langevin.svg</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="al">![A conceptual view of constrained particles, repulsive interactions, and a stable numerical trajectory.](singular-langevin.svg)</span>{.research-hero}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## The problem</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Many sampling and molecular-dynamics problems describe particles that diffuse inside a constrained region while strongly repelling one another at short distances. The constraint keeps the system inside its admissible domain; the singular interaction makes collisions energetically impossible. Together they create a delicate mathematical and computational problem: the state space is constrained, yet removing collision configurations can make it nonconvex.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why standard updates break down</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>A direct explicit step may place too much probability near a collision, causing important energy or force averages to diverge even when an exact collision has probability zero. Adding an ordinary projection is not enough: when particles cross, projection onto an ordering constraint can collapse them to the same position and create a collision itself.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Our approach</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>We are developing a tamed-proximal Langevin method that incorporates the singular repulsion directly into the numerical update while enforcing the outer constraint. The goal is a scheme that remains collision-free, is stable near singular configurations, and faithfully samples the intended equilibrium distribution.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Research goals</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Establish well-posedness and collision avoidance for the constrained stochastic dynamics.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identify conditions guaranteeing the desired invariant distribution.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Design a practical discretization that controls singular forces without artificial collisions.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Prove quantitative convergence and discretization-error guarantees.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>This is ongoing work with **David P. Herzog** at Iowa State University.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -980,7 +1046,7 @@ document.addEventListener("DOMContentLoaded", function () {
  Copyright 2026 @ Rafiq Islam
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../license.txt">
+    <a class="nav-link" href="../../license.txt">
 <p>License</p>
 </a>
   </li>  
@@ -1014,5 +1080,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

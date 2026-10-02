@@ -1,207 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rispace.github.io/posts/bengalitrial/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.598Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/posts/matmul/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.606Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/posts/sgd/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.614Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/posts/someproofs/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.615Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/posts/eigen/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.598Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/codepages/ecommerce/index.html</loc>
-    <lastmod>2026-09-09T21:43:39.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/codepages/lendingclub/index.html</loc>
-    <lastmod>2026-09-09T21:43:39.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/codepages/titanic/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/publication/pub1/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.618Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/about.html</loc>
-    <lastmod>2026-09-09T21:43:39.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/talks/2020-04-26-project.html</loc>
-    <lastmod>2026-09-09T21:43:40.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/talks/2026-01-30-gradseminar.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/talks/2026-03-03-icerm.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/teaching/fall23.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/teaching/sp25.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/teaching/sp23.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/teaching/fall22.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/research/holmc/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.677Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/research/rulmc/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/research.html</loc>
-    <lastmod>2026-09-09T21:43:40.636Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio.html</loc>
-    <lastmod>2026-09-09T21:43:40.578Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/ecommerce/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.590Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/lendingclub/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.590Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/autoloan/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.579Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/titanic/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/spd/webapp/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/blog.html</loc>
-    <lastmod>2026-09-09T21:43:39.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/spd/desgld/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/spd/holmc/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/medicalcost/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.590Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/dp-nlp/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/portfolio/dsp/nlp-sales/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/teaching.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/publication/pub2/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.858Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/research/dpsgld/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.637Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/research/rulmc/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/research/extrasgld/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.676Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.904Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/teaching/fall25.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/research.html</loc>
+    <lastmod>2026-10-02T02:13:32.869Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/teaching/fall21.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/codepages/ecommerce/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.401Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/teaching/sp24.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/codepages/lendingclub/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.401Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/teaching/sp26.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/codepages/titanic/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.681Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/teaching/f18-f21.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/talks/2023-10-05-st-op.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/teaching/sp23.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/talks/2023-11-20-candi.html</loc>
-    <lastmod>2026-09-09T21:43:40.682Z</lastmod>
+    <loc>https://rispace.github.io/teaching/sp24.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/cv.html</loc>
-    <lastmod>2026-09-09T21:43:40.186Z</lastmod>
+    <loc>https://rispace.github.io/teaching/sp25.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/publication/pub2/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.621Z</lastmod>
+    <loc>https://rispace.github.io/teaching/fall21.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
   </url>
   <url>
-    <loc>https://rispace.github.io/codepages/medicalcost/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/codepages/lendingclub/temp.html</loc>
-    <lastmod>2026-09-09T21:43:40.183Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rispace.github.io/codepages/amazonNLP/index.html</loc>
-    <lastmod>2026-09-09T21:43:39.857Z</lastmod>
+    <loc>https://rispace.github.io/posts/bengalitrial/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.836Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/posts/lu/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.603Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.842Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/posts/mathbiology/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.606Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/posts/sgd/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.851Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/talks/2026-03-03-icerm.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/talks/2020-04-26-project.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/spd/webapp/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/spd/holmc/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/autoloan/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/lendingclub/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.829Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/titanic/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/cv.html</loc>
+    <lastmod>2026-10-02T02:13:32.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/dp-nlp/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.829Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/medicalcost/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.830Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/ecommerce/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.829Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/dsp/nlp-sales/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio/spd/desgld/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.832Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/talks/2023-10-05-st-op.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/talks/2026-01-30-gradseminar.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/talks/2023-11-20-candi.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
   </url>
   <url>
     <loc>https://rispace.github.io/posts/matrixrep/index.html</loc>
-    <lastmod>2026-09-09T21:43:40.606Z</lastmod>
+    <lastmod>2026-10-02T02:13:32.844Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/posts/matmul/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/posts/eigen/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/posts/someproofs/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching/fall25.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching/fall22.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching/fall26.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching/sp26.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/teaching/fall23.html</loc>
+    <lastmod>2026-10-02T02:13:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/blog.html</loc>
+    <lastmod>2026-10-02T02:13:32.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/codepages/medicalcost/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/codepages/lendingclub/temp.html</loc>
+    <lastmod>2026-10-02T02:13:32.680Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/codepages/amazonNLP/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/portfolio.html</loc>
+    <lastmod>2026-10-02T02:13:32.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/about.html</loc>
+    <lastmod>2026-10-02T02:13:32.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/research/holmc/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.905Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/research/singular-langevin/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rispace.github.io/publication/pub1/index.html</loc>
+    <lastmod>2026-10-02T02:13:32.854Z</lastmod>
   </url>
 </urlset>
