@@ -14,16 +14,17 @@ website:
   site-url: "https://rispace.github.io/" 
   twitter-card: true
   navbar:
+    title: "MRI"
     tools-collapse: true
     pinned: true
-    logo: "/_assets/images/isu-logo2.png"
-    logo-alt: "Iowa State University"
-    logo-href: index.qmd
+    logo-href: https://rispace.github.io/
     right:
       - href: index.qmd
         text: Home
       - href: research.qmd
         text: Research
+      - href: teaching.qmd
+        text: Teaching
       - href: portfolio.qmd
         text: Portfolio
       - href: cv.qmd
@@ -48,7 +49,6 @@ website:
       
       
   page-footer: 
-    background: "#782F40"
     left: "Powered by [Quarto](https://quarto.org/) <?quarto.version?>"
     center:
       - text: "Copyright 2026 @ Rafiq Islam"
@@ -91,7 +91,6 @@ format:
       sidebar-width: 330px
     code-copy: true
     code-overflow: scroll
-    mainfont: lualatex
     code-line-numbers: false
     highlight-style: ayu-dark
     code-tools: true
@@ -101,9 +100,7 @@ format:
     minimal: false
     anchor-sections: true
     smooth-scroll: true
+    include-after-body: link-behavior.html
     toc-location: left
     
     
-
-
-

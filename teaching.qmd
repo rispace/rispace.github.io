@@ -1,12 +1,97 @@
 ---
 title: Teaching
-listing: 
-  contents: teaching
-  type: table
-  fields: [title,description]
-  sort: "date desc"
-  feed: true
+description: "Teaching experience, courses, and academic mentoring by Rafiq Islam."
 ---  
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>
+
+<p class="teaching-intro">My teaching spans calculus, precalculus, algebra, trigonometry, and actuarial mathematics. I have served as an instructor of record, recitation instructor, lecture and laboratory teaching assistant, and grader at Florida State University and Youngstown State University. My classroom practice emphasizes clear mathematical reasoning, active problem solving, and helping students connect formal ideas with applications.</p>
+
+## Instructor of Record
+
+::: {.teaching-list}
+::: {.teaching-item}
+<span class="teaching-term">Spring 2026</span>
+
+### [MAC2312 · Calculus with Analytic Geometry II](teaching/sp26.qmd)
+<p>Florida State University · Four-credit course covering integration techniques, applications of integration, differential equations, sequences, and series.</p>
+[Course details →](teaching/sp26.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Fall 2025</span>
+
+### [MAC2312 · Calculus with Analytic Geometry II](teaching/fall25.qmd)
+<p>Florida State University · Led the complete course, including lectures, assessment, office hours, and student support.</p>
+[Course details →](teaching/fall25.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Spring 2025</span>
+
+### [MAC2311 · Calculus with Analytic Geometry I](teaching/sp25.qmd)
+<p>Florida State University · Developed students’ reasoning and computational fluency with limits, derivatives, optimization, curve sketching, and introductory integration.</p>
+[Course details →](teaching/sp25.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Spring 2024</span>
+
+### [MAP4170 · Introduction to Actuarial Mathematics](teaching/sp24.qmd)
+<p>Florida State University · Introduced financial mathematics, interest theory, and the professional actuarial pathway.</p>
+[Course details →](teaching/sp24.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Spring 2023</span>
+
+### [MAC1140 · Precalculus Algebra](teaching/sp23.qmd)
+<p>Florida State University · Taught a class of 27 students and supported quizzes, tests, and application-based laboratory activities.</p>
+[Course details →](teaching/sp23.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">2018–2020</span>
+
+### [College Algebra and Trigonometry](teaching/f18-f21.qmd)
+<p>Youngstown State University · Prepared and delivered lectures, designed examinations, and graded tests and assignments.</p>
+[Course details →](teaching/f18-f21.qmd){.teaching-link}
+:::
+:::
+
+## Additional Teaching Roles
+
+::: {.teaching-list}
+::: {.teaching-item .teaching-item-current}
+<span class="teaching-term">Current · Fall 2026</span>
+
+### [Calculus III](teaching/fall26.qmd)
+<p><strong>Recitation Instructor, Iowa State University.</strong> I lead recitation meetings that reinforce multivariable calculus through guided problem solving, mathematical discussion, and support for students as they connect geometric intuition with analytical techniques.</p>
+[Role details →](teaching/fall26.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Fall 2022</span>
+
+### [MAC2311 · Calculus and Analytic Geometry I](teaching/fall22.qmd)
+<p><strong>Recitation Instructor, Florida State University.</strong> Facilitated two active-learning sections of approximately 30 students, organized mathematical poster presentations, and graded examinations and weekly work.</p>
+[Role details →](teaching/fall22.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">2021–2022</span>
+
+### [Precalculus and Algebra](teaching/fall21.qmd)
+<p><strong>Lecture and Laboratory Teaching Assistant, Florida State University.</strong> Supported in-class activities, answered student questions, checked course eligibility, and supervised laboratory quizzes and examinations.</p>
+[Role details →](teaching/fall21.qmd){.teaching-link}
+:::
+
+::: {.teaching-item}
+<span class="teaching-term">Fall 2023</span>
+
+### [MAP4170 · Introduction to Actuarial Mathematics](teaching/fall23.qmd)
+<p><strong>Grader, Florida State University.</strong> Evaluated student work and supported consistent assessment for the course.</p>
+[Role details →](teaching/fall23.qmd){.teaching-link}
+:::
+:::

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Constrained Langevin dynamics with singular repulsion</title>
+  <desc id="desc">Particles follow stochastic paths inside a rounded domain while repulsive fields keep them separated.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f6f2"/><stop offset="1" stop-color="#e4eeeb"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#82c9c2" stop-opacity=".38"/><stop offset="1" stop-color="#82c9c2" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#243447" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="1200" height="650" rx="28" fill="url(#bg)"/>
+  <path d="M188 106C337 35 925 38 1038 156c96 100 72 345-51 414-146 82-661 50-799-42-122-81-123-363 0-422Z" fill="#fff" stroke="#2f6f6d" stroke-width="5" filter="url(#shadow)"/>
+  <path d="M250 420C349 311 405 481 496 351s169-111 230-4 126 94 222-68" fill="none" stroke="#78909c" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 15"/>
+  <g fill="url(#halo)"><circle cx="333" cy="278" r="118"/><circle cx="598" cy="395" r="118"/><circle cx="852" cy="246" r="118"/></g>
+  <g stroke="#286c68" stroke-width="5" fill="#f7f6f2"><circle cx="333" cy="278" r="27"/><circle cx="598" cy="395" r="27"/><circle cx="852" cy="246" r="27"/></g>
+  <g fill="#243447"><circle cx="333" cy="278" r="12"/><circle cx="598" cy="395" r="12"/><circle cx="852" cy="246" r="12"/></g>
+  <g stroke="#2f6f6d" stroke-width="4" stroke-linecap="round"><path d="m430 315 42 17m-24-36 24 36-40 12"/><path d="m704 328 43-23m-8 43 8-43-41 3"/></g>
+  <g font-family="IBM Plex Sans,Arial,sans-serif" fill="#243447"><text x="93" y="70" font-size="26" font-weight="600">CONSTRAINED DOMAIN</text></g>
+</svg>

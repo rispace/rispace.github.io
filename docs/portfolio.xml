@@ -10,67 +10,7 @@
 <atom:link href="https://rispace.github.io/portfolio.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Tue, 06 Jan 2026 06:00:00 GMT</lastBuildDate>
-<item>
-  <title>Spring 2026: MAC2312 Calculus With Analytic Geometry II</title>
-  <link>https://rispace.github.io/teaching/sp26.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p>COURSE MEETING SCHEDULE:</p>
-<p>Mondays, Tuesdays, and Thursdays</p>
-<p>Time: 04:50 PM - 05:40 PM on Mondays, and 04:50 PM - 06:05 PM on Tuesdays and Thursdays Location: MCH 220</p>
-<p>CREDIT HOURS: 4</p>
-<p>Time Zone: This course is a Main Campus FSU course and all times provided for this course (class meetings, due dates, etc) will be in Eastern Standard Time.</p>
-<p>COURSE INSTRUCTOR</p>
-<p>RAFIQ ISLAM</p>
-<p>rislam@fsu.edu</p>
-<p>Office Hours: Monday, Tuesday, and Thursday at 12:00-1:00 Office: Lov 331A</p>
-<p>COURSE DESCRIPTION</p>
-<p>Please see the details <a href="https://www.math.fsu.edu/~mislam/sp26mac2312.math" target="_blank" style="text-decoration:none">here</a></p>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/sp26.html</guid>
-  <pubDate>Tue, 06 Jan 2026 06:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Fall 2025: MAC2312 Calculus With Analytic Geometry II</title>
-  <link>https://rispace.github.io/teaching/fall25.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p>COURSE MEETING SCHEDULE:</p>
-<p>Mondays, Tuesdays, and Thursdays</p>
-<p>Time: 03:05 PM - 03:55 PM on Mondays, and 03:05 PM - 04:15 PM on Tuesdays and Thursdays Location: LOV 107</p>
-<p>CREDIT HOURS: 4</p>
-<p>Time Zone: This course is a Main Campus FSU course and all times provided for this course (class meetings, due dates, etc) will be in Eastern Standard Time.</p>
-<p>COURSE INSTRUCTOR</p>
-<p>RAFIQ ISLAM</p>
-<p>rislam@fsu.edu</p>
-<p>Office Hours: Monday, Tuesday, and Thursday at 04:30-5:30 Office: Lov 331A</p>
-<p>COURSE DESCRIPTION</p>
-<p>Please see the details <a href="https://www.math.fsu.edu/~mislam/fa25mac2312.math" target="_blank" style="text-decoration:none">here</a></p>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/fall25.html</guid>
-  <pubDate>Mon, 25 Aug 2025 05:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Thu, 14 Aug 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Python Package: holmc</title>
   <dc:creator>Rafiq Islam</dc:creator>
@@ -125,37 +65,6 @@ Islam, Rafiq. 2025. <span>“Python Package: Holmc.”</span> August 14. <a href
   <guid>https://rispace.github.io/portfolio/spd/holmc/</guid>
   <pubDate>Thu, 14 Aug 2025 05:00:00 GMT</pubDate>
   <media:content url="https://rispace.github.io/portfolio/spd/holmc/holmc.png" medium="image" type="image/png" height="144" width="144"/>
-</item>
-<item>
-  <title>Spring 2025: MAC2311 Calculus With Analytic Geometry I</title>
-  <link>https://rispace.github.io/teaching/sp25.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p>COURSE MEETING SCHEDULE:</p>
-<p>Mondays, Wednesdays, and Fridays</p>
-<p>Time: 10:40 AM - 11:30 AM Location: HTL 215 Thursdays</p>
-<p>Time: 11:35 AM - 12:50 PM Location: HTL 215</p>
-<p>CREDIT HOURS: 4</p>
-<p>Time Zone: This course is a Main Campus FSU course and all times provided for this course (class meetings, due dates, etc) will be in Eastern Standard Time.</p>
-<p>COURSE INSTRUCTOR</p>
-<p>RAFIQ ISLAM</p>
-<p>rislam@fsu.edu</p>
-<p>Office Hours: Monday 12:00-1:00, Tuesday 11:30-12:30, Wednesday &nbsp;12:00 - 1:00&nbsp; Office: Lov 331</p>
-<p>COURSE DESCRIPTION</p>
-<p>In this course, students will develop problem solving skills, critical thinking, computational proficiency, and contextual fluency through the study of limits, derivatives, and definite and indefinite integrals of functions of one variable, including algebraic, exponential, logarithmic, and trigonometric functions, and applications. Topics will include limits, continuity, differentiation and rates of change, optimization, curve sketching, and introduction to integration and area.</p>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/sp25.html</guid>
-  <pubDate>Sun, 04 May 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Auto Loan Decision Model</title>
@@ -526,28 +435,6 @@ Using Classification and NLP.”</span> June 18. <a href="https://rispace.github
   <media:content url="https://rispace.github.io/portfolio/dsp/dp-nlp/dpnlp.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Spring 2024: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://rispace.github.io/teaching/sp24.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div style="text-align: justify">
-<p>One of the course objectives is for each student to develop a mastery of financial mathematics used by actuaries, based on the mathematics of interest theory. Other course objectives are for each student to understand the long-term individual study commitment necessary to achieve a designation within one of the actuarial societies and for each student to increase their knowledge of the actuarial profession</p>
-</div>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/sp24.html</guid>
-  <pubDate>Sat, 04 May 2024 05:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Python Application Library: desgld packaging</title>
   <dc:creator>Rafiq Islam</dc:creator>
   <link>https://rispace.github.io/portfolio/spd/desgld/</link>
@@ -596,48 +483,6 @@ Packaging.”</span> May 3. <a href="https://rispace.github.io/portfolio/spd/des
   <guid>https://rispace.github.io/portfolio/spd/desgld/</guid>
   <pubDate>Fri, 03 May 2024 05:00:00 GMT</pubDate>
   <media:content url="https://rispace.github.io/portfolio/spd/desgld/pyp.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Fall 2023: MAP4170 Introduction to Actuarial Mathematics</title>
-  <link>https://rispace.github.io/teaching/fall23.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p>Worked as a greader for this course.</p>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/fall23.html</guid>
-  <pubDate>Mon, 04 Dec 2023 06:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Spring 2023: MAC1140 PreCalculus Algebra</title>
-  <link>https://rispace.github.io/teaching/sp23.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div style="text-align: justify">
-<p>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<br> <br> As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</p>
-</div>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/sp23.html</guid>
-  <pubDate>Thu, 04 May 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Lendingclub’s loan default prediction</title>
@@ -782,28 +627,6 @@ Prediction.”</span> February 23. <a href="https://rispace.github.io/portfolio/
   <media:content url="https://rispace.github.io/portfolio/dsp/lendingclub/lending.webp" medium="image" type="image/webp"/>
 </item>
 <item>
-  <title>Fall 2022: MAC2311 Calculus and Analytic Geometry I</title>
-  <link>https://rispace.github.io/teaching/fall22.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div style="text-align: justify">
-<p>Students who have substantial knowledge of precalculus and algebra may require to take this course as a mathematics requirement depending on their majors. The topic of this course includes but is not limited to Foundation for calculus: Functions and Limits, Derivative, The Definite Integral, and Constructing Antiderivatives.<br> <br> As a recitation instructor for this course, I ran two poster presentation sessions of 30 students in each group where they presented mathematical problems and their solutions step by step to their peer classmates followed by a group activity where they solved another set of problems. I also graded their exam scripts and weekly posters.</p>
-</div>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/fall22.html</guid>
-  <pubDate>Sun, 04 Dec 2022 06:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</title>
   <dc:creator>Rafiq Islam</dc:creator>
   <link>https://rispace.github.io/portfolio/dsp/ecommerce/</link>
@@ -903,28 +726,6 @@ Data.”</span> August 30. <a href="https://rispace.github.io/portfolio/dsp/ecom
   <media:content url="https://rispace.github.io/portfolio/dsp/ecommerce/ecom.webp" medium="image" type="image/webp"/>
 </item>
 <item>
-  <title>Fall 2021 and Spring 2022: PreCalculus and Algebra</title>
-  <link>https://rispace.github.io/teaching/fall21.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div style="text-align: justify">
-<p>As a lecture TA, my job was to facilitate the instructor during the class. This included helping students in class activities such as answering short questions that counted as class attendance, checking students’ eligibility forms for taking this course, and others as needed by the instructor. <br> As a lab TA I worked in a computer lab where students take their weekly quizzes and midterm tests.</p>
-</div>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/fall21.html</guid>
-  <pubDate>Wed, 04 May 2022 05:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Classification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information</title>
   <dc:creator>Rafiq Islam</dc:creator>
   <link>https://rispace.github.io/portfolio/dsp/titanic/</link>
@@ -958,26 +759,6 @@ Information.”</span> October 15. <a href="https://rispace.github.io/portfolio/
   <guid>https://rispace.github.io/portfolio/dsp/titanic/</guid>
   <pubDate>Fri, 15 Oct 2021 05:00:00 GMT</pubDate>
   <media:content url="https://rispace.github.io/portfolio/dsp/titanic/titan.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Fall 2018 to Spring 2020: College Algebra, Trigonometry</title>
-  <link>https://rispace.github.io/teaching/f18-f21.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<p>Responsible for the preparation and delivery of all lectures, making question paper for all exams, and the grading of tests and homework assignments for the following courses: - College Algebra, Fall 2018 - Trigonometry, Fall 2019 and Spring 2020</p>
-
-
-<!-- -->
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <guid>https://rispace.github.io/teaching/f18-f21.html</guid>
-  <pubDate>Mon, 04 May 2020 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -17,23 +17,7 @@ listing:
     fields: [image, date, title]
     sort-ui: [title, date]
     feed: true
-  - id: tcng
-    contents: teaching
-    type: table
-    fields: [title]
-    sort: "date desc"
-    feed: true
 ---   
-
-
-
-
-
-## Teaching  
-
-
-::: {#tcng}
-:::  
 
 
 ## Software, Package, and Development  
@@ -54,4 +38,3 @@ listing:
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>
-

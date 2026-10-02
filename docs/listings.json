@@ -13,519 +13,39 @@
     ]
   },
   {
-    "listing": "/dsandml/multiclass/index.html",
+    "listing": "/posts/matmul/index.html",
     "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/dataengineering/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/multiplelinreg/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/adaboost/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/gradientboosting/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/decisiontree/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/logreg/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/regularization/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/classificationmetrics/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/datacollection/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/simplelinreg/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/adaboost/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/polyreg/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/knn/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/naivebayes/index.html",
-    "items": [
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/lda/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/biasvariance/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/randomforest/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/svm/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/pytorch/index.html",
-    "items": [
-      "/posts/machinelearning/index.html",
       "/posts/eigen/index.html",
-      "/posts/socialshare/index.html",
       "/posts/sgd/index.html",
-      "/posts/jobandintern/index.html",
       "/posts/lu/index.html",
       "/posts/matrixrep/index.html",
-      "/posts/matmul/index.html",
       "/posts/mathbiology/index.html",
       "/posts/someproofs/index.html",
-      "/posts/welcome/index.html",
       "/posts/bengalitrial/index.html"
     ]
   },
   {
-    "listing": "/dsandml/bayesianclassification/index.html",
+    "listing": "/posts/someproofs/index.html",
     "items": [
-      "/dsandml/adaboost/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/kmeans/index.html",
-    "items": [
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/machinelearning/index.html",
-    "items": [
-      "/posts/jobandintern/index.html",
       "/posts/eigen/index.html",
-      "/posts/socialshare/index.html",
+      "/posts/sgd/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/webtemplate/index.html",
+    "items": [
+      "/posts/eigen/index.html",
       "/posts/sgd/index.html",
       "/posts/lu/index.html",
       "/posts/matrixrep/index.html",
       "/posts/matmul/index.html",
       "/posts/mathbiology/index.html",
       "/posts/someproofs/index.html",
-      "/posts/welcome/index.html",
       "/posts/bengalitrial/index.html"
     ]
   },
@@ -538,10 +58,6 @@
   {
     "listing": "/research.html",
     "items": [
-      "/research/dpsgld/index.html",
-      "/research/holmc/index.html",
-      "/research/rulmc/index.html",
-      "/research/extrasgld/index.html",
       "/talks/2026-03-03-icerm.html",
       "/talks/2026-01-30-gradseminar.html",
       "/talks/2023-11-20-candi.html",
@@ -550,220 +66,27 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/posts/mathbiology/index.html",
     "items": [
-      "/portfolio/dsp/autoloan/index.html",
-      "/portfolio/dsp/nlp-sales/index.html",
-      "/portfolio/dsp/medicalcost/index.html",
-      "/portfolio/dsp/dp-nlp/index.html",
-      "/portfolio/dsp/lendingclub/index.html",
-      "/portfolio/dsp/ecommerce/index.html",
-      "/portfolio/dsp/titanic/index.html",
-      "/portfolio/spd/holmc/index.html",
-      "/portfolio/spd/webapp/index.html",
-      "/portfolio/spd/desgld/index.html",
-      "/teaching/sp26.html",
-      "/teaching/fall25.html",
-      "/teaching/sp25.html",
-      "/teaching/sp24.html",
-      "/teaching/fall23.html",
-      "/teaching/sp23.html",
-      "/teaching/fall22.html",
-      "/teaching/fall21.html",
-      "/teaching/f18-f21.html"
-    ]
-  },
-  {
-    "listing": "/posts/jobandintern/index.html",
-    "items": [
-      "/jobandintern/bayesianinference/index.html",
-      "/jobandintern/correlationandregression/index.html",
-      "/jobandintern/dsa/index.html",
-      "/jobandintern/montecarlo1/index.html",
-      "/jobandintern/optionprice/index.html",
-      "/jobandintern/probability/index.html",
-      "/jobandintern/statisticaltalk/index.html"
-    ]
-  },
-  {
-    "listing": "/jobandintern/statisticaltalk/index.html",
-    "items": [
-      "/jobandintern/bayesianinference/index.html",
-      "/jobandintern/dsa/index.html",
-      "/jobandintern/montecarlo1/index.html",
-      "/jobandintern/probability/index.html"
-    ]
-  },
-  {
-    "listing": "/jobandintern/dsa/index.html",
-    "items": [
-      "/jobandintern/bayesianinference/index.html",
-      "/jobandintern/correlationandregression/index.html",
-      "/jobandintern/montecarlo1/index.html",
-      "/jobandintern/optionprice/index.html",
-      "/jobandintern/probability/index.html",
-      "/jobandintern/statisticaltalk/index.html"
-    ]
-  },
-  {
-    "listing": "/jobandintern/bayesianinference/index.html",
-    "items": [
-      "/jobandintern/dsa/index.html",
-      "/jobandintern/montecarlo1/index.html",
-      "/jobandintern/probability/index.html",
-      "/jobandintern/statisticaltalk/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/eda/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/dataviz/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/adaboost/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/socialshare/index.html",
-    "items": [
-      "/posts/machinelearning/index.html",
       "/posts/eigen/index.html",
       "/posts/sgd/index.html",
-      "/posts/jobandintern/index.html",
+      "/posts/lu/index.html",
+      "/posts/matrixrep/index.html",
+      "/posts/matmul/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/eigen/index.html",
+    "items": [
+      "/posts/sgd/index.html",
       "/posts/lu/index.html",
       "/posts/matrixrep/index.html",
       "/posts/matmul/index.html",
       "/posts/mathbiology/index.html",
       "/posts/someproofs/index.html",
-      "/posts/welcome/index.html",
       "/posts/bengalitrial/index.html"
-    ]
-  },
-  {
-    "listing": "/dsandml/adaboost/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/jobandintern/optionprice/index.html",
-    "items": [
-      "/jobandintern/bayesianinference/index.html",
-      "/jobandintern/dsa/index.html",
-      "/jobandintern/montecarlo1/index.html",
-      "/jobandintern/probability/index.html",
-      "/jobandintern/statisticaltalk/index.html"
-    ]
-  },
-  {
-    "listing": "/jobandintern/correlationandregression/index.html",
-    "items": [
-      "/dsandml/bayesianclassification/index.html",
-      "/dsandml/adaboost/index.html",
-      "/dsandml/naivebayes/index.html",
-      "/dsandml/lda/index.html",
-      "/dsandml/logreg/index.html",
-      "/dsandml/multiclass/index.html",
-      "/dsandml/dataviz/index.html",
-      "/dsandml/datacollection/index.html",
-      "/dsandml/pca/index.html",
-      "/dsandml/gradientboosting/index.html",
-      "/dsandml/randomforest/index.html",
-      "/dsandml/eda/index.html",
-      "/dsandml/dataengineering/index.html",
-      "/dsandml/knn/index.html",
-      "/dsandml/classificationmetrics/index.html",
-      "/dsandml/biasvariance/index.html",
-      "/dsandml/regularization/index.html",
-      "/dsandml/multiplelinreg/index.html",
-      "/dsandml/polyreg/index.html",
-      "/dsandml/pytorch/index.html",
-      "/dsandml/simplelinreg/index.html",
-      "/dsandml/svm/index.html",
-      "/dsandml/decisiontree/index.html",
-      "/dsandml/kmeans/index.html"
-    ]
-  },
-  {
-    "listing": "/teaching.html",
-    "items": [
-      "/teaching/sp26.html",
-      "/teaching/fall25.html",
-      "/teaching/sp25.html",
-      "/teaching/sp24.html",
-      "/teaching/fall23.html",
-      "/teaching/sp23.html",
-      "/teaching/fall22.html",
-      "/teaching/fall21.html",
-      "/teaching/f18-f21.html"
     ]
   },
   {
@@ -779,11 +102,10 @@
     ]
   },
   {
-    "listing": "/posts/webtemplate/index.html",
+    "listing": "/posts/lu/index.html",
     "items": [
       "/posts/eigen/index.html",
       "/posts/sgd/index.html",
-      "/posts/lu/index.html",
       "/posts/matrixrep/index.html",
       "/posts/matmul/index.html",
       "/posts/mathbiology/index.html",
@@ -804,39 +126,18 @@
     ]
   },
   {
-    "listing": "/posts/lu/index.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/posts/eigen/index.html",
-      "/posts/sgd/index.html",
-      "/posts/matrixrep/index.html",
-      "/posts/matmul/index.html",
-      "/posts/mathbiology/index.html",
-      "/posts/someproofs/index.html",
-      "/posts/bengalitrial/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/someproofs/index.html",
-    "items": [
-      "/posts/eigen/index.html",
-      "/posts/sgd/index.html",
-      "/posts/lu/index.html",
-      "/posts/matrixrep/index.html",
-      "/posts/matmul/index.html",
-      "/posts/mathbiology/index.html",
-      "/posts/bengalitrial/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/matmul/index.html",
-    "items": [
-      "/posts/eigen/index.html",
-      "/posts/sgd/index.html",
-      "/posts/lu/index.html",
-      "/posts/matrixrep/index.html",
-      "/posts/mathbiology/index.html",
-      "/posts/someproofs/index.html",
-      "/posts/bengalitrial/index.html"
+      "/portfolio/dsp/autoloan/index.html",
+      "/portfolio/dsp/nlp-sales/index.html",
+      "/portfolio/dsp/medicalcost/index.html",
+      "/portfolio/dsp/dp-nlp/index.html",
+      "/portfolio/dsp/lendingclub/index.html",
+      "/portfolio/dsp/ecommerce/index.html",
+      "/portfolio/dsp/titanic/index.html",
+      "/portfolio/spd/holmc/index.html",
+      "/portfolio/spd/webapp/index.html",
+      "/portfolio/spd/desgld/index.html"
     ]
   }
 ]

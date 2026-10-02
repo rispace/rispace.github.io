@@ -1,0 +1,13 @@
+---
+title: "Fall 2026: Calculus III"
+description: "Recitation instruction for Calculus III at Iowa State University."
+collection: teaching
+type: "Recitation Instructor"
+venue: "Department of Mathematics, Iowa State University"
+date: 2026-08-24
+location: "Ames, Iowa"
+---
+
+I currently serve as a recitation instructor for Calculus III at Iowa State University. In recitation meetings, I reinforce multivariable-calculus concepts through guided examples, collaborative problem solving, mathematical discussion, and targeted support for students.
+
+The course develops geometric and analytical understanding of vectors, functions of several variables, partial derivatives, multiple integrals, and vector calculus. My role is to help students connect these ideas, diagnose common difficulties, and build confidence in solving multistep problems.

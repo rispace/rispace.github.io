@@ -1,13 +1,5 @@
 ---
 listing: 
-  - id: phdrs
-    contents: "/research/"
-    type: grid
-    grid-columns: 2
-    grid-item-align: center
-    image-lazy-loading: true
-    fields: [title, image, author,date]
-    sort: "date desc"
   - id: tandp
     contents: "/talks/"
     type: table
@@ -26,28 +18,134 @@ listing:
 
 ## Current Research  
 
-::: {#phdrs}
+::: {.research-grid}
+::: {.research-card}
+::: {.research-card-media}
+<a href="/research/singular-langevin/" class="research-visual-link">
+<img src="/research/singular-langevin/singular-langevin.svg" alt="Particles moving inside a constrained domain while repelling one another and avoiding collisions">
+</a>
+<div class="research-card-meta">
+<span class="research-meta-label">Research focus</span>
+<span>Constrained sampling</span>
+<span>Singular interactions</span>
+<span>Numerical analysis</span>
+</div>
+:::
+
+::: {.research-card-body}
+<span class="research-status">Current project · 2026</span>
+
+### [Constrained Langevin Dynamics with Singular Repulsion](/research/singular-langevin/)
+
+With David P. Herzog
+
+We study collision-free stochastic particle dynamics inside constrained domains. The project develops stable numerical sampling methods that treat singular repulsion directly while respecting the boundary.
+
+[Explore the project →](/research/singular-langevin/){.research-link}
+:::
+:::
 :::
 
 ## Publications  
 
-### Preprints 
+::: {.publication-list}
+::: {.publication-entry}
+::: {.publication-meta}
+<span class="publication-year">2026</span>
+<span class="publication-type">Preprint</span>
+:::
+::: {.publication-content}
+### [Decentralized Proximal Stochastic Gradient Langevin Dynamics](/research/dpsgld/)
+<p class="publication-authors"><strong>Mohammad Rafiqul Islam</strong> and Lingjiong Zhu</p>
+<p class="publication-venue"><a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv:2605.00723</a></p>
+<p>Introduces a decentralized sampler for log-concave distributions on convex domains. Shared proximal regularization allows agents to respect constraints without exchanging private data, while non-asymptotic Wasserstein guarantees quantify both network behavior and approximation bias. Experiments show rapid posterior concentration and strong predictive accuracy.</p>
+<div class="publication-actions"><a href="https://arxiv.org/pdf/2605.00723" target="_blank">PDF</a><a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-dpsgld">@article{islam2026depsgld,
+  title={Decentralized Proximal Stochastic Gradient Langevin Dynamics},
+  author={Islam, Mohammad Rafiqul and Zhu, Lingjiong},
+  journal={arXiv preprint arXiv:2605.00723},
+  year={2026}
+}</pre><button class="bibtex-copy" data-copy-target="bib-dpsgld" type="button">Copy to clipboard</button></div></details></div>
+:::
+:::
 
-- <a href="/research/dpsgld/index.qmd" target="_blank" style="text-decoration:none">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a>  
-  Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2026) "Decentralized Proximal Stochastic Gradient Langevin Dynamics." *<a href="https://arxiv.org/abs/2605.00723" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2605.00723</a>*
+::: {.publication-entry}
+::: {.publication-meta}
+<span class="publication-year">2025</span>
+<span class="publication-type">Preprint</span>
+:::
+::: {.publication-content}
+### [High-Order Langevin Monte Carlo Algorithms](/research/holmc/)
+<p class="publication-authors">Thanh L. Dang, Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Nian Yao, and Lingjiong Zhu</p>
+<p class="publication-venue"><a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv:2508.17545</a></p>
+<p>Develops Langevin Monte Carlo algorithms from third- and higher-order dynamics by combining splitting with accurate integration. The resulting convergence guarantees improve dependence on dimension and target accuracy as the order increases, while numerical experiments demonstrate the practical efficiency of the higher-order approach.</p>
+<div class="publication-actions"><a href="/_assets/documents/2508.17545v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-holmc">@article{dang2025highorder,
+  title={High-Order Langevin Monte Carlo Algorithms},
+  author={Dang, Thanh L. and Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Yao, Nian and Zhu, Lingjiong},
+  journal={arXiv preprint arXiv:2508.17545},
+  year={2025}
+}</pre><button class="bibtex-copy" data-copy-target="bib-holmc" type="button">Copy to clipboard</button></div></details></div>
+:::
+:::
 
-- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
-  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *<a href="https://arxiv.org/abs/2508.17545" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2508.17545</a>*
+::: {.publication-entry}
+::: {.publication-meta}
+<span class="publication-year">2024</span>
+<span class="publication-type">Preprint</span>
+:::
+::: {.publication-content}
+### [Generalized EXTRA Stochastic Gradient Langevin Dynamics](/research/extrasgld/)
+<p class="publication-authors">Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Xiaoyu Wang, and Lingjiong Zhu</p>
+<p class="publication-venue"><a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv:2412.01993</a></p>
+<p>Addresses persistent network bias in decentralized stochastic-gradient Langevin methods. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and yields sharper mini-batch performance bounds, enabling collaborative Bayesian learning without centralizing agents’ data.</p>
+<div class="publication-actions"><a href="/_assets/documents/2412.01993v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-extra">@article{gurbuzbalaban2024extra,
+  title={Generalized EXTRA Stochastic Gradient Langevin Dynamics},
+  author={Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Wang, Xiaoyu and Zhu, Lingjiong},
+  journal={arXiv preprint arXiv:2412.01993},
+  year={2024}
+}</pre><button class="bibtex-copy" data-copy-target="bib-extra" type="button">Copy to clipboard</button></div></details></div>
+:::
+:::
 
-- <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
-  Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *<a href="https://arxiv.org/abs/2412.01993" target="_blank" style="text-decoration:none">arXiv preprint arXiv.2412.01993</a>*  
+::: {.publication-entry}
+::: {.publication-meta}
+<span class="publication-year">2021</span>
+<span class="publication-type">Published</span>
+:::
+::: {.publication-content}
+### [GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies](/publication/pub2/)
+<p class="publication-authors">Fahad Mostafa, Pritam Saha, <strong>Mohammad Rafiqul Islam</strong>, and Nguyet Nguyen</p>
+<p class="publication-venue"><a href="https://doi.org/10.3390/jrfm14090421" target="_blank">Journal of Risk and Financial Management, 14(9), 421</a></p>
+<p>Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The analysis captures asymmetric volatility and tail risk, while the neural-network forecasts closely track market prices and sometimes outperform traditional ARIMA models.</p>
+<div class="publication-actions"><a href="/publication/pub2/paper2.pdf" target="_blank">PDF</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-crypto">@article{mostafa2021gjr,
+  title={GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies},
+  author={Mostafa, Fahad and Saha, Pritam and Islam, Mohammad Rafiqul and Nguyen, Nguyet},
+  journal={Journal of Risk and Financial Management},
+  volume={14}, number={9}, pages={421}, year={2021},
+  doi={10.3390/jrfm14090421}
+}</pre><button class="bibtex-copy" data-copy-target="bib-crypto" type="button">Copy to clipboard</button></div></details><a href="https://www.mdpi.com/1911-8074/14/9/421" target="_blank">Journal Page</a></div>
+:::
+:::
 
-### Peer-Reviewed Publications  
-
-- <a href="/publication/pub2/index.qmd" target="_blank" style="text-decoration:none">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies </a>  
-  Mostafa, F; Saha, P; Islam, Mohammad R.; Nguyen, N. (2020) "GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies." *Journal of Risk and Financial Management*.
-- <a href="/publication/pub1/index.qmd" target="_blank" style="text-decoration:none">Comparison of Financial Models for Stock Price Prediction </a>  
-  Islam, Mohammad R.; Nguyen, N. (2020) "Comparison of financial models for stock price prediction." *Journal of Risk and Financial Management*. 
+::: {.publication-entry}
+::: {.publication-meta}
+<span class="publication-year">2020</span>
+<span class="publication-type">Published</span>
+:::
+::: {.publication-content}
+### [Comparison of Financial Models for Stock Price Prediction](/publication/pub1/)
+<p class="publication-authors"><strong>Mohammad Rafiqul Islam</strong> and Nguyet Nguyen</p>
+<p class="publication-venue"><a href="https://doi.org/10.3390/jrfm13080181" target="_blank">Journal of Risk and Financial Management, 13(8), 181</a></p>
+<p>Compares ARIMA, artificial neural networks, and geometric Brownian motion using historical daily stock prices. Against observed next-day prices, the conventional statistical and stochastic models provide closer approximations than the neural-network model, illustrating the value of comparing fundamentally different forecasting assumptions.</p>
+<div class="publication-actions"><a href="/publication/pub1/paper1.pdf" target="_blank">PDF</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-stock">@article{islam2020comparison,
+  title={Comparison of Financial Models for Stock Price Prediction},
+  author={Islam, Mohammad Rafiqul and Nguyen, Nguyet},
+  journal={Journal of Risk and Financial Management},
+  volume={13}, number={8}, pages={181}, year={2020},
+  doi={10.3390/jrfm13080181}
+}</pre><button class="bibtex-copy" data-copy-target="bib-stock" type="button">Copy to clipboard</button></div></details><a href="https://www.mdpi.com/1911-8074/13/8/181" target="_blank">Journal Page</a></div>
+:::
+:::
+:::
 
 ## Undergraduate Research Mentorship  
 
@@ -91,5 +189,3 @@ listing:
 
 
 ## Talks and Presentations  
-
-

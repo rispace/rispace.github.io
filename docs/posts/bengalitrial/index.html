@@ -86,9 +86,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-77de5bb619122ae47389e9ddfa7ec8cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-bd19f11d032ed2bedb9389003e79b4e4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-77de5bb619122ae47389e9ddfa7ec8cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f17ce5d3226a9299491df239bdfb7f3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b948788cc1f8449f572cf2af2deb3ab6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f17ce5d3226a9299491df239bdfb7f3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -367,12 +367,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../posts/bengalitrial/index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo light-content">
-    <img src="../../_assets/images/fsu-logo.png" alt="Florida State University" class="navbar-logo dark-content">
-    </a>
-    <a class="navbar-brand" href="../../posts/bengalitrial/index.html">
-    <span class="navbar-title">Mohammad Rafiqul Islam</span>
+    <a class="navbar-brand" href="https://rispace.github.io/">
+    <span class="navbar-title">MRI</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -388,6 +384,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../../research.html"> 
 <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../portfolio.html"> 
@@ -458,7 +458,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -511,7 +511,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="0" data-listing-file-modified-sort="1787316000538" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <a href="../../banglablog/welcomepost/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<!-- img(9CEB782EFEE6)[progressive=false, height=150px, lazy=true]:listing:banglablog/welcomepost/index.html -->
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 বাংলা ব্লগে আপনাকে স্বাগতম
@@ -525,9 +525,52 @@ window.Quarto = {
 </div>
 </div></a>
 </div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1790906164181">
+<a href="../../banglablog/welcomepost/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+
+<div class="card-body post-contents">
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+// Keep navbar and in-page navigation in the current tab; open content links separately.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    const href = link.getAttribute('href');
+    if (link.closest('.navbar')) {
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+    } else if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
+  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
+    button.addEventListener('click', async function () {
+      const source = document.getElementById(button.dataset.copyTarget);
+      if (!source) return;
+      try {
+        await navigator.clipboard.writeText(source.textContent.trim());
+        const previous = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(function () { button.textContent = previous; }, 1600);
+      } catch (error) {
+        button.textContent = 'Select and copy above';
+      }
+    });
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

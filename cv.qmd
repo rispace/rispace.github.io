@@ -100,7 +100,7 @@ published-title: CV last updated
 ## Teaching
 
   - <a href="/teaching/sp26.qmd" style="text-decoration:none"> Spring 2026: MAC2311 Calculus and Analytic Geometry II</a>
-  - <a href="/teaching/fa25.qmd" style="text-decoration:none"> Fall 2025: MAC2311 Calculus and Analytic Geometry II</a>
+  - <a href="/teaching/fall25.qmd" style="text-decoration:none"> Fall 2025: MAC2312 Calculus and Analytic Geometry II</a>
   - <a href="/teaching/sp25.qmd" style="text-decoration:none"> Spring 2025: MAC2311 Calculus and Analytic Geometry I</a> 
   - <a href="/teaching/sp24.qmd" style="text-decoration:none"> Spring 2024: MAP4170 Introduction to Actuarial Mathematics</a>  
   - <a href="/teaching/sp23.qmd" style="text-decoration:none"> Fall 2023: MAP4170 Introduction to Actuarial Mathematics</a>  
