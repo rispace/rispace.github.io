@@ -519,8 +519,9 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const url = new URL(href, window.location.href);
       const isExternal = url.origin !== window.location.origin;
+      const shouldOpenInNewTab = isExternal || link.classList.contains('term-link');
 
-      if (isExternal) {
+      if (shouldOpenInNewTab) {
         link.setAttribute('target', '_blank');
         link.setAttribute('rel', 'noopener noreferrer');
       } else {

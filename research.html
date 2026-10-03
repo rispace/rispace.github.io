@@ -768,7 +768,7 @@ Title
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1772496000000" data-listing-file-modified-sort="1791008408901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning" data-listing-filename-sort="2026-03-03-icerm.qmd">
+<tr data-index="0" data-listing-date-sort="1772496000000" data-listing-file-modified-sort="1791047872169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning" data-listing-filename-sort="2026-03-03-icerm.qmd">
 <td>
 <span class="listing-date">Mar 3, 2026</span>
 </td>
@@ -778,7 +778,7 @@ Title
 
 </tr>
 
-<tr data-index="1" data-listing-date-sort="1769731200000" data-listing-file-modified-sort="1791008408901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87" data-listing-title-sort="High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference" data-listing-filename-sort="2026-01-30-gradseminar.qmd">
+<tr data-index="1" data-listing-date-sort="1769731200000" data-listing-file-modified-sort="1791047872169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87" data-listing-title-sort="High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference" data-listing-filename-sort="2026-01-30-gradseminar.qmd">
 <td>
 <span class="listing-date">Jan 30, 2026</span>
 </td>
@@ -788,7 +788,7 @@ Title
 
 </tr>
 
-<tr data-index="2" data-listing-date-sort="1700438400000" data-listing-file-modified-sort="1791008408901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent" data-listing-filename-sort="2023-11-20-candi.qmd">
+<tr data-index="2" data-listing-date-sort="1700438400000" data-listing-file-modified-sort="1791047872169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent" data-listing-filename-sort="2023-11-20-candi.qmd">
 <td>
 <span class="listing-date">Nov 20, 2023</span>
 </td>
@@ -798,7 +798,7 @@ Title
 
 </tr>
 
-<tr data-index="3" data-listing-date-sort="1696464000000" data-listing-file-modified-sort="1791008408901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo" data-listing-filename-sort="2023-10-05-st-op.qmd">
+<tr data-index="3" data-listing-date-sort="1696464000000" data-listing-file-modified-sort="1791047872169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo" data-listing-filename-sort="2023-10-05-st-op.qmd">
 <td>
 <span class="listing-date">Oct 5, 2023</span>
 </td>
@@ -808,7 +808,7 @@ Title
 
 </tr>
 
-<tr data-index="4" data-listing-date-sort="1588032000000" data-listing-file-modified-sort="1791008408901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22" data-listing-title-sort="Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing" data-listing-filename-sort="2020-04-26-project.qmd">
+<tr data-index="4" data-listing-date-sort="1588032000000" data-listing-file-modified-sort="1791047872169" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22" data-listing-title-sort="Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing" data-listing-filename-sort="2020-04-26-project.qmd">
 <td>
 <span class="listing-date">Apr 28, 2020</span>
 </td>
@@ -847,8 +847,9 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const url = new URL(href, window.location.href);
       const isExternal = url.origin !== window.location.origin;
+      const shouldOpenInNewTab = isExternal || link.classList.contains('term-link');
 
-      if (isExternal) {
+      if (shouldOpenInNewTab) {
         link.setAttribute('target', '_blank');
         link.setAttribute('rel', 'noopener noreferrer');
       } else {
