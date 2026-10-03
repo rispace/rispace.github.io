@@ -1,8 +1,12 @@
+---
+page-layout: full
+---
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>  
 
-:::: {.columns}
-::: {.column width="37%"}
+:::: {.columns .home-columns}
+::: {.column .home-profile width="37%"}
 <img align="center" src='/_assets/images/new-profile.jpeg' class='oval-image' alt='Profile Picture' style='align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'>  
 
 ## Rafiq Islam, Ph.D.  
@@ -16,19 +20,15 @@ Department of Mathematics
     Office Hours: TBA<br>
     
 
-<span style='font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'>Find me on</span>  
-<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en" alt='Google Scholar' target="_blank" style="text-decoration:none"> {{< ai google-scholar size=3x >}} </a> <a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" alt='ResearchGate' target="_blank" style="text-decoration:none"> {{< ai researchgate size=3x >}} </a> 
-
-
 {{< ai GitHub >}}
 
 
 :::  
 
-::: {.column width="2%"}
+::: {.column .home-spacer width="2%"}
 :::
 
-::: {.column width="61%"}
+::: {.column .home-biography width="61%"}
 
 ## About
 <p style="text-align: justify">   

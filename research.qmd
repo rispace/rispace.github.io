@@ -12,9 +12,20 @@ listing:
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
      crossorigin="anonymous"></script>  
 
+::: {.research-intro}
 <p style="text-align: justify">  
   My research focuses on *Theoretical Machine Learning*, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints.
 </p>
+<div class="research-intro-animation">
+<canvas id="research-density-animation" width="900" height="620" aria-label="Animated sampling paths moving across two contour densities"></canvas>
+</div>
+:::
+
+<div class="research-sidebar-social" hidden>
+<span>Find me on</span>
+<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en" aria-label="Google Scholar" target="_blank">{{< ai google-scholar size=2x >}}</a>
+<a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" aria-label="ResearchGate" target="_blank">{{< ai researchgate size=2x >}}</a>
+</div>
 
 ## Current Research  
 

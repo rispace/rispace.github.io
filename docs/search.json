@@ -256,7 +256,7 @@
     "href": "index.html#rafiq-islam-ph.d.",
     "title": "",
     "section": "Rafiq Islam, Ph.D. ",
-    "text": "Rafiq Islam, Ph.D. \nPostdoctoral Research Associate\nDepartment of Mathematics\nIowa State University\nContact\nEmail:  mir@iastate.edu\nOffice:  Carver Hall: Room 461\nOffice Hours: TBA\nFind me on"
+    "text": "Rafiq Islam, Ph.D. \nPostdoctoral Research Associate\nDepartment of Mathematics\nIowa State University\nContact\nEmail:  mir@iastate.edu\nOffice:  Carver Hall: Room 461\nOffice Hours: TBA"
   },
   {
     "objectID": "index.html#about",
@@ -473,7 +473,7 @@
     "href": "research.html",
     "title": "",
     "section": "",
-    "text": "Code\nMy research focuses on Theoretical Machine Learning, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints."
+    "text": "Code"
   },
   {
     "objectID": "research.html#current-research",
@@ -964,5 +964,40 @@
     "title": "",
     "section": "Data Science and Machine Learning (Toy) Projects",
     "text": "Data Science and Machine Learning (Toy) Projects\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n \n\n\n\nDate\n\n\n\nTitle\n\n\n\n\n\n\n\n\n\n\n\nWednesday, November 20, 2024\n\n\nAuto Loan Decision Model\n\n\n\n\n\n\n\n\n\nFriday, October 11, 2024\n\n\nPredicting Product Success Using Customer Reviews and Sales Data\n\n\n\n\n\n\n\n\n\nFriday, August 30, 2024\n\n\nInsurance Cost Forecast by using Linear Regression\n\n\n\n\n\n\n\n\n\nTuesday, June 18, 2024\n\n\nDisease diagnosis using classification and NLP\n\n\n\n\n\n\n\n\n\nThursday, February 23, 2023\n\n\nLendingclub’s loan default prediction\n\n\n\n\n\n\n\n\n\nTuesday, August 30, 2022\n\n\nFeature Selection: A linear regression approach to find the impact of the features of e-commerce sales data\n\n\n\n\n\n\n\n\n\nFriday, October 15, 2021\n\n\nClassification Probelm: Predict the chance of survival of a voager on Titanic based on the voager’s information\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#current-research",
+    "href": "index.html#current-research",
+    "title": "",
+    "section": "Current Research",
+    "text": "Current Research\n\n\n\n  \n\nResearch focus Constrained sampling Singular interactions Numerical analysis\n\n\n\nCurrent project · 2026\n\nConstrained Langevin Dynamics with Singular Repulsion\nWith David P. Herzog\nWe study collision-free stochastic particle dynamics inside constrained domains. The project develops stable numerical sampling methods that treat singular repulsion directly while respecting the boundary.\nExplore the project →"
+  },
+  {
+    "objectID": "index.html#publications",
+    "href": "index.html#publications",
+    "title": "",
+    "section": "Publications",
+    "text": "Publications\n\n\n\n2026 Preprint\n\n\nDecentralized Proximal Stochastic Gradient Langevin Dynamics\n\nMohammad Rafiqul Islam and Lingjiong Zhu\n\n\narXiv:2605.00723\n\n\nIntroduces a decentralized sampler for log-concave distributions on convex domains. Shared proximal regularization allows agents to respect constraints without exchanging private data, while non-asymptotic Wasserstein guarantees quantify both network behavior and approximation bias. Experiments show rapid posterior concentration and strong predictive accuracy.\n\n\nPDFarXiv\n\n\nBibTeX ⌄\n\n\n@article{islam2026depsgld,\n  title={Decentralized Proximal Stochastic Gradient Langevin Dynamics},\n  author={Islam, Mohammad Rafiqul and Zhu, Lingjiong},\n  journal={arXiv preprint arXiv:2605.00723},\n  year={2026}\n}\n\nCopy to clipboard\n\n\n\n\n\n\n\n\n2025 Preprint\n\n\nHigh-Order Langevin Monte Carlo Algorithms\n\nThanh L. Dang, Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Nian Yao, and Lingjiong Zhu\n\n\narXiv:2508.17545\n\n\nDevelops Langevin Monte Carlo algorithms from third- and higher-order dynamics by combining splitting with accurate integration. The resulting convergence guarantees improve dependence on dimension and target accuracy as the order increases, while numerical experiments demonstrate the practical efficiency of the higher-order approach.\n\n\nPDFarXiv\n\n\nBibTeX ⌄\n\n\n@article{dang2025highorder,\n  title={High-Order Langevin Monte Carlo Algorithms},\n  author={Dang, Thanh L. and Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Yao, Nian and Zhu, Lingjiong},\n  journal={arXiv preprint arXiv:2508.17545},\n  year={2025}\n}\n\nCopy to clipboard\n\n\n\n\n\n\n\n\n2024 Preprint\n\n\nGeneralized EXTRA Stochastic Gradient Langevin Dynamics\n\nMert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, and Lingjiong Zhu\n\n\narXiv:2412.01993\n\n\nAddresses persistent network bias in decentralized stochastic-gradient Langevin methods. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and yields sharper mini-batch performance bounds, enabling collaborative Bayesian learning without centralizing agents’ data.\n\n\nPDFarXiv\n\n\nBibTeX ⌄\n\n\n@article{gurbuzbalaban2024extra,\n  title={Generalized EXTRA Stochastic Gradient Langevin Dynamics},\n  author={Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Wang, Xiaoyu and Zhu, Lingjiong},\n  journal={arXiv preprint arXiv:2412.01993},\n  year={2024}\n}\n\nCopy to clipboard\n\n\n\n\n\n\n\n\n2021 Published\n\n\nGJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies\n\nFahad Mostafa, Pritam Saha, Mohammad Rafiqul Islam, and Nguyet Nguyen\n\n\nJournal of Risk and Financial Management, 14(9), 421\n\n\nCombines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The analysis captures asymmetric volatility and tail risk, while the neural-network forecasts closely track market prices and sometimes outperform traditional ARIMA models.\n\n\nPDF\n\n\nBibTeX ⌄\n\n\n@article{mostafa2021gjr,\n  title={GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies},\n  author={Mostafa, Fahad and Saha, Pritam and Islam, Mohammad Rafiqul and Nguyen, Nguyet},\n  journal={Journal of Risk and Financial Management},\n  volume={14}, number={9}, pages={421}, year={2021},\n  doi={10.3390/jrfm14090421}\n}\n\nCopy to clipboard\n\n\n\nJournal Page\n\n\n\n\n\n2020 Published\n\n\nComparison of Financial Models for Stock Price Prediction\n\nMohammad Rafiqul Islam and Nguyet Nguyen\n\n\nJournal of Risk and Financial Management, 13(8), 181\n\n\nCompares ARIMA, artificial neural networks, and geometric Brownian motion using historical daily stock prices. Against observed next-day prices, the conventional statistical and stochastic models provide closer approximations than the neural-network model, illustrating the value of comparing fundamentally different forecasting assumptions.\n\n\nPDF\n\n\nBibTeX ⌄\n\n\n@article{islam2020comparison,\n  title={Comparison of Financial Models for Stock Price Prediction},\n  author={Islam, Mohammad Rafiqul and Nguyen, Nguyet},\n  journal={Journal of Risk and Financial Management},\n  volume={13}, number={8}, pages={181}, year={2020},\n  doi={10.3390/jrfm13080181}\n}\n\nCopy to clipboard\n\n\n\nJournal Page"
+  },
+  {
+    "objectID": "index.html#undergraduate-research-mentorship",
+    "href": "index.html#undergraduate-research-mentorship",
+    "title": "",
+    "section": "Undergraduate Research Mentorship",
+    "text": "Undergraduate Research Mentorship\n\nFSU Mathematics Directed Reading Program (DRP) 2024-2025\n\n Directed Reading Program (DRP)  is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with graduate students on research projects in mathematics and related fields. The following students have been mentored by me in the DRP program:\n\n\nLily Kinney\n\nKiera Agic\n\nProject: Comparative study of predictive models in Machine Learning\n\n\nUndergraduate Research Opportunity Program (UROP) 2025-2026\n\n Center for Undergraduate Research and Academic Engagement (CRE)  is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with faculty members, postdocs, and graduate students on research projects in various fields. The following students have been mentored by me in the UROP program:\n\n\nSarah Thapa\n\nProject: Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.\n\nAiden Marin\n\nProject: Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing."
+  },
+  {
+    "objectID": "index.html#course-projects",
+    "href": "index.html#course-projects",
+    "title": "",
+    "section": "Course Projects",
+    "text": "Course Projects\n\nOption pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method\nAdvisor: Prof. Giray Ökten\n\nPricing financial derivatives such as options with desired accuracy can be hard due to the nature of the functions and complicated integrals required by the pricing techniques. In this paper we investigate the pricing methodology of the European style options using two advanced numerical methods, namely, Quasi-Monte Carlo and Fourier Cosine (COS). For the RQMC method, we use the random-start Halton sequence. We use the Black-Scholes-Merton model to measure the pricing quality of both of the methods. For the numerical results we compute the option price of the call option and we found a few reasons to prefer the RQMC method over the COS method to approximate the European style options.\n\nStudy of Runge-Kutta Method of Higher orders and its Applications\nAdvisor: Dr. Md. Abdus Samad \n\nThis project is concerned with the study on Runge-Kutta method to apply on different order of differential equation and solve different types of problem such as initial value problem and boundary value problem in ordinary differential equation. At first we discuss about the definition and generation of differential equation specially based on partial differential equation and then definition of Runge-kutta method and the derivation of midpoint method and the formula of Runge-Kutta metod of fourth order and sixth order. We also write FORTRAN 90/95 program for different order of Runge-Kutta methods. We have solved some examples of fourth order R-K method and sixth order R-K method to get the application of R-K method. We also compared the solution of R-K method with exact solution for different step sizes. Then we have given simultaneous first order differential equation and second order differential equation and then solved them by fourth order Runge-Kutta method. At last we have discussed the boundary value problem which we have solved by fourth and sixth order R-K method. After that we have written the algorithm of shooting method and showed computer results with the difference between two answer along with percentages of error."
+  },
+  {
+    "objectID": "index.html#talks-and-presentations",
+    "href": "index.html#talks-and-presentations",
+    "title": "",
+    "section": "Talks and Presentations",
+    "text": "Talks and Presentations"
   }
 ]

@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c8f962d185217da7fb63d497bbcee168.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -384,25 +384,23 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
+  
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
 
 
 
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div class="columns">
-<div class="column" style="width:37%;">
+<div class="columns home-columns">
+<div class="column home-profile" style="width:37%;">
 <p><img align="center" src="./_assets/images/new-profile.jpeg" class="oval-image" alt="Profile Picture" style="align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px"></p>
 <section id="rafiq-islam-ph.d." class="level2">
 <h2 class="anchored" data-anchor-id="rafiq-islam-ph.d.">Rafiq Islam, Ph.D.&nbsp;</h2>
@@ -413,13 +411,11 @@ Department of Mathematics<br>
 Email: <a href="mailto:mir@iastate.edu" style="text-decoration:none"> mir@iastate.edu</a><br>
 Office: <a href="https://maps.app.goo.gl/AXzBwijj2KkxnFDK9" target="_blank" style="text-decoration:none"> Carver Hall: Room 461</a><br>
 Office Hours: TBA<br></p>
-<p><span style="font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;">Find me on</span><br>
-<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en" alt="Google Scholar" target="_blank" style="text-decoration:none"> <i class="ai  ai-google-scholar ai-3x" aria-label="google-scholar"></i> </a> <a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" alt="ResearchGate" target="_blank" style="text-decoration:none"> <i class="ai  ai-researchgate ai-3x" aria-label="researchgate"></i> </a></p>
 <p><i class="ai  ai-GitHub" aria-label="GitHub"></i></p>
 </section>
-</div><div class="column" style="width:2%;">
+</div><div class="column home-spacer" style="width:2%;">
 
-</div><div class="column" style="width:61%;">
+</div><div class="column home-biography" style="width:61%;">
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p style="text-align: justify">
@@ -490,6 +486,121 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const social = document.querySelector(".research-sidebar-social");
+  const toc = document.getElementById("TOC");
+  if (social && toc) {
+    social.hidden = false;
+    toc.appendChild(social);
+  }
+
+  const canvas = document.getElementById("research-density-animation");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let time = 0;
+
+  function palette() {
+    const dark = document.body.classList.contains("quarto-dark");
+    return dark ? {
+      background: "#fbfbf8",
+      contourA: "rgba(12, 18, 17, 0.72)",
+      contourB: "rgba(12, 18, 17, 0.5)",
+      trace: "rgba(12, 18, 17, 0.66)",
+      point: "#050706",
+      core: "12, 18, 17"
+    } : {
+      background: "#080a09",
+      contourA: "rgba(255, 255, 255, 0.76)",
+      contourB: "rgba(255, 255, 255, 0.54)",
+      trace: "rgba(255, 255, 255, 0.7)",
+      point: "#ffffff",
+      core: "255, 255, 255"
+    };
+  }
+
+  function densityCore(cx, cy, radius, rgb) {
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
+    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
+    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function contour(cx, cy, rx, ry, rotation, color, phase) {
+    for (let level = 1; level <= 13; level += 1) {
+      const scale = 0.22 + level * 0.062;
+      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
+      ctx.stroke();
+    }
+  }
+
+  function samplePath(cx, cy, rx, ry, direction, color, phase) {
+    ctx.beginPath();
+    for (let index = 0; index < 105; index += 1) {
+      const age = index / 104;
+      const theta = direction * (phase * 0.55 + index * 0.29);
+      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
+      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
+      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.35;
+    ctx.stroke();
+
+    const theta = direction * (phase * 0.55 + 104 * 0.29);
+    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
+    return {
+      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
+      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
+    };
+  }
+
+  function draw() {
+    const colors = palette();
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, width, height);
+
+    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
+    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
+
+    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
+    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
+
+    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
+    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
+
+    [left, right].forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.point;
+      ctx.fill();
+    });
+  }
+
+  draw();
+  if (reduceMotion) return;
+
+  function animate() {
+    time += 0.035;
+    draw();
+    window.requestAnimationFrame(animate);
+  }
+  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -956,37 +1067,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>::: {.column width="37%"}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> align</span><span class="op">=</span><span class="st">"center"</span><span class="ot"> src</span><span class="op">=</span><span class="st">'/_assets/images/new-profile.jpeg'</span><span class="ot"> class</span><span class="op">=</span><span class="st">'oval-image'</span><span class="ot"> alt</span><span class="op">=</span><span class="st">'Profile Picture'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'</span><span class="dt">&gt;</span>  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rafiq Islam, Ph.D.  </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Postdoctoral Research Associate  </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Department of Mathematics    </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">'https://iastate.edu'</span><span class="ot"> target</span><span class="op">=</span><span class="st">'_blank'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'text-decoration:none'</span><span class="dt">&gt;</span>Iowa State University<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> style</span><span class="op">=</span><span class="st">'font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'</span><span class="dt">&gt;</span>Contact<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    Email: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"mailto:mir@iastate.edu"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> mir@iastate.edu<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    Office: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://maps.app.goo.gl/AXzBwijj2KkxnFDK9"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> Carver Hall: Room 461<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    Office Hours: TBA<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> style</span><span class="op">=</span><span class="st">'font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'</span><span class="dt">&gt;</span>Find me on<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://scholar.google.com/citations?user=gTz5r68AAAAJ</span><span class="er">&amp;</span><span class="st">hl=en"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">'Google Scholar'</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> {{&lt; ai google-scholar size=3x &gt;}} <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">'ResearchGate'</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> {{&lt; ai researchgate size=3x &gt;}} <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>:::: {.columns .home-columns}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.column .home-profile width="37%"}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> align</span><span class="op">=</span><span class="st">"center"</span><span class="ot"> src</span><span class="op">=</span><span class="st">'/_assets/images/new-profile.jpeg'</span><span class="ot"> class</span><span class="op">=</span><span class="st">'oval-image'</span><span class="ot"> alt</span><span class="op">=</span><span class="st">'Profile Picture'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'</span><span class="dt">&gt;</span>  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rafiq Islam, Ph.D.  </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Postdoctoral Research Associate  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Department of Mathematics    </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">'https://iastate.edu'</span><span class="ot"> target</span><span class="op">=</span><span class="st">'_blank'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'text-decoration:none'</span><span class="dt">&gt;</span>Iowa State University<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> style</span><span class="op">=</span><span class="st">'font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'</span><span class="dt">&gt;</span>Contact<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    Email: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"mailto:mir@iastate.edu"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> mir@iastate.edu<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    Office: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://maps.app.goo.gl/AXzBwijj2KkxnFDK9"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> Carver Hall: Room 461<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    Office Hours: TBA<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>{{&lt; ai GitHub &gt;}}</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>:::  </span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>::: {.column width="2%"}</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>::: {.column .home-spacer width="2%"}</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>::: {.column width="61%"}</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>::: {.column .home-biography width="61%"}</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## About</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span>   </span>

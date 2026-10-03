@@ -86,9 +86,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c8f962d185217da7fb63d497bbcee168.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -572,7 +572,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <h3 class="anchored" data-anchor-id="in-1d">In 1D</h3>
 <p>Assume that we have a function <span class="math inline">\(f(x)=x^2-3x+\frac{13}{4}\)</span> which we want to minimize. Meaning, we want to find <span class="math inline">\(x\)</span> that minimizes the function.</p>
 <p>Next, let’s implement the GD<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div id="55f3490d" class="cell">
+<div id="6469c579" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span><span class="op">-</span><span class="dv">3</span><span class="op">*</span>x<span class="op">+</span>(<span class="dv">13</span><span class="op">/</span><span class="dv">4</span>)</span>
@@ -606,7 +606,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Alternatively, if we want to set a tolerance, this is how we set that</p>
-<div id="7df58a0f" class="cell">
+<div id="240ffc05" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a random guess from the domain</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>local_min <span class="op">=</span> np.random.choice(x)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Initial guess:'</span>, local_min)</span>
@@ -659,7 +659,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <section id="parametric-variation" class="level4">
 <h4 class="anchored" data-anchor-id="parametric-variation">Parametric variation</h4>
 <p>Let’s consider a different problem, <span class="math inline">\(f(x)=-e^{-\frac{x^2}{10}}(0.2x\cos x+\sin x)\)</span>. We want to find the <span class="math inline">\(x\)</span> values and optimal hyper-parameters that minimizes <span class="math inline">\(f(x)\)</span>.</p>
-<div id="c0922b2b" class="cell">
+<div id="195cddfc" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span><span class="op">*</span>np.pi, <span class="dv">3</span><span class="op">*</span>np.pi, <span class="dv">400</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="op">-</span>np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span>))<span class="op">*</span>(<span class="fl">0.2</span><span class="op">*</span>x<span class="op">*</span>np.cos(x)<span class="op">+</span>np.sin(x))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -669,7 +669,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Clearly, the global minimum is somewhere in between 0 to 2.5, maybe around 1.25. Now let’s apply GD with varying parameters</p>
-<div id="ac4a94a1" class="cell">
+<div id="8169a39d" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="op">-</span>np.exp(<span class="op">-</span>(x<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">10</span>))<span class="op">*</span>(<span class="fl">0.2</span><span class="op">*</span>x<span class="op">*</span>np.cos(x)<span class="op">+</span>np.sin(x))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f</span>
@@ -696,7 +696,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now let’s see how we can pick the right initial point</p>
-<div id="4aff3d91" class="cell">
+<div id="90725747" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vary the starting point </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>starting_points <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">50</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>stopping_points <span class="op">=</span> np.zeros(<span class="bu">len</span>(starting_points))</span>
@@ -714,7 +714,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Based on this, if we start with any point roughly between <span class="math inline">\((-1,3.5)\)</span> we will end up with the global minimum. However, points outside this interval may take the iterative process to other local minima.</p>
-<div id="ca493d4a" class="cell">
+<div id="1b898819" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># varying learning rates </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lrs <span class="op">=</span> np.linspace(<span class="fl">1e-10</span>, <span class="fl">1e-2</span>, <span class="dv">30</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>stopping_points <span class="op">=</span> np.zeros(<span class="bu">len</span>(lrs))</span>
@@ -734,7 +734,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>So this suggests that a learning rate between 0.003 to 0.005 is a good start.</p>
-<div id="c363020f" class="cell">
+<div id="df70e454" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lrs <span class="op">=</span> np.linspace(<span class="fl">1e-10</span>, <span class="fl">1e-2</span>, <span class="dv">30</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>training_epochs <span class="op">=</span> np.<span class="bu">round</span>(np.linspace(<span class="dv">10</span>,<span class="dv">1000</span>,<span class="dv">50</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -758,7 +758,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We know that the expected minimum at <span class="math inline">\(x \approx 1.17\)</span> so the color corresponding to this is light. Therefore, if we choose a very small learning rate and/or a larger training epoch then we end up to the darker area which is not a good approximation.</p>
-<div id="68de98df" class="cell">
+<div id="0303711e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.plot(lrs, stopping_points)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'learning rate'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Iterated solution'</span>)</span>
@@ -776,7 +776,7 @@ Let’s imagine a hypothetical scenario, Walmart Inc.&nbsp;wants to explore thei
 <span class="math display">\[d=\sqrt{(x_1-x_2)^2+(y_1-y_2)}\]</span></p>
 <p>Assume that <span class="math inline">\(P=(x,y)\)</span> is the coordinate of Walmart. So for a total of <span class="math inline">\(n\)</span> such points the total distance <span class="math inline">\(D\)</span> from the point <span class="math inline">\(P\)</span> is a function of two variable <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of the following form</p>
 <p><span class="math display">\[D=f(x,y)=\sum_{i=1}^{n}\sqrt{(x-x_i)^2+(y-y_i)^2}\]</span></p>
-<div id="f7c8e163" class="cell">
+<div id="6daccb17" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.offline <span class="im">as</span> iplot</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> py</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>py.offline.init_notebook_mode(connected<span class="op">=</span><span class="va">True</span>)</span>
@@ -819,7 +819,7 @@ Let’s imagine a hypothetical scenario, Walmart Inc.&nbsp;wants to explore thei
 \end{align*}\]</span></p>
 <p>where, the <span class="math inline">\(\eta\)</span> is the step size or learning rate that scales the size of the move towards the opposite of the gradient direction.</p>
 <p>Next, how do we control the numerical stability of the algorithm? We need to decrease the step size at each iteration which. This is called the <code>rate of decay</code>. We also need a termination factor or <code>tolerance</code> level that determines if we can stop the iteration. Sometimes, for a deep down convex function, the process oscillates back and forth around a range of values. In this case, applying a <code>damping factor</code> increases the chance for a smooth convergence.</p>
-<div id="71a47d2c" class="cell">
+<div id="25c4dc2d" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -897,7 +897,7 @@ Let’s imagine a hypothetical scenario, Walmart Inc.&nbsp;wants to explore thei
 <span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Different approach<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div id="d3647655" class="cell">
+<div id="a9745322" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sym </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sym.init_printing()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Math</span>
@@ -919,7 +919,7 @@ Let’s imagine a hypothetical scenario, Walmart Inc.&nbsp;wants to explore thei
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>So, the minimum is in the center of the deep color area. Let’s compute the derivatives using <code>sympy</code> library</p>
-<div id="4e15a019" class="cell">
+<div id="60a0e606" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sx, sy <span class="op">=</span> sym.symbols(<span class="st">'sx,sy'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sz <span class="op">=</span> sym.sqrt((sx<span class="op">-</span>c)<span class="op">**</span><span class="dv">2</span><span class="op">+</span>(sy<span class="op">-</span>d)<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -932,7 +932,7 @@ Let’s imagine a hypothetical scenario, Walmart Inc.&nbsp;wants to explore thei
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ss">     </span><span class="ch">\\</span><span class="ss">text</span><span class="ch">{{</span><span class="ss"> and </span><span class="ch">}}</span><span class="ss">  </span><span class="ch">\\</span><span class="ss">frac</span><span class="ch">{{\\</span><span class="ss">partial f</span><span class="ch">}}{{\\</span><span class="ss">partial y</span><span class="ch">}}\\</span><span class="ss">mid_</span><span class="ch">{{</span><span class="ss">(1,1)</span><span class="ch">}}</span><span class="ss"> = </span><span class="sc">{</span>df_sy(<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">.</span>evalf()<span class="sc">}</span><span class="ss">"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now let’s implement the GD</p>
-<div id="78a6129d" class="cell">
+<div id="43ef2e82" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's pick a random starting point(uniformly distributed between -2 and 2)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>local_min <span class="op">=</span> np.random.rand(<span class="dv">2</span>)<span class="op">*</span><span class="dv">4</span><span class="op">-</span><span class="dv">2</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>start_point <span class="op">=</span> local_min[:] <span class="co"># make a copy</span></span>
@@ -1101,19 +1101,139 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', async function () {
+    button.addEventListener('click', function () {
       const source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
-      try {
-        await navigator.clipboard.writeText(source.textContent.trim());
-        const previous = button.textContent;
-        button.textContent = 'Copied';
-        setTimeout(function () { button.textContent = previous; }, 1600);
-      } catch (error) {
-        button.textContent = 'Select and copy above';
+      const citation = source.textContent.trim();
+      const previous = button.textContent;
+      button.textContent = 'Copied';
+
+      const fallbackCopy = function () {
+        const field = document.createElement('textarea');
+        field.value = citation;
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(citation).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
       }
+      setTimeout(function () { button.textContent = previous; }, 1600);
     });
   });
+
+  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      if (!details.open) return;
+      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
+        if (other !== details) other.removeAttribute('open');
+      });
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
+      if (!details.contains(event.target)) details.removeAttribute('open');
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("research-density-animation");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let time = 0;
+
+  function palette() {
+    const dark = document.body.classList.contains("quarto-dark");
+    return dark ? {
+      background: "#18232d",
+      contourA: "rgba(130, 201, 194, 0.72)",
+      contourB: "rgba(190, 170, 232, 0.62)",
+      trace: "rgba(237, 241, 240, 0.72)",
+      point: "#f0dcae"
+    } : {
+      background: "#fbfcfa",
+      contourA: "rgba(31, 111, 105, 0.68)",
+      contourB: "rgba(109, 82, 178, 0.53)",
+      trace: "rgba(36, 52, 71, 0.58)",
+      point: "#b34d4d"
+    };
+  }
+
+  function contour(cx, cy, rx, ry, rotation, color, phase) {
+    for (let level = 1; level <= 13; level += 1) {
+      const scale = 0.22 + level * 0.062;
+      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
+      ctx.stroke();
+    }
+  }
+
+  function samplePath(cx, cy, rx, ry, direction, color, phase) {
+    ctx.beginPath();
+    for (let index = 0; index < 105; index += 1) {
+      const age = index / 104;
+      const theta = direction * (phase * 0.55 + index * 0.29);
+      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
+      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
+      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.35;
+    ctx.stroke();
+
+    const theta = direction * (phase * 0.55 + 104 * 0.29);
+    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
+    return {
+      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
+      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
+    };
+  }
+
+  function draw() {
+    const colors = palette();
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, width, height);
+
+    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
+    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
+
+    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
+    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
+
+    [left, right].forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.point;
+      ctx.fill();
+    });
+  }
+
+  draw();
+  if (reduceMotion) return;
+
+  function animate() {
+    time += 0.035;
+    draw();
+    window.requestAnimationFrame(animate);
+  }
+  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

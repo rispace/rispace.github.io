@@ -88,7 +88,10 @@ format:
     css: styles.css
     toc: true
     grid: 
-      sidebar-width: 330px
+      sidebar-width: 245px
+      body-width: 1050px
+      margin-width: 80px
+      gutter-width: 1.5rem
     code-copy: true
     code-overflow: scroll
     code-line-numbers: false
@@ -100,7 +103,9 @@ format:
     minimal: false
     anchor-sections: true
     smooth-scroll: true
-    include-after-body: link-behavior.html
+    include-after-body:
+      - link-behavior.html
+      - research-animation.html
     toc-location: left
     
     

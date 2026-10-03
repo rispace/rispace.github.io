@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c8f962d185217da7fb63d497bbcee168.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-6f0648c25d1e330123f9948b207cf87e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -493,7 +493,7 @@ window.Quarto = {
 </section>
 <section id="primary-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="primary-libraries">Primary Libraries</h2>
-<div id="262a8ee4" class="cell">
+<div id="450a94b8" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mywebstyle <span class="im">import</span> plot_style</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -505,7 +505,7 @@ window.Quarto = {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>first_13_cols <span class="op">=</span> loandata.iloc[:, :<span class="dv">13</span>]</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>first_13_cols.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="4fff9875" class="cell">
+<div id="c3421755" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>second_13_cols <span class="op">=</span> loandata.iloc[:, <span class="dv">13</span>:]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>second_13_cols.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -514,16 +514,16 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
-<div id="3f449e6b" class="cell">
+<div id="640857b0" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>loandata.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="01b1ad27" class="cell">
+<div id="8943ed12" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(loandata.isnull(), yticklabels<span class="op">=</span><span class="va">False</span>, cbar<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p style="text-align: justify">
 Seems like there are some missing data in the <code>emp_length</code>, <code>emp_title</code>, and <code>mort_acc</code> columns. Around <code>{python} emplen</code><span class="math inline">\(\%\)</span> missing data in <code>emp_length</code> column, <code>{python} emptit</code><span class="math inline">\(\%\)</span> missing data in <code>emp_title</code> column, and <code>{python} mort</code><span class="math inline">\(\%\)</span> in the <code>mort_acc</code> coulumn. Also, there is very small proportion, <code>{python} revutil</code><span class="math inline">\(\%\)</span> of missing data in the <code>revol_util</code> column. <br> <br> We need to take care of this missing observations. We may drop the missing values if it is insignificantly missing or doesn’t seem to be very strongly related to the predictive/dependent variable.
 </p>
-<div id="4b2db752" class="cell">
+<div id="1bc2dc51" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>loandata.describe().T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -532,7 +532,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <section id="loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="loan-status">Loan Status</h4>
 <p>First, let’s look at the class balance in the dependent variable</p>
-<div id="e544b040" class="cell">
+<div id="e3e7640a" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'loan_status'</span>, data<span class="op">=</span>loandata)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> np.<span class="bu">round</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">len</span>(loandata[loandata[<span class="st">'loan_status'</span>] <span class="op">==</span> <span class="st">'Fully Paid'</span>])<span class="op">/</span><span class="bu">len</span>(loandata)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span></span>
@@ -551,7 +551,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <section id="loan-amount-and-installment-interaction-with-loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="loan-amount-and-installment-interaction-with-loan-status">Loan Amount and Installment Interaction With Loan Status</h4>
 <p>Next, let’s see how the features interacts with the dependent variable</p>
-<div id="43afe84a" class="cell">
+<div id="cb58d860" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>loandata[loandata[<span class="st">'loan_status'</span>] <span class="op">==</span> <span class="st">'Charged Off'</span>][<span class="st">'loan_amnt'</span>].hist(</span>
@@ -580,7 +580,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Both the <code>loan_amnt</code> and <code>installment</code> are slightly positively skewed. How about their mean, upper quartile, lower quartile based on <code>loan_status</code>?</p>
-<div id="deafe4d7" class="cell">
+<div id="f1fcfc18" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">8.8</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
@@ -600,7 +600,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="term-grade-and-sub-grade-interaction-with-loan-status" class="level4">
 <h4 class="anchored" data-anchor-id="term-grade-and-sub-grade-interaction-with-loan-status">Term, Grade, and Sub-grade Interaction With Loan Status</h4>
-<div id="334215e7" class="cell">
+<div id="d1db129e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">8.8</span>, <span class="dv">4</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
@@ -615,19 +615,19 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'winter'</span>, ax<span class="op">=</span>ax2</span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2366b4e1" class="cell">
+<div id="30c9fcf5" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(x<span class="op">=</span><span class="st">'sub_grade'</span>, hue<span class="op">=</span><span class="st">'loan_status'</span>, data<span class="op">=</span>loandata, ax<span class="op">=</span>ax)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="employment-title-and-employment-length" class="level4">
 <h4 class="anchored" data-anchor-id="employment-title-and-employment-length">Employment Title and Employment Length</h4>
-<div id="fa52925c" class="cell">
+<div id="52042e3b" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'emp_title'</span>] <span class="op">=</span> loandata[<span class="st">'emp_title'</span>].<span class="bu">str</span>.lower()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>loandata.emp_title.value_counts()[:<span class="dv">25</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s work with the employment length column</p>
-<div id="b6fc9c09" class="cell">
+<div id="4ffe6670" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'emp_length'</span>] <span class="op">=</span> loandata[<span class="st">'emp_length'</span>].replace({</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'&lt; 1 year'</span>: <span class="dv">0</span>,</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'1 year'</span>: <span class="dv">1</span>,</span>
@@ -663,7 +663,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="home-ownership-and-annual-income" class="level4">
 <h4 class="anchored" data-anchor-id="home-ownership-and-annual-income">Home Ownership and Annual Income</h4>
-<div id="4e802c18" class="cell">
+<div id="23d60962" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">10</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">211</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
@@ -685,7 +685,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="issue-date-and-verification-status" class="level4">
 <h4 class="anchored" data-anchor-id="issue-date-and-verification-status">Issue Date and Verification Status</h4>
-<div id="f6405e07" class="cell">
+<div id="42d81bfb" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'issue_d'</span>] <span class="op">=</span> pd.to_datetime(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    loandata[<span class="st">'issue_d'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%b-%y'</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -715,7 +715,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="purpose-and-debt-to-income-ratio" class="level4">
 <h4 class="anchored" data-anchor-id="purpose-and-debt-to-income-ratio">Purpose and Debt-to-Income Ratio</h4>
-<div id="bd98aeb9" class="cell">
+<div id="73174010" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>loandata[<span class="st">'purpose'</span>].value_counts()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">4</span>))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
@@ -742,7 +742,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="number-of-credit-accounts-and-number-of-public-records" class="level4">
 <h4 class="anchored" data-anchor-id="number-of-credit-accounts-and-number-of-public-records">Number of Credit Accounts and Number of Public Records</h4>
-<div id="a1ad2a65" class="cell">
+<div id="e90c20bb" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>filtered_open_account_threshold <span class="op">=</span> loandata[<span class="st">'open_acc'</span>].quantile(<span class="fl">0.98</span>)</span>
@@ -775,7 +775,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Public Records'</span>)</span>
 <span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>ax2.set_xticklabels(ax2.get_xticklabels(), rotation<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="405acfd2" class="cell">
+<div id="5cbe3c8f" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'open_acc'</span>, x<span class="op">=</span><span class="st">'loan_status'</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'loan_status'</span>,</span>
@@ -788,7 +788,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="revolving-balance-and-utilization" class="level4">
 <h4 class="anchored" data-anchor-id="revolving-balance-and-utilization">Revolving Balance and Utilization</h4>
-<div id="e3599a0f" class="cell">
+<div id="8c87eab6" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">4</span>))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>revol_bal_threshold <span class="op">=</span> loandata[<span class="st">'revol_bal'</span>].quantile(<span class="fl">0.95</span>)</span>
@@ -820,7 +820,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="total-account-and-initial-list-status" class="level4">
 <h4 class="anchored" data-anchor-id="total-account-and-initial-list-status">Total Account and Initial List Status</h4>
-<div id="b4bb4964" class="cell">
+<div id="99c4fd43" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>filtered_total_account_threshold <span class="op">=</span> loandata[<span class="st">'total_acc'</span>].quantile(<span class="fl">0.95</span>)</span>
@@ -846,7 +846,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 <span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Initial Status (Funded or Withdrawn)'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>next,</p>
-<div id="bc6fe580" class="cell">
+<div id="1087ccc0" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'total_acc'</span>, x<span class="op">=</span><span class="st">'loan_status'</span>,</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'loan_status'</span>,</span>
@@ -859,7 +859,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="number-of-mortgage-account-and-number-of-public-record-of-bankruptcies" class="level4">
 <h4 class="anchored" data-anchor-id="number-of-mortgage-account-and-number-of-public-record-of-bankruptcies">Number of Mortgage Account and Number of Public Record of Bankruptcies</h4>
-<div id="e667e703" class="cell">
+<div id="c0230f9d" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">4</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">121</span>)</span>
@@ -910,7 +910,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </section>
 <section id="application-type" class="level4">
 <h4 class="anchored" data-anchor-id="application-type">Application Type</h4>
-<div id="e2e606fc" class="cell">
+<div id="a248cb6f" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'loan_status'</span>, hue<span class="op">=</span> <span class="st">'application_type'</span>, </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>loandata, palette<span class="op">=</span><span class="st">'winter'</span></span>
@@ -918,7 +918,7 @@ Seems like there are some missing data in the <code>emp_length</code>, <code>emp
 </div>
 <p>We see only the individual type applications have impact on loans being charged off.</p>
 <p>Now that we have analyzed all the features, how about the correlations among the features?</p>
-<div id="a18dc9af" class="cell">
+<div id="7f3bfafd" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>numeric_loandata <span class="op">=</span> loandata.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>,<span class="st">'int64'</span>])</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(numeric_loandata.corr(), annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
@@ -961,19 +961,139 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', async function () {
+    button.addEventListener('click', function () {
       const source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
-      try {
-        await navigator.clipboard.writeText(source.textContent.trim());
-        const previous = button.textContent;
-        button.textContent = 'Copied';
-        setTimeout(function () { button.textContent = previous; }, 1600);
-      } catch (error) {
-        button.textContent = 'Select and copy above';
+      const citation = source.textContent.trim();
+      const previous = button.textContent;
+      button.textContent = 'Copied';
+
+      const fallbackCopy = function () {
+        const field = document.createElement('textarea');
+        field.value = citation;
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand('copy');
+        field.remove();
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(citation).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
       }
+      setTimeout(function () { button.textContent = previous; }, 1600);
     });
   });
+
+  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      if (!details.open) return;
+      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
+        if (other !== details) other.removeAttribute('open');
+      });
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
+      if (!details.contains(event.target)) details.removeAttribute('open');
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("research-density-animation");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let time = 0;
+
+  function palette() {
+    const dark = document.body.classList.contains("quarto-dark");
+    return dark ? {
+      background: "#18232d",
+      contourA: "rgba(130, 201, 194, 0.72)",
+      contourB: "rgba(190, 170, 232, 0.62)",
+      trace: "rgba(237, 241, 240, 0.72)",
+      point: "#f0dcae"
+    } : {
+      background: "#fbfcfa",
+      contourA: "rgba(31, 111, 105, 0.68)",
+      contourB: "rgba(109, 82, 178, 0.53)",
+      trace: "rgba(36, 52, 71, 0.58)",
+      point: "#b34d4d"
+    };
+  }
+
+  function contour(cx, cy, rx, ry, rotation, color, phase) {
+    for (let level = 1; level <= 13; level += 1) {
+      const scale = 0.22 + level * 0.062;
+      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
+      ctx.stroke();
+    }
+  }
+
+  function samplePath(cx, cy, rx, ry, direction, color, phase) {
+    ctx.beginPath();
+    for (let index = 0; index < 105; index += 1) {
+      const age = index / 104;
+      const theta = direction * (phase * 0.55 + index * 0.29);
+      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
+      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
+      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.35;
+    ctx.stroke();
+
+    const theta = direction * (phase * 0.55 + 104 * 0.29);
+    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
+    return {
+      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
+      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
+    };
+  }
+
+  function draw() {
+    const colors = palette();
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, width, height);
+
+    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
+    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
+
+    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
+    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
+
+    [left, right].forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.point;
+      ctx.fill();
+    });
+  }
+
+  draw();
+  if (reduceMotion) return;
+
+  function animate() {
+    time += 0.035;
+    draw();
+    window.requestAnimationFrame(animate);
+  }
+  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
