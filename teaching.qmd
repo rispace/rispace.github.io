@@ -1,97 +1,121 @@
 ---
 title: Teaching
-description: "Teaching experience, courses, and academic mentoring by Rafiq Islam."
----  
+---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
 
-<p class="teaching-intro">My teaching spans calculus, precalculus, algebra, trigonometry, and actuarial mathematics. I have served as an instructor of record, recitation instructor, lecture and laboratory teaching assistant, and grader at Florida State University and Youngstown State University. My classroom practice emphasizes clear mathematical reasoning, active problem solving, and helping students connect formal ideas with applications.</p>
+<table class="teaching-overview" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td valign="top">
+      <p>My teaching spans calculus, differential equations, precalculus, algebra, trigonometry, and actuarial mathematics. I have served as an instructor of record, recitation instructor, lecture and laboratory teaching assistant, and grader at Florida State University and Youngstown State University. My classroom practice emphasizes clear mathematical reasoning, active problem solving, and helping students connect formal ideas with applications.<br><br>
+      Currently, I am a recitation instructor for Calculus III at Iowa State University, where I lead recitation meetings that reinforce multivariable calculus through guided problem solving, mathematical discussion, and support for students as they connect geometric intuition with analytical techniques.</p>
+    </td>
+    <td valign="top">
+      <img src="/_assets/images/teaching.png" alt="Teaching" width="500">
+    </td>
+  </tr>
+</table>
 
-## Instructor of Record
+## Student Testimonials
 
-::: {.teaching-list}
-::: {.teaching-item}
-<span class="teaching-term">Spring 2026</span>
+<p class="testimonial-intro">Selected anonymous comments from student course evaluations: Summer 2026, ODE class.</p>
 
-### [MAC2312 · Calculus with Analytic Geometry II](teaching/sp26.qmd)
-<p>Florida State University · Four-credit course covering integration techniques, applications of integration, differential equations, sequences, and series.</p>
-[Course details →](teaching/sp26.qmd){.teaching-link}
+::: {.testimonial-grid}
+::: {.testimonial-card}
+“He was always great. Communicated with the class to find the best teaching method and listened to his students’ needs. He provided plenty of example problems and prepared us perfectly for exams.”
 :::
 
-::: {.teaching-item}
-<span class="teaching-term">Fall 2025</span>
-
-### [MAC2312 · Calculus with Analytic Geometry II](teaching/fall25.qmd)
-<p>Florida State University · Led the complete course, including lectures, assessment, office hours, and student support.</p>
-[Course details →](teaching/fall25.qmd){.teaching-link}
+::: {.testimonial-card}
+“The practice test questions before each exam were very helpful for studying. He would spend the time to go through every little step in a problem if anyone in the class was not following along.”
 :::
 
-::: {.teaching-item}
-<span class="teaching-term">Spring 2025</span>
-
-### [MAC2311 · Calculus with Analytic Geometry I](teaching/sp25.qmd)
-<p>Florida State University · Developed students’ reasoning and computational fluency with limits, derivatives, optimization, curve sketching, and introductory integration.</p>
-[Course details →](teaching/sp25.qmd){.teaching-link}
+::: {.testimonial-card}
+“His digital notes were thorough, easy to read, and formatted beautifully. He encouraged questions and was approachable during and after class.”
 :::
 
-::: {.teaching-item}
-<span class="teaching-term">Spring 2024</span>
-
-### [MAP4170 · Introduction to Actuarial Mathematics](teaching/sp24.qmd)
-<p>Florida State University · Introduced financial mathematics, interest theory, and the professional actuarial pathway.</p>
-[Course details →](teaching/sp24.qmd){.teaching-link}
+::: {.testimonial-card}
+“One of the best professor experiences I have had at FSU. Truly a great professor and an even better person.”
 :::
 
-::: {.teaching-item}
-<span class="teaching-term">Spring 2023</span>
-
-### [MAC1140 · Precalculus Algebra](teaching/sp23.qmd)
-<p>Florida State University · Taught a class of 27 students and supported quizzes, tests, and application-based laboratory activities.</p>
-[Course details →](teaching/sp23.qmd){.teaching-link}
+::: {.testimonial-card}
+“You played a large part in convincing me that I am capable of learning difficult subjects. You built my confidence, and I will carry it through the rest of my courses.”
 :::
 
-::: {.teaching-item}
-<span class="teaching-term">2018–2020</span>
-
-### [College Algebra and Trigonometry](teaching/f18-f21.qmd)
-<p>Youngstown State University · Prepared and delivered lectures, designed examinations, and graded tests and assignments.</p>
-[Course details →](teaching/f18-f21.qmd){.teaching-link}
+::: {.testimonial-card}
+“I would rate his instructional methods 10/10 and can confidently say that this was the best mathematics course instruction I have received while at FSU.”
 :::
 :::
 
-## Additional Teaching Roles
+## Teaching Experience
 
-::: {.teaching-list}
+::: {.teaching-list .teaching-course-list}
 ::: {.teaching-item .teaching-item-current}
-<span class="teaching-term">Current · Fall 2026</span>
+### Calculus III
 
-### [Calculus III](teaching/fall26.qmd)
-<p><strong>Recitation Instructor, Iowa State University.</strong> I lead recitation meetings that reinforce multivariable calculus through guided problem solving, mathematical discussion, and support for students as they connect geometric intuition with analytical techniques.</p>
-[Role details →](teaching/fall26.qmd){.teaching-link}
+<p class="teaching-institution"><strong>Iowa State University</strong></p>
+
+<p class="teaching-description">This multivariable calculus course develops geometric and analytical understanding of vectors, vector-valued functions, functions of several variables, partial derivatives, multiple integrals, and vector calculus. In recitation meetings, I reinforce lecture material through guided examples, collaborative problem solving, and mathematical discussion. Students learn to translate geometric intuition into precise analytical techniques, compare solution methods, communicate their reasoning, and confidently develop effective strategies for multistep problems in two and three dimensions.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/fall26.qmd"><strong>Fall 2026:</strong> Recitation Instructor</a></p>
 :::
 
 ::: {.teaching-item}
-<span class="teaching-term">Fall 2022</span>
+### MAP2302 · Ordinary Differential Equations
 
-### [MAC2311 · Calculus and Analytic Geometry I](teaching/fall22.qmd)
-<p><strong>Recitation Instructor, Florida State University.</strong> Facilitated two active-learning sections of approximately 30 students, organized mathematical poster presentations, and graded examinations and weekly work.</p>
-[Role details →](teaching/fall22.qmd){.teaching-link}
+<p class="teaching-institution"><strong>Florida State University</strong></p>
+
+<p class="teaching-description">This course introduces ordinary differential equations as models for evolving systems. Topics include direction fields; first-order methods; second-order linear equations; systems of equations; Laplace transforms; power-series solutions; and introductory numerical methods. Students learn to identify an equation’s structure, select suitable analytical or numerical techniques, verify solutions, interpret qualitative behavior, and connect equations with applications. The course balances procedural fluency with the mathematical reasoning needed to move between a model and its solutions.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/summer26-map2302.qmd"><strong>Summer 2026:</strong> Instructor of Record</a></p>
 :::
 
 ::: {.teaching-item}
-<span class="teaching-term">2021–2022</span>
+### MAC2312 · Calculus with Analytic Geometry II
 
-### [Precalculus and Algebra](teaching/fall21.qmd)
-<p><strong>Lecture and Laboratory Teaching Assistant, Florida State University.</strong> Supported in-class activities, answered student questions, checked course eligibility, and supervised laboratory quizzes and examinations.</p>
-[Role details →](teaching/fall21.qmd){.teaching-link}
+<p class="teaching-institution"><strong>Florida State University</strong></p>
+
+<p class="teaching-description">Calculus II develops integration, approximation, and infinite-process techniques used throughout mathematics, science, and engineering. Using <em>Single and Multivariable Calculus</em>, 8th edition, the course covers techniques and applications of integration, differential equations, sequences, infinite series, power series, and Taylor series from Chapters 7–11. Students learn to choose suitable integration methods, analyze applied models, test convergence, approximate functions, and strengthen conceptual understanding through structured notes, worked examples, practice tests, and step-by-step discussion.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/fall25.qmd"><strong>Fall 2025:</strong> Instructor of Record</a><a class="term-link" href="teaching/sp26.qmd"><strong>Spring 2026:</strong> Instructor of Record</a></p>
 :::
 
 ::: {.teaching-item}
-<span class="teaching-term">Fall 2023</span>
+### MAC2311 · Calculus with Analytic Geometry I
 
-### [MAP4170 · Introduction to Actuarial Mathematics](teaching/fall23.qmd)
-<p><strong>Grader, Florida State University.</strong> Evaluated student work and supported consistent assessment for the course.</p>
-[Role details →](teaching/fall23.qmd){.teaching-link}
+<p class="teaching-institution"><strong>Florida State University</strong></p>
+
+<p class="teaching-description">Calculus I introduces change, accumulation, and approximation for functions of one variable. Topics include limits and continuity, derivatives and rates of change, optimization, curve sketching, definite and indefinite integrals, the Fundamental Theorem of Calculus, and applications of integration. Through guided examples, active-learning problems, poster presentations, assessments, and targeted feedback, students develop conceptual reasoning and computational fluency while learning to interpret formulas and graphs, explain solution steps, and approach unfamiliar applied problems systematically.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/fall22.qmd"><strong>Fall 2022:</strong> Recitation Instructor</a><a class="term-link" href="teaching/sp25.qmd"><strong>Spring 2025:</strong> Instructor of Record</a><a class="term-link" href="teaching/summer25.qmd"><strong>Summer 2025:</strong> Instructor of Record</a></p>
+:::
+
+::: {.teaching-item}
+### MAP4170 · Introduction to Actuarial Mathematics
+
+<p class="teaching-institution"><strong>Florida State University</strong></p>
+
+<p class="teaching-description">Introduction to Actuarial Mathematics develops the financial mathematics foundation used in actuarial practice and professional examinations. Topics include accumulation and discount functions, nominal and effective interest rates, equations of value, annuities, loans, bonds, and related applications. Students learn to model cash flows across time, select consistent valuation dates, interpret financial quantities, and communicate solutions with appropriate notation and assumptions while connecting mathematical methods with actuarial practice, professional examinations, and independent study.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/fall23.qmd"><strong>Fall 2023:</strong> Grader</a><a class="term-link" href="teaching/sp24.qmd"><strong>Spring 2024:</strong> Instructor of Record</a></p>
+:::
+
+::: {.teaching-item}
+### MAC1140 · Precalculus Algebra
+
+<p class="teaching-institution"><strong>Florida State University</strong></p>
+
+<p class="teaching-description">Precalculus Algebra builds the function-based reasoning required for calculus and other quantitative courses. Topics include complex numbers; piecewise, polynomial, rational, exponential, and logarithmic functions; polynomial division and zeros; inequalities; inverse functions; and logarithmic equations. Through lecture, laboratory, and instructor-of-record responsibilities, I supported class activities, supervised assessments, and taught students from varied majors. Instruction emphasized multiple representations of functions, careful algebraic reasoning, interpretation of graphs and parameters, and applying foundational skills beyond memorized procedures.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/fall21.qmd"><strong>Fall 2021–Spring 2022:</strong> Lecture and Laboratory Teaching Assistant</a><a class="term-link" href="teaching/sp23.qmd"><strong>Spring 2023:</strong> Instructor of Record</a></p>
+:::
+
+::: {.teaching-item}
+### College Algebra and Trigonometry
+
+<p class="teaching-institution"><strong>Youngstown State University</strong></p>
+
+<p class="teaching-description">These foundational courses prepare students for further study in mathematics, science, business, and other quantitative fields. College Algebra develops equations and inequalities, functions and graphs, polynomial and rational models, exponential and logarithmic relationships, and algebraic modeling. Trigonometry extends this foundation through angles, unit-circle definitions, functions and graphs, identities, equations, inverse functions, triangles, and periodic behavior. Instruction emphasizes clear notation, connections among symbolic, graphical, and numerical representations, and structured practice that builds confidence and independence.</p>
+
+<p class="teaching-terms"><a class="term-link" href="teaching/f18-f21.qmd"><strong>Fall 2018–Spring 2020:</strong> Instructor of Record</a></p>
 :::
 :::

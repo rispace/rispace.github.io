@@ -1,0 +1,32 @@
+---
+title: "Summer 2026: MAP2302 Ordinary Differential Equations"
+collection: teaching
+type: "Instructor of Record"
+permalink: /teaching/2026-summer-map2302
+venue: "Department of Mathematics, Florida State University"
+date: 2026-05-01
+location: "Tallahassee, Florida"
+---
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+
+## Course Information
+
+- **Credit hours:** 3
+- **Delivery:** In person
+- **Meeting pattern:** Monday, Wednesday, and Friday, 1:20–2:25 p.m.
+- **Location:** Love Building 0106
+
+## Course Description
+
+<div style="text-align: justify">
+MAP2302 introduces ordinary differential equations as models for dynamic processes. The course covers mathematical models and direction fields, classification of differential equations, first-order solution methods, second-order linear differential equations, systems of first-order equations, Laplace transforms, series solutions of second-order equations, and numerical methods. Students develop the ability to identify an equation’s structure, select an appropriate analytical or numerical method, verify solutions, and interpret their qualitative behavior. The course prepares students for subsequent mathematics, science, and engineering courses in which differential equations are an essential prerequisite.
+</div>
+
+## Topical Schedule
+
+- Week 1: Mathematical models, direction fields, solution concepts, and classification
+- Weeks 2–4: First-order differential equations
+- Weeks 5–8: Second-order linear differential equations
+- Weeks 9–11: Laplace transforms
+- Weeks 12–15: Series solutions of second-order linear equations

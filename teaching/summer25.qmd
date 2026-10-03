@@ -1,0 +1,17 @@
+---
+title: "Summer 2025: MAC2311 Calculus with Analytic Geometry I"
+collection: teaching
+type: "Instructor of Record"
+permalink: /teaching/2025-summer-teaching
+venue: "Department of Mathematics, Florida State University"
+date: 2025-06-01
+location: "Tallahassee, Florida"
+---
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+
+<div style="text-align: justify">
+I served as instructor of record for MAC2311, Calculus with Analytic Geometry I, during Summer 2025 at Florida State University. The course developed problem-solving skills, critical thinking, computational proficiency, and contextual fluency through limits, continuity, derivatives, rates of change, optimization, curve sketching, definite and indefinite integrals, and applications for algebraic, exponential, logarithmic, and trigonometric functions.
+
+In the accelerated summer format, I was responsible for instruction, assessment, office hours, and student support. I used structured notes, worked examples, targeted practice, and frequent opportunities for questions to help students connect graphical, numerical, and analytical perspectives.
+</div>

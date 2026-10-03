@@ -585,7 +585,7 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "My teaching spans calculus, precalculus, algebra, trigonometry, and actuarial mathematics. I have served as an instructor of record, recitation instructor, lecture and laboratory teaching assistant, and grader at Florida State University and Youngstown State University. My classroom practice emphasizes clear mathematical reasoning, active problem solving, and helping students connect formal ideas with applications."
+    "text": "My teaching spans calculus, differential equations, precalculus, algebra, trigonometry, and actuarial mathematics. I have served as an instructor of record, recitation instructor, lecture and laboratory teaching assistant, and grader at Florida State University and Youngstown State University. My classroom practice emphasizes clear mathematical reasoning, active problem solving, and helping students connect formal ideas with applications. Currently, I am a recitation instructor for Calculus III at Iowa State University, where I lead recitation meetings that reinforce multivariable calculus through guided problem solving, mathematical discussion, and support for students as they connect geometric intuition with analytical techniques."
   },
   {
     "objectID": "teaching.html#instructor-of-record",
@@ -999,5 +999,54 @@
     "title": "",
     "section": "Talks and Presentations",
     "text": "Talks and Presentations"
+  },
+  {
+    "objectID": "teaching.html#student-testimonials",
+    "href": "teaching.html#student-testimonials",
+    "title": "Teaching",
+    "section": "Student Testimonials",
+    "text": "Student Testimonials\n\nSelected anonymous comments from student course evaluations: Summer 2026, ODE class.\n\n\n\n“He was always great. Communicated with the class to find the best teaching method and listened to his students’ needs. He provided plenty of example problems and prepared us perfectly for exams.”\n\n\n“The practice test questions before each exam were very helpful for studying. He would spend the time to go through every little step in a problem if anyone in the class was not following along.”\n\n\n“His digital notes were thorough, easy to read, and formatted beautifully. He encouraged questions and was approachable during and after class.”\n\n\n“One of the best professor experiences I have had at FSU. Truly a great professor and an even better person.”\n\n\n“You played a large part in convincing me that I am capable of learning difficult subjects. You built my confidence, and I will carry it through the rest of my courses.”\n\n\n“I would rate his instructional methods 10/10 and can confidently say that this was the best mathematics course instruction I have received while at FSU.”"
+  },
+  {
+    "objectID": "teaching.html#teaching-experience",
+    "href": "teaching.html#teaching-experience",
+    "title": "Teaching",
+    "section": "Teaching Experience",
+    "text": "Teaching Experience\n\n\nCalculus III\n\nIowa State University\n\n\nThis multivariable calculus course develops geometric and analytical understanding of vectors, vector-valued functions, functions of several variables, partial derivatives, multiple integrals, and vector calculus. In recitation meetings, I reinforce lecture material through guided examples, collaborative problem solving, and mathematical discussion. Students learn to translate geometric intuition into precise analytical techniques, compare solution methods, communicate their reasoning, and confidently develop effective strategies for multistep problems in two and three dimensions.\n\n\nFall 2026: Recitation Instructor\n\n\n\nMAP2302 · Ordinary Differential Equations\n\nFlorida State University\n\n\nThis course introduces ordinary differential equations as models for evolving systems. Topics include direction fields; first-order methods; second-order linear equations; systems of equations; Laplace transforms; power-series solutions; and introductory numerical methods. Students learn to identify an equation’s structure, select suitable analytical or numerical techniques, verify solutions, interpret qualitative behavior, and connect equations with applications. The course balances procedural fluency with the mathematical reasoning needed to move between a model and its solutions.\n\n\nSummer 2026: Instructor of Record\n\n\n\nMAC2312 · Calculus with Analytic Geometry II\n\nFlorida State University\n\n\nCalculus II develops integration, approximation, and infinite-process techniques used throughout mathematics, science, and engineering. Using Single and Multivariable Calculus, 8th edition, the course covers techniques and applications of integration, differential equations, sequences, infinite series, power series, and Taylor series from Chapters 7–11. Students learn to choose suitable integration methods, analyze applied models, test convergence, approximate functions, and strengthen conceptual understanding through structured notes, worked examples, practice tests, and step-by-step discussion.\n\n\nFall 2025: Instructor of RecordSpring 2026: Instructor of Record\n\n\n\nMAC2311 · Calculus with Analytic Geometry I\n\nFlorida State University\n\n\nCalculus I introduces change, accumulation, and approximation for functions of one variable. Topics include limits and continuity, derivatives and rates of change, optimization, curve sketching, definite and indefinite integrals, the Fundamental Theorem of Calculus, and applications of integration. Through guided examples, active-learning problems, poster presentations, assessments, and targeted feedback, students develop conceptual reasoning and computational fluency while learning to interpret formulas and graphs, explain solution steps, and approach unfamiliar applied problems systematically.\n\n\nFall 2022: Recitation InstructorSpring 2025: Instructor of RecordSummer 2025: Instructor of Record\n\n\n\nMAP4170 · Introduction to Actuarial Mathematics\n\nFlorida State University\n\n\nIntroduction to Actuarial Mathematics develops the financial mathematics foundation used in actuarial practice and professional examinations. Topics include accumulation and discount functions, nominal and effective interest rates, equations of value, annuities, loans, bonds, and related applications. Students learn to model cash flows across time, select consistent valuation dates, interpret financial quantities, and communicate solutions with appropriate notation and assumptions while connecting mathematical methods with actuarial practice, professional examinations, and independent study.\n\n\nFall 2023: GraderSpring 2024: Instructor of Record\n\n\n\nMAC1140 · Precalculus Algebra\n\nFlorida State University\n\n\nPrecalculus Algebra builds the function-based reasoning required for calculus and other quantitative courses. Topics include complex numbers; piecewise, polynomial, rational, exponential, and logarithmic functions; polynomial division and zeros; inequalities; inverse functions; and logarithmic equations. Through lecture, laboratory, and instructor-of-record responsibilities, I supported class activities, supervised assessments, and taught students from varied majors. Instruction emphasized multiple representations of functions, careful algebraic reasoning, interpretation of graphs and parameters, and applying foundational skills beyond memorized procedures.\n\n\nFall 2021–Spring 2022: Lecture and Laboratory Teaching AssistantSpring 2023: Instructor of Record\n\n\n\nCollege Algebra and Trigonometry\n\nYoungstown State University\n\n\nThese foundational courses prepare students for further study in mathematics, science, business, and other quantitative fields. College Algebra develops equations and inequalities, functions and graphs, polynomial and rational models, exponential and logarithmic relationships, and algebraic modeling. Trigonometry extends this foundation through angles, unit-circle definitions, functions and graphs, identities, equations, inverse functions, triangles, and periodic behavior. Instruction emphasizes clear notation, connections among symbolic, graphical, and numerical representations, and structured practice that builds confidence and independence.\n\n\nFall 2018–Spring 2020: Instructor of Record"
+  },
+  {
+    "objectID": "teaching/summer26-map2302.html",
+    "href": "teaching/summer26-map2302.html",
+    "title": "Summer 2026: MAP2302 Ordinary Differential Equations",
+    "section": "",
+    "text": "Credit hours: 3\nDelivery: In person\nMeeting pattern: Monday, Wednesday, and Friday, 1:20–2:25 p.m.\nLocation: Love Building 0106"
+  },
+  {
+    "objectID": "teaching/summer26-map2302.html#course-information",
+    "href": "teaching/summer26-map2302.html#course-information",
+    "title": "Summer 2026: MAP2302 Ordinary Differential Equations",
+    "section": "",
+    "text": "Credit hours: 3\nDelivery: In person\nMeeting pattern: Monday, Wednesday, and Friday, 1:20–2:25 p.m.\nLocation: Love Building 0106"
+  },
+  {
+    "objectID": "teaching/summer26-map2302.html#course-description",
+    "href": "teaching/summer26-map2302.html#course-description",
+    "title": "Summer 2026: MAP2302 Ordinary Differential Equations",
+    "section": "Course Description",
+    "text": "Course Description\n\nMAP2302 introduces ordinary differential equations as models for dynamic processes. The course covers mathematical models and direction fields, classification of differential equations, first-order solution methods, second-order linear differential equations, systems of first-order equations, Laplace transforms, series solutions of second-order equations, and numerical methods. Students develop the ability to identify an equation’s structure, select an appropriate analytical or numerical method, verify solutions, and interpret their qualitative behavior. The course prepares students for subsequent mathematics, science, and engineering courses in which differential equations are an essential prerequisite."
+  },
+  {
+    "objectID": "teaching/summer26-map2302.html#topical-schedule",
+    "href": "teaching/summer26-map2302.html#topical-schedule",
+    "title": "Summer 2026: MAP2302 Ordinary Differential Equations",
+    "section": "Topical Schedule",
+    "text": "Topical Schedule\n\nWeek 1: Mathematical models, direction fields, solution concepts, and classification\nWeeks 2–4: First-order differential equations\nWeeks 5–8: Second-order linear differential equations\nWeeks 9–11: Laplace transforms\nWeeks 12–15: Series solutions of second-order linear equations"
+  },
+  {
+    "objectID": "teaching/summer25.html",
+    "href": "teaching/summer25.html",
+    "title": "Summer 2025: MAC2311 Calculus with Analytic Geometry I",
+    "section": "",
+    "text": "I served as instructor of record for MAC2311, Calculus with Analytic Geometry I, during Summer 2025 at Florida State University. The course developed problem-solving skills, critical thinking, computational proficiency, and contextual fluency through limits, continuity, derivatives, rates of change, optimization, curve sketching, definite and indefinite integrals, and applications for algebraic, exponential, logarithmic, and trigonometric functions.\nIn the accelerated summer format, I was responsible for instruction, assessment, office hours, and student support. I used structured notes, worked examples, targeted practice, and frequent opportunities for questions to help students connect graphical, numerical, and analytical perspectives.\n\n\n\n\n\n\n Back to top"
   }
 ]
