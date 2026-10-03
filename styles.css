@@ -1393,3 +1393,128 @@ body.quarto-dark .home-profile .oval-image {
   padding: 0;
   line-height: 1;
 }
+
+/* =========================================================
+   MOBILE NAVBAR + FOOTER
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  /* ---------------------------------------------------------
+     Mobile hamburger menu
+     --------------------------------------------------------- */
+
+  .navbar-toggler {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0.35rem 0.25rem !important;
+    margin-right: 0.55rem;
+    opacity: 1 !important;
+  }
+
+  /*
+   * Replace Bootstrap's faint SVG hamburger with
+   * three lines that use the navbar foreground color.
+   */
+  .navbar-toggler-icon {
+    background-image: none !important;
+    position: relative;
+    width: 1.65rem;
+    height: 1.15rem;
+    border-top: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .navbar-toggler-icon::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: translateY(-50%);
+  }
+
+  /* Dark navbar in light mode */
+  body:not(.quarto-dark) .navbar-toggler {
+    color: #f5f4ef !important;
+  }
+
+  /* Light navbar in dark mode */
+  body.quarto-dark .navbar-toggler {
+    color: #243447 !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     Mobile footer
+     --------------------------------------------------------- */
+
+  .nav-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto;
+    gap: 0.45rem;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding: 0.70rem 1rem !important;
+
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    text-align: center;
+  }
+
+  .nav-footer-left,
+  .nav-footer-center,
+  .nav-footer-right {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    justify-self: center !important;
+  }
+
+  /*
+   * Mobile order:
+   * 1. social icons
+   * 2. copyright + license
+   * 3. Powered by Quarto
+   */
+  .nav-footer-right {
+    grid-row: 1;
+  }
+
+  .nav-footer-center {
+    grid-row: 2;
+    white-space: normal !important;
+  }
+
+  .nav-footer-left {
+    grid-row: 3;
+    font-size: 0.78rem;
+    opacity: 0.9;
+  }
+
+  .nav-footer .footer-items {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+    gap: 0.65rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .nav-footer p,
+  .nav-footer .nav-item {
+    margin: 0 !important;
+  }
+
+  .nav-footer .nav-link {
+    padding: 0.1rem 0.15rem !important;
+    line-height: 1.2 !important;
+  }
+}
