@@ -517,23 +517,49 @@ Predicting Top Cryptocurrencies.”</span> <em>Journal of Risk and
 Financial Management</em>, accepted, September 3. <a href="https://doi.org/10.3390/jrfm14090421">https://doi.org/10.3390/jrfm14090421</a>.
 </div></div></section></div></main> <!-- /main -->
 <script>
-// Keep navbar and in-page navigation in the current tab; open content links separately.
+// Internal navigation stays in the current tab.
+// External links open in a new tab.
 document.addEventListener("DOMContentLoaded", function () {
+
   document.querySelectorAll('a[href]').forEach(function (link) {
     const href = link.getAttribute('href');
-    if (link.closest('.navbar')) {
+
+    if (
+      !href ||
+      href.startsWith('#') ||
+      href.startsWith('javascript:')
+    ) {
+      return;
+    }
+
+    // Email and telephone links do not need a new browser tab
+    if (href.startsWith('mailto:') || href.startsWith('tel:')) {
       link.removeAttribute('target');
-      link.removeAttribute('rel');
-    } else if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+      return;
+    }
+
+    try {
+      const url = new URL(href, window.location.href);
+      const isExternal = url.origin !== window.location.origin;
+
+      if (isExternal) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    } catch (e) {
+      // Leave unusual links untouched
     }
   });
+
 
   document.querySelectorAll('.bibtex-copy').forEach(function (button) {
     button.addEventListener('click', function () {
       const source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
+
       const citation = source.textContent.trim();
       const previous = button.textContent;
       button.textContent = 'Copied';
@@ -554,24 +580,33 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         fallbackCopy();
       }
-      setTimeout(function () { button.textContent = previous; }, 1600);
+
+      setTimeout(function () {
+        button.textContent = previous;
+      }, 1600);
     });
   });
+
 
   document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
     details.addEventListener('toggle', function () {
       if (!details.open) return;
+
       document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
         if (other !== details) other.removeAttribute('open');
       });
     });
   });
 
+
   document.addEventListener('click', function (event) {
     document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) details.removeAttribute('open');
+      if (!details.contains(event.target)) {
+        details.removeAttribute('open');
+      }
     });
   });
+
 });
 </script>
 <script>
