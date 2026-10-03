@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-861c8cbcf83536ffdaf3293223188c31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f2680b48ff9ee0148bbd26390d660bb8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-039702513ca8fd214bac9b6e3eb29253.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-f2680b48ff9ee0148bbd26390d660bb8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -457,7 +457,7 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 
 <section id="load-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-the-data">Load the data</h2>
-<div id="44463c82" class="cell" data-execution_count="1">
+<div id="034cc974" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -551,7 +551,7 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="eda">EDA</h2>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
-<div id="b36c7442" class="cell" data-execution_count="2">
+<div id="eda651eb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>salesdata.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -639,7 +639,7 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div id="41ee1b33" class="cell" data-execution_count="3">
+<div id="da7c02af" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>salesdata.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -662,7 +662,7 @@ memory usage: 31.4+ KB</code></pre>
 </section>
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
-<div id="ded14bdf" class="cell" data-execution_count="4">
+<div id="5eeb508e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
@@ -699,7 +699,7 @@ memory usage: 31.4+ KB</code></pre>
 </div>
 <p>So, from this plot, we see that <code>Time on Website</code> has no significant trend or pattern on <code>Yearly Amount Spent</code> variable. However, <code>Time on App</code> seems to have a linear relationship on <code>Yearly Amount Spent</code>.</p>
 <p>Next, we see the relationship between <code>Avg. Session Length</code> vs <code>Yearly Amount Spent</code>, and <code>Length of Membership</code> vs <code>Yearly Amount Spent</code>.</p>
-<div id="9e93b14e" class="cell" data-execution_count="5">
+<div id="8ff7182c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
@@ -735,7 +735,7 @@ memory usage: 31.4+ KB</code></pre>
 </div>
 </div>
 <p>Both of these features have impact on the dependent variable. However, <code>Length of Membership</code> seems to have the most significant impact on <code>Yearly Amount Spent</code>.</p>
-<div id="3b3e1aab" class="cell" data-execution_count="6">
+<div id="9637fa1a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(salesdata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -751,7 +751,7 @@ memory usage: 31.4+ KB</code></pre>
 <h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
 <section id="training" class="level3">
 <h3 class="anchored" data-anchor-id="training">Training</h3>
-<div id="93503450" class="cell" data-execution_count="7">
+<div id="ce5eeaff" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -776,7 +776,7 @@ memory usage: 31.4+ KB</code></pre>
 </section>
 <section id="testing" class="level3">
 <h3 class="anchored" data-anchor-id="testing">Testing</h3>
-<div id="b20a87d6" class="cell" data-execution_count="8">
+<div id="2fee9743" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> linreg.predict(X_test)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_test, pred)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y test'</span>)</span>
@@ -793,7 +793,7 @@ memory usage: 31.4+ KB</code></pre>
 </section>
 <section id="model-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="model-evaluation">Model Evaluation</h3>
-<div id="a9c721d6" class="cell" data-execution_count="9">
+<div id="f6ab352f" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MAE'</span>, metrics.mean_absolute_error(y_test, pred))</span>
@@ -810,7 +810,7 @@ R-squared: 0.9845789607829495</code></pre>
 </section>
 <section id="residual-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="residual-analysis">Residual Analysis</h3>
-<div id="8001bf3a" class="cell" data-execution_count="10">
+<div id="a5d5f80d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.displot(y_test<span class="op">-</span>pred, bins<span class="op">=</span> <span class="dv">60</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -824,7 +824,7 @@ R-squared: 0.9845789607829495</code></pre>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<div id="93ff9fdc" class="cell" data-execution_count="11">
+<div id="c009b6ea" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>coeff <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: [<span class="st">'Intercept'</span>] <span class="op">+</span> <span class="bu">list</span>(X.columns), </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Coefficient'</span>: [linreg.intercept_] <span class="op">+</span> <span class="bu">list</span>(linreg.coef_) </span>
@@ -950,6 +950,121 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const social = document.querySelector(".research-sidebar-social");
+  const toc = document.getElementById("TOC");
+  if (social && toc) {
+    social.hidden = false;
+    toc.appendChild(social);
+  }
+
+  const canvas = document.getElementById("research-density-animation");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let time = 0;
+
+  function palette() {
+    const dark = document.body.classList.contains("quarto-dark");
+    return dark ? {
+      background: "#fbfbf8",
+      contourA: "rgba(12, 18, 17, 0.72)",
+      contourB: "rgba(12, 18, 17, 0.5)",
+      trace: "rgba(12, 18, 17, 0.66)",
+      point: "#050706",
+      core: "12, 18, 17"
+    } : {
+      background: "#080a09",
+      contourA: "rgba(255, 255, 255, 0.76)",
+      contourB: "rgba(255, 255, 255, 0.54)",
+      trace: "rgba(255, 255, 255, 0.7)",
+      point: "#ffffff",
+      core: "255, 255, 255"
+    };
+  }
+
+  function densityCore(cx, cy, radius, rgb) {
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
+    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
+    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function contour(cx, cy, rx, ry, rotation, color, phase) {
+    for (let level = 1; level <= 13; level += 1) {
+      const scale = 0.22 + level * 0.062;
+      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
+      ctx.stroke();
+    }
+  }
+
+  function samplePath(cx, cy, rx, ry, direction, color, phase) {
+    ctx.beginPath();
+    for (let index = 0; index < 105; index += 1) {
+      const age = index / 104;
+      const theta = direction * (phase * 0.55 + index * 0.29);
+      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
+      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
+      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.35;
+    ctx.stroke();
+
+    const theta = direction * (phase * 0.55 + 104 * 0.29);
+    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
+    return {
+      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
+      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
+    };
+  }
+
+  function draw() {
+    const colors = palette();
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, width, height);
+
+    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
+    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
+
+    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
+    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
+
+    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
+    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
+
+    [left, right].forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.point;
+      ctx.fill();
+    });
+  }
+
+  draw();
+  if (reduceMotion) return;
+
+  function animate() {
+    time += 0.035;
+    draw();
+    window.requestAnimationFrame(animate);
+  }
+  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

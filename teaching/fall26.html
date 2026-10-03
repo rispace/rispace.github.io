@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-861c8cbcf83536ffdaf3293223188c31.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-7a28d27ec3221875cfb0b42e5646842a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f2680b48ff9ee0148bbd26390d660bb8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-039702513ca8fd214bac9b6e3eb29253.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f2680b48ff9ee0148bbd26390d660bb8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -489,6 +489,121 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!details.contains(event.target)) details.removeAttribute('open');
     });
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const social = document.querySelector(".research-sidebar-social");
+  const toc = document.getElementById("TOC");
+  if (social && toc) {
+    social.hidden = false;
+    toc.appendChild(social);
+  }
+
+  const canvas = document.getElementById("research-density-animation");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let time = 0;
+
+  function palette() {
+    const dark = document.body.classList.contains("quarto-dark");
+    return dark ? {
+      background: "#fbfbf8",
+      contourA: "rgba(12, 18, 17, 0.72)",
+      contourB: "rgba(12, 18, 17, 0.5)",
+      trace: "rgba(12, 18, 17, 0.66)",
+      point: "#050706",
+      core: "12, 18, 17"
+    } : {
+      background: "#080a09",
+      contourA: "rgba(255, 255, 255, 0.76)",
+      contourB: "rgba(255, 255, 255, 0.54)",
+      trace: "rgba(255, 255, 255, 0.7)",
+      point: "#ffffff",
+      core: "255, 255, 255"
+    };
+  }
+
+  function densityCore(cx, cy, radius, rgb) {
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
+    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
+    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function contour(cx, cy, rx, ry, rotation, color, phase) {
+    for (let level = 1; level <= 13; level += 1) {
+      const scale = 0.22 + level * 0.062;
+      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
+      ctx.stroke();
+    }
+  }
+
+  function samplePath(cx, cy, rx, ry, direction, color, phase) {
+    ctx.beginPath();
+    for (let index = 0; index < 105; index += 1) {
+      const age = index / 104;
+      const theta = direction * (phase * 0.55 + index * 0.29);
+      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
+      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
+      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.35;
+    ctx.stroke();
+
+    const theta = direction * (phase * 0.55 + 104 * 0.29);
+    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
+    return {
+      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
+      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
+    };
+  }
+
+  function draw() {
+    const colors = palette();
+    ctx.fillStyle = colors.background;
+    ctx.fillRect(0, 0, width, height);
+
+    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
+    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
+
+    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
+    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
+
+    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
+    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
+
+    [left, right].forEach(function (point) {
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = colors.point;
+      ctx.fill();
+    });
+  }
+
+  draw();
+  if (reduceMotion) return;
+
+  function animate() {
+    time += 0.035;
+    draw();
+    window.requestAnimationFrame(animate);
+  }
+  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

@@ -734,6 +734,18 @@ main p {
 }
 
 .research-card-media {
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.research-card-media .research-visual-link img {
+  width: 100%;
+  height: 160px;
+  padding: 0.45rem;
+  object-fit: contain;
+}
+
+.research-card-media {
   display: flex;
   flex-direction: column;
   background: var(--scholar-surface-muted);
@@ -818,4 +830,566 @@ main p {
   .research-card-media {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Wide editorial layout, portrait crop, and MRI wordmark */
+.navbar .navbar-title {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 5.4rem;
+  height: 2.75rem;
+  padding: 0;
+  overflow: hidden;
+  color: transparent !important;
+  background: var(--scholar-surface);
+  border: 2px solid var(--scholar-ink);
+  border-radius: 0;
+  box-shadow:
+    inset 0 0 0 3px var(--scholar-surface),
+    inset 0 0 0 4px var(--scholar-border);
+  font-size: 0;
+  line-height: 1;
+}
+
+.navbar .navbar-title::before {
+  content: "MRI";
+  color: var(--scholar-ink);
+  background: linear-gradient(90deg, var(--scholar-ink) 0 68%, var(--scholar-accent) 68% 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+  font-size: 1.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  -webkit-text-fill-color: transparent;
+}
+
+.oval-image {
+  width: min(235px, 76vw);
+  height: min(235px, 76vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 61% 38%;
+  border-radius: 50%;
+}
+
+.home-columns {
+  display: grid !important;
+  grid-template-columns: 300px 24px minmax(0, 1fr);
+  align-items: start;
+  width: min(1400px, calc(100vw - 4rem));
+  max-width: none;
+  margin: 1.5rem auto 3rem;
+}
+
+.home-columns > .column {
+  width: auto !important;
+  min-width: 0;
+}
+
+.home-biography p {
+  max-width: none;
+}
+
+body:has(.home-columns) .margin-sidebar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .home-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    width: min(100%, calc(100vw - 2rem));
+  }
+
+  .home-spacer {
+    display: none;
+  }
+
+  .home-profile {
+    text-align: center;
+  }
+
+  .home-profile .oval-image {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+/* Current research: description and animated probability landscape */
+.research-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.research-card {
+  grid-template-columns: minmax(330px, 42%) minmax(0, 1fr);
+  width: 100%;
+  max-width: 1100px;
+}
+
+.research-card-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.85rem, 2vw, 1.35rem);
+  background: var(--scholar-surface-muted);
+  border-right: 1px solid var(--scholar-border);
+}
+
+#research-density-animation {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 45 / 31;
+  background: var(--scholar-surface);
+  border: 1px solid var(--scholar-border);
+  border-radius: 10px;
+}
+
+.research-animation-caption {
+  margin: 0.65rem 0 0;
+  color: var(--scholar-accent-strong);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center !important;
+  text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+  .research-card {
+    grid-template-columns: 1fr;
+  }
+
+  .research-card-media {
+    border-right: 0;
+    border-bottom: 1px solid var(--scholar-border);
+  }
+
+  #research-density-animation {
+    max-height: 290px;
+  }
+}
+
+body:not(.quarto-dark) #research-density-animation {
+  background: #080a09;
+}
+
+body.quarto-dark #research-density-animation {
+  background: #fbfbf8;
+}
+
+
+/* Render the visible wordmark from the real accessible title text. */
+.navbar .navbar-title {
+  color: transparent !important;
+  background-image:
+    linear-gradient(90deg, var(--scholar-ink) 0 68%, var(--scholar-accent) 68% 100%),
+    linear-gradient(var(--scholar-surface), var(--scholar-surface));
+  background-clip: text, border-box;
+  -webkit-background-clip: text, border-box;
+  font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+  font-size: 1.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar .navbar-title::before {
+  content: none;
+}
+/* Use the otherwise empty right margin on Research and Teaching pages. */
+body:has(#current-research) .margin-sidebar,
+body:has(.teaching-list) .margin-sidebar {
+  display: none;
+}
+
+body:has(#current-research) main.content,
+body:has(.teaching-list) main.content {
+  grid-column: body-content-start / page-end;
+  width: 100%;
+  max-width: none;
+}
+
+
+/* Distinguish the site chrome from the page canvas in both themes. */
+body:not(.quarto-dark) .navbar,
+body:not(.quarto-dark) .page-footer,
+body:not(.quarto-dark) .nav-footer {
+  background-color: #dfe4df;
+  border-color: #c3cbc4;
+}
+
+body.quarto-dark .navbar,
+body.quarto-dark .page-footer,
+body.quarto-dark .nav-footer {
+  background-color: #31444e;
+  border-color: #53636c;
+}
+/* Research introduction with a dedicated visualization column. */
+.research-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
+  align-items: start;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  margin: 0 0 2.25rem;
+}
+
+.research-intro > p {
+  margin: 0;
+}
+
+.research-intro-animation {
+  justify-self: end;
+  width: min(100%, 360px);
+  min-width: 0;
+}
+
+.research-card {
+  grid-template-columns: 210px minmax(0, 1fr);
+}
+
+.research-card-body {
+  padding: clamp(1.4rem, 3vw, 2.35rem);
+}
+
+.research-sidebar-social {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--scholar-border);
+}
+
+.research-sidebar-social span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--scholar-ink);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.research-sidebar-social a {
+  display: inline-flex;
+  margin-right: 0.55rem;
+  color: var(--scholar-accent-strong);
+}
+
+@media (max-width: 860px) {
+  .research-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .research-intro-animation {
+    width: min(100%, 520px);
+  }
+}
+
+
+/* Compact, high-contrast site chrome */
+.navbar {
+  min-height: 0 !important;
+  padding-top: 0.16rem;
+  padding-bottom: 0.16rem;
+}
+
+.navbar .navbar-title {
+  width: 4.85rem;
+  height: 2rem;
+  font-size: 1.42rem;
+}
+
+.navbar .navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav-footer {
+  min-height: 0 !important;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+body:not(.quarto-dark) .navbar,
+body:not(.quarto-dark) .nav-footer,
+body:not(.quarto-dark) .page-footer {
+  color: #f5f4ef;
+  background-color: #22272b;
+  border-color: #343a3f;
+}
+
+body:not(.quarto-dark) .navbar .nav-link,
+body:not(.quarto-dark) .navbar .navbar-title,
+body:not(.quarto-dark) .navbar .quarto-navigation-tool,
+body:not(.quarto-dark) .nav-footer,
+body:not(.quarto-dark) .nav-footer a {
+  color: #f5f4ef !important;
+}
+
+body:not(.quarto-dark) .navbar .quarto-navigation-tool .bi::before,
+body:not(.quarto-dark) .navbar .quarto-reader-toggle-btn,
+body:not(.quarto-dark) #quarto-search .aa-DetachedSearchButton,
+body:not(.quarto-dark) #quarto-search .aa-SubmitIcon {
+  color: #f5f4ef !important;
+  fill: #f5f4ef !important;
+}
+
+body:not(.quarto-dark) .navbar .quarto-navigation-tool .bi::before {
+  filter: brightness(0) invert(1);
+}
+
+html:has(body:not(.quarto-dark)) {
+  background-color: #22272b;
+}
+
+body:not(.quarto-dark) .navbar .navbar-title {
+  background-image:
+    linear-gradient(90deg, #f5f4ef 0 68%, #82c9c2 68% 100%),
+    linear-gradient(#22272b, #22272b);
+  border-color: #f5f4ef;
+  box-shadow:
+    inset 0 0 0 3px #22272b,
+    inset 0 0 0 4px #747d82;
+}
+
+body.quarto-dark .navbar,
+body.quarto-dark .nav-footer,
+body.quarto-dark .page-footer {
+  color: #243447;
+  background-color: #f5f4ef;
+  border-color: #d4d6d2;
+}
+
+body.quarto-dark .navbar .nav-link,
+body.quarto-dark .navbar .navbar-title,
+body.quarto-dark .navbar .quarto-navigation-tool,
+body.quarto-dark .nav-footer,
+body.quarto-dark .nav-footer a {
+  color: #243447 !important;
+}
+
+body.quarto-dark .navbar .quarto-navigation-tool .bi::before,
+body.quarto-dark .navbar .quarto-reader-toggle-btn,
+body.quarto-dark #quarto-search .aa-DetachedSearchButton,
+body.quarto-dark #quarto-search .aa-SubmitIcon {
+  color: #243447 !important;
+  fill: #243447 !important;
+}
+
+body.quarto-dark .navbar .quarto-navigation-tool .bi::before {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.82;
+}
+
+html:has(body.quarto-dark) {
+  background-color: #f5f4ef;
+}
+
+/* Footer */
+.page-footer {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-footer {
+  width: 100%;
+  min-height: 48px !important;
+  height: 48px;
+  padding: 0 1rem;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  align-items: center;
+}
+
+.nav-footer > div {
+  min-height: 48px !important;
+  display: flex;
+  align-items: center;
+}
+
+.nav-footer p,
+.nav-footer .footer-items,
+.nav-footer .nav-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-footer .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1.2;
+}
+
+.nav-footer p,
+.nav-footer .footer-items,
+.nav-footer .nav-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-footer .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+}
+
+.nav-footer > div {
+  min-height: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.nav-footer .footer-items {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body.quarto-dark .navbar .navbar-title {
+  background-image:
+    linear-gradient(90deg, #243447 0 68%, #286c68 68% 100%),
+    linear-gradient(#f5f4ef, #f5f4ef);
+  border-color: #243447;
+  box-shadow:
+    inset 0 0 0 3px #f5f4ef,
+    inset 0 0 0 4px #9fa6a4;
+}
+/* Compact glowing publication controls */
+.publication-actions > a,
+.publication-actions > a:link,
+.publication-actions > a:visited,
+.bibtex-dropdown summary,
+.bibtex-copy {
+  height: 2.2rem;
+  min-height: 2.2rem;
+  padding: 0.38rem 0.68rem;
+  color: var(--scholar-accent-strong) !important;
+  background: transparent !important;
+  border: 1px solid var(--scholar-accent);
+  border-radius: 4px !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--scholar-accent) 25%, transparent),
+    0 0 9px color-mix(in srgb, var(--scholar-accent) 35%, transparent);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.publication-actions > a:hover,
+.publication-actions > a:focus,
+.bibtex-dropdown summary:hover,
+.bibtex-dropdown summary:focus,
+.bibtex-copy:hover,
+.bibtex-copy:focus {
+  border-color: var(--scholar-accent-strong);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--scholar-accent-strong) 40%, transparent),
+    0 0 13px color-mix(in srgb, var(--scholar-accent) 55%, transparent);
+  transform: none;
+}
+
+/* Keep the concise homepage and its footer within one desktop viewport. */
+.home-columns {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+}
+
+
+.home-biography p:last-child,
+.home-profile > :last-child {
+  margin-bottom: 0;
+}
+
+body:not(.quarto-dark) .home-profile .oval-image {
+  border: 4px solid #f7f6f2;
+  box-shadow: 0 0 0 2px #286c68, 0 12px 30px rgba(24, 38, 48, 0.2);
+}
+
+body.quarto-dark .home-profile .oval-image {
+  border: 4px solid #111820;
+  box-shadow: 0 0 0 2px #82c9c2, 0 12px 30px rgba(0, 0, 0, 0.48);
+}
+
+/* =========================================================
+   FINAL FOOTER LAYOUT
+   ========================================================= */
+
+.page-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-footer {
+  width: 100%;
+  max-width: none;
+
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  height: 48px;
+  min-height: 48px !important;
+
+  padding: 0 1rem;
+  box-sizing: border-box;
+
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+
+/* Left: Powered by Quarto */
+.nav-footer-left {
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: center;
+  justify-self: stretch;
+}
+
+
+/* Center: Copyright + License */
+.nav-footer-center {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  white-space: nowrap;
+}
+
+
+/* Right: Twitter, YouTube, Email */
+.nav-footer-right {
+  display: flex !important;
+  justify-content: flex-end;
+  align-items: center;
+  justify-self: stretch;
+}
+
+
+/* Remove Quarto's extra spacing */
+.nav-footer p,
+.nav-footer .footer-items,
+.nav-footer .nav-item {
+  margin: 0;
+}
+
+
+/* Footer item containers */
+.nav-footer .footer-items {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+
+/* Links/icons */
+.nav-footer .nav-link {
+  padding: 0;
+  line-height: 1;
 }
