@@ -706,6 +706,41 @@ main p {
   .teaching-summary { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .teaching-overview,
+  .teaching-overview tbody,
+  .teaching-overview tr,
+  .teaching-overview td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .teaching-overview {
+    margin: 0;
+  }
+
+  .teaching-overview td {
+    padding: 0 !important;
+  }
+
+  .teaching-overview td + td {
+    margin-top: 1rem;
+  }
+
+  .teaching-overview p {
+    margin: 0;
+    text-align: left;
+  }
+
+  .teaching-overview img {
+    display: block;
+    width: 100% !important;
+    max-width: none;
+    height: auto;
+    border-radius: 8px;
+  }
+}
 /* Masthead monogram */
 .navbar .navbar-title {
   display: inline-block;
