@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/miscellaneous.html",
+    "items": [
+      "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
     "listing": "/posts/webtemplate/index.html",
     "items": [
       "/posts/eigen/index.html",
@@ -46,6 +52,18 @@
       "/posts/mathbiology/index.html",
       "/posts/someproofs/index.html",
       "/posts/bengalitrial/index.html"
+    ]
+  },
+  {
+    "listing": "/mathematics.html",
+    "items": [
+      "/posts/sgd/index.html",
+      "/posts/matmul/index.html",
+      "/posts/lu/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/eigen/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/matrixrep/index.html"
     ]
   },
   {
@@ -109,19 +127,6 @@
       "/portfolio/dsp/lendingclub/index.html",
       "/portfolio/dsp/ecommerce/index.html",
       "/portfolio/dsp/titanic/index.html"
-    ]
-  },
-  {
-    "listing": "/posts.html",
-    "items": [
-      "/posts/bengalitrial/index.html",
-      "/posts/sgd/index.html",
-      "/posts/matmul/index.html",
-      "/posts/lu/index.html",
-      "/posts/mathbiology/index.html",
-      "/posts/eigen/index.html",
-      "/posts/someproofs/index.html",
-      "/posts/matrixrep/index.html"
     ]
   }
 ]
