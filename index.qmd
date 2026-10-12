@@ -1,6 +1,4 @@
 ---
-pagetitle: "Probability, Sampling & Stochastic Optimization"
-
 page-layout: custom
 ---
 
