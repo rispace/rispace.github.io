@@ -1,0 +1,70 @@
+<script>
+/* Share buttons + comments heading, identical on every Rafiq Islam site.
+   Shown automatically on any page that has comments turned on
+   (comments: giscus: ... in a folder's _metadata.yml). Nothing to add by hand. */
+document.addEventListener("DOMContentLoaded", function () {
+  if (!document.getElementById("giscus-base-theme")) return;
+  var main = document.querySelector("main#quarto-document-content") || document.querySelector("main");
+  if (!main || main.querySelector(".share-block")) return;
+
+  var url = window.location.href.split("#")[0].split("?")[0];
+  var title = (document.querySelector("h1.title") || {}).textContent || document.title;
+  title = title.trim();
+  var u = encodeURIComponent(url), t = encodeURIComponent(title);
+
+  var targets = [
+    ["LinkedIn", "bi-linkedin", "https://www.linkedin.com/sharing/share-offsite/?url=" + u],
+    ["Facebook", "bi-facebook", "https://www.facebook.com/sharer/sharer.php?u=" + u],
+    ["X", "bi-twitter-x", "https://twitter.com/intent/tweet?url=" + u + "&text=" + t],
+    ["Email", "bi-envelope", "mailto:?subject=" + t + "&body=" + u]
+  ];
+
+  var block = document.createElement("section");
+  block.className = "share-block";
+  block.setAttribute("aria-label", "Share and comment");
+
+  var row = document.createElement("div");
+  row.className = "share-bar";
+  var label = document.createElement("span");
+  label.className = "share-label";
+  label.textContent = "Share";
+  row.appendChild(label);
+
+  targets.forEach(function (s) {
+    var a = document.createElement("a");
+    a.className = "share-btn";
+    a.href = s[2];
+    a.innerHTML = '<i class="bi ' + s[1] + '" aria-hidden="true"></i><span>' + s[0] + "</span>";
+    if (s[0] !== "Email") { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+    a.setAttribute("aria-label", "Share on " + s[0]);
+    row.appendChild(a);
+  });
+
+  var copy = document.createElement("button");
+  copy.type = "button";
+  copy.className = "share-btn";
+  copy.innerHTML = '<i class="bi bi-link-45deg" aria-hidden="true"></i><span>Copy link</span>';
+  copy.addEventListener("click", function () {
+    var done = function () {
+      var s = copy.querySelector("span"); s.textContent = "Copied";
+      setTimeout(function () { s.textContent = "Copy link"; }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(done, done);
+    } else {
+      var f = document.createElement("textarea");
+      f.value = url; f.style.position = "fixed"; f.style.opacity = "0";
+      document.body.appendChild(f); f.select(); document.execCommand("copy"); f.remove(); done();
+    }
+  });
+  row.appendChild(copy);
+  block.appendChild(row);
+
+  var heading = document.createElement("p");
+  heading.className = "comments-title";
+  heading.textContent = "Comments";
+  block.appendChild(heading);
+
+  main.appendChild(block);
+});
+</script>

@@ -76,29 +76,6 @@ p(t)I&=det(tI-A).I=(tI-A)adj(tI-A)=(tI-A)\sum_{i=1}^{n}B_it^{n-i}\\
 <p style="text-align: justify;">We need to prove that if $A$ is a Markov matrix then $\rho(A)\le 1$. Now, what is a Markov matrix?</p><p style="text-align: justify;"><b>Markov Matrix: </b>A matrix $A=[a_{i,j}]_{n\times n}$ is called a Markov matrix if $a_{i,j}\ge 0$ for all $1\le i,j \le n$ and $\sum_{j=1}^{n} a_i=1$, that is the sum of the elements in any row is equal to 1.</p><p style="text-align: justify;">Example: If we have a matrix like this, $A=\left(\begin{array}{ccc}0.2 &0.4 &0.4\\0.1 &0.4 &0.5\\0.9 &0.1 &0\end{array}\right)$ then $A$ is a Markov matrix.</p><p style="text-align: justify;"><br /></p><p style="text-align: justify;"><b>Proof: </b>Let $\lambda \in spec(A)$ and $x=\left(\begin{array}{c}x_1\\x_2\\\vdots\\x_n\end{array}\right)\ne 0$ be a column vector. Then we define, 
 $x_h=max\{|x_i|: 1\le i \le n\}$ \& $>0$. Here we are assuming $x_h >0$ because $x\ne 0$, as a result at least one of the coordinate of $x$ must be greater than $0$.</p><p style="text-align: justify;">Now,</p><p style="text-align: justify;">$Ax=\lambda x=\left(\begin{array}{c}\lambda x_1\\ \lambda x_2 \\ \vdots \\ \lambda x_n\end{array}\right)$</p><p style="text-align: justify;">$\implies \lambda x_h =\sum_{j=1}^{n} a_{hj}x_j$</p><p style="text-align: justify;">$\implies |\lambda x_h|=|\lambda |.|x_h|=|\sum_{j=1}^{n} a_{hj}x_j|\le \sum_{j=1}^{n} |a_{hj}| |x_j|$</p><p style="text-align: justify;">$\implies |\lambda |.|x_h| \le (\sum_{j=1}^{n} |a_{hj}|) |x_h|=1. |x_h|$</p><p style="text-align: justify;">$\implies |\lambda| \le 1$</p>  
 
-**Share on**  
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
- src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
- 
-<div class="share-buttons">
-<div class="fb-share-button" data-href="https://rispace.github.io/posts/someproofs/"
-data-layout="button_count" data-size="small"><a target="_blank" 
- href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Fsomeproofs%2F&amp;src=sdkpreparse" 
- class="fb-xfbml-parse-ignore">Share</a></div>
-
-<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://rispace.github.io/posts/someproofs/"></script> 
- 
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
- data-url="https://rispace.github.io/posts/someproofs/" data-show-count="true">Tweet</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-<div class="fb-comments" data-href="https://rispace.github.io/posts/someproofs/"
- data-width="" data-numposts="5"></div>
-
 
   
 **You may also like**

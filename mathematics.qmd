@@ -1,0 +1,23 @@
+---
+title: "Mathematics"
+description: "Linear algebra, numerical methods, optimization, and mathematical modeling."
+listing:
+  contents:
+    - posts/eigen/index.qmd
+    - posts/matrixrep/index.qmd
+    - posts/someproofs/index.qmd
+    - posts/lu/index.qmd
+    - posts/matmul/index.qmd
+    - posts/sgd/index.qmd
+    - posts/mathbiology/index.qmd
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, description, categories, reading-time]
+  date-format: "MMMM D, YYYY"
+  image-height: 140px
+page-layout: full
+title-block-banner: false
+---

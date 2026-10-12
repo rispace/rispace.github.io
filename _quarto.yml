@@ -94,4 +94,4 @@ format:
     code-copy: true
     highlight-style: github
     include-in-header: _includes/head.html
-    include-after-body: _includes/site-scripts.html
+    include-after-body: [_includes/site-scripts.html, _includes/share.html]

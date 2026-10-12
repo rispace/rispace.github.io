@@ -1,5 +1,5 @@
 ---
-pagetitle: "Notebook"
+pagetitle: "Blogs & projects"
 description: "Writing on data science, algorithms, statistics and probability, plus software and data-science projects."
 page-layout: custom
 aliases:
@@ -24,9 +24,9 @@ listing:
 ---
 
 ::: {.wrap}
-::: {.page-head}
-<h1>Notebook</h1>
-<p class="lede">I often write about what I am learning, teaching, or working through: the mathematics behind machine learning algorithms, coding problems, ideas from statistics and probability, and the occasional note on something else entirely. This notebook gathers that writing, along with the software and data-science projects I have built. The writing is organised into four collections, each of which opens in a new tab.</p>
+::: {.page-head .wide}
+<h1>Blogs</h1>
+<p class="lede">I often write about what I am learning, teaching, or working through: the mathematics behind machine learning algorithms, coding problems, ideas from statistics and probability, and the occasional note on something else entirely. This page gathers that writing, along with the software and data-science projects I have built. The writing is organised into five collections, each of which opens in a new tab.</p>
 :::
 
 ::: {.blog-cats}
@@ -52,10 +52,17 @@ listing:
 <span class="go">Open the blog <i class="bi bi-box-arrow-up-right"></i></span>
 </a>
 
-<a class="blog-cat" href="posts.qmd" target="_blank" rel="noopener">
+<a class="blog-cat" href="mathematics.qmd" target="_blank" rel="noopener">
+<span class="ic"><i class="bi bi-calculator"></i></span>
+<span class="t">Mathematics</span>
+<span class="d">Linear algebra notes and proofs, numerical linear algebra, gradient methods for optimization, and mathematical modeling in biology.</span>
+<span class="go">Open the posts <i class="bi bi-box-arrow-up-right"></i></span>
+</a>
+
+<a class="blog-cat" href="miscellaneous.qmd" target="_blank" rel="noopener">
 <span class="ic"><i class="bi bi-journal-text"></i></span>
-<span class="t">Other</span>
-<span class="d">Everything else: linear algebra notes, mathematical biology, numerical methods, optimization, building a website with Quarto, and a post in Bengali.</span>
+<span class="t">Miscellaneous</span>
+<span class="d">Everything else: building a personal website with Quarto, writing in Bengali, and other notes that do not fit a single subject.</span>
 <span class="go">Open the posts <i class="bi bi-box-arrow-up-right"></i></span>
 </a>
 

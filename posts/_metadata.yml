@@ -1,0 +1,17 @@
+# Comments (giscus, GitHub Discussions) for every page in this folder.
+# The share buttons above the comments are added automatically by the
+# site-wide share script whenever comments are on.
+comments:
+  giscus:
+    repo: rispace/rispace.github.io
+    repo-id: R_kgDOMV8crA
+    category: Announcements
+    category-id: DIC_kwDOMV8crM4CjbQW
+    mapping: pathname
+    reactions-enabled: true
+    input-position: top
+    loading: lazy
+    language: en
+    theme:
+      light: noborder_light
+      dark: noborder_dark

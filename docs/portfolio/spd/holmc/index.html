@@ -358,16 +358,6 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <p><a href="holmc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="holmc.png" width="250" height="250"></a></p>
 <p>A Higher-Order Langevin Monte Carlo Sampler for Bayesian Learning</p>
 <p>Holmc provides third- and fourth-order Langevin MCMC samplers designed for efficient sampling in Bayesian regression and classification problems. The detail of the package can be found <a href="https://rispace.github.io/higher-order-Langevin-dynamics/" target="_blank">here</a></p>
-<div class="share-row"><span>Share:</span><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/portfolio/spd/holmc/"><i class="bi bi-facebook"></i> Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/portfolio/spd/holmc/"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://twitter.com/intent/tweet?url=https://rispace.github.io/portfolio/spd/holmc/"><i class="bi bi-twitter"></i> Twitter</a></div>
-<script src="https://giscus.app/client.js" data-repo="rispace/rispace.github.io" data-repo-id="R_kgDOPdB7AQ" data-category="Ideas" data-category-id="DIC_kwDOPdB7Ac4CuMVL" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<div id="fb-root">
-
-</div>
-<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="fb-comments" data-href="https://rispace.github.io/portfolio/spd/holmc/" data-width="750" data-numposts="5">
-
-</div>
 
 
 
@@ -428,6 +418,76 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (ev) {
     panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
+});
+</script>
+<script>
+/* Share buttons + comments heading, identical on every Rafiq Islam site.
+   Shown automatically on any page that has comments turned on
+   (comments: giscus: ... in a folder's _metadata.yml). Nothing to add by hand. */
+document.addEventListener("DOMContentLoaded", function () {
+  if (!document.getElementById("giscus-base-theme")) return;
+  var main = document.querySelector("main#quarto-document-content") || document.querySelector("main");
+  if (!main || main.querySelector(".share-block")) return;
+
+  var url = window.location.href.split("#")[0].split("?")[0];
+  var title = (document.querySelector("h1.title") || {}).textContent || document.title;
+  title = title.trim();
+  var u = encodeURIComponent(url), t = encodeURIComponent(title);
+
+  var targets = [
+    ["LinkedIn", "bi-linkedin", "https://www.linkedin.com/sharing/share-offsite/?url=" + u],
+    ["Facebook", "bi-facebook", "https://www.facebook.com/sharer/sharer.php?u=" + u],
+    ["X", "bi-twitter-x", "https://twitter.com/intent/tweet?url=" + u + "&text=" + t],
+    ["Email", "bi-envelope", "mailto:?subject=" + t + "&body=" + u]
+  ];
+
+  var block = document.createElement("section");
+  block.className = "share-block";
+  block.setAttribute("aria-label", "Share and comment");
+
+  var row = document.createElement("div");
+  row.className = "share-bar";
+  var label = document.createElement("span");
+  label.className = "share-label";
+  label.textContent = "Share";
+  row.appendChild(label);
+
+  targets.forEach(function (s) {
+    var a = document.createElement("a");
+    a.className = "share-btn";
+    a.href = s[2];
+    a.innerHTML = '<i class="bi ' + s[1] + '" aria-hidden="true"></i><span>' + s[0] + "</span>";
+    if (s[0] !== "Email") { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+    a.setAttribute("aria-label", "Share on " + s[0]);
+    row.appendChild(a);
+  });
+
+  var copy = document.createElement("button");
+  copy.type = "button";
+  copy.className = "share-btn";
+  copy.innerHTML = '<i class="bi bi-link-45deg" aria-hidden="true"></i><span>Copy link</span>';
+  copy.addEventListener("click", function () {
+    var done = function () {
+      var s = copy.querySelector("span"); s.textContent = "Copied";
+      setTimeout(function () { s.textContent = "Copy link"; }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(done, done);
+    } else {
+      var f = document.createElement("textarea");
+      f.value = url; f.style.position = "fixed"; f.style.opacity = "0";
+      document.body.appendChild(f); f.select(); document.execCommand("copy"); f.remove(); done();
+    }
+  });
+  row.appendChild(copy);
+  block.appendChild(row);
+
+  var heading = document.createElement("p");
+  heading.className = "comments-title";
+  heading.textContent = "Comments";
+  block.appendChild(heading);
+
+  main.appendChild(block);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -840,6 +900,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="noborder_light">
+<input type="hidden" id="giscus-alt-theme" value="noborder_dark">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      if (authorPrefersDark) {
+          [baseTheme, altTheme] = [altTheme, baseTheme];
+      }
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "rispace/rispace.github.io";
+    script.dataset.repoId = "R_kgDOMV8crA";
+    script.dataset.category = "Announcements";
+    script.dataset.categoryId = "DIC_kwDOMV8crM4CjbQW";
+    script.dataset.mapping = "pathname";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

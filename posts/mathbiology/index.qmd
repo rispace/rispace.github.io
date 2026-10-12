@@ -129,35 +129,7 @@ Solving the above system we have $k=\frac{1}{2N}$ and $c=\frac{-1.5}{N}$. If we 
 \end{align*}    
 So, $X(12)\approx 4945$  
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0" nonce="LLmYyE8W"></script>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0" nonce="xi3MqdlY"></script>  
-
-**Share on**  
-
-<div class="share-buttons">
-  <div class="fb-share-button" data-href="https://rispace.github.io/posts/mathbiology/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Fmathbiology%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> 
-
-  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-  <script type="IN/Share" data-url="https://rispace.github.io/posts/mathbiology/"></script>  
-
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://rispace.github.io/posts/mathbiology/" data-show-count="false">Tweet</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
-</div>
-
-
-<div class="fb-comments" data-href="https://rispace.github.io/posts/mathbiology/" data-width="650" data-numposts="5"></div>  
-
 
 **You may also like**  
-
-
-
-
-
-
-
 
 

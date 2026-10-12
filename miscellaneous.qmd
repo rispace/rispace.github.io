@@ -1,8 +1,10 @@
 ---
-title: "Other writing"
-description: "Linear algebra, mathematical biology, numerical methods, optimization, and other posts."
+title: "Miscellaneous"
+description: "Building a website with Quarto, writing in Bengali, and other notes."
 listing:
-  contents: "posts/*/index.qmd"
+  contents:
+    - posts/webtemplate/index.qmd
+    - posts/bengalitrial/index.qmd
   type: default
   sort: "date desc"
   categories: true
