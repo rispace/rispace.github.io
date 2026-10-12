@@ -1,12 +1,82 @@
 ---
-title: Blog
-listing: 
-    contents: posts
-    sort-ui: true
-    feed: true
-    categories: unnumbered
+pagetitle: "Notebook"
+description: "Writing on data science, algorithms, statistics and probability, plus software and data-science projects."
+page-layout: custom
+aliases:
+  - portfolio.html
+listing:
+  - id: spd-projects
+    contents: "portfolio/spd/*/index.qmd"
+    type: grid
+    sort: "date desc"
+    grid-columns: 3
+    fields: [image, date, title]
+    date-format: "MMMM YYYY"
+    image-height: 170px
+  - id: ds-projects
+    contents: "portfolio/dsp/*/index.qmd"
+    type: grid
+    sort: "date desc"
+    grid-columns: 3
+    fields: [image, date, title]
+    date-format: "MMMM YYYY"
+    image-height: 170px
 ---
 
+::: {.wrap}
+::: {.page-head}
+<h1>Notebook</h1>
+<p class="lede">I often write about what I am learning, teaching, or working through: the mathematics behind machine learning algorithms, coding problems, ideas from statistics and probability, and the occasional note on something else entirely. This notebook gathers that writing, along with the software and data-science projects I have built. The writing is organised into four collections, each of which opens in a new tab.</p>
+:::
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script> 
+::: {.blog-cats}
+
+<a class="blog-cat" href="https://rispace.github.io/dsandml/" target="_blank" rel="noopener">
+<span class="ic"><i class="bi bi-cpu"></i></span>
+<span class="t">Data Science &amp; Machine Learning</span>
+<span class="d">Machine learning algorithms in Python, from linear models to deep learning, alongside the data-science workflow: collection, cleaning, EDA, evaluation, and model optimization.</span>
+<span class="go">Open the blog <i class="bi bi-box-arrow-up-right"></i></span>
+</a>
+
+<a class="blog-cat" href="https://rispace.github.io/letscode/" target="_blank" rel="noopener">
+<span class="ic"><i class="bi bi-diagram-3"></i></span>
+<span class="t">Data Structures &amp; Algorithms</span>
+<span class="d">LeetCode-style problems worked through in Python: binary search, arrays, strings, sorting, graph search, and dynamic programming.</span>
+<span class="go">Open the blog <i class="bi bi-box-arrow-up-right"></i></span>
+</a>
+
+<a class="blog-cat" href="https://rispace.github.io/statandprob/" target="_blank" rel="noopener">
+<span class="ic"><i class="bi bi-dice-5"></i></span>
+<span class="t">Statistics &amp; Probability</span>
+<span class="d">Notes on basic statistics and probability: distributions, estimation, and the ideas that underpin inference and sampling.</span>
+<span class="go">Open the blog <i class="bi bi-box-arrow-up-right"></i></span>
+</a>
+
+<a class="blog-cat" href="posts.qmd" target="_blank" rel="noopener">
+<span class="ic"><i class="bi bi-journal-text"></i></span>
+<span class="t">Other</span>
+<span class="d">Everything else: linear algebra notes, mathematical biology, numerical methods, optimization, building a website with Quarto, and a post in Bengali.</span>
+<span class="go">Open the posts <i class="bi bi-box-arrow-up-right"></i></span>
+</a>
+
+:::
+:::
+
+::: {.band .tint}
+::: {.wrap}
+::: {.band-head}
+<div><h2 id="portfolio">Portfolio</h2>
+<p>Software I have written and data-science projects I have worked on.</p></div>
+:::
+
+<h3 class="port-h">Software, packages &amp; apps</h3>
+
+::: {#spd-projects}
+:::
+
+<h3 class="port-h">Data science &amp; machine learning projects</h3>
+
+::: {#ds-projects}
+:::
+:::
+:::

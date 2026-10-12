@@ -1,0 +1,48 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    } catch (e) {}
+  });
+
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
+      if (!source) return;
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
+    });
+  });
+
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
+    });
+  });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
+  });
+});
+</script>

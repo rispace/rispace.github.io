@@ -8,10 +8,6 @@ date: 2022-05-04
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
-
 <div style="text-align: justify">
 As a lecture TA, my job was to facilitate the instructor during the class. This included helping students in class activities such as answering short questions that counted as class attendance, checking students' eligibility forms for taking this course, and others as needed by the instructor. 
 <br>

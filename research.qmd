@@ -1,202 +1,272 @@
 ---
-listing: 
-  - id: tandp
-    contents: "/talks/"
-    type: table
-    sort: "date desc"
-    filter-ui: false
-    sort-ui: false
-    fields: [date,title]
----  
+pagetitle: "Research"
+description: "Langevin algorithms, MCMC, decentralized and constrained sampling, and stochastic optimization."
+page-layout: custom
+---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
+::: {.wrap}
+::: {.r-head}
+::: {}
+<h1>Research</h1>
 
-::: {.research-intro}
-<p style="text-align: justify">  
-  My research focuses on *Theoretical Machine Learning*, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints.
-</p>
-<div class="research-intro-animation">
-<canvas id="research-density-animation" width="900" height="620" aria-label="Animated sampling paths moving across two contour densities"></canvas>
+<p class="lede">Many questions in statistics and machine learning come down to drawing random samples from a complicated probability distribution. I study Langevin algorithms, which are Markov chain Monte Carlo methods that do this by simulating a random walk guided by the shape of the distribution. My work proves how quickly these samplers converge and designs versions that scale to networks of computers, respect constraints, and use higher-order dynamics to move faster.</p>
+
+<ul class="r-areas">
+<li><span class="n">I</span><div><b>Decentralized sampling.</b> <span class="d">Agents on a network learn a shared posterior without pooling their data.</span></div></li>
+<li><span class="n">II</span><div><b>Constrained and singular dynamics.</b> <span class="d">Samplers that stay inside a domain and avoid collisions.</span></div></li>
+<li><span class="n">III</span><div><b>High-order Langevin Monte Carlo.</b> <span class="d">Faster mixing from higher-order dynamics, with Wasserstein guarantees.</span></div></li>
+<li><span class="n">IV</span><div><b>Financial engineering.</b> <span class="d">Time-series prediction, derivative pricing, and risk.</span></div></li>
+</ul>  
+
+:::
+
+<div class="glance">
+<h2>At a glance</h2>
+<div class="nums"><div><b>5</b><span>papers</span></div><div><b>8</b><span>talks</span></div><div><b>4</b><span>mentees</span></div></div>
+<ul class="profiles-list">
+<li><a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en"><i class="bi bi-mortarboard-fill"></i><span>Google Scholar<span class="sub">citations &amp; papers</span></span><span class="go">→</span></a></li>
+<li><a href="https://orcid.org/0000-0002-4376-8971"><i class="bi bi-person-vcard"></i><span>ORCID<span class="sub">0000-0002-4376-8971</span></span><span class="go">→</span></a></li>
+<li><a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5"><i class="bi bi-journal-richtext"></i><span>ResearchGate<span class="sub">publications &amp; discussions</span></span><span class="go">→</span></a></li>
+<li><a href="https://github.com/rispace"><i class="bi bi-github"></i><span>GitHub<span class="sub">github.com/rispace</span></span><span class="go">→</span></a></li>
+</ul>
 </div>
 :::
+:::
 
-<div class="research-sidebar-social" hidden>
-<span>Find me on</span>
-<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en" aria-label="Google Scholar" target="_blank">{{< ai google-scholar size=2x >}}</a>
-<a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" aria-label="ResearchGate" target="_blank">{{< ai researchgate size=2x >}}</a>
+::: {.band .tint}
+::: {.wrap}
+::: {.band-head}
+<div><h2 id="how-it-works">How a Langevin sampler works</h2>
+<p>A short, hands-on introduction for anyone new to the topic.</p></div>
+:::
+
+Suppose we want random numbers whose histogram follows a given curve. In this example the target is a mixture of two familiar bell curves (normal distributions), one centred at $-1$ that holds 60% of the probability and one centred at $1.2$ that holds the other 40%:
+
+$$\pi(x) \;=\; 0.6\cdot\frac{1}{0.7\sqrt{2\pi}}\,e^{-\frac{(x+1)^2}{2(0.7)^2}} \;+\; 0.4\cdot\frac{1}{0.6\sqrt{2\pi}}\,e^{-\frac{(x-1.2)^2}{2(0.6)^2}} .$$
+
+We can write this formula down and evaluate it at any point, but there is no direct way to draw random numbers from it. A Langevin sampler gets around this with walkers that take small random steps guided by the shape of $\pi$.
+
+::: {.steps3}
+::: {.step3}
+<span class="k">1</span>
+<h3>Turn probability into a landscape</h3>
+<p>Define the height $U(x) = -\log \pi(x)$. Where $\pi$ is large, $U$ is low, so likely values become valleys and unlikely values become hills.</p>
+:::
+::: {.step3}
+<span class="k">2</span>
+<h3>Roll downhill, with random kicks</h3>
+<p>At every step each walker takes a small step downhill and then gets a random push. The pull keeps it near likely values, and the kicks keep it from settling in one place.</p>
+:::
+::: {.step3}
+<span class="k">3</span>
+<h3>Record where it has been</h3>
+<p>Every position a walker visits is one sample. With the right balance of pull and kicks, the histogram of all the samples settles onto $\pi(x)$.</p>
+:::
+:::
+
+<div class="demo">
+<canvas id="langevin-demo" aria-label="Interactive demonstration: on the left, walkers move on the landscape U(x); on the right, a histogram of their positions builds up and approaches the target curve"></canvas>
+<div class="demo-bar"><span class="stat"><span data-demo-step>step 0</span> · <span data-demo-count>0 samples</span></span><div class="ctl"><button type="button" data-demo-toggle aria-pressed="true">Pause</button><button type="button" class="kick" data-demo-kick aria-pressed="true">Random kicks: on</button><button type="button" data-demo-reset>Restart</button></div></div>
 </div>
+<p class="demo-msg" data-demo-msg>Thirty walkers start high on the right-hand slope. Watch them roll into the valleys while the histogram fills in.</p>
 
-## Current Research  
+::: {.demo-foot}
+::: {.math-card}
+<p><b>The update rule.</b> With step size $h = 0.03$ and a fresh standard normal draw $\xi_k$ for each walker,</p>
+$$x_{k+1} = x_k \;\underbrace{-\,h\,U'(x_k)}_{\text{downhill pull}} \;+\; \underbrace{\sqrt{2h}\,\xi_k}_{\text{random kick}} .$$
+<p><b>How many samples?</b> The demo runs 30 walkers side by side. Each step moves every walker once and records its new position, so each step adds <b>30 samples</b>, and after $k$ steps the histogram holds $30k$.</p>
+:::
 
-::: {.research-grid}
-::: {.research-card}
-::: {.research-card-media}
-<a href="/research/singular-langevin/" class="research-visual-link">
-<img src="/research/singular-langevin/singular-langevin.svg" alt="Particles moving inside a constrained domain while repelling one another and avoiding collisions">
-</a>
-<div class="research-card-meta">
-<span class="research-meta-label">Research focus</span>
-<span>Constrained sampling</span>
-<span>Singular interactions</span>
-<span>Numerical analysis</span>
+::: {}
+<p>Turn the kicks off and every walker stops at the bottom of its nearest valley. That is gradient descent: it finds a single best point but loses the spread of the distribution. With the kicks on, the walkers keep exploring and occasionally cross the hill between the valleys, so each valley ends up with its correct share: about 60% on the left and 40% on the right.</p>
+<p>My research asks how quickly this happens, and how to keep it fast and accurate in high dimensions, across networks of computers, and inside constrained regions.</p>
+:::
+:::
+:::
+:::
+
+<script src="langevin.js" defer></script>
+
+::: {.band}
+::: {.wrap}
+::: {.band-head}
+<div><h2>Current project</h2></div>
+:::
+
+<article class="project">
+<a class="pmedia" href="research/singular-langevin/"><img class="th-light" src="research/singular-langevin/singular-langevin.png" alt="Simulation: particles following Langevin dynamics inside an elliptical constraint set while repelling one another"><img class="th-dark" src="research/singular-langevin/singular-langevin-dark.png" alt="" aria-hidden="true"></a>
+<div class="pbody">
+<span class="status-pill">In progress · 2026</span>
+<h3><a href="research/singular-langevin/">Constrained Langevin Dynamics with Singular Repulsion</a></h3>
+<div class="with">With David P. Herzog, Iowa State University</div>
+<p>Particles diffuse inside a bounded region while strongly repelling one another at short range. Standard numerical steps can push them toward collisions, and projecting back can create collisions of its own. We are developing a tamed-proximal Langevin scheme that handles the singular repulsion directly while respecting the boundary, with guarantees on stability, collision avoidance, and convergence.</p>
+<div class="foot"><ul class="chips"><li>Well-posedness</li><li>Invariant measures</li><li>Stable discretization</li></ul><a class="text-link" href="research/singular-langevin/">Project overview</a></div>
 </div>
-:::
-
-::: {.research-card-body}
-<span class="research-status">Current project · 2026</span>
-
-### [Constrained Langevin Dynamics with Singular Repulsion](/research/singular-langevin/)
-
-With David P. Herzog
-
-We study collision-free stochastic particle dynamics inside constrained domains. The project develops stable numerical sampling methods that treat singular repulsion directly while respecting the boundary.
-
-[Explore the project →](/research/singular-langevin/){.research-link}
-:::
+</article>
 :::
 :::
 
-## Publications  
-
-::: {.publication-list}
-::: {.publication-entry}
-::: {.publication-meta}
-<span class="publication-year">2026</span>
-<span class="publication-type">Preprint</span>
+::: {.band .tint}
+::: {.wrap}
+::: {.band-head}
+<div><h2 id="publications">Publications &amp; preprints</h2></div>
+<a class="text-link" href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en">Google Scholar</a>
 :::
-::: {.publication-content}
-### [Decentralized Proximal Stochastic Gradient Langevin Dynamics](/research/dpsgld/)
-<p class="publication-authors"><strong>Mohammad Rafiqul Islam</strong> and Lingjiong Zhu</p>
-<p class="publication-venue"><a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv:2605.00723</a></p>
-<p>Introduces a decentralized sampler for log-concave distributions on convex domains. Shared proximal regularization allows agents to respect constraints without exchanging private data, while non-asymptotic Wasserstein guarantees quantify both network behavior and approximation bias. Experiments show rapid posterior concentration and strong predictive accuracy.</p>
-<div class="publication-actions"><a href="https://arxiv.org/pdf/2605.00723" target="_blank">PDF</a><a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-dpsgld">@article{islam2026depsgld,
+
+::: {.pubs}
+
+<article class="pub">
+<div class="pub-rail"><span class="year">2026</span><span class="type">Preprint</span><a class="pub-thumb" href="research/dpsgld/"><img class="th-light" src="_assets/images/pubs/dpsgld.png" alt="Illustration: a posterior distribution concentrated against the boundary of a circular constraint set"><img class="th-dark" src="_assets/images/pubs/dpsgld-dark.png" alt="" aria-hidden="true"></a></div>
+<div>
+<h3><a href="research/dpsgld/">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a></h3>
+<div class="authors"><b>Mohammad Rafiqul Islam</b> and Lingjiong Zhu</div>
+<div class="venue">arXiv:2605.00723</div>
+<p class="summary">A decentralized sampler for log-concave distributions on convex domains. A shared proximal regularization based on the Moreau–Yosida envelope lets agents respect the constraint without exchanging private data. Non-asymptotic 2-Wasserstein guarantees cover both individual agents and network averages and quantify the bias introduced by the proximal approximation.</p>
+<div class="pub-actions"><a href="https://arxiv.org/pdf/2605.00723">PDF</a><a href="https://arxiv.org/abs/2605.00723">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX</summary><div class="bibtex-panel"><pre id="bib-dpsgld">@article{islam2026depsgld,
   title={Decentralized Proximal Stochastic Gradient Langevin Dynamics},
   author={Islam, Mohammad Rafiqul and Zhu, Lingjiong},
   journal={arXiv preprint arXiv:2605.00723},
   year={2026}
-}</pre><button class="bibtex-copy" data-copy-target="bib-dpsgld" type="button">Copy to clipboard</button></div></details></div>
-:::
-:::
+}</pre><button class="bibtex-copy" data-copy-target="bib-dpsgld" type="button">Copy</button></div></details></div>
+</div>
+</article>
 
-::: {.publication-entry}
-::: {.publication-meta}
-<span class="publication-year">2025</span>
-<span class="publication-type">Preprint</span>
-:::
-::: {.publication-content}
-### [High-Order Langevin Monte Carlo Algorithms](/research/holmc/)
-<p class="publication-authors">Thanh L. Dang, Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Nian Yao, and Lingjiong Zhu</p>
-<p class="publication-venue"><a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv:2508.17545</a></p>
-<p>Develops Langevin Monte Carlo algorithms from third- and higher-order dynamics by combining splitting with accurate integration. The resulting convergence guarantees improve dependence on dimension and target accuracy as the order increases, while numerical experiments demonstrate the practical efficiency of the higher-order approach.</p>
-<div class="publication-actions"><a href="/_assets/documents/2508.17545v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-holmc">@article{dang2025highorder,
+<article class="pub">
+<div class="pub-rail"><span class="year">2025</span><span class="type">Preprint</span><a class="pub-thumb" href="research/holmc/"><img class="th-light" src="_assets/images/pubs/holmc.png" alt="Illustration: convergence curves of third- and fourth-order Langevin Monte Carlo"><img class="th-dark" src="_assets/images/pubs/holmc-dark.png" alt="" aria-hidden="true"></a></div>
+<div>
+<h3><a href="research/holmc/">High-Order Langevin Monte Carlo Algorithms</a></h3>
+<div class="authors">Thanh L. Dang, Mert Gürbüzbalaban, <b>Mohammad Rafiqul Islam</b>, Nian Yao, and Lingjiong Zhu</div>
+<div class="venue">arXiv:2508.17545</div>
+<p class="summary">Langevin Monte Carlo algorithms built from third- and higher-order dynamics by combining splitting with accurate integration. The convergence guarantees improve their dependence on dimension and target accuracy as the order grows, and numerical experiments confirm the efficiency of the higher-order approach.</p>
+<div class="pub-actions"><a href="_assets/documents/2508.17545v1.pdf">PDF</a><a href="https://arxiv.org/abs/2508.17545">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX</summary><div class="bibtex-panel"><pre id="bib-holmc">@article{dang2025highorder,
   title={High-Order Langevin Monte Carlo Algorithms},
   author={Dang, Thanh L. and Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Yao, Nian and Zhu, Lingjiong},
   journal={arXiv preprint arXiv:2508.17545},
   year={2025}
-}</pre><button class="bibtex-copy" data-copy-target="bib-holmc" type="button">Copy to clipboard</button></div></details></div>
-:::
-:::
+}</pre><button class="bibtex-copy" data-copy-target="bib-holmc" type="button">Copy</button></div></details></div>
+</div>
+</article>
 
-::: {.publication-entry}
-::: {.publication-meta}
-<span class="publication-year">2024</span>
-<span class="publication-type">Preprint</span>
-:::
-::: {.publication-content}
-### [Generalized EXTRA Stochastic Gradient Langevin Dynamics](/research/extrasgld/)
-<p class="publication-authors">Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Xiaoyu Wang, and Lingjiong Zhu</p>
-<p class="publication-venue"><a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv:2412.01993</a></p>
-<p>Addresses persistent network bias in decentralized stochastic-gradient Langevin methods. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and yields sharper mini-batch performance bounds, enabling collaborative Bayesian learning without centralizing agents’ data.</p>
-<div class="publication-actions"><a href="/_assets/documents/2412.01993v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-extra">@article{gurbuzbalaban2024extra,
+<article class="pub">
+<div class="pub-rail"><span class="year">2024</span><span class="type">Preprint</span><a class="pub-thumb" href="research/extrasgld/"><img class="th-light" src="_assets/images/pubs/extrasgld.png" alt="Illustration: EXTRA SGLD removing the network bias of DE-SGLD, with a ring network inset"><img class="th-dark" src="_assets/images/pubs/extrasgld-dark.png" alt="" aria-hidden="true"></a></div>
+<div>
+<h3><a href="research/extrasgld/">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a></h3>
+<div class="authors">Mert Gürbüzbalaban, <b>Mohammad Rafiqul Islam</b>, Xiaoyu Wang, and Lingjiong Zhu</div>
+<div class="venue">arXiv:2412.01993</div>
+<p class="summary">Decentralized stochastic-gradient Langevin methods carry a persistent network bias. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and gives sharper mini-batch bounds, so agents can learn a Bayesian model together without centralizing their data.</p>
+<div class="pub-actions"><a href="_assets/documents/2412.01993v1.pdf">PDF</a><a href="https://arxiv.org/abs/2412.01993">arXiv</a><details class="bibtex-dropdown"><summary>BibTeX</summary><div class="bibtex-panel"><pre id="bib-extra">@article{gurbuzbalaban2024extra,
   title={Generalized EXTRA Stochastic Gradient Langevin Dynamics},
   author={Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Wang, Xiaoyu and Zhu, Lingjiong},
   journal={arXiv preprint arXiv:2412.01993},
   year={2024}
-}</pre><button class="bibtex-copy" data-copy-target="bib-extra" type="button">Copy to clipboard</button></div></details></div>
-:::
-:::
+}</pre><button class="bibtex-copy" data-copy-target="bib-extra" type="button">Copy</button></div></details></div>
+</div>
+</article>
 
-::: {.publication-entry}
-::: {.publication-meta}
-<span class="publication-year">2021</span>
-<span class="publication-type">Published</span>
-:::
-::: {.publication-content}
-### [GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies](/publication/pub2/)
-<p class="publication-authors">Fahad Mostafa, Pritam Saha, <strong>Mohammad Rafiqul Islam</strong>, and Nguyet Nguyen</p>
-<p class="publication-venue"><a href="https://doi.org/10.3390/jrfm14090421" target="_blank">Journal of Risk and Financial Management, 14(9), 421</a></p>
-<p>Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The analysis captures asymmetric volatility and tail risk, while the neural-network forecasts closely track market prices and sometimes outperform traditional ARIMA models.</p>
-<div class="publication-actions"><a href="/publication/pub2/paper2.pdf" target="_blank">PDF</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-crypto">@article{mostafa2021gjr,
+<article class="pub">
+<div class="pub-rail"><span class="year">2021</span><span class="type peer">Journal</span><a class="pub-thumb" href="publication/pub2/"><img class="th-light" src="_assets/images/pubs/crypto.png" alt="Illustration: Monte Carlo simulated cryptocurrency price paths with a 95% band"><img class="th-dark" src="_assets/images/pubs/crypto-dark.png" alt="" aria-hidden="true"></a></div>
+<div>
+<h3><a href="publication/pub2/">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies</a></h3>
+<div class="authors">Fahad Mostafa, Pritam Saha, <b>Mohammad Rafiqul Islam</b>, and Nguyet Nguyen</div>
+<div class="venue">Journal of Risk and Financial Management 14(9), 421</div>
+<p class="summary">Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The models capture asymmetric volatility and tail risk, and the neural-network forecasts track market prices closely.</p>
+<div class="pub-actions"><a href="publication/pub2/paper2.pdf">PDF</a><a href="https://doi.org/10.3390/jrfm14090421">DOI</a><details class="bibtex-dropdown"><summary>BibTeX</summary><div class="bibtex-panel"><pre id="bib-crypto">@article{mostafa2021gjr,
   title={GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies},
   author={Mostafa, Fahad and Saha, Pritam and Islam, Mohammad Rafiqul and Nguyen, Nguyet},
   journal={Journal of Risk and Financial Management},
   volume={14}, number={9}, pages={421}, year={2021},
   doi={10.3390/jrfm14090421}
-}</pre><button class="bibtex-copy" data-copy-target="bib-crypto" type="button">Copy to clipboard</button></div></details><a href="https://www.mdpi.com/1911-8074/14/9/421" target="_blank">Journal Page</a></div>
-:::
-:::
+}</pre><button class="bibtex-copy" data-copy-target="bib-crypto" type="button">Copy</button></div></details></div>
+</div>
+</article>
 
-::: {.publication-entry}
-::: {.publication-meta}
-<span class="publication-year">2020</span>
-<span class="publication-type">Published</span>
-:::
-::: {.publication-content}
-### [Comparison of Financial Models for Stock Price Prediction](/publication/pub1/)
-<p class="publication-authors"><strong>Mohammad Rafiqul Islam</strong> and Nguyet Nguyen</p>
-<p class="publication-venue"><a href="https://doi.org/10.3390/jrfm13080181" target="_blank">Journal of Risk and Financial Management, 13(8), 181</a></p>
-<p>Compares ARIMA, artificial neural networks, and geometric Brownian motion using historical daily stock prices. Against observed next-day prices, the conventional statistical and stochastic models provide closer approximations than the neural-network model, illustrating the value of comparing fundamentally different forecasting assumptions.</p>
-<div class="publication-actions"><a href="/publication/pub1/paper1.pdf" target="_blank">PDF</a><details class="bibtex-dropdown"><summary>BibTeX <span aria-hidden="true">⌄</span></summary><div class="bibtex-panel"><pre id="bib-stock">@article{islam2020comparison,
+<article class="pub">
+<div class="pub-rail"><span class="year">2020</span><span class="type peer">Journal</span><a class="pub-thumb" href="publication/pub1/"><img class="th-light" src="_assets/images/pubs/stock.png" alt="Illustration: actual index level against ARIMA, GBM, and neural-network predictions"><img class="th-dark" src="_assets/images/pubs/stock-dark.png" alt="" aria-hidden="true"></a></div>
+<div>
+<h3><a href="publication/pub1/">Comparison of Financial Models for Stock Price Prediction</a></h3>
+<div class="authors"><b>Mohammad Rafiqul Islam</b> and Nguyet Nguyen</div>
+<div class="venue">Journal of Risk and Financial Management 13(8), 181</div>
+<p class="summary">Compares ARIMA, artificial neural networks, and geometric Brownian motion on historical daily stock prices. For next-day prediction, the classical statistical and stochastic models approximate observed prices more closely than the neural network does.</p>
+<div class="pub-actions"><a href="publication/pub1/paper1.pdf">PDF</a><a href="https://doi.org/10.3390/jrfm13080181">DOI</a><details class="bibtex-dropdown"><summary>BibTeX</summary><div class="bibtex-panel"><pre id="bib-stock">@article{islam2020comparison,
   title={Comparison of Financial Models for Stock Price Prediction},
   author={Islam, Mohammad Rafiqul and Nguyen, Nguyet},
   journal={Journal of Risk and Financial Management},
   volume={13}, number={8}, pages={181}, year={2020},
   doi={10.3390/jrfm13080181}
-}</pre><button class="bibtex-copy" data-copy-target="bib-stock" type="button">Copy to clipboard</button></div></details><a href="https://www.mdpi.com/1911-8074/13/8/181" target="_blank">Journal Page</a></div>
+}</pre><button class="bibtex-copy" data-copy-target="bib-stock" type="button">Copy</button></div></details></div>
+</div>
+</article>
+
 :::
 :::
 :::
 
-## Undergraduate Research Mentorship  
+::: {.band}
+::: {.wrap}
+::: {.band-head}
+<div><h2 id="talks">Talks &amp; presentations</h2></div>
+:::
 
-### FSU Mathematics Directed Reading Program (DRP) 2024-2025  
+<ul class="talks">
+<li><time>Sep 9, 2026</time><div><a class="t" href="talks/2026-09-09-isu-agp.html">Scalable Sampling Algorithms via Langevin Dynamics</a><span class="where">Analysis, Geometry and Probability Seminar · Iowa State University</span></div><span class="kind">Seminar</span></li>
+<li><time>Mar 28, 2026</time><div><a class="t" href="talks/2026-03-28-ams.html">Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics</a><span class="where">AMS Spring Eastern Sectional Meeting · Boston College, MA</span></div><span class="kind">Contributed</span></li>
+<li><time>Mar 3, 2026</time><div><a class="t" href="talks/2026-03-03-icerm.html">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a><span class="where">Bayesian Inverse Problems &amp; UQ · ICERM, Brown University</span></div><span class="kind">Poster</span></li>
+<li><time>Jan 30, 2026</time><div><a class="t" href="talks/2026-01-30-gradseminar.html">High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference</a><span class="where">Department of Mathematics · Florida State University</span></div><span class="kind">Talk</span></li>
+<li><time>Nov 20, 2023</time><div><a class="t" href="talks/2023-11-20-candi.html">The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</a><span class="where">Department of Mathematics · Florida State University</span></div><span class="kind">Candidacy</span></li>
+<li><time>Oct 5, 2023</time><div><a class="t" href="talks/2023-10-05-st-op.html">Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo</a><span class="where">Department of Mathematics · Florida State University</span></div><span class="kind">Talk</span></li>
+<li><time>Dec 2, 2022</time><div><span class="t">Asymptotics and Calibration of Local Volatility Models</span><span class="where">Department of Mathematics · Florida State University</span></div><span class="kind">Talk</span></li>
+<li><time>Apr 28, 2020</time><div><a class="t" href="talks/2020-04-26-project.html">Sensitivity Analysis for Monte Carlo and Quasi-Monte Carlo Option Pricing</a><span class="where">Department of Mathematics &amp; Statistics · Youngstown State University</span></div><span class="kind">Talk</span></li>
+</ul>
+:::
+:::
 
-<p style="text-align: justify"> 
-<a href="https://fsumathdrp.wixsite.com/fsumathdrp" target="_blank" style="text-decoration:none"> Directed Reading Program (DRP) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with graduate students on research projects in mathematics and related fields. The following students have been mentored by me in the DRP program:</p>  
+::: {.band .tint}
+::: {.wrap}
+::: {.band-head}
+<div><h2 id="mentoring">Undergraduate research</h2>
+<p>I have mentored undergraduates at Florida State through two research programs.</p></div>
+:::
 
-- <a href="https://www.linkedin.com/in/lily-g-kinney/" target="_blank" style="text-decoration:none">Lily Kinney</a>   
-- <a href="https://www.linkedin.com/in/kieraagic/" target="_blank" style="text-decoration:none">Kiera Agic</a>  
+::: {.card-grid}
+::: {.card}
+<span class="meta">UROP · 2025 – 2026</span>
+<h3>Machine learning and Florida traffic fatalities</h3>
+<p>[Sarah Thapa](https://www.linkedin.com/in/sarah-thapa-4aa751318/): predictive models for factors associated with Florida road crashes and the economic impact of crash-related casualties.</p>
+:::
 
-**Project:** Comparative study of predictive models in Machine Learning  
+::: {.card}
+<span class="meta">UROP · 2025 – 2026</span>
+<h3>Machine learning vs. Black–Scholes–Merton</h3>
+<p>[Aiden Marin](https://www.linkedin.com/in/aiden-marin/): comparing classical Black–Scholes–Merton pricing with modern machine-learning models for options on different underlying stocks.</p>
+:::
 
-### Undergraduate Research Opportunity Program (UROP) 2025-2026  
+::: {.card}
+<span class="meta">Directed Reading Program · 2024 – 2025</span>
+<h3>Identifying spam and non-spam emails</h3>
+<p>[Lily Kinney](https://www.linkedin.com/in/lily-g-kinney/) and [Kiera Agic](https://www.linkedin.com/in/kieraagic/): studying and implementing machine-learning methods for an NLP classification project.</p>
+:::
+:::
+:::
+:::
 
-<p style="text-align: justify">
-<a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with faculty members, postdocs, and graduate students on research projects in various fields. The following students have been mentored by me in the UROP program:</p>
+::: {.band}
+::: {.wrap}
+::: {.band-head}
+<div><h2>Course &amp; thesis projects</h2></div>
+:::
 
-- <a href="https://www.linkedin.com/in/sarah-thapa-4aa751318/" target="_blank" style="text-decoration:none">Sarah Thapa</a>  
+::: {.card-grid}
+::: {.card}
+<span class="meta">Florida State · Advisor: Giray Ökten</span>
+<h3>[Option pricing: randomized quasi-Monte Carlo vs. the Fourier-cosine method](https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method)</h3>
+<p>Prices European options with random-start Halton RQMC and the COS method, benchmarked against Black–Scholes–Merton, and identifies several reasons to prefer RQMC.</p>
+:::
 
-**Project:** Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.   
-
-- <a href="https://www.linkedin.com/in/aiden-marin/" target="_blank" style="text-decoration:none">Aiden Marin</a>  
- 
-**Project:** Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.
-
-## Course Projects  
-- <a href="https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method" target="_blank" style="text-decoration:none">Option pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method</a>  
-  Advisor: <a href="https://www.math.fsu.edu/~okten/" target="_blank" style="text-decoration:none">Prof. Giray Ökten</a>
-  
-  <div style="text-align:justify">
-    Pricing financial derivatives such as options with desired accuracy can be hard due to the nature of the functions and complicated integrals required by the pricing techniques. In this paper we investigate the pricing methodology of the European style options using two advanced numerical methods, namely, Quasi-Monte Carlo and Fourier Cosine (COS). For the RQMC method, we use the random-start Halton sequence. We use the Black-Scholes-Merton model to measure the pricing quality of both of the methods. For the numerical results we compute the option price of the call option and we found a few reasons to prefer the RQMC method over the COS method to approximate the European style options.
-  </div>  
-  
-- <a href="https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications" target="_blank" style="text-decoration:none">Study of Runge-Kutta Method of Higher orders and its Applications</a>  
-  Advisor: <a href="http://appliedmath.du.ac.bd/details-ofdr-md-abdus-samad/" target="_blank" style="text-decoration:none">Dr. Md. Abdus Samad </a>
-
-  <div style="text-align: justify">
-    This project is concerned with the study on Runge-Kutta method to apply on different order of differential equation and solve different types of problem such as initial value problem and boundary value problem in ordinary differential equation. At first we discuss about the definition and generation of differential equation specially based on partial differential equation and then definition of Runge-kutta method and the derivation of midpoint method and the formula of Runge-Kutta metod of fourth order and sixth order. We also write FORTRAN 90/95 program for different order of Runge-Kutta methods. We have solved some examples of fourth order R-K method and sixth order R-K method to get the application of R-K method. We also compared the solution of R-K method with exact solution for different step sizes. Then we have given simultaneous first order differential equation and second order differential equation and then solved them by fourth order Runge-Kutta method. At last we have discussed the boundary value problem which we have solved by fourth and sixth order R-K method. After that we have written the algorithm of shooting method and showed computer results with the difference between two answer along with percentages of error.
-  </div>
-
-
-## Talks and Presentations  
+::: {.card}
+<span class="meta">University of Dhaka · Advisor: Md. Abdus Samad</span>
+<h3>[Higher-order Runge–Kutta methods and their applications](https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications)</h3>
+<p>Fourth- and sixth-order Runge–Kutta schemes in FORTRAN 90/95 for initial- and boundary-value problems, including the shooting method and a step-size error study.</p>
+:::
+:::
+:::
+:::

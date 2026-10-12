@@ -8,7 +8,7 @@ search: true
 lightbox: true
 image: sgd.png
 listing: 
-    contents: "/../../posts"
+    contents: "../*/index.qmd"
     max-items: 3
     type: grid
     categories: false
@@ -559,36 +559,11 @@ Personally, I think this [webpage](https://sebastianraschka.com/faq/docs/sgd-met
 
 ---
 
-**Share on**  
-
-::::{.columns}
-:::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/posts/sgd/" target="_blank" style="color:#1877F2; text-decoration: none;">
- 
-{{< fa brands facebook size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/posts/sgd/" target="_blank" style="color:#0077B5; text-decoration: none;">
- 
-{{< fa brands linkedin size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/posts/sgd/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
- 
-{{< fa brands twitter size=3x >}}
-</a>
- 
-:::
-::::
- 
+```{=html}
+<div class="share-row"><span>Share:</span><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/posts/sgd/"><i class="bi bi-facebook"></i> Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/posts/sgd/"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://twitter.com/intent/tweet?url=https://rispace.github.io/posts/sgd/"><i class="bi bi-twitter"></i> Twitter</a></div>
+```
 <script src="https://giscus.app/client.js"
-        data-repo="mrislambd/mrislambd.github.io" 
+        data-repo="mrislambd/rispace.github.io" 
         data-repo-id="R_kgDOMV8crA"
         data-category="Announcements"
         data-category-id="DIC_kwDOMV8crM4CjbQW"
@@ -606,7 +581,7 @@ Personally, I think this [webpage](https://sebastianraschka.com/faq/docs/sgd-met
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/sgd/" data-width="750" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://rispace.github.io/posts/sgd/" data-width="750" data-numposts="5"></div>
 
 
 **You may also like**  

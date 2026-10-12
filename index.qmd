@@ -1,44 +1,105 @@
 ---
-page-layout: full
+pagetitle: "Probability, Sampling & Stochastic Optimization"
+
+page-layout: custom
 ---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
+::: {.wrap}
+::: {.home-hero}
+::: {.hero-text}
+<h1>Mohammad Rafiqul Islam</h1>
+<div class="role"><b>Ph.D. in Mathematics</b> · Florida State University</div>
 
-:::: {.columns .home-columns}
-::: {.column .home-profile width="37%"}
-<img align="center" src='/_assets/images/new-profile.jpeg' class='oval-image' alt='Profile Picture' style='align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'>  
+<p class="lede">I design and analyze Langevin algorithms: Markov chain Monte Carlo methods for sampling high-dimensional distributions across networks of agents, inside constrained domains, and at higher orders of accuracy. At Iowa State I work with David&nbsp;P.&nbsp;Herzog. I earned my Ph.D. at Florida State University in 2026, advised by Lingjiong&nbsp;Zhu.</p>
 
-## Rafiq Islam, Ph.D.  
-Postdoctoral Research Associate  
-Department of Mathematics    
-<a href='https://iastate.edu' target='_blank' style='text-decoration:none'>Iowa State University</a>  
+<div class="btn-row">
+<a class="btn-r solid" href="research.qmd">Research &amp; papers <i class="bi bi-arrow-right"></i></a>
+<a class="btn-r solid" href="_assets/documents/CV.pdf"><i class="bi bi-file-earmark-text"></i> CV (PDF)</a>
+<a class="btn-r solid" href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i> Email</a>
+</div>
 
-<span style='font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'>Contact</span>  
-    Email: <a href="mailto:mir@iastate.edu" style="text-decoration:none"> mir@iastate.edu</a>  
-    Office: <a href="https://maps.app.goo.gl/AXzBwijj2KkxnFDK9" target="_blank" style="text-decoration:none"> Carver Hall: Room 461</a>  
-    Office Hours: TBA<br>
-    
-
-{{< ai GitHub >}}
-
-
-:::  
-
-::: {.column .home-spacer width="2%"}
+<div class="hero-meta">
+<span><i class="bi bi-geo-alt"></i> Carver Hall 461, Ames, IA</span>
+<span><i class="bi bi-mortarboard"></i> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en">Google Scholar</a></span>
+<span><i class="bi bi-github"></i> <a href="https://github.com/rispace">GitHub</a></span>
+</div>
 :::
 
-::: {.column .home-biography width="61%"}
-
-## About
-<p style="text-align: justify">   
-    Hi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am
-    a Probability Theory Postdoctoral Research Associate in the Mathematics Department at Iowa State University. I am working under the mentorship of professor <a href="https://faculty.sites.iastate.edu/dherzog/" style="text-decoration:none" target="_blank"> David P. Herzog</a>. I obtained my Ph.D. in Mathematics from Florida State University in the summer of 2026. My Ph.D. research was conducted under the supervision of professor <a href="https://www.math.fsu.edu/DepartmentNews/Articles/Fac_Zhu.math" style="text-decoration:none" target="_blank"> Lingjiong Zhu</a>. <br>
-    <br>
-    I hold a Bachelor of Science (BS) in Mathematics degree from the <a href="https://www.du.ac.bd" style="text-decoration: none" target="_blank"> University of Dhaka, Bangladesh</a>, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master's degree in Applied Mathematics from the same institution. During my master's studies, I pursued actuarial exams and passed several professional exams from the <a href="https://www.ifoa.org.uk" style="text-decoration:none" target="_blank">Institute and Faculty of Actuaries (IFoA), UK </a> which are equivalent to the exams P, FM, and Life Contingencies of <a href="https://www.soa.org" style="text-decoration:none" target="_blank"> Society of Actuaries (SOA), USA </a>. With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.<br>
-    <br>
-    In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at <a href="https://www.ysu.edu" style="text-decoration:none" target="_blank">Youngstown State University, Ohio</a>. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D. in Mathematics with a focus on Theoretical Machine Learning
-</p>  
-
+<figure class="portrait-arch"><span class="arch" aria-hidden="true"></span><img src="_assets/images/rafiq-cutout.png" alt="Portrait of Mohammad Rafiqul Islam"></figure>
 :::
-::::
+:::
+
+::: {.band}
+::: {.wrap}
+::: {.band-head}
+<h2>Research directions</h2>
+<a class="text-link" href="research.qmd">All research</a>
+:::
+
+::: {.theme-grid}
+::: {.theme-card}
+<div class="num"><span>I.</span><span class="status">current · 2026</span></div>
+<h3>Constrained dynamics with singular repulsion</h3>
+<p>Collision-free stochastic particle systems inside a constrained domain, and numerical schemes that stay stable near the singularity without creating artificial collisions. Joint work with D.&nbsp;P.&nbsp;Herzog.</p>
+<div class="refs"><a href="research/singular-langevin/" target="_blank">Project overview</a></div>
+:::
+
+::: {.theme-card}
+<div class="num"><span>II.</span><span class="status">2024 – 2026</span></div>
+<h3>Decentralized Bayesian sampling</h3>
+<p>Agents on a network sample a shared posterior without pooling their data. This line of work removes network bias with EXTRA-type corrections and handles convex constraints through proximal regularization.</p>
+<div class="refs"><a href="research/extrasgld/" target="_blank">Generalized EXTRA SGLD</a><a href="research/dpsgld/" target="_blank">Decentralized Proximal SGLD</a></div>
+:::
+
+::: {.theme-card}
+<div class="num"><span>III.</span><span class="status">2025</span></div>
+<h3>High-order Langevin Monte Carlo</h3>
+<p>Samplers built from $P$-th order Langevin dynamics through splitting and accurate integration. Their Wasserstein guarantees depend better on the dimension and the accuracy level as the order grows.</p>
+<div class="refs"><a href="research/holmc/" target="_blank">High-Order Langevin Monte Carlo</a></div>
+:::
+:::
+:::
+:::
+
+::: {.band .tint}
+::: {.wrap}
+::: {.two-col}
+::: {}
+<h2>News</h2>
+<ul class="news">
+<li><time>sep 2026</time><span>Talk on <strong>scalable sampling via Langevin dynamics</strong> at the Analysis, Geometry &amp; Probability Seminar, Iowa State.</span></li>
+<li><time>aug 2026</time><span>Joined <strong>Iowa State University</strong> as a postdoctoral research associate in probability.</span></li>
+<li><time>jul 2026</time><span>Completed my <strong>Ph.D. at Florida State</strong>: <em>Advances in Langevin Algorithms for Decentralized, Constrained, and Accelerated Sampling.</em></span></li>
+<li><time>apr 2026</time><span>Received FSU's <strong>Distinguished Teaching Assistant Award</strong> and the <strong>Tam Family Excellence in Graduate Student Research Award</strong>.</span></li>
+</ul>
+:::
+
+::: {}
+<h2>Selected papers</h2>
+<ol class="mini-pubs">
+<li><a class="t" href="research/dpsgld/" target="_blank">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a><span class="by"><b>M. R. Islam</b>, L. Zhu · arXiv 2026</span></li>
+<li><a class="t" href="research/holmc/" target="_blank">High-Order Langevin Monte Carlo Algorithms</a><span class="by">T. L. Dang, M. Gürbüzbalaban, <b>M. R. Islam</b>, N. Yao, L. Zhu · arXiv 2025</span></li>
+<li><a class="t" href="research/extrasgld/" target="_blank">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a><span class="by">M. Gürbüzbalaban, <b>M. R. Islam</b>, X. Wang, L. Zhu · arXiv 2024</span></li>
+<li><a class="t" href="publication/pub2/" target="_blank">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies</a><span class="by">F. Mostafa, P. Saha, <b>M. R. Islam</b>, N. Nguyen · J. Risk Financial Manag. 2021</span></li>
+</ol>
+<p style="margin-top:1.1rem"><a class="text-link" href="research.qmd#publications" target="_blank">Full publication list</a></p>
+:::
+:::
+:::
+:::
+
+::: {.band}
+::: {.wrap}
+::: {.teach-band}
+<figure class="photo-frame"><img src="_assets/images/teaching.png" alt="Rafiq Islam teaching calculus at a chalkboard" loading="lazy"></figure>
+
+::: {}
+<h2 style="margin-top:0">Teaching</h2>
+<blockquote class="pull">You played a large part in convincing me that I am capable of learning difficult subjects.</blockquote>
+<span class="pull-cite">Student evaluation, MAP 2302 Ordinary Differential Equations, Summer 2026</span>
+<p style="color:var(--muted)">I have taught calculus, differential equations, precalculus, and actuarial mathematics since 2018. This fall I lead Calculus III recitations at Iowa State.</p>
+<a class="text-link" href="teaching.qmd" target="_blank">Courses &amp; student feedback</a>
+:::
+:::
+:::
+:::

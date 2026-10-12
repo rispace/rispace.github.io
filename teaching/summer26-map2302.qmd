@@ -8,8 +8,6 @@ date: 2026-05-01
 location: "Tallahassee, Florida"
 ---
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-
 ## Course Information
 
 - **Credit hours:** 3

@@ -8,10 +8,6 @@ date: 2022-12-04
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
-
 <div style="text-align: justify">
 Students who have substantial knowledge of precalculus and algebra may require to take this course as a mathematics requirement depending on their majors. The topic of this course includes but is not limited to Foundation for calculus: Functions and Limits, Derivative, The Definite Integral, and Constructing Antiderivatives.<br>
 <br>

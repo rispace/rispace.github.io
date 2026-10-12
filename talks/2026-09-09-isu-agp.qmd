@@ -1,0 +1,29 @@
+---
+title: "Scalable Sampling Algorithms via Langevin Dynamics"
+description: "Analysis, Geometry and Probability Seminar · Department of Mathematics, Iowa State University"
+collection: talks
+author: "Mohammad Rafiqul Islam"
+type: "Seminar talk"
+permalink: /talks/2026-09-09-isu-agp
+venue: "Analysis, Geometry and Probability Seminar, Department of Mathematics, Iowa State University"
+date: 2026-09-09
+location: "Ames, Iowa"
+language:
+  title-block-published: "Date"
+---
+
+## Abstract
+
+Langevin algorithms are popular Markov chain Monte Carlo (MCMC) methods for large-scale sampling from distributions with probability density $\pi(x)\propto e^{-f(x)}$. In this talk, we present three Langevin sampling algorithms under strong convexity and smoothness assumptions on $f$.
+
+We first study the decentralized proximal stochastic gradient Langevin dynamics (DE-PSGLD) algorithm for sampling from a convex body $\mathcal{K}\subset\mathbb{R}^d$ when the data is distributed among $N$ computational agents. Constraints are handled through a shared proximal regularization based on the Moreau–Yosida envelope, allowing unconstrained updates to approximate the constrained target distribution.
+
+Next, we study unconstrained sampling in a decentralized setting, where agents perform Bayesian learning collaboratively without sharing individual data. Existing decentralized SGLD algorithms introduce network-induced bias that persists even when using full batches. To address this bias, we propose the generalized EXTRA stochastic gradient Langevin dynamics.
+
+Finally, we propose the $P$-th order Langevin dynamics for any $P\geq 3$, with improved dependence on dimension and sampling accuracy. For all three algorithms, we obtain convergence guarantees and iteration complexities in the 2-Wasserstein distance. We also validate our algorithms through numerical experiments in Bayesian regression, classification, and deep learning.
+
+## Related papers
+
+- [Decentralized Proximal Stochastic Gradient Langevin Dynamics](/research/dpsgld/)
+- [Generalized EXTRA Stochastic Gradient Langevin Dynamics](/research/extrasgld/)
+- [High-Order Langevin Monte Carlo Algorithms](/research/holmc/)

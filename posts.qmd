@@ -1,0 +1,16 @@
+---
+title: "Other writing"
+description: "Linear algebra, mathematical biology, numerical methods, optimization, and other posts."
+listing:
+  contents: "posts/*/index.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, description, categories, reading-time]
+  date-format: "MMMM D, YYYY"
+  image-height: 140px
+page-layout: full
+title-block-banner: false
+---

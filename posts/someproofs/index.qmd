@@ -7,7 +7,7 @@ search: true
 lightbox: true
 image: lin1.jpg
 listing: 
-    contents: "/../../posts"
+    contents: "../*/index.qmd"
     max-items: 3
     type: grid
     categories: false
@@ -83,20 +83,20 @@ $x_h=max\{|x_i|: 1\le i \le n\}$ \& $>0$. Here we are assuming $x_h >0$ because 
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
  
 <div class="share-buttons">
-<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/someproofs/"
+<div class="fb-share-button" data-href="https://rispace.github.io/posts/someproofs/"
 data-layout="button_count" data-size="small"><a target="_blank" 
- href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fsomeproofs%2F&amp;src=sdkpreparse" 
+ href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Fsomeproofs%2F&amp;src=sdkpreparse" 
  class="fb-xfbml-parse-ignore">Share</a></div>
 
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://mrislambd.github.io/posts/someproofs/"></script> 
+<script type="IN/Share" data-url="https://rispace.github.io/posts/someproofs/"></script> 
  
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
- data-url="https://mrislambd.github.io/posts/someproofs/" data-show-count="true">Tweet</a>
+ data-url="https://rispace.github.io/posts/someproofs/" data-show-count="true">Tweet</a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/someproofs/"
+<div class="fb-comments" data-href="https://rispace.github.io/posts/someproofs/"
  data-width="" data-numposts="5"></div>
 
 

@@ -1,134 +1,123 @@
 ---
-title: CV
-excerpt: My current CV
-date: 2026-9-9
-published-title: CV last updated
+pagetitle: "CV · Mohammad Rafiqul Islam"
+description: "Curriculum vitae of Mohammad Rafiqul Islam."
+page-layout: custom
 ---
 
-```{=html}
-<div class="text-center">
-    <a class="cv-download" href="/_assets/documents/CV.pdf" target="_blank">
-        Download a PDF
-    </a>
-</div>
-```
+::: {.wrap .cv-page}
+<div class="cv-tools"><a class="btn-r solid" href="_assets/documents/CV.pdf"><i class="bi bi-download"></i> Download PDF</a></div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
+::: {.sheet}
 
-## Education  
-- Ph.D in Mathematics, Florida State University; Florida, USA 2026
-- M.S. in Mathematics, Youngstown State University; Ohio, USA 2020
-- M.S. in Applied Mathematics, University of Dhaka; Dhaka, Bangladesh 2016
-- B.S. in Mathematics, University of Dhaka; Dhaka, Bangladesh 2014
+<header class="letterhead">
+<h1>Mohammad Rafiqul Islam</h1>
+<p>Department of Mathematics, Iowa State University, Ames, IA 50011</p>
+<p><a href="mailto:rafiqfsu@gmail.com">rafiqfsu@gmail.com</a> · <a href="https://rispace.github.io">rispace.github.io</a> · <a href="https://orcid.org/0000-0002-4376-8971">orcid.org/0000-0002-4376-8971</a></p>
+</header>
 
+<section class="cvs"><h2>Academic Appointments</h2>
+<div class="ent"><span class="t">Postdoctoral Research Associate</span><span class="d">Aug 2026 – present</span><span class="s"><i>Iowa State University</i>, Ames, Iowa · Mentor: Professor David Herzog</span></div>
+<div class="ent"><span class="t">Graduate Teaching Assistant</span><span class="d">Aug 2021 – Jul 2026</span><span class="s"><i>Florida State University</i>, Tallahassee, Florida</span></div>
+<div class="ent"><span class="t">Graduate Assistant</span><span class="d">Aug 2018 – May 2020</span><span class="s"><i>Youngstown State University</i>, Youngstown, Ohio</span></div>
+</section>
 
-## Work experience  
+<section class="cvs"><h2>Education</h2>
+<div class="ent"><span class="t">Ph.D. in Mathematics</span><span class="d">Jul 2026</span><span class="s"><i>Florida State University</i> · Advisor: Professor Lingjiong Zhu<br>Dissertation: <i>Advances in Langevin Algorithms for Decentralized, Constrained, and Accelerated Sampling</i></span></div>
+<div class="ent"><span class="t">M.S. in Mathematics</span><span class="d">May 2020</span><span class="s"><i>Youngstown State University</i>, Ohio</span></div>
+<div class="ent"><span class="t">M.S. in Applied Mathematics</span><span class="d">Mar 2016</span><span class="s"><i>University of Dhaka</i>, Bangladesh</span></div>
+<div class="ent"><span class="t">B.S. in Mathematics</span><span class="d">Nov 2014</span><span class="s"><i>University of Dhaka</i>, Bangladesh</span></div>
+<div class="ent"><span class="t">Society of Actuaries: Exam P, Exam FM</span><span class="d">Jan 2019</span></div>
+</section>
 
-* Postdoctoral Research Associate (August 2026 - To Date)
-  * Iowa State University
-  * Duties includes: Research, Mentorship, and Teaching
-  * Research Supervisor: David P. Herzog, Ph.D
+<section class="cvs"><h2>Research Interests</h2>
+<div class="ent"><span class="t">Stochastic optimization and sampling</span><span class="s">Markov chain Monte Carlo, Langevin algorithms, decentralized Bayesian inference, constrained sampling, high-dimensional probability.</span></div>
+<div class="ent"><span class="t">Financial engineering</span><span class="s">Predictive modeling of time series with classical statistical and machine-learning models; derivative pricing; portfolio risk management.</span></div>
+</section>
 
-* Graduate Teaching Assistant (August 2021- July 2026)
-  * Florida State University
-  * Duties includes: Teaching, Proctoring, and Grading
-  * Teaching Supervisor: Penelope Kirby, Ph.D
+<section class="cvs"><h2>Publications</h2>
+<p class="cvsub">Preprints</p>
+<ol class="cvl">
+<li><b>Islam, M. R.</b> and Zhu, L. [Decentralized Proximal Stochastic Gradient Langevin Dynamics](research/dpsgld/). <i>arXiv:2605.00723</i> (2026).</li>
+<li>Dang, T., Gürbüzbalaban, M., <b>Islam, M. R.</b>, Yao, N., and Zhu, L. [High-Order Langevin Monte Carlo Algorithms](research/holmc/). <i>arXiv:2508.17545</i> (2025).</li>
+<li>Gürbüzbalaban, M., <b>Islam, M. R.</b>, Wang, X., and Zhu, L. [Generalized EXTRA Stochastic Gradient Langevin Dynamics](research/extrasgld/). <i>arXiv:2412.01993</i> (2024).</li>
+</ol>
+<p class="cvsub">Peer-reviewed</p>
+<ol class="cvl" start="4">
+<li>Mostafa, F., Saha, P., <b>Islam, M. R.</b>, and Nguyen, N. [GJR-GARCH volatility modeling under NIG and ANN for predicting top cryptocurrencies](publication/pub2/). <i>Journal of Risk and Financial Management</i> 14(9): 421 (2021).</li>
+<li><b>Islam, M. R.</b> and Nguyen, N. [Comparison of financial models for stock price prediction](publication/pub1/). <i>Journal of Risk and Financial Management</i> 13(8): 181 (2020).</li>
+</ol>
+</section>
 
-* Graduate Teaching Assistant (August 2018 - May 2020)
-  * Youngstown State University University
-  * Duties included: Teaching, Proctoring, and Grading
-  * Supervisor: G. Jay Kerns, Ph.D
+<section class="cvs"><h2>Presentations and Talks</h2>
+<div class="ent"><span class="t">Scalable Sampling Algorithms via Langevin Dynamics</span><span class="d">Sep 9, 2026</span><span class="s">Analysis, Geometry and Probability Seminar, Iowa State University</span></div>
+<div class="ent"><span class="t">Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics</span><span class="d">Mar 28–29, 2026</span><span class="s">Contributed talk, AMS Spring Eastern Sectional Meeting, Boston College</span></div>
+<div class="ent"><span class="t">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</span><span class="d">Mar 2–6, 2026</span><span class="s">Poster, Bayesian Inverse Problems and UQ, ICERM, Brown University</span></div>
+<div class="ent"><span class="t">High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference</span><span class="d">Jan 30, 2026</span><span class="s">Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</span><span class="d">Nov 20, 2023</span><span class="s">Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo</span><span class="d">Oct 5, 2023</span><span class="s">Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Asymptotics and Calibration of Local Volatility Models</span><span class="d">Dec 2, 2022</span><span class="s">Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Sensitivity Analysis for Monte Carlo and Quasi-Monte Carlo Option Pricing</span><span class="d">Apr 28, 2020</span><span class="s">Department of Mathematics, Youngstown State University</span></div>
+</section>
 
-* Assistant Vice President (September 2017 - July 2018)
-  * Delta Life Insurance Company Ltd. Dhaka, Bangladesh
-  * Duties included: Calculated all types of claims (death, surrender, and maturity) using excel spreadsheets. 
-  * Processed approximately 500 claims each week and submitted corresponding statistical reports to the higher authority. 
-  * Worked in a team to develop a new short-term endowment assurance product which played an important role to increase the company's new business. 
-  * Refurbished a without risk endowment product which was out of the sale. Priced insurance premiums based on different risk factors for bigger clients which impacted our life fund significantly. 
-  * Calculated reserves for group endowment, term and premium back policies which was a vital part of the final valuation report.
-  * Liaised directly with the consulting actuary and provided all sorts of technical and documental supports during actuarial valuation
-  * Supervisor: Md. Salahuddin Soud, VP
-  
-## Skills
+<section class="cvs" id="teaching"><h2>Teaching Experience</h2>
+<p class="cvsub">Iowa State University: Recitation Instructor</p>
+<div class="ent"><span class="t">Calculus III</span><span class="d">Fall 2026</span></div>
+<p class="cvsub">Florida State University: Instructor of Record</p>
+<div class="ent"><span class="t">MAP 2302 Ordinary Differential Equations</span><span class="d">Summer 2026</span></div>
+<div class="ent"><span class="t">MAC 2312 Calculus and Analytic Geometry II</span><span class="d">Fall 2025, Spring 2026</span></div>
+<div class="ent"><span class="t">MAC 2311 Calculus and Analytic Geometry I</span><span class="d">Spring 2025, Summer 2025</span></div>
+<div class="ent"><span class="t">MAP 4170 Introduction to Actuarial Mathematics</span><span class="d">Spring 2024</span></div>
+<div class="ent"><span class="t">MAC 1140 Precalculus Algebra</span><span class="d">Spring 2023</span></div>
+<p class="cvsub">Florida State University: Recitation Instructor and Grader</p>
+<div class="ent"><span class="t">MAC 2311 Calculus and Analytic Geometry I</span><span class="d">Fall 2022</span></div>
+<div class="ent"><span class="t">MAP 4170 Introduction to Actuarial Mathematics</span><span class="d">Fall 2024, Fall 2025</span></div>
+<p class="cvsub">Youngstown State University: Instructor of Record</p>
+<div class="ent"><span class="t">MATH 1511 Trigonometry</span><span class="d">Fall 2019, Spring 2020</span></div>
+<div class="ent"><span class="t">MATH 1510 College Algebra</span><span class="d">Fall 2018</span></div>
+</section>
 
-* Language
-  - Bengali: Native
-  - English: Fluent 
-* Computer Literacy
-  * Programming Languages: Python, FORTRAN, Julia, R, MATLAB, Mathematica
-  * Software Development Tools: Git, GitHub, PyPi
-* Musical Instrument: Amateur/Novice Bamboo flute player
+<section class="cvs"><h2>Undergraduate Research Mentoring</h2>
+<div class="ent"><span class="t">Research Mentor, FSU Undergraduate Research Opportunity Program</span><span class="d">2025 – 2026</span><span class="s">Sarah Thapa: predictive modeling of Florida road crashes and the economic impact of crash casualties.<br>Aiden Marin: Black–Scholes–Merton vs. machine-learning models for option pricing.</span></div>
+<div class="ent"><span class="t">Research Mentor, FSU Mathematics Directed Reading Program</span><span class="d">2024 – 2025</span><span class="s">Lily Kinney and Kiera Agic: machine-learning methods for spam detection.</span></div>
+</section>
 
-## Publications
+<section class="cvs"><h2>Honors and Awards</h2>
+<div class="ent"><span class="t">Tam Family Excellence in Graduate Student Research Award</span><span class="d">Apr 2026</span><span class="s">Florida State University</span></div>
+<div class="ent"><span class="t">Distinguished Teaching Assistant Award</span><span class="d">Apr 2026</span><span class="s">Florida State University</span></div>
+<div class="ent"><span class="t">Tam Family Poster Competition Award, Second Place</span><span class="d">Apr 2026</span><span class="s">Florida State University</span></div>
+<div class="ent"><span class="t">Bettye Anne Busbee Case Graduate Fellowship and Doctoral Mentorship Recognition</span><span class="d">Apr 2024</span></div>
+<div class="ent"><span class="t">Outstanding Graduate Student in Statistics Award</span><span class="d">Apr 2020</span><span class="s">Youngstown State University</span></div>
+<div class="ent"><span class="t">Graduate College Premiere Scholarship</span><span class="d">Aug 2018</span><span class="s">Youngstown State University</span></div>
+<div class="ent"><span class="t">MetLife Bangladesh Actuarial Study Program Fellowship</span><span class="d">Jan 2015</span></div>
+</section>
 
-### Preprints  
+<section class="cvs"><h2>Research and Travel Funding</h2>
+<div class="ent"><span class="t">AMS Graduate Student Travel Grant</span><span class="d">Mar 2026</span></div>
+<div class="ent"><span class="t">ICERM Workshop Grant</span><span class="d">Mar 2026</span></div>
+<div class="ent"><span class="t">FSU Undergraduate Research Opportunity Program Mentorship Fund</span><span class="d">Mar 2026</span></div>
+<div class="ent"><span class="t">FSU Mathematics Department Travel Grant</span><span class="d">Mar 2026</span></div>
+<div class="ent"><span class="t">Congress of Graduate Students Conference Presentation and Attendance Grant</span><span class="d">Mar 2026</span></div>
+</section>
 
-- <a href="/research/dpsgld/index.qmd" target="_blank" style="text-decoration:none">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a>  
-  Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2026) "Decentralized Proximal Stochastic Gradient Langevin Dynamics." *arXiv preprint arXiv.2605.00723*  
-- <a href="/research/holmc/index.qmd" target="_blank" style="text-decoration:none">High-Order Langevin Monte Carlo Algorithms</a>  
-  Dang, Thanh; Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Zhu, Lingjiong  (2025) "High-Order Langevin Monte Carlo Algorithms." *arXiv preprint arXiv.2508.17545*  
-- <a href="/research/extrasgld/index.qmd" target="_blank" style="text-decoration:none">Generalized EXTRA stochastic gradient Langevin dynamics</a>  
-  Mert, Gurbuzbalaban; Islam, Mohammad Rafiqul; Wang, Xiaoyu; Zhu, Lingjiong  (2024) "Generalized EXTRA stochastic gradient Langevin dynamics." *arXiv preprint arXiv.2412.01993*  
+<section class="cvs"><h2>Industry Experience</h2>
+<div class="ent"><span class="t">Assistant Vice President</span><span class="d">Sep 2017 – Jul 2018</span><span class="s"><i>Delta Life Insurance Company Ltd.</i>, Dhaka, Bangladesh</span></div>
+<div class="ent"><span class="t">Actuarial Trainee Executive</span><span class="d">Sep 2016 – Aug 2017</span><span class="s"><i>Sandhani Life Insurance Company Ltd.</i>, Dhaka, Bangladesh</span></div>
+</section>
 
-### Peer-Reviewed Publications  
+<section class="cvs"><h2>Conferences and Workshops</h2>
+<div class="ent"><span class="t">AMS 2026 Spring Eastern Sectional Meeting</span><span class="d">Mar 2026</span><span class="s">Boston College, Massachusetts</span></div>
+<div class="ent"><span class="t">Bayesian Inverse Problems and Uncertainty Quantification</span><span class="d">Mar 2026</span><span class="s">ICERM, Brown University, Providence, Rhode Island</span></div>
+<div class="ent"><span class="t">1st SRU SAS Analytics Day</span><span class="d">Mar 2019</span><span class="s">Slippery Rock University and SAS Institute</span></div>
+<div class="ent"><span class="t">6th Annual Midwest Actuarial Student Conference</span><span class="d">Nov 2018</span><span class="s">Society of Actuaries and University of Wisconsin–Milwaukee</span></div>
+<div class="ent"><span class="t">20th International Mathematics Conference</span><span class="d">2017</span><span class="s">Bangladesh Mathematical Society, Dhaka</span></div>
+</section>
 
-- <a href="/publication/pub2/index.qmd" target="_blank" style="text-decoration:none">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies </a>  
-  Mostafa, F; Saha, P; Islam, Mohammad R.; Nguyen, N. (2020) "GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies." *Journal of Risk and Financial Management*.
-- <a href="/publication/pub1/index.qmd" style="text-decoration:none">Comparison of Financial Models for Stock Price Prediction </a>  
-  Islam, Mohammad R.; Nguyen, N. (2020) "Comparison of financial models for stock price prediction." *Journal of Risk and Financial Management*. 
+<section class="cvs"><h2>Memberships and Skills</h2>
+<div class="ent"><span class="t">Memberships</span><span class="s">Bangladesh Mathematical Society (life member); Society of Actuaries (student member); Society for Industrial and Applied Mathematics; American Mathematical Society.</span></div>
+<div class="ent"><span class="t">Computing</span><span class="s">Python, R, Julia, MATLAB, Mathematica, FORTRAN; Git, GitHub, PyPI; Quarto, LaTeX.</span></div>
+<div class="ent"><span class="t">Languages</span><span class="s">Bengali (native), English (fluent).</span></div>
+</section>
 
-  
-## Talks and Presentations  
-
-- <a href="/talks/2026-03-03-icerm.qmd" style="text-decoration:none"> Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a>  
-  March 03, 2026  
-  Poster Presentation at Institute for Computational and Experimental Research in Mathematics (ICERM), Brown University, Providence, Rhode Island   
-- <a href="/talks/2026-01-30-gradseminar.qmd" style="text-decoration:none"> High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference </a>  
-  January 30, 2026  
-  Presentation at Department of Mathematics, Florida State University, Tallahassee, Florida
-- <a href="/talks/2023-11-20-candi.qmd" style="text-decoration:none"> The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</a>  
-  November 20, 2023  
-  Presentation at James J Love Building, Florida State University, Tallahassee, Florida  
-- <a href="/talks/2023-10-05-st-op.qmd" style="text-decoration:none"> Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo</a>  
-  October 05, 2023  
-  Presentation at James J Love Building, Florida State University, Tallahassee, Florida  
-- <a href="/talks/2020-04-26-project.qmd" style="text-decoration:none"> Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing</a>  
-  April 28, 2020  
-  Presentation at Cafaro Hall, Youngstown State University, Youngstown, Ohio  
-  
-## Teaching
-
-  - <a href="/teaching/sp26.qmd" style="text-decoration:none"> Spring 2026: MAC2311 Calculus and Analytic Geometry II</a>
-  - <a href="/teaching/fall25.qmd" style="text-decoration:none"> Fall 2025: MAC2312 Calculus and Analytic Geometry II</a>
-  - <a href="/teaching/sp25.qmd" style="text-decoration:none"> Spring 2025: MAC2311 Calculus and Analytic Geometry I</a> 
-  - <a href="/teaching/sp24.qmd" style="text-decoration:none"> Spring 2024: MAP4170 Introduction to Actuarial Mathematics</a>  
-  - <a href="/teaching/sp23.qmd" style="text-decoration:none"> Fall 2023: MAP4170 Introduction to Actuarial Mathematics</a>  
-  - <a href="/teaching/fall23.qmd" style="text-decoration:none"> Spring 2023: MAC1140 PreCalculus Algebra</a>  
-  - <a href="/teaching/fall22.qmd" style="text-decoration:none"> Fall 2022: MAC2311 Calculus and Analytic Geometry I</a>  
-  - <a href="/teaching/fall21.qmd" style="text-decoration:none"> Fall 2021 and Spring 2022: PreCalculus and Algebra</a>  
-  - <a href="/teaching/f18-f21.qmd" style="text-decoration:none"> Fall 2018 to Spring 2020: College Algebra, Trigonometry</a>  
-  
-
-## Funding, Awards & Scholarships
-
-* **[2026]** AMS Spring Eastern Sectional Meeting Graduate Student Travel Grant ($400.00)
-* **[2026]** Florida State Undergraduate Research Opportunity Program (UROP) Mentorship Fund for the 2025-2026 Academic Year ($490.10)
-* **[2026]** The Institute for Computational and Experimental Research in Mathematics (ICERM) Workshop Grant ($967.44)
-* **[2026]** Florida State Mathematics Department Travel Grant ($400.00)
-* **[2026]** Student Government Association (SGA)-Congress of Graduate Students (COGS) Conference Presentation and Attendance Grants ($350.00)
-* **[2024]** Bettye Anne Busbee Case Graduate Fellowship & Doctoral Mentorship Recognition 2024 ($1000.00)
-* **[2020]** Outstanding Graduate Student in Statistics Award for the 2019-2020 academic year ($150.00)
-* **[2019]** Society of Actuaries (SOA) travel grant to attend 6th Annual Midwest Actuarial Student Conference, University of Wisconsin, Milwaukee, WI ($125.00)
-* **[2018]** Graduate College Premiere Scholarship, Youngstown State University
-* **[2015]** MetLife Bangladesh Actuarial Study Program 2015 Fellowship
-
-***
-
-## Memberships
-
-1. [Bangladesh Mathematical Society](https://www.bdmathsociety.org/){target="_blank" style="text-decoration:none"}: **Life Member**
-2. [Society of Actuaries (SOA), USA](https://www.soa.org){target="_blank" style="text-decoration:none"}: **Student Member**
-3. [Society for Industrial and Applied Mathematics (SIAM), USA](https://www.siam.org/){target="_blank" style="text-decoration:none"}: **Student Member**
-4. [American Mathematical Society (AMS)](https://www.ams.org){target="_blank" style="text-decoration:none"}: **Student Member**
-5. Graduate Student Council: FSU Mathematics Department
+<p class="cv-note">References are listed in the <a href="_assets/documents/CV.pdf">PDF version</a>.</p>
+:::
+:::

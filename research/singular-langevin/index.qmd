@@ -5,10 +5,10 @@ author:
   - Mohammad Rafiqul Islam
   - David P. Herzog
 date: 2026-10-01
-image: singular-langevin.svg
+image: singular-langevin.png
 ---
 
-![A conceptual view of constrained particles, repulsive interactions, and a stable numerical trajectory.](singular-langevin.svg){.research-hero}
+<div class="hero-fig"><img class="th-light" src="singular-langevin.png" alt="Simulation: particles following Langevin dynamics inside a constrained domain while repelling one another; the closest pair is pushed apart."><img class="th-dark" src="singular-langevin-dark.png" alt="" aria-hidden="true"></div>
 
 ## The problem
 

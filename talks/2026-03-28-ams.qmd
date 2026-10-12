@@ -1,0 +1,23 @@
+---
+title: "Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics"
+description: "Contributed talk · AMS 2026 Spring Eastern Sectional Meeting, Boston College"
+collection: talks
+author: "Mohammad Rafiqul Islam, Lingjiong Zhu"
+type: "Contributed talk"
+permalink: /talks/2026-03-28-ams
+venue: "AMS 2026 Spring Eastern Sectional Meeting, Boston College"
+date: 2026-03-28
+location: "Boston College, Massachusetts"
+language:
+  title-block-published: "Date"
+---
+
+## Abstract
+
+We propose Decentralized Proximal Stochastic Gradient Langevin Dynamics (DPSGLD), a novel algorithm for constrained sampling over multi-agent networks. In this framework, agents process local data subsets and communicate only with neighbors to jointly sample from a posterior distribution supported on a compact convex set. We handle constraints using a shared proximal regularization via the Moreau–Yosida envelope, which enables unconstrained stochastic updates that approximate the target Gibbs distribution.
+
+We establish non-asymptotic convergence guarantees in the 2-Wasserstein distance for both individual iterates and the network average, explicitly characterizing the effects of network topology, gradient noise, and regularization bias. Experimental results on Bayesian linear and logistic regressions demonstrate that DPSGLD achieves faster posterior concentration and higher predictive accuracy than centralized SGLD. We further show that performance scales positively with increased network connectivity, confirming the algorithm's efficiency for distributed Bayesian learning.
+
+## Related paper
+
+- [Decentralized Proximal Stochastic Gradient Langevin Dynamics](/research/dpsgld/) · [arXiv:2605.00723](https://arxiv.org/abs/2605.00723)

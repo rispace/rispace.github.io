@@ -7,19 +7,8 @@ citation: true
 search: true
 lightbox: true
 image: titan.jpg
-format: 
-    html: default
-    pdf: 
-      toc: true
-      pdf-engine: pdflatex
-      adsense:
-        enable-ads: false
-      number-sections: false
-      colorlinks: true
-      cite-method: biblatex
-toc-depth: 4
 ---  
 
 <p style="text-align:center">
-  [Notebook](/codepages/titanic/index.qmd){target="_blank" style="text-decoration:none"}
+  [Notebook](/codepages/titanic/){target="_blank" style="text-decoration:none"}
 </p>

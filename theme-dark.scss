@@ -1,13 +1,25 @@
 /*-- scss:defaults --*/
-// Base document colors
-$body-bg: #111820;
-$body-color: #e4e9e8;
-$link-color: #82c9c2;
-$navbar-bg: #16212b;
-$navbar-fg: #e8eeed;
-$navbar-hl: #82c9c2;
-$footer-bg: #16212b;
-$footer-fg: #cbd5d3;
-
-// Code blocks
-$code-block-bg-alpha: -.8;
+// Slate with gold leaf (colours are overridden by the tokens in styles.css)
+$body-bg: #1e293b;
+$body-color: #e2e8f0;
+$link-color: #e6cd6e;
+$primary: #d9bd45;
+$secondary: #94a3b8;
+$navbar-bg: #1e293b;
+$navbar-fg: #e2e8f0;
+$navbar-hl: #e6cd6e;
+$footer-bg: #172033;
+$footer-fg: #cbd5e1;
+$border-color: #3a4a60;
+$code-bg: #273449;
+$code-color: #f0dc8a;
+$font-family-sans-serif: "Times New Roman", Times, serif;
+$font-family-serif: "Times New Roman", Times, serif;
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$headings-font-family: "Times New Roman", Times, serif;
+$headings-font-weight: 700;
+$font-size-root: 19px;
+$line-height-base: 1.6;
+$enable-rounded: true;
+$dropdown-bg: #273449;
+$dropdown-link-hover-bg: #31405a;

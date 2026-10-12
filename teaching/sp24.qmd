@@ -8,9 +8,6 @@ date: 2024-05-04
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
 <div style="text-align: justify">
 One of the course objectives is for each student to develop a mastery of financial mathematics used by actuaries, based on the mathematics of interest theory. Other course objectives are for each student to understand the long-term individual study commitment necessary to achieve a designation within one of the actuarial societies and for each student to increase their knowledge of the actuarial profession
 </div>

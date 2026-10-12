@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,16 +11,10 @@
 
 <title>Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data – Mohammad Rafiqul Islam</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -66,27 +60,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../..//_assets/images/favicon.ico" rel="icon">
+<link href="../../_assets/images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ddd39223efcf1e1960c36e0bcd084f75.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ed60b4568be9625e69269519dcf610f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -124,17 +120,27 @@ gtag('js', new Date());
 gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="../../_assets/images/favicon.svg">
+<link rel="apple-touch-icon" href="../../_assets/images/apple-touch-icon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data – Mohammad Rafiqul Islam">
+<meta property="og:image" content="https://rispace.github.io/codepages/ecommerce/index_files/figure-html/cell-5-output-1.png">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
+<meta property="og:image:height" content="464">
+<meta property="og:image:width" content="745">
 <meta name="twitter:title" content="Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data – Mohammad Rafiqul Islam">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rispace.github.io/codepages/ecommerce/index_files/figure-html/cell-5-output-1.png">
+<meta name="twitter:image-height" content="464">
+<meta name="twitter:image-width" content="745">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -303,8 +309,8 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://rispace.github.io/">
-    <span class="navbar-title">MRI</span>
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -326,95 +332,38 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Blog</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/dsandml/">
- <span class="dropdown-text">Data Science and Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/letscode/">
- <span class="dropdown-text">Data Structure and Algorithm</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/statandprob/">
- <span class="dropdown-text">Statistics and Probability</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../blog.html">
- <span class="dropdown-text">Other Blogs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
 </ul>
-              <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link active" data-scroll-target="#load-the-data">Load the data</a></li>
-  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a>
-  <ul class="collapse">
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
-  </ul></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a>
-  <ul class="collapse">
-  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training">Training</a></li>
-  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
-  <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation">Model Evaluation</a></li>
-  <li><a href="#residual-analysis" id="toc-residual-analysis" class="nav-link" data-scroll-target="#residual-analysis">Residual Analysis</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.ipynb" download="index.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.ipynb" download="index.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data</h1>
 </div>
 
 
@@ -444,159 +393,426 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 
 
 <section id="load-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-the-data">Load the data</h2>
-<div id="9b7fa937" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<h2 data-anchor-id="load-the-data">Load the data</h2>
+<div id="9b4dc9dd" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mywebstyle <span class="im">import</span> plot_style</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plot_style(<span class="st">'#f4f4f4'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>salesdata <span class="op">=</span> pd.read_csv(<span class="st">'Ecommerce Customers'</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>salesdata.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>salesdata.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Email</th>
+<th data-quarto-table-cell-role="th">Address</th>
+<th data-quarto-table-cell-role="th">Avatar</th>
+<th data-quarto-table-cell-role="th">Avg. Session Length</th>
+<th data-quarto-table-cell-role="th">Time on App</th>
+<th data-quarto-table-cell-role="th">Time on Website</th>
+<th data-quarto-table-cell-role="th">Length of Membership</th>
+<th data-quarto-table-cell-role="th">Yearly Amount Spent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>mstephenson@fernandez.com</td>
+<td>835 Frank Tunnel\nWrightmouth, MI 82180-9605</td>
+<td>Violet</td>
+<td>34.497268</td>
+<td>12.655651</td>
+<td>39.577668</td>
+<td>4.082621</td>
+<td>587.951054</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>hduke@hotmail.com</td>
+<td>4547 Archer Common\nDiazchester, CA 06566-8576</td>
+<td>DarkGreen</td>
+<td>31.926272</td>
+<td>11.109461</td>
+<td>37.268959</td>
+<td>2.664034</td>
+<td>392.204933</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>pallen@yahoo.com</td>
+<td>24645 Valerie Unions Suite 582\nCobbborough, D...</td>
+<td>Bisque</td>
+<td>33.000915</td>
+<td>11.330278</td>
+<td>37.110597</td>
+<td>4.104543</td>
+<td>487.547505</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>riverarebecca@gmail.com</td>
+<td>1414 David Throughway\nPort Jason, OH 22070-1220</td>
+<td>SaddleBrown</td>
+<td>34.305557</td>
+<td>13.717514</td>
+<td>36.721283</td>
+<td>3.120179</td>
+<td>581.852344</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>mstephens@davidson-herman.com</td>
+<td>14023 Rodriguez Passage\nPort Jacobville, PR 3...</td>
+<td>MediumAquaMarine</td>
+<td>33.330673</td>
+<td>12.795189</td>
+<td>37.536653</td>
+<td>4.446308</td>
+<td>599.406092</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 </section>
 <section id="eda" class="level2">
-<h2 class="anchored" data-anchor-id="eda">EDA</h2>
+<h2 data-anchor-id="eda">EDA</h2>
 <section id="descriptive-statistics" class="level3">
-<h3 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
-<div id="a0acb339" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>salesdata.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
+<div id="8d360112" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>salesdata.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Avg. Session Length</th>
+<th data-quarto-table-cell-role="th">Time on App</th>
+<th data-quarto-table-cell-role="th">Time on Website</th>
+<th data-quarto-table-cell-role="th">Length of Membership</th>
+<th data-quarto-table-cell-role="th">Yearly Amount Spent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>500.000000</td>
+<td>500.000000</td>
+<td>500.000000</td>
+<td>500.000000</td>
+<td>500.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>33.053194</td>
+<td>12.052488</td>
+<td>37.060445</td>
+<td>3.533462</td>
+<td>499.314038</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.992563</td>
+<td>0.994216</td>
+<td>1.010489</td>
+<td>0.999278</td>
+<td>79.314782</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>29.532429</td>
+<td>8.508152</td>
+<td>33.913847</td>
+<td>0.269901</td>
+<td>256.670582</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>32.341822</td>
+<td>11.388153</td>
+<td>36.349257</td>
+<td>2.930450</td>
+<td>445.038277</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>33.082008</td>
+<td>11.983231</td>
+<td>37.069367</td>
+<td>3.533975</td>
+<td>498.887875</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>33.711985</td>
+<td>12.753850</td>
+<td>37.716432</td>
+<td>4.126502</td>
+<td>549.313828</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>36.139662</td>
+<td>15.126994</td>
+<td>40.005182</td>
+<td>6.922689</td>
+<td>765.518462</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div id="7fe4c3c8" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>salesdata.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="76519f96" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>salesdata.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 8 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   Email                 500 non-null    object 
+ 1   Address               500 non-null    object 
+ 2   Avatar                500 non-null    object 
+ 3   Avg. Session Length   500 non-null    float64
+ 4   Time on App           500 non-null    float64
+ 5   Time on Website       500 non-null    float64
+ 6   Length of Membership  500 non-null    float64
+ 7   Yearly Amount Spent   500 non-null    float64
+dtypes: float64(5), object(3)
+memory usage: 31.4+ KB</code></pre>
+</div>
 </div>
 </section>
 <section id="visualization" class="level3">
-<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
-<div id="14b25471" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Time on Website vs Yearly Amount Spent'</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on App' vs 'Yearly Amount Spent'</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>,</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Time on App vs Yearly Amount Spent'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>So, from this plot, we see that <code>Time on Website</code> has no significant trend or pattern on <code>Yearly Amount Spent</code> variable. However, <code>Time on App</code> seems to have a linear relationship on <code>Yearly Amount Spent</code>.</p>
-<p>Next, we see the relationship between <code>Avg. Session Length</code> vs <code>Yearly Amount Spent</code>, and <code>Length of Membership</code> vs <code>Yearly Amount Spent</code>.</p>
-<div id="bbd41b8c" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
+<h3 data-anchor-id="visualization">Visualization</h3>
+<div id="aa5b7c10" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Avg. Session Length vs Yearly Amount Spent'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Time on Website vs Yearly Amount Spent'</span>)</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on App' vs 'Yearly Amount Spent'</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>,</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Length of Membership vs Yearly Amount Spent'</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Time on App vs Yearly Amount Spent'</span>)</span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So, from this plot, we see that <code>Time on Website</code> has no significant trend or pattern on <code>Yearly Amount Spent</code> variable. However, <code>Time on App</code> seems to have a linear relationship on <code>Yearly Amount Spent</code>.</p>
+<p>Next, we see the relationship between <code>Avg. Session Length</code> vs <code>Yearly Amount Spent</code>, and <code>Length of Membership</code> vs <code>Yearly Amount Spent</code>.</p>
+<div id="c03a3a06" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Avg. Session Length vs Yearly Amount Spent'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on App' vs 'Yearly Amount Spent'</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Length of Membership vs Yearly Amount Spent'</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Both of these features have impact on the dependent variable. However, <code>Length of Membership</code> seems to have the most significant impact on <code>Yearly Amount Spent</code>.</p>
-<div id="4552a5d1" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(salesdata)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="df6118e8" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(salesdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-7-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="modeling" class="level2">
-<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<h2 data-anchor-id="modeling">Modeling</h2>
 <section id="training" class="level3">
-<h3 class="anchored" data-anchor-id="training">Training</h3>
-<div id="d1c05867" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> salesdata[</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Avg. Session Length'</span>, <span class="st">'Time on App'</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Time on Website'</span>, <span class="st">'Length of Membership'</span>]</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> salesdata[<span class="st">'Yearly Amount Spent'</span>]</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    X, y, test_size <span class="op">=</span> <span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">123</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>linreg <span class="op">=</span> LinearRegression()</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>linreg.fit(X_train, y_train)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Coefficients: </span><span class="ch">\n</span><span class="st">'</span>, linreg.coef_)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 data-anchor-id="training">Training</h3>
+<div id="17536d74" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> salesdata[</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Avg. Session Length'</span>, <span class="st">'Time on App'</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Time on Website'</span>, <span class="st">'Length of Membership'</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> salesdata[<span class="st">'Yearly Amount Spent'</span>]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    X, y, test_size <span class="op">=</span> <span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">123</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>linreg <span class="op">=</span> LinearRegression()</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>linreg.fit(X_train, y_train)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Coefficients: </span><span class="ch">\n</span><span class="st">'</span>, linreg.coef_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coefficients: 
+ [25.36266491 38.82367921  0.80356799 61.54905291]</code></pre>
+</div>
 </div>
 </section>
 <section id="testing" class="level3">
-<h3 class="anchored" data-anchor-id="testing">Testing</h3>
-<div id="d49c9533" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> linreg.predict(X_test)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_test, pred)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y test'</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'predicted y'</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 data-anchor-id="testing">Testing</h3>
+<div id="1038bd48" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> linreg.predict(X_test)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_test, pred)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y test'</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'predicted y'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="model-evaluation" class="level3">
-<h3 class="anchored" data-anchor-id="model-evaluation">Model Evaluation</h3>
-<div id="6812be3d" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MAE'</span>, metrics.mean_absolute_error(y_test, pred))</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MSE'</span>, metrics.mean_squared_error(y_test, pred))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'RMSE'</span>, metrics.root_mean_squared_error(y_test, pred))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'R-squared:'</span>, metrics.r2_score(y_test, pred))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 data-anchor-id="model-evaluation">Model Evaluation</h3>
+<div id="ba37ed2f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MAE'</span>, metrics.mean_absolute_error(y_test, pred))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MSE'</span>, metrics.mean_squared_error(y_test, pred))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'RMSE'</span>, metrics.root_mean_squared_error(y_test, pred))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'R-squared:'</span>, metrics.r2_score(y_test, pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MAE 7.988079194245092
+MSE 102.72313941866007
+RMSE 10.135242444986705
+R-squared: 0.9845789607829495</code></pre>
+</div>
 </div>
 </section>
 <section id="residual-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="residual-analysis">Residual Analysis</h3>
-<div id="a00ab37d" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.displot(y_test<span class="op">-</span>pred, bins<span class="op">=</span> <span class="dv">60</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 data-anchor-id="residual-analysis">Residual Analysis</h3>
+<div id="0d8a346a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.displot(y_test<span class="op">-</span>pred, bins<span class="op">=</span> <span class="dv">60</span>, kde<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-11-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<div id="7732aaeb" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>coeff <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: [<span class="st">'Intercept'</span>] <span class="op">+</span> <span class="bu">list</span>(X.columns), </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Coefficient'</span>: [linreg.intercept_] <span class="op">+</span> <span class="bu">list</span>(linreg.coef_) </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>coeff</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h2 data-anchor-id="conclusion">Conclusion</h2>
+<div id="9de52722" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>coeff <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: [<span class="st">'Intercept'</span>] <span class="op">+</span> <span class="bu">list</span>(X.columns), </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Coefficient'</span>: [linreg.intercept_] <span class="op">+</span> <span class="bu">list</span>(linreg.coef_) </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>coeff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Feature</th>
+<th data-quarto-table-cell-role="th">Coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Intercept</td>
+<td>-1054.215476</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Avg. Session Length</td>
+<td>25.362665</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Time on App</td>
+<td>38.823679</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Time on Website</td>
+<td>0.803568</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Length of Membership</td>
+<td>61.549053</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 
-
-<!-- -->
 
 </section>
 
@@ -611,156 +827,54 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2022" class="csl-entry quarto-appendix-citeas" role="listitem">
 Islam, Rafiq. 2022. <span>“Feature Selection: A Linear Regression
 Approach to Find the Impact of the Features of e-Commerce Sales
-Data.”</span> August 30. <a href="https://rispace.github.io/codepages/ecommerce/">https://rispace.github.io/codepages/ecommerce/</a>.
+Data.”</span> August 30, 2022. <a href="https://rispace.github.io/codepages/ecommerce/">https://rispace.github.io/codepages/ecommerce/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script>
-// Keep navbar and in-page navigation in the current tab; open content links separately.
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-    if (link.closest('.navbar')) {
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-    } else if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const source = document.getElementById(button.dataset.copyTarget);
-      if (!source) return;
-      const citation = source.textContent.trim();
-      const previous = button.textContent;
-      button.textContent = 'Copied';
-
-      const fallbackCopy = function () {
-        const field = document.createElement('textarea');
-        field.value = citation;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand('copy');
-        field.remove();
-      };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(citation).catch(fallbackCopy);
-      } else {
-        fallbackCopy();
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
-      setTimeout(function () { button.textContent = previous; }, 1600);
+    } catch (e) {}
+  });
+
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
+      if (!source) return;
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
     });
   });
 
-  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
-        if (other !== details) other.removeAttribute('open');
-      });
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
     });
   });
-
-  document.addEventListener('click', function (event) {
-    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) details.removeAttribute('open');
-    });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const canvas = document.getElementById("research-density-animation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const width = canvas.width;
-  const height = canvas.height;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let time = 0;
-
-  function palette() {
-    const dark = document.body.classList.contains("quarto-dark");
-    return dark ? {
-      background: "#18232d",
-      contourA: "rgba(130, 201, 194, 0.72)",
-      contourB: "rgba(190, 170, 232, 0.62)",
-      trace: "rgba(237, 241, 240, 0.72)",
-      point: "#f0dcae"
-    } : {
-      background: "#fbfcfa",
-      contourA: "rgba(31, 111, 105, 0.68)",
-      contourB: "rgba(109, 82, 178, 0.53)",
-      trace: "rgba(36, 52, 71, 0.58)",
-      point: "#b34d4d"
-    };
-  }
-
-  function contour(cx, cy, rx, ry, rotation, color, phase) {
-    for (let level = 1; level <= 13; level += 1) {
-      const scale = 0.22 + level * 0.062;
-      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
-      ctx.stroke();
-    }
-  }
-
-  function samplePath(cx, cy, rx, ry, direction, color, phase) {
-    ctx.beginPath();
-    for (let index = 0; index < 105; index += 1) {
-      const age = index / 104;
-      const theta = direction * (phase * 0.55 + index * 0.29);
-      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
-      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
-      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
-      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-
-    const theta = direction * (phase * 0.55 + 104 * 0.29);
-    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
-    return {
-      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
-      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
-    };
-  }
-
-  function draw() {
-    const colors = palette();
-    ctx.fillStyle = colors.background;
-    ctx.fillRect(0, 0, width, height);
-
-    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
-    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
-
-    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
-    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
-
-    [left, right].forEach(function (point) {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = colors.point;
-      ctx.fill();
-    });
-  }
-
-  draw();
-  if (reduceMotion) return;
-
-  function animate() {
-    time += 0.035;
-    draw();
-    window.requestAnimationFrame(animate);
-  }
-  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -778,13 +892,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -827,14 +934,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -846,57 +952,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
-        for (let i=0; i<cellDetails.length; i++) {
-          const details = cellDetails[i];
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -914,6 +969,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1226,221 +1286,62 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data"</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Rafiq Islam"</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2022-08-30"</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="an">collection:</span><span class="co"> portfolio</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> true</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">    html: default</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">    ipynb: default</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>    </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load the data  </span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mywebstyle <span class="im">import</span> plot_style</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>plot_style(<span class="st">'#f4f4f4'</span>)</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>salesdata <span class="op">=</span> pd.read_csv(<span class="st">'Ecommerce Customers'</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>salesdata.head()</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## EDA  </span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Descriptive Statistics  </span></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>salesdata.describe()</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>salesdata.info()</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualization  </span></span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1</span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on Website'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Time on Website vs Yearly Amount Spent'</span>)</span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on App' vs 'Yearly Amount Spent'</span></span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Time on App'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>,</span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Time on App vs Yearly Amount Spent'</span>)</span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>So, from this plot, we see that <span class="in">`Time on Website`</span> has no significant trend or pattern on <span class="in">`Yearly Amount Spent`</span> variable. However, <span class="in">`Time on App`</span> seems to have a linear relationship on <span class="in">`Yearly Amount Spent`</span>.  </span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>Next, we see the relationship between <span class="in">`Avg. Session Length`</span> vs <span class="in">`Yearly Amount Spent`</span>, and <span class="in">`Length of Membership`</span> vs <span class="in">`Yearly Amount Spent`</span>.  </span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="fl">7.9</span>, <span class="dv">5</span>))</span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on Website' vs 'Yearly Amount Spent'</span></span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1</span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Avg. Session Length'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax1, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Avg. Session Length vs Yearly Amount Spent'</span>)</span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line for 'Time on App' vs 'Yearly Amount Spent'</span></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2</span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'Length of Membership'</span>, y<span class="op">=</span><span class="st">'Yearly Amount Spent'</span>, </span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>salesdata, ax<span class="op">=</span>ax2, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Length of Membership vs Yearly Amount Spent'</span>)</span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>    </span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>Both of these features have impact on the dependent variable. However, <span class="in">`Length of Membership`</span> seems to have the most significant impact on <span class="in">`Yearly Amount Spent`</span>.  </span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>sns.pairplot(salesdata)</span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modeling  </span></span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### Training</span></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> salesdata[</span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Avg. Session Length'</span>, <span class="st">'Time on App'</span>,</span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Time on Website'</span>, <span class="st">'Length of Membership'</span>]</span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> salesdata[<span class="st">'Yearly Amount Spent'</span>]</span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>    X, y, test_size <span class="op">=</span> <span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">123</span></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>linreg <span class="op">=</span> LinearRegression()</span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>linreg.fit(X_train, y_train)</span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Coefficients: </span><span class="ch">\n</span><span class="st">'</span>, linreg.coef_)</span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testing  </span></span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> linreg.predict(X_test)</span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>plt.scatter(y_test, pred)</span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'y test'</span>)</span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'predicted y'</span>)</span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model Evaluation  </span></span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics</span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MAE'</span>, metrics.mean_absolute_error(y_test, pred))</span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'MSE'</span>, metrics.mean_squared_error(y_test, pred))</span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'RMSE'</span>, metrics.root_mean_squared_error(y_test, pred))</span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'R-squared:'</span>, metrics.r2_score(y_test, pred))</span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residual Analysis  </span></span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>sns.displot(y_test<span class="op">-</span>pred, bins<span class="op">=</span> <span class="dv">60</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion  </span></span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>coeff <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: [<span class="st">'Intercept'</span>] <span class="op">+</span> <span class="bu">list</span>(X.columns), </span>
-<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Coefficient'</span>: [linreg.intercept_] <span class="op">+</span> <span class="bu">list</span>(linreg.coef_) </span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>coeff</span>
-<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.10.18</p>
+<div class="foot-col">
+<p><a class="foot-mark" href="../../index.html" aria-label="Home"><img src="../../_assets/images/mri-logo.svg" alt="MRI"></a> <span>Copyright 2026 @ Dr.&nbsp;Rafiq Islam</span> <span>All rights reserved</span> <span><a href="../../LICENSE.txt">License</a></span> <span>Powered by <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
 </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- Copyright 2026 @ Rafiq Islam
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../../license.txt">
-<p>License</p>
-</a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<p><strong>Contact</strong> <span>Department of Mathematics</span> <span>Iowa State University</span> <span>Room 461, Carver Hall</span> <span>411 Morrill Road</span> <span>Ames, IA 50011</span> <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span></p>
+</div>
+</div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
-      <i class="bi bi-youtube" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
-      <i class="bi bi-envelope" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<strong>Connect</strong>
+<div class="foot-links">
+<p><a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a> <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a> <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a> <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a></p>
+</div>
+</div>
+</div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

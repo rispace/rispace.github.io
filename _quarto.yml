@@ -1,23 +1,35 @@
 project:
   type: website
   output-dir: docs
-  resources: 
+  resources:
     - ads.txt
+    - langevin.js
+    - LICENSE.txt
+    - _assets/images/favicon.svg
+    - _assets/images/apple-touch-icon.png
+    - _assets/documents/*
 
 website:
-  page-navigation: true
   title: "Mohammad Rafiqul Islam"
-  favicon: "/_assets/images/favicon.ico"
+  description: "Mohammad Rafiqul Islam — postdoctoral research associate in probability at Iowa State University. Langevin dynamics, MCMC, and stochastic optimization."
+  site-url: "https://rispace.github.io/"
+  favicon: "_assets/images/favicon.ico"
+  image: "_assets/images/rafiq-islam.jpeg"
   open-graph: true
-  bread-crumbs: true
-  back-to-top-navigation: true
-  site-url: "https://rispace.github.io/" 
   twitter-card: true
+  page-navigation: false
+  back-to-top-navigation: true
+  bread-crumbs: false
+  google-analytics:
+    tracking-id: "G-J42B20L4ER"
+    anonymize-ip: true
+
   navbar:
-    title: "MRI"
-    tools-collapse: true
+    logo: "_assets/images/mri-logo.svg"
+    logo-alt: "MRI — Mohammad Rafiqul Islam, home"
+    title: false
     pinned: true
-    logo-href: https://rispace.github.io/
+    collapse-below: lg
     right:
       - href: index.qmd
         text: Home
@@ -25,98 +37,61 @@ website:
         text: Research
       - href: teaching.qmd
         text: Teaching
-      - href: portfolio.qmd
-        text: Portfolio
+      - href: about.qmd
+        text: About
       - href: cv.qmd
         text: CV
-      - text: Blog
-        menu: 
-          - text: "Data Science and Machine Learning"
-            href: https://rispace.github.io/dsandml/
-          - text: "Data Structure and Algorithm"
-            href: https://rispace.github.io/letscode/
-          - text: "Statistics and Probability"
-            href: https://rispace.github.io/statandprob/
-          - text: "Other Blogs"
-            href: blog.qmd
-      - icon: linkedin
-        href: https://www.linkedin.com/in/mohammad-rafiqul-islam/
-        target: _blank
-      - icon: github
-        href: "https://github.com/rispace"
-        target: _blank
-      
-      
-      
-  page-footer: 
-    left: "Powered by [Quarto](https://quarto.org/) <?quarto.version?>"
-    center:
-      - text: "Copyright 2026 @ Rafiq Islam"
-      - text: "License"
-        href: license.txt  
-      - text: "Research"
-        href: research.qmd
-      - text: "Teaching"
-        href: teaching.qmd
-      - text: "CV"
-        href: cv.qmd
-    right: 
-      - icon: twitter 
-        href: https://twitter.com/rafiqr35 
-        target: _blank
-      - icon: youtube
-        href: https://youtube.com/@quanttube
-        target: _blank
-      - icon: envelope
-        href: mailto:rafiqfsu@gmail.com?subject&body
-        target: _blank  
-      - icon: linkedin
-        href: https://www.linkedin.com/in/mohammad-rafiqul-islam/
-        target: _blank
-      - icon: github
-        href: "https://github.com/rispace"
-        target: _blank
+      - href: blog.qmd
+        text: Notebook
 
-    border: true
-  reader-mode: true
+  page-footer:
+    border: false
+    left: |
+      <div class="foot-col">
+      <a class="foot-mark" href="/index.html" aria-label="Home"><img src="/_assets/images/mri-logo.svg" alt="MRI"></a>
+      <span>Copyright 2026 @ Dr. Rafiq Islam</span>
+      <span>All rights reserved</span>
+      <span><a href="/LICENSE.txt">License</a></span>
+      <span>Powered by <a href="https://quarto.org/">Quarto</a></span>
+      </div>
+    center: |
+      <div class="foot-col">
+      <strong>Contact</strong>
+      <span>Department of Mathematics</span>
+      <span>Iowa State University</span>
+      <span>Room 461, Carver Hall</span>
+      <span>411 Morrill Road</span>
+      <span>Ames, IA 50011</span>
+      <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span>
+      </div>
+    right: |
+      <div class="foot-col">
+      <strong>Connect</strong>
+      <div class="foot-links">
+      <a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a>
+      <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a>
+      <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a>
+      <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a>
+      <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a>
+      </div>
+      </div>
 
+execute:
+  freeze: auto
 
-  # Google stuffs
-  google-analytics: 
-    tracking-id: "G-J42B20L4ER"
-    anonymize-ip: true
-adsense: 
-  publisher-id: ca-pub-6878992848042528
-filters:
-  - adsense
-  - quarto-version.lua
-  
 format:
   html:
-    theme: 
+    theme:
       light: [cosmo, theme-light.scss]
       dark: [cosmo, theme-dark.scss]
     css: styles.css
-    toc: true
-    grid: 
-      sidebar-width: 245px
-      body-width: 1050px
-      margin-width: 80px
-      gutter-width: 1.5rem
-    code-copy: true
-    code-overflow: scroll
-    code-line-numbers: false
-    highlight-style: ayu-dark
-    code-tools: true
-    code-fold: false
-    code-block-bg: false
-    code-block-border-left: true
-    minimal: false
-    anchor-sections: true
+    toc: false
     smooth-scroll: true
-    include-after-body:
-      - link-behavior.html
-      - research-animation.html
-    toc-location: left
-    
-    
+    anchor-sections: false
+    link-external-icon: false
+    link-external-newwindow: true
+    code-copy: true
+    highlight-style: github
+    include-in-header: _includes/head.html
+    include-after-body: _includes/site-scripts.html

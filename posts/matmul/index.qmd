@@ -8,17 +8,13 @@ search: true
 lightbox: true
 image: matmul.jpeg
 listing: 
-    contents: "/../../posts"
+    contents: "../*/index.qmd"
     max-items: 3
     type: grid
     categories: false
     date-format: full
     fields: [image, date, title, author, reading-time]
 ---  
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
-
 
 Have you ever wondered why your code takes forever to run? Sometimes a simple code may take significant time because of an inefficient implementation approach. Let's take a simple example of matrix multiplication, and explore the time and space complexity, specifically focusing on multiplying matrices where one of the matrices is formed as an outer product of a vector with itself.  
 
@@ -207,17 +203,17 @@ May be some other day we can talk about these algorithms.
 **Share on**  
 
 <div class="share-buttons">
- <div class="fb-share-button" data-href="https://mrislambd.github.io/posts/matmul/" data-layout="button_count"       data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fmatmul%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>  
+ <div class="fb-share-button" data-href="https://rispace.github.io/posts/matmul/" data-layout="button_count"       data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Fmatmul%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>  
  
  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>  
- <script type="IN/Share" data-url="https://mrislambd.github.io/posts/matmul/"></script>  
+ <script type="IN/Share" data-url="https://rispace.github.io/posts/matmul/"></script>  
  
- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://mrislambd.github.io/posts/matmul/" data-show-count="false">Tweet</a>
+ <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://rispace.github.io/posts/matmul/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/matmul/" data-width="650" data-numposts="5"></div>  
+<div class="fb-comments" data-href="https://rispace.github.io/posts/matmul/" data-width="650" data-numposts="5"></div>  
 
 
 

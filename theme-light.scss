@@ -1,18 +1,25 @@
 /*-- scss:defaults --*/
-
-// Base document colors
-$body-bg: #f7f6f2;
-$body-color: #263238;
-$link-color: #286c68;
-
-// Navbar
-$navbar-bg: #f7f6f2;
-$navbar-fg: #243447;
-$navbar-hl: #286c68;
-
-// Footer
-$footer-bg: #e9ece8;
-$footer-fg: #34454a;
-
-// Code blocks
-$code-block-bg-alpha: -.8;
+// Diploma: ivory parchment, navy ink, cardinal ribbon
+$body-bg: #f8f4e8;
+$body-color: #1d2433;
+$link-color: #1f3a68;
+$primary: #1f3a68;
+$secondary: #5c6474;
+$navbar-bg: #f8f4e8;
+$navbar-fg: #1d2433;
+$navbar-hl: #8c1d2c;
+$footer-bg: #f1ead6;
+$footer-fg: #3d4556;
+$border-color: #ddd2b8;
+$code-bg: #efe8d4;
+$code-color: #6b1e2a;
+$font-family-sans-serif: "Times New Roman", Times, serif;
+$font-family-serif: "Times New Roman", Times, serif;
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$headings-font-family: "Times New Roman", Times, serif;
+$headings-font-weight: 700;
+$font-size-root: 19px;
+$line-height-base: 1.6;
+$enable-rounded: true;
+$dropdown-bg: #fbf8ef;
+$dropdown-link-hover-bg: #efe7d0;

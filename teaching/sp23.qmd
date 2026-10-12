@@ -8,9 +8,6 @@ date: 2023-05-04
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
 <div style="text-align: justify">
 PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<br>
 <br>

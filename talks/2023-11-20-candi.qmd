@@ -9,9 +9,6 @@ date: 2023-11-20
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
-
 <p style="text-align: justify">
     Stochastic Gradient Descent (SGD) method is one of the most popular optimization techniques in machine learning, particularly in Deep Neural Network (DNN). The gradient noise in this method is often modeled by Gaussian or assumed to have finite variance. However, empirical evidence suggests that the gradient noises can be highly non-Gaussian and often exhibit heavy tails in nature. This heaviness has a direct relationship to the generalization performance of the algorithm.</p>  
     

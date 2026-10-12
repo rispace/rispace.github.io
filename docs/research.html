@@ -2,64 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Langevin algorithms, MCMC, decentralized and constrained sampling, and stochastic optimization.">
 
-<title>research – Mohammad Rafiqul Islam</title>
+<title>Research – Mohammad Rafiqul Islam</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,25 +30,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href=".//_assets/images/favicon.ico" rel="icon">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<link href="./_assets/images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ddd39223efcf1e1960c36e0bcd084f75.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ed60b4568be9625e69269519dcf610f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,35 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-tandp .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-tandp'] = new List('listing-tandp', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J42B20L4ER"></script>
 
 <script type="text/javascript">
@@ -155,10 +81,11 @@ gtag('js', new Date());
 gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="./_assets/images/favicon.svg">
+<link rel="apple-touch-icon" href="./_assets/images/apple-touch-icon.png">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -171,7 +98,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -188,17 +115,17 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Mohammad Rafiqul Islam">
-<meta property="og:image" content="https://rispace.github.io/research/singular-langevin/singular-langevin.svg">
+<meta property="og:title" content="Research">
+<meta property="og:description" content="Langevin algorithms, MCMC, decentralized and constrained sampling, and stochastic optimization.">
+<meta property="og:image" content="https://rispace.github.io/_assets/images/rafiq-islam.jpeg">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
-<meta property="og:image:alt" content="Particles moving inside a constrained domain while repelling one another and avoiding collisions">
-<meta name="twitter:title" content="Mohammad Rafiqul Islam">
-<meta name="twitter:image" content="https://rispace.github.io/research/singular-langevin/singular-langevin.svg">
-<meta name="twitter:image:alt" content="Particles moving inside a constrained domain while repelling one another and avoiding collisions">
+<meta name="twitter:title" content="Research">
+<meta name="twitter:description" content="Langevin algorithms, MCMC, decentralized and constrained sampling, and stochastic optimization.">
+<meta name="twitter:image" content="https://rispace.github.io/_assets/images/rafiq-islam.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -367,8 +294,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://rispace.github.io/">
-    <span class="navbar-title">MRI</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -390,148 +317,263 @@ window.Quarto = {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Blog</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/dsandml/">
- <span class="dropdown-text">Data Science and Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/letscode/">
- <span class="dropdown-text">Data Structure and Algorithm</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/statandprob/">
- <span class="dropdown-text">Statistics and Probability</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./blog.html">
- <span class="dropdown-text">Other Blogs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
 </ul>
-              <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#current-research" id="toc-current-research" class="nav-link active" data-scroll-target="#current-research">Current Research</a></li>
-  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
-  <li><a href="#undergraduate-research-mentorship" id="toc-undergraduate-research-mentorship" class="nav-link" data-scroll-target="#undergraduate-research-mentorship">Undergraduate Research Mentorship</a>
-  <ul class="collapse">
-  <li><a href="#fsu-mathematics-directed-reading-program-drp-2024-2025" id="toc-fsu-mathematics-directed-reading-program-drp-2024-2025" class="nav-link" data-scroll-target="#fsu-mathematics-directed-reading-program-drp-2024-2025">FSU Mathematics Directed Reading Program (DRP) 2024-2025</a></li>
-  <li><a href="#undergraduate-research-opportunity-program-urop-2025-2026" id="toc-undergraduate-research-opportunity-program-urop-2025-2026" class="nav-link" data-scroll-target="#undergraduate-research-opportunity-program-urop-2025-2026">Undergraduate Research Opportunity Program (UROP) 2025-2026</a></li>
-  </ul></li>
-  <li><a href="#course-projects" id="toc-course-projects" class="nav-link" data-scroll-target="#course-projects">Course Projects</a></li>
-  <li><a href="#talks-and-presentations" id="toc-talks-and-presentations" class="nav-link" data-scroll-target="#talks-and-presentations">Talks and Presentations</a></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
 
 
 
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div class="research-intro">
-<p style="text-align: justify">
-My research focuses on <em>Theoretical Machine Learning</em>, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints.
+<div class="wrap">
+<div class="r-head">
+<div>
+<h1>
+Research
+</h1>
+<p class="lede">
+Many questions in statistics and machine learning come down to drawing random samples from a complicated probability distribution. I study Langevin algorithms, which are Markov chain Monte Carlo methods that do this by simulating a random walk guided by the shape of the distribution. My work proves how quickly these samplers converge and designs versions that scale to networks of computers, respect constraints, and use higher-order dynamics to move faster.
 </p>
-<div class="research-intro-animation">
-<canvas id="research-density-animation" width="900" height="620" aria-label="Animated sampling paths moving across two contour densities">
+<ul class="r-areas">
+<li>
+<span class="n">I</span>
+<div>
+<b>Decentralized sampling.</b> <span class="d">Agents on a network learn a shared posterior without pooling their data.</span>
+</div>
+</li>
+<li>
+<span class="n">II</span>
+<div>
+<b>Constrained and singular dynamics.</b> <span class="d">Samplers that stay inside a domain and avoid collisions.</span>
+</div>
+</li>
+<li>
+<span class="n">III</span>
+<div>
+<b>High-order Langevin Monte Carlo.</b> <span class="d">Faster mixing from higher-order dynamics, with Wasserstein guarantees.</span>
+</div>
+</li>
+<li>
+<span class="n">IV</span>
+<div>
+<b>Financial engineering.</b> <span class="d">Time-series prediction, derivative pricing, and risk.</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="glance">
+<h2>
+At a glance
+</h2>
+<div class="nums">
+<div>
+<b>5</b><span>papers</span>
+</div>
+<div>
+<b>8</b><span>talks</span>
+</div>
+<div>
+<b>4</b><span>mentees</span>
+</div>
+</div>
+<ul class="profiles-list">
+<li>
+<a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard-fill"></i><span>Google Scholar<span class="sub">citations &amp; papers</span></span><span class="go">→</span></a>
+</li>
+<li>
+<a href="https://orcid.org/0000-0002-4376-8971"><i class="bi bi-person-vcard"></i><span>ORCID<span class="sub">0000-0002-4376-8971</span></span><span class="go">→</span></a>
+</li>
+<li>
+<a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5"><i class="bi bi-journal-richtext"></i><span>ResearchGate<span class="sub">publications &amp; discussions</span></span><span class="go">→</span></a>
+</li>
+<li>
+<a href="https://github.com/rispace"><i class="bi bi-github"></i><span>GitHub<span class="sub">github.com/rispace</span></span><span class="go">→</span></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="band tint">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2 id="how-it-works">
+How a Langevin sampler works
+</h2>
+<p>
+A short, hands-on introduction for anyone new to the topic.
+</p>
+</div>
+</div>
+<p>Suppose we want random numbers whose histogram follows a given curve. In this example the target is a mixture of two familiar bell curves (normal distributions), one centred at <span class="math inline">\(-1\)</span> that holds 60% of the probability and one centred at <span class="math inline">\(1.2\)</span> that holds the other 40%:</p>
+<p><span class="math display">\[\pi(x) \;=\; 0.6\cdot\frac{1}{0.7\sqrt{2\pi}}\,e^{-\frac{(x+1)^2}{2(0.7)^2}} \;+\; 0.4\cdot\frac{1}{0.6\sqrt{2\pi}}\,e^{-\frac{(x-1.2)^2}{2(0.6)^2}} .\]</span></p>
+<p>We can write this formula down and evaluate it at any point, but there is no direct way to draw random numbers from it. A Langevin sampler gets around this with walkers that take small random steps guided by the shape of <span class="math inline">\(\pi\)</span>.</p>
+<div class="steps3">
+<div class="step3">
+<span class="k">1</span>
+<h3>
+Turn probability into a landscape
+</h3>
+<p>
+Define the height <span class="math inline">\(U(x) = -\log \pi(x)\)</span>. Where <span class="math inline">\(\pi\)</span> is large, <span class="math inline">\(U\)</span> is low, so likely values become valleys and unlikely values become hills.
+</p>
+</div>
+<div class="step3">
+<span class="k">2</span>
+<h3>
+Roll downhill, with random kicks
+</h3>
+<p>
+At every step each walker takes a small step downhill and then gets a random push. The pull keeps it near likely values, and the kicks keep it from settling in one place.
+</p>
+</div>
+<div class="step3">
+<span class="k">3</span>
+<h3>
+Record where it has been
+</h3>
+<p>
+Every position a walker visits is one sample. With the right balance of pull and kicks, the histogram of all the samples settles onto <span class="math inline">\(\pi(x)\)</span>.
+</p>
+</div>
+</div>
+<div class="demo">
+<canvas id="langevin-demo" aria-label="Interactive demonstration: on the left, walkers move on the landscape U(x); on the right, a histogram of their positions builds up and approaches the target curve">
 </canvas>
-</div>
-</div>
-<div class="research-sidebar-social" hidden="">
-<p><span>Find me on</span> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank"><i class="ai  ai-google-scholar ai-2x" aria-label="google-scholar"></i></a> <a href="https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5" aria-label="ResearchGate" target="_blank"><i class="ai  ai-researchgate ai-2x" aria-label="researchgate"></i></a></p>
-</div>
-<section id="current-research" class="level2">
-<h2 class="anchored" data-anchor-id="current-research">Current Research</h2>
-<div class="research-grid">
-<div class="research-card">
-<div class="research-card-media">
-<a href="./research/singular-langevin/" class="research-visual-link"> <img src="./research/singular-langevin/singular-langevin.svg" alt="Particles moving inside a constrained domain while repelling one another and avoiding collisions"> </a>
-<div class="research-card-meta">
-<p><span class="research-meta-label">Research focus</span> <span>Constrained sampling</span> <span>Singular interactions</span> <span>Numerical analysis</span></p>
-</div>
-</div>
-<div class="research-card-body">
-<p><span class="research-status">Current project · 2026</span></p>
-<section id="constrained-langevin-dynamics-with-singular-repulsion" class="level3">
-<h3 class="anchored" data-anchor-id="constrained-langevin-dynamics-with-singular-repulsion"><a href="./research/singular-langevin/">Constrained Langevin Dynamics with Singular Repulsion</a></h3>
-<p>With David P. Herzog</p>
-<p>We study collision-free stochastic particle dynamics inside constrained domains. The project develops stable numerical sampling methods that treat singular repulsion directly while respecting the boundary.</p>
-<p><a href="./research/singular-langevin/" class="research-link">Explore the project →</a></p>
-</section>
+<div class="demo-bar">
+<span class="stat"><span data-demo-step="">step 0</span> · <span data-demo-count="">0 samples</span></span>
+<div class="ctl">
+<button type="button" data-demo-toggle="" aria-pressed="true">
+Pause
+</button>
+<button type="button" class="kick" data-demo-kick="" aria-pressed="true">
+Random kicks: on
+</button>
+<button type="button" data-demo-reset="">
+Restart
+</button>
 </div>
 </div>
 </div>
-</section>
-<section id="publications" class="level2">
-<h2 class="anchored" data-anchor-id="publications">Publications</h2>
-<div class="publication-list">
-<div class="publication-entry">
-<div class="publication-meta">
-<p><span class="publication-year">2026</span> <span class="publication-type">Preprint</span></p>
-</div>
-<section id="decentralized-proximal-stochastic-gradient-langevin-dynamics" class="level3 publication-content">
-<h3 class="anchored" data-anchor-id="decentralized-proximal-stochastic-gradient-langevin-dynamics"><a href="./research/dpsgld/">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a></h3>
-<p class="publication-authors">
-<strong>Mohammad Rafiqul Islam</strong> and Lingjiong Zhu
+<p class="demo-msg" data-demo-msg="">
+Thirty walkers start high on the right-hand slope. Watch them roll into the valleys while the histogram fills in.
 </p>
-<p class="publication-venue">
-<a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv:2605.00723</a>
+<div class="demo-foot">
+<div class="math-card">
+<p>
+<b>The update rule.</b> With step size <span class="math inline">\(h = 0.03\)</span> and a fresh standard normal draw <span class="math inline">\(\xi_k\)</span> for each walker,
+</p>
+<span class="math display">\[x_{k+1} = x_k \;\underbrace{-\,h\,U'(x_k)}_{\text{downhill pull}} \;+\; \underbrace{\sqrt{2h}\,\xi_k}_{\text{random kick}} .\]</span>
+<p>
+<b>How many samples?</b> The demo runs 30 walkers side by side. Each step moves every walker once and records its new position, so each step adds <b>30 samples</b>, and after <span class="math inline">\(k\)</span> steps the histogram holds <span class="math inline">\(30k\)</span>.
+</p>
+</div>
+<div>
+<p>
+Turn the kicks off and every walker stops at the bottom of its nearest valley. That is gradient descent: it finds a single best point but loses the spread of the distribution. With the kicks on, the walkers keep exploring and occasionally cross the hill between the valleys, so each valley ends up with its correct share: about 60% on the left and 40% on the right.
 </p>
 <p>
-Introduces a decentralized sampler for log-concave distributions on convex domains. Shared proximal regularization allows agents to respect constraints without exchanging private data, while non-asymptotic Wasserstein guarantees quantify both network behavior and approximation bias. Experiments show rapid posterior concentration and strong predictive accuracy.
+My research asks how quickly this happens, and how to keep it fast and accurate in high dimensions, across networks of computers, and inside constrained regions.
 </p>
-<div class="publication-actions">
-<a href="https://arxiv.org/pdf/2605.00723" target="_blank">PDF</a><a href="https://arxiv.org/abs/2605.00723" target="_blank">arXiv</a>
+</div>
+</div>
+</div>
+</div>
+<script src="langevin.js" defer=""></script>
+<div class="band">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2>
+Current project
+</h2>
+</div>
+</div>
+<article class="project">
+<a class="pmedia" href="research/singular-langevin/"><img class="th-light" src="research/singular-langevin/singular-langevin.png" alt="Simulation: particles following Langevin dynamics inside an elliptical constraint set while repelling one another"><img class="th-dark" src="research/singular-langevin/singular-langevin-dark.png" alt="" aria-hidden="true"></a>
+<div class="pbody">
+<span class="status-pill">In progress · 2026</span>
+<h3>
+<a href="research/singular-langevin/">Constrained Langevin Dynamics with Singular Repulsion</a>
+</h3>
+<div class="with">
+With David P. Herzog, Iowa State University
+</div>
+<p>
+Particles diffuse inside a bounded region while strongly repelling one another at short range. Standard numerical steps can push them toward collisions, and projecting back can create collisions of its own. We are developing a tamed-proximal Langevin scheme that handles the singular repulsion directly while respecting the boundary, with guarantees on stability, collision avoidance, and convergence.
+</p>
+<div class="foot">
+<ul class="chips">
+<li>
+Well-posedness
+</li>
+<li>
+Invariant measures
+</li>
+<li>
+Stable discretization
+</li>
+</ul>
+<a class="text-link" href="research/singular-langevin/">Project overview</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="band tint">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2 id="publications">
+Publications &amp; preprints
+</h2>
+</div>
+<p><a class="text-link" href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en">Google Scholar</a></p>
+</div>
+<div class="pubs">
+<article class="pub">
+<div class="pub-rail">
+<span class="year">2026</span><span class="type">Preprint</span><a class="pub-thumb" href="research/dpsgld/"><img class="th-light" src="_assets/images/pubs/dpsgld.png" alt="Illustration: a posterior distribution concentrated against the boundary of a circular constraint set"><img class="th-dark" src="_assets/images/pubs/dpsgld-dark.png" alt="" aria-hidden="true"></a>
+</div>
+<div>
+<h3>
+<a href="research/dpsgld/">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a>
+</h3>
+<div class="authors">
+<b>Mohammad Rafiqul Islam</b> and Lingjiong Zhu
+</div>
+<div class="venue">
+arXiv:2605.00723
+</div>
+<p class="summary">
+A decentralized sampler for log-concave distributions on convex domains. A shared proximal regularization based on the Moreau–Yosida envelope lets agents respect the constraint without exchanging private data. Non-asymptotic 2-Wasserstein guarantees cover both individual agents and network averages and quantify the bias introduced by the proximal approximation.
+</p>
+<div class="pub-actions">
+<a href="https://arxiv.org/pdf/2605.00723">PDF</a><a href="https://arxiv.org/abs/2605.00723">arXiv</a>
 <details class="bibtex-dropdown">
 <summary>
-BibTeX <span aria-hidden="true">⌄</span>
+BibTeX
 </summary>
 <div class="bibtex-panel">
 <pre id="bib-dpsgld">@article{islam2026depsgld,
@@ -541,33 +583,35 @@ BibTeX <span aria-hidden="true">⌄</span>
   year={2026}
 }</pre>
 <button class="bibtex-copy" data-copy-target="bib-dpsgld" type="button">
-Copy to clipboard
+Copy
 </button>
 </div>
 </details>
 </div>
-</section>
 </div>
-<div class="publication-entry">
-<div class="publication-meta">
-<p><span class="publication-year">2025</span> <span class="publication-type">Preprint</span></p>
+</article>
+<article class="pub">
+<div class="pub-rail">
+<span class="year">2025</span><span class="type">Preprint</span><a class="pub-thumb" href="research/holmc/"><img class="th-light" src="_assets/images/pubs/holmc.png" alt="Illustration: convergence curves of third- and fourth-order Langevin Monte Carlo"><img class="th-dark" src="_assets/images/pubs/holmc-dark.png" alt="" aria-hidden="true"></a>
 </div>
-<section id="high-order-langevin-monte-carlo-algorithms" class="level3 publication-content">
-<h3 class="anchored" data-anchor-id="high-order-langevin-monte-carlo-algorithms"><a href="./research/holmc/">High-Order Langevin Monte Carlo Algorithms</a></h3>
-<p class="publication-authors">
-Thanh L. Dang, Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Nian Yao, and Lingjiong Zhu
+<div>
+<h3>
+<a href="research/holmc/">High-Order Langevin Monte Carlo Algorithms</a>
+</h3>
+<div class="authors">
+Thanh L. Dang, Mert Gürbüzbalaban, <b>Mohammad Rafiqul Islam</b>, Nian Yao, and Lingjiong Zhu
+</div>
+<div class="venue">
+arXiv:2508.17545
+</div>
+<p class="summary">
+Langevin Monte Carlo algorithms built from third- and higher-order dynamics by combining splitting with accurate integration. The convergence guarantees improve their dependence on dimension and target accuracy as the order grows, and numerical experiments confirm the efficiency of the higher-order approach.
 </p>
-<p class="publication-venue">
-<a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv:2508.17545</a>
-</p>
-<p>
-Develops Langevin Monte Carlo algorithms from third- and higher-order dynamics by combining splitting with accurate integration. The resulting convergence guarantees improve dependence on dimension and target accuracy as the order increases, while numerical experiments demonstrate the practical efficiency of the higher-order approach.
-</p>
-<div class="publication-actions">
-<a href="./_assets/documents/2508.17545v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2508.17545" target="_blank">arXiv</a>
+<div class="pub-actions">
+<a href="_assets/documents/2508.17545v1.pdf">PDF</a><a href="https://arxiv.org/abs/2508.17545">arXiv</a>
 <details class="bibtex-dropdown">
 <summary>
-BibTeX <span aria-hidden="true">⌄</span>
+BibTeX
 </summary>
 <div class="bibtex-panel">
 <pre id="bib-holmc">@article{dang2025highorder,
@@ -577,33 +621,35 @@ BibTeX <span aria-hidden="true">⌄</span>
   year={2025}
 }</pre>
 <button class="bibtex-copy" data-copy-target="bib-holmc" type="button">
-Copy to clipboard
+Copy
 </button>
 </div>
 </details>
 </div>
-</section>
 </div>
-<div class="publication-entry">
-<div class="publication-meta">
-<p><span class="publication-year">2024</span> <span class="publication-type">Preprint</span></p>
+</article>
+<article class="pub">
+<div class="pub-rail">
+<span class="year">2024</span><span class="type">Preprint</span><a class="pub-thumb" href="research/extrasgld/"><img class="th-light" src="_assets/images/pubs/extrasgld.png" alt="Illustration: EXTRA SGLD removing the network bias of DE-SGLD, with a ring network inset"><img class="th-dark" src="_assets/images/pubs/extrasgld-dark.png" alt="" aria-hidden="true"></a>
 </div>
-<section id="generalized-extra-stochastic-gradient-langevin-dynamics" class="level3 publication-content">
-<h3 class="anchored" data-anchor-id="generalized-extra-stochastic-gradient-langevin-dynamics"><a href="./research/extrasgld/">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a></h3>
-<p class="publication-authors">
-Mert Gürbüzbalaban, <strong>Mohammad Rafiqul Islam</strong>, Xiaoyu Wang, and Lingjiong Zhu
+<div>
+<h3>
+<a href="research/extrasgld/">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a>
+</h3>
+<div class="authors">
+Mert Gürbüzbalaban, <b>Mohammad Rafiqul Islam</b>, Xiaoyu Wang, and Lingjiong Zhu
+</div>
+<div class="venue">
+arXiv:2412.01993
+</div>
+<p class="summary">
+Decentralized stochastic-gradient Langevin methods carry a persistent network bias. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and gives sharper mini-batch bounds, so agents can learn a Bayesian model together without centralizing their data.
 </p>
-<p class="publication-venue">
-<a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv:2412.01993</a>
-</p>
-<p>
-Addresses persistent network bias in decentralized stochastic-gradient Langevin methods. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and yields sharper mini-batch performance bounds, enabling collaborative Bayesian learning without centralizing agents’ data.
-</p>
-<div class="publication-actions">
-<a href="./_assets/documents/2412.01993v1.pdf" target="_blank">PDF</a><a href="https://arxiv.org/abs/2412.01993" target="_blank">arXiv</a>
+<div class="pub-actions">
+<a href="_assets/documents/2412.01993v1.pdf">PDF</a><a href="https://arxiv.org/abs/2412.01993">arXiv</a>
 <details class="bibtex-dropdown">
 <summary>
-BibTeX <span aria-hidden="true">⌄</span>
+BibTeX
 </summary>
 <div class="bibtex-panel">
 <pre id="bib-extra">@article{gurbuzbalaban2024extra,
@@ -613,33 +659,35 @@ BibTeX <span aria-hidden="true">⌄</span>
   year={2024}
 }</pre>
 <button class="bibtex-copy" data-copy-target="bib-extra" type="button">
-Copy to clipboard
+Copy
 </button>
 </div>
 </details>
 </div>
-</section>
 </div>
-<div class="publication-entry">
-<div class="publication-meta">
-<p><span class="publication-year">2021</span> <span class="publication-type">Published</span></p>
+</article>
+<article class="pub">
+<div class="pub-rail">
+<span class="year">2021</span><span class="type peer">Journal</span><a class="pub-thumb" href="publication/pub2/"><img class="th-light" src="_assets/images/pubs/crypto.png" alt="Illustration: Monte Carlo simulated cryptocurrency price paths with a 95% band"><img class="th-dark" src="_assets/images/pubs/crypto-dark.png" alt="" aria-hidden="true"></a>
 </div>
-<section id="gjr-garch-volatility-modeling-under-nig-and-ann-for-predicting-top-cryptocurrencies" class="level3 publication-content">
-<h3 class="anchored" data-anchor-id="gjr-garch-volatility-modeling-under-nig-and-ann-for-predicting-top-cryptocurrencies"><a href="./publication/pub2/">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies</a></h3>
-<p class="publication-authors">
-Fahad Mostafa, Pritam Saha, <strong>Mohammad Rafiqul Islam</strong>, and Nguyet Nguyen
+<div>
+<h3>
+<a href="publication/pub2/">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies</a>
+</h3>
+<div class="authors">
+Fahad Mostafa, Pritam Saha, <b>Mohammad Rafiqul Islam</b>, and Nguyet Nguyen
+</div>
+<div class="venue">
+Journal of Risk and Financial Management 14(9), 421
+</div>
+<p class="summary">
+Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The models capture asymmetric volatility and tail risk, and the neural-network forecasts track market prices closely.
 </p>
-<p class="publication-venue">
-<a href="https://doi.org/10.3390/jrfm14090421" target="_blank">Journal of Risk and Financial Management, 14(9), 421</a>
-</p>
-<p>
-Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The analysis captures asymmetric volatility and tail risk, while the neural-network forecasts closely track market prices and sometimes outperform traditional ARIMA models.
-</p>
-<div class="publication-actions">
-<a href="./publication/pub2/paper2.pdf" target="_blank">PDF</a>
+<div class="pub-actions">
+<a href="publication/pub2/paper2.pdf">PDF</a><a href="https://doi.org/10.3390/jrfm14090421">DOI</a>
 <details class="bibtex-dropdown">
 <summary>
-BibTeX <span aria-hidden="true">⌄</span>
+BibTeX
 </summary>
 <div class="bibtex-panel">
 <pre id="bib-crypto">@article{mostafa2021gjr,
@@ -650,34 +698,35 @@ BibTeX <span aria-hidden="true">⌄</span>
   doi={10.3390/jrfm14090421}
 }</pre>
 <button class="bibtex-copy" data-copy-target="bib-crypto" type="button">
-Copy to clipboard
+Copy
 </button>
 </div>
 </details>
-<a href="https://www.mdpi.com/1911-8074/14/9/421" target="_blank">Journal Page</a>
 </div>
-</section>
 </div>
-<div class="publication-entry">
-<div class="publication-meta">
-<p><span class="publication-year">2020</span> <span class="publication-type">Published</span></p>
+</article>
+<article class="pub">
+<div class="pub-rail">
+<span class="year">2020</span><span class="type peer">Journal</span><a class="pub-thumb" href="publication/pub1/"><img class="th-light" src="_assets/images/pubs/stock.png" alt="Illustration: actual index level against ARIMA, GBM, and neural-network predictions"><img class="th-dark" src="_assets/images/pubs/stock-dark.png" alt="" aria-hidden="true"></a>
 </div>
-<section id="comparison-of-financial-models-for-stock-price-prediction" class="level3 publication-content">
-<h3 class="anchored" data-anchor-id="comparison-of-financial-models-for-stock-price-prediction"><a href="./publication/pub1/">Comparison of Financial Models for Stock Price Prediction</a></h3>
-<p class="publication-authors">
-<strong>Mohammad Rafiqul Islam</strong> and Nguyet Nguyen
+<div>
+<h3>
+<a href="publication/pub1/">Comparison of Financial Models for Stock Price Prediction</a>
+</h3>
+<div class="authors">
+<b>Mohammad Rafiqul Islam</b> and Nguyet Nguyen
+</div>
+<div class="venue">
+Journal of Risk and Financial Management 13(8), 181
+</div>
+<p class="summary">
+Compares ARIMA, artificial neural networks, and geometric Brownian motion on historical daily stock prices. For next-day prediction, the classical statistical and stochastic models approximate observed prices more closely than the neural network does.
 </p>
-<p class="publication-venue">
-<a href="https://doi.org/10.3390/jrfm13080181" target="_blank">Journal of Risk and Financial Management, 13(8), 181</a>
-</p>
-<p>
-Compares ARIMA, artificial neural networks, and geometric Brownian motion using historical daily stock prices. Against observed next-day prices, the conventional statistical and stochastic models provide closer approximations than the neural-network model, illustrating the value of comparing fundamentally different forecasting assumptions.
-</p>
-<div class="publication-actions">
-<a href="./publication/pub1/paper1.pdf" target="_blank">PDF</a>
+<div class="pub-actions">
+<a href="publication/pub1/paper1.pdf">PDF</a><a href="https://doi.org/10.3390/jrfm13080181">DOI</a>
 <details class="bibtex-dropdown">
 <summary>
-BibTeX <span aria-hidden="true">⌄</span>
+BibTeX
 </summary>
 <div class="bibtex-panel">
 <pre id="bib-stock">@article{islam2020comparison,
@@ -688,346 +737,209 @@ BibTeX <span aria-hidden="true">⌄</span>
   doi={10.3390/jrfm13080181}
 }</pre>
 <button class="bibtex-copy" data-copy-target="bib-stock" type="button">
-Copy to clipboard
+Copy
 </button>
 </div>
 </details>
-<a href="https://www.mdpi.com/1911-8074/13/8/181" target="_blank">Journal Page</a>
-</div>
-</section>
 </div>
 </div>
-</section>
-<section id="undergraduate-research-mentorship" class="level2">
-<h2 class="anchored" data-anchor-id="undergraduate-research-mentorship">Undergraduate Research Mentorship</h2>
-<section id="fsu-mathematics-directed-reading-program-drp-2024-2025" class="level3">
-<h3 class="anchored" data-anchor-id="fsu-mathematics-directed-reading-program-drp-2024-2025">FSU Mathematics Directed Reading Program (DRP) 2024-2025</h3>
-<p style="text-align: justify">
-<a href="https://fsumathdrp.wixsite.com/fsumathdrp" target="_blank" style="text-decoration:none"> Directed Reading Program (DRP) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with graduate students on research projects in mathematics and related fields. The following students have been mentored by me in the DRP program:
-</p>
-<ul>
-<li><a href="https://www.linkedin.com/in/lily-g-kinney/" target="_blank" style="text-decoration:none">Lily Kinney</a><br>
+</article>
+</div>
+</div>
+</div>
+<div class="band">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2 id="talks">
+Talks &amp; presentations
+</h2>
+</div>
+</div>
+<ul class="talks">
+<li>
+<time>Sep 9, 2026</time>
+<div>
+<a class="t" href="talks/2026-09-09-isu-agp.html">Scalable Sampling Algorithms via Langevin Dynamics</a><span class="where">Analysis, Geometry and Probability Seminar · Iowa State University</span>
+</div>
+<span class="kind">Seminar</span>
 </li>
-<li><a href="https://www.linkedin.com/in/kieraagic/" target="_blank" style="text-decoration:none">Kiera Agic</a></li>
+<li>
+<time>Mar 28, 2026</time>
+<div>
+<a class="t" href="talks/2026-03-28-ams.html">Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics</a><span class="where">AMS Spring Eastern Sectional Meeting · Boston College, MA</span>
+</div>
+<span class="kind">Contributed</span>
+</li>
+<li>
+<time>Mar 3, 2026</time>
+<div>
+<a class="t" href="talks/2026-03-03-icerm.html">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a><span class="where">Bayesian Inverse Problems &amp; UQ · ICERM, Brown University</span>
+</div>
+<span class="kind">Poster</span>
+</li>
+<li>
+<time>Jan 30, 2026</time>
+<div>
+<a class="t" href="talks/2026-01-30-gradseminar.html">High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference</a><span class="where">Department of Mathematics · Florida State University</span>
+</div>
+<span class="kind">Talk</span>
+</li>
+<li>
+<time>Nov 20, 2023</time>
+<div>
+<a class="t" href="talks/2023-11-20-candi.html">The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</a><span class="where">Department of Mathematics · Florida State University</span>
+</div>
+<span class="kind">Candidacy</span>
+</li>
+<li>
+<time>Oct 5, 2023</time>
+<div>
+<a class="t" href="talks/2023-10-05-st-op.html">Decentralized Stochastic Gradient Langevin Dynamics and Hamiltonian Monte Carlo</a><span class="where">Department of Mathematics · Florida State University</span>
+</div>
+<span class="kind">Talk</span>
+</li>
+<li>
+<time>Dec 2, 2022</time>
+<div>
+<span class="t">Asymptotics and Calibration of Local Volatility Models</span><span class="where">Department of Mathematics · Florida State University</span>
+</div>
+<span class="kind">Talk</span>
+</li>
+<li>
+<time>Apr 28, 2020</time>
+<div>
+<a class="t" href="talks/2020-04-26-project.html">Sensitivity Analysis for Monte Carlo and Quasi-Monte Carlo Option Pricing</a><span class="where">Department of Mathematics &amp; Statistics · Youngstown State University</span>
+</div>
+<span class="kind">Talk</span>
+</li>
 </ul>
-<p><strong>Project:</strong> Comparative study of predictive models in Machine Learning</p>
-</section>
-<section id="undergraduate-research-opportunity-program-urop-2025-2026" class="level3">
-<h3 class="anchored" data-anchor-id="undergraduate-research-opportunity-program-urop-2025-2026">Undergraduate Research Opportunity Program (UROP) 2025-2026</h3>
-<p style="text-align: justify">
-<a href="https://cre.fsu.edu" target="_blank" style="text-decoration:none"> Center for Undergraduate Research and Academic Engagement (CRE) </a> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with faculty members, postdocs, and graduate students on research projects in various fields. The following students have been mentored by me in the UROP program:
+</div>
+</div>
+<div class="band tint">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2 id="mentoring">
+Undergraduate research
+</h2>
+<p>
+I have mentored undergraduates at Florida State through two research programs.
 </p>
-<ul>
-<li><a href="https://www.linkedin.com/in/sarah-thapa-4aa751318/" target="_blank" style="text-decoration:none">Sarah Thapa</a></li>
-</ul>
-<p><strong>Project:</strong> Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.</p>
-<ul>
-<li><a href="https://www.linkedin.com/in/aiden-marin/" target="_blank" style="text-decoration:none">Aiden Marin</a></li>
-</ul>
-<p><strong>Project:</strong> Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.</p>
-</section>
-</section>
-<section id="course-projects" class="level2">
-<h2 class="anchored" data-anchor-id="course-projects">Course Projects</h2>
-<ul>
-<li><p><a href="https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method" target="_blank" style="text-decoration:none">Option pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method</a><br>
-Advisor: <a href="https://www.math.fsu.edu/~okten/" target="_blank" style="text-decoration:none">Prof.&nbsp;Giray Ökten</a></p>
-<div style="text-align:justify">
-<p>Pricing financial derivatives such as options with desired accuracy can be hard due to the nature of the functions and complicated integrals required by the pricing techniques. In this paper we investigate the pricing methodology of the European style options using two advanced numerical methods, namely, Quasi-Monte Carlo and Fourier Cosine (COS). For the RQMC method, we use the random-start Halton sequence. We use the Black-Scholes-Merton model to measure the pricing quality of both of the methods. For the numerical results we compute the option price of the call option and we found a few reasons to prefer the RQMC method over the COS method to approximate the European style options.</p>
-</div></li>
-<li><p><a href="https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications" target="_blank" style="text-decoration:none">Study of Runge-Kutta Method of Higher orders and its Applications</a><br>
-Advisor: <a href="http://appliedmath.du.ac.bd/details-ofdr-md-abdus-samad/" target="_blank" style="text-decoration:none">Dr.&nbsp;Md. Abdus Samad </a></p>
-<div style="text-align: justify">
-<p>This project is concerned with the study on Runge-Kutta method to apply on different order of differential equation and solve different types of problem such as initial value problem and boundary value problem in ordinary differential equation. At first we discuss about the definition and generation of differential equation specially based on partial differential equation and then definition of Runge-kutta method and the derivation of midpoint method and the formula of Runge-Kutta metod of fourth order and sixth order. We also write FORTRAN 90/95 program for different order of Runge-Kutta methods. We have solved some examples of fourth order R-K method and sixth order R-K method to get the application of R-K method. We also compared the solution of R-K method with exact solution for different step sizes. Then we have given simultaneous first order differential equation and second order differential equation and then solved them by fourth order Runge-Kutta method. At last we have discussed the boundary value problem which we have solved by fourth and sixth order R-K method. After that we have written the algorithm of shooting method and showed computer results with the difference between two answer along with percentages of error.</p>
-</div></li>
-</ul>
-</section>
-<section id="talks-and-presentations" class="level2">
-<h2 class="anchored" data-anchor-id="talks-and-presentations">Talks and Presentations</h2>
+</div>
+</div>
+<div class="card-grid">
+<div class="card">
+<span class="meta">UROP · 2025 – 2026</span>
+<h3>
+Machine learning and Florida traffic fatalities
+</h3>
+<p>
+<a href="https://www.linkedin.com/in/sarah-thapa-4aa751318/">Sarah Thapa</a>: predictive models for factors associated with Florida road crashes and the economic impact of crash-related casualties.
+</p>
+</div>
+<div class="card">
+<span class="meta">UROP · 2025 – 2026</span>
+<h3>
+Machine learning vs.&nbsp;Black–Scholes–Merton
+</h3>
+<p>
+<a href="https://www.linkedin.com/in/aiden-marin/">Aiden Marin</a>: comparing classical Black–Scholes–Merton pricing with modern machine-learning models for options on different underlying stocks.
+</p>
+</div>
+<div class="card">
+<span class="meta">Directed Reading Program · 2024 – 2025</span>
+<h3>
+Identifying spam and non-spam emails
+</h3>
+<p>
+<a href="https://www.linkedin.com/in/lily-g-kinney/">Lily Kinney</a> and <a href="https://www.linkedin.com/in/kieraagic/">Kiera Agic</a>: studying and implementing machine-learning methods for an NLP classification project.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="band">
+<div class="wrap">
+<div class="band-head">
+<div>
+<h2>
+Course &amp; thesis projects
+</h2>
+</div>
+</div>
+<div class="card-grid">
+<div class="card">
+<span class="meta">Florida State · Advisor: Giray Ökten</span>
+<h3>
+<a href="https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method">Option pricing: randomized quasi-Monte Carlo vs.&nbsp;the Fourier-cosine method</a>
+</h3>
+<p>
+Prices European options with random-start Halton RQMC and the COS method, benchmarked against Black–Scholes–Merton, and identifies several reasons to prefer RQMC.
+</p>
+</div>
+<div class="card">
+<span class="meta">University of Dhaka · Advisor: Md. Abdus Samad</span>
+<h3>
+<a href="https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications">Higher-order Runge–Kutta methods and their applications</a>
+</h3>
+<p>
+Fourth- and sixth-order Runge–Kutta schemes in FORTRAN 90/95 for initial- and boundary-value problems, including the shooting method and a step-size error study.
+</p>
+</div>
+</div>
+</div>
+</div>
 
 
 
-<!-- -->
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-tandp">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1772517600000" data-listing-file-modified-sort="1787316001114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning" data-listing-filename-sort="2026-03-03-icerm.qmd">
-<td>
-<span class="listing-date">Mar 3, 2026</span>
-</td>
-<td>
-<a href="./talks/2026-03-03-icerm.html" class="title listing-title">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1769752800000" data-listing-file-modified-sort="1787316001114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87" data-listing-title-sort="High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference" data-listing-filename-sort="2026-01-30-gradseminar.qmd">
-<td>
-<span class="listing-date">Jan 30, 2026</span>
-</td>
-<td>
-<a href="./talks/2026-01-30-gradseminar.html" class="title listing-title">High-Order and Bias-Free Distributed Langevin Dynamics for Scalable Bayesian Inference</a>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-date-sort="1700460000000" data-listing-file-modified-sort="1787316001114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent" data-listing-filename-sort="2023-11-20-candi.qmd">
-<td>
-<span class="listing-date">Nov 20, 2023</span>
-</td>
-<td>
-<a href="./talks/2023-11-20-candi.html" class="title listing-title">The Heavy-Tail Phenomenon in Decentralized Stochastic Gradient Descent</a>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1696482000000" data-listing-file-modified-sort="1787316001114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo" data-listing-filename-sort="2023-10-05-st-op.qmd">
-<td>
-<span class="listing-date">Oct 5, 2023</span>
-</td>
-<td>
-<a href="./talks/2023-10-05-st-op.html" class="title listing-title">Decentralized Stochastic Gradient Langevin Dynamics andHamiltonian Monte Carlo</a>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1588050000000" data-listing-file-modified-sort="1787316001114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="22" data-listing-title-sort="Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing" data-listing-filename-sort="2020-04-26-project.qmd">
-<td>
-<span class="listing-date">Apr 28, 2020</span>
-</td>
-<td>
-<a href="./talks/2020-04-26-project.html" class="title listing-title">Sensitivity analysis for Monte Carlo and Quasi Monte Carlo option pricing</a>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
-// Internal navigation stays in the current tab.
-// External links open in a new tab.
 document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-
-    if (
-      !href ||
-      href.startsWith('#') ||
-      href.startsWith('javascript:')
-    ) {
-      return;
-    }
-
-    // Email and telephone links do not need a new browser tab
-    if (href.startsWith('mailto:') || href.startsWith('tel:')) {
-      link.removeAttribute('target');
-      return;
-    }
-
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
     try {
-      const url = new URL(href, window.location.href);
-      const isExternal = url.origin !== window.location.origin;
-
-      if (isExternal) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-      } else {
-        link.removeAttribute('target');
-        link.removeAttribute('rel');
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
-    } catch (e) {
-      // Leave unusual links untouched
-    }
+    } catch (e) {}
   });
 
-
-  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const source = document.getElementById(button.dataset.copyTarget);
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
-
-      const citation = source.textContent.trim();
-      const previous = button.textContent;
-      button.textContent = 'Copied';
-
-      const fallbackCopy = function () {
-        const field = document.createElement('textarea');
-        field.value = citation;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand('copy');
-        field.remove();
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
       };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(citation).catch(fallbackCopy);
-      } else {
-        fallbackCopy();
-      }
-
-      setTimeout(function () {
-        button.textContent = previous;
-      }, 1600);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
     });
   });
 
-
-  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-
-      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
-        if (other !== details) other.removeAttribute('open');
-      });
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
     });
   });
-
-
-  document.addEventListener('click', function (event) {
-    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) {
-        details.removeAttribute('open');
-      }
-    });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const social = document.querySelector(".research-sidebar-social");
-  const toc = document.getElementById("TOC");
-  if (social && toc) {
-    social.hidden = false;
-    toc.appendChild(social);
-  }
-
-  const canvas = document.getElementById("research-density-animation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const width = canvas.width;
-  const height = canvas.height;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let time = 0;
-
-  function palette() {
-    const dark = document.body.classList.contains("quarto-dark");
-    return dark ? {
-      background: "#fbfbf8",
-      contourA: "rgba(12, 18, 17, 0.72)",
-      contourB: "rgba(12, 18, 17, 0.5)",
-      trace: "rgba(12, 18, 17, 0.66)",
-      point: "#050706",
-      core: "12, 18, 17"
-    } : {
-      background: "#080a09",
-      contourA: "rgba(255, 255, 255, 0.76)",
-      contourB: "rgba(255, 255, 255, 0.54)",
-      trace: "rgba(255, 255, 255, 0.7)",
-      point: "#ffffff",
-      core: "255, 255, 255"
-    };
-  }
-
-  function densityCore(cx, cy, radius, rgb) {
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
-    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
-    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function contour(cx, cy, rx, ry, rotation, color, phase) {
-    for (let level = 1; level <= 13; level += 1) {
-      const scale = 0.22 + level * 0.062;
-      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
-      ctx.stroke();
-    }
-  }
-
-  function samplePath(cx, cy, rx, ry, direction, color, phase) {
-    ctx.beginPath();
-    for (let index = 0; index < 105; index += 1) {
-      const age = index / 104;
-      const theta = direction * (phase * 0.55 + index * 0.29);
-      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
-      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
-      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
-      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-
-    const theta = direction * (phase * 0.55 + 104 * 0.29);
-    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
-    return {
-      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
-      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
-    };
-  }
-
-  function draw() {
-    const colors = palette();
-    ctx.fillStyle = colors.background;
-    ctx.fillRect(0, 0, width, height);
-
-    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
-    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
-
-    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
-    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
-
-    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
-    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
-
-    [left, right].forEach(function (point) {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = colors.point;
-      ctx.fill();
-    });
-  }
-
-  draw();
-  if (reduceMotion) return;
-
-  function animate() {
-    time += 0.035;
-    draw();
-    window.requestAnimationFrame(animate);
-  }
-  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1045,13 +957,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -1094,14 +999,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1113,57 +1017,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
-        for (let i=0; i<cellDetails.length; i++) {
-          const details = cellDetails[i];
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1181,6 +1034,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1493,277 +1351,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - id: tandp</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/talks/"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    type: table</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sort: "date desc"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    filter-ui: false</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    sort-ui: false</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [date,title]</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>::: {.research-intro}</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  My research focuses on *Theoretical Machine Learning*, particularly stochastic optimization and sampling techniques in Bayesian learning using Markov-Chain Monte Carlo (MCMC) algorithms. I work on developing scalable algorithms for collaborative learning under regularization and privacy constraints.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-intro-animation"</span><span class="dt">&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">canvas</span><span class="ot"> id</span><span class="op">=</span><span class="st">"research-density-animation"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"900"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"620"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"Animated sampling paths moving across two contour densities"</span><span class="dt">&gt;&lt;/</span><span class="kw">canvas</span><span class="dt">&gt;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-sidebar-social"</span><span class="ot"> hidden</span><span class="dt">&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Find me on<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://scholar.google.com/citations?user=gTz5r68AAAAJ</span><span class="er">&amp;</span><span class="st">hl=en"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"Google Scholar"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>{{&lt; ai google-scholar size=2x &gt;}}<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.researchgate.net/profile/Mohammad-Rafiqul-Islam-5"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"ResearchGate"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>{{&lt; ai researchgate size=2x &gt;}}<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Current Research  </span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>::: {.research-grid}</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>::: {.research-card}</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>::: {.research-card-media}</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"/research/singular-langevin/"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-visual-link"</span><span class="dt">&gt;</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"/research/singular-langevin/singular-langevin.svg"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Particles moving inside a constrained domain while repelling one another and avoiding collisions"</span><span class="dt">&gt;</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-card-meta"</span><span class="dt">&gt;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-meta-label"</span><span class="dt">&gt;</span>Research focus<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Constrained sampling<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Singular interactions<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Numerical analysis<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>::: {.research-card-body}</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"research-status"</span><span class="dt">&gt;</span>Current project · 2026<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Constrained Langevin Dynamics with Singular Repulsion](/research/singular-langevin/)</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>With David P. Herzog</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>We study collision-free stochastic particle dynamics inside constrained domains. The project develops stable numerical sampling methods that treat singular repulsion directly while respecting the boundary.</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Explore the project →</span><span class="co">](/research/singular-langevin/)</span>{.research-link}</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Publications  </span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>::: {.publication-list}</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>::: {.publication-entry}</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>::: {.publication-meta}</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-year"</span><span class="dt">&gt;</span>2026<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-type"</span><span class="dt">&gt;</span>Preprint<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>::: {.publication-content}</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Decentralized Proximal Stochastic Gradient Langevin Dynamics](/research/dpsgld/)</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-authors"</span><span class="dt">&gt;&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Mohammad Rafiqul Islam<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> and Lingjiong Zhu<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-venue"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2605.00723"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv:2605.00723<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Introduces a decentralized sampler for log-concave distributions on convex domains. Shared proximal regularization allows agents to respect constraints without exchanging private data, while non-asymptotic Wasserstein guarantees quantify both network behavior and approximation bias. Experiments show rapid posterior concentration and strong predictive accuracy.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-actions"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/pdf/2605.00723"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>PDF<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2605.00723"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">details</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-dropdown"</span><span class="dt">&gt;&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>BibTeX <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>⌄<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">summary</span><span class="dt">&gt;&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-panel"</span><span class="dt">&gt;&lt;</span><span class="kw">pre</span><span class="ot"> id</span><span class="op">=</span><span class="st">"bib-dpsgld"</span><span class="dt">&gt;</span>@article{islam2026depsgld,</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  title={Decentralized Proximal Stochastic Gradient Langevin Dynamics},</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  author={Islam, Mohammad Rafiqul and Zhu, Lingjiong},</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  journal={arXiv preprint arXiv:2605.00723},</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  year={2026}</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>}<span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-copy"</span><span class="ot"> data-copy-target</span><span class="op">=</span><span class="st">"bib-dpsgld"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Copy to clipboard<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;&lt;/</span><span class="kw">details</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>::: {.publication-entry}</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>::: {.publication-meta}</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-year"</span><span class="dt">&gt;</span>2025<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-type"</span><span class="dt">&gt;</span>Preprint<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>::: {.publication-content}</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">### [High-Order Langevin Monte Carlo Algorithms](/research/holmc/)</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-authors"</span><span class="dt">&gt;</span>Thanh L. Dang, Mert Gürbüzbalaban, <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Mohammad Rafiqul Islam<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span>, Nian Yao, and Lingjiong Zhu<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-venue"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2508.17545"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv:2508.17545<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Develops Langevin Monte Carlo algorithms from third- and higher-order dynamics by combining splitting with accurate integration. The resulting convergence guarantees improve dependence on dimension and target accuracy as the order increases, while numerical experiments demonstrate the practical efficiency of the higher-order approach.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-actions"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"/_assets/documents/2508.17545v1.pdf"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>PDF<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2508.17545"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">details</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-dropdown"</span><span class="dt">&gt;&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>BibTeX <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>⌄<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">summary</span><span class="dt">&gt;&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-panel"</span><span class="dt">&gt;&lt;</span><span class="kw">pre</span><span class="ot"> id</span><span class="op">=</span><span class="st">"bib-holmc"</span><span class="dt">&gt;</span>@article{dang2025highorder,</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  title={High-Order Langevin Monte Carlo Algorithms},</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  author={Dang, Thanh L. and Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Yao, Nian and Zhu, Lingjiong},</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  journal={arXiv preprint arXiv:2508.17545},</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  year={2025}</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>}<span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-copy"</span><span class="ot"> data-copy-target</span><span class="op">=</span><span class="st">"bib-holmc"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Copy to clipboard<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;&lt;/</span><span class="kw">details</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>::: {.publication-entry}</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>::: {.publication-meta}</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-year"</span><span class="dt">&gt;</span>2024<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-type"</span><span class="dt">&gt;</span>Preprint<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>::: {.publication-content}</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Generalized EXTRA Stochastic Gradient Langevin Dynamics](/research/extrasgld/)</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-authors"</span><span class="dt">&gt;</span>Mert Gürbüzbalaban, <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Mohammad Rafiqul Islam<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span>, Xiaoyu Wang, and Lingjiong Zhu<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-venue"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2412.01993"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv:2412.01993<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Addresses persistent network bias in decentralized stochastic-gradient Langevin methods. Inspired by EXTRA-type optimization, the proposed sampler removes that bias in the full-batch setting and yields sharper mini-batch performance bounds, enabling collaborative Bayesian learning without centralizing agents’ data.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-actions"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"/_assets/documents/2412.01993v1.pdf"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>PDF<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://arxiv.org/abs/2412.01993"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>arXiv<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">details</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-dropdown"</span><span class="dt">&gt;&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>BibTeX <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>⌄<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">summary</span><span class="dt">&gt;&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-panel"</span><span class="dt">&gt;&lt;</span><span class="kw">pre</span><span class="ot"> id</span><span class="op">=</span><span class="st">"bib-extra"</span><span class="dt">&gt;</span>@article{gurbuzbalaban2024extra,</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>  title={Generalized EXTRA Stochastic Gradient Langevin Dynamics},</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>  author={Gurbuzbalaban, Mert and Islam, Mohammad Rafiqul and Wang, Xiaoyu and Zhu, Lingjiong},</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  journal={arXiv preprint arXiv:2412.01993},</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>  year={2024}</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>}<span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-copy"</span><span class="ot"> data-copy-target</span><span class="op">=</span><span class="st">"bib-extra"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Copy to clipboard<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;&lt;/</span><span class="kw">details</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>::: {.publication-entry}</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>::: {.publication-meta}</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-year"</span><span class="dt">&gt;</span>2021<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-type"</span><span class="dt">&gt;</span>Published<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>::: {.publication-content}</span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### [GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies](/publication/pub2/)</span></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-authors"</span><span class="dt">&gt;</span>Fahad Mostafa, Pritam Saha, <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Mohammad Rafiqul Islam<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span>, and Nguyet Nguyen<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-venue"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://doi.org/10.3390/jrfm14090421"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Journal of Risk and Financial Management, 14(9), 421<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Combines GJR-GARCH volatility modeling, Monte Carlo simulation, value-at-risk backtesting, and neural networks to study ten major cryptocurrencies. The analysis captures asymmetric volatility and tail risk, while the neural-network forecasts closely track market prices and sometimes outperform traditional ARIMA models.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-actions"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"/publication/pub2/paper2.pdf"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>PDF<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">details</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-dropdown"</span><span class="dt">&gt;&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>BibTeX <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>⌄<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">summary</span><span class="dt">&gt;&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-panel"</span><span class="dt">&gt;&lt;</span><span class="kw">pre</span><span class="ot"> id</span><span class="op">=</span><span class="st">"bib-crypto"</span><span class="dt">&gt;</span>@article{mostafa2021gjr,</span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>  title={GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies},</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>  author={Mostafa, Fahad and Saha, Pritam and Islam, Mohammad Rafiqul and Nguyen, Nguyet},</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>  journal={Journal of Risk and Financial Management},</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>  volume={14}, number={9}, pages={421}, year={2021},</span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>  doi={10.3390/jrfm14090421}</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>}<span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-copy"</span><span class="ot"> data-copy-target</span><span class="op">=</span><span class="st">"bib-crypto"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Copy to clipboard<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;&lt;/</span><span class="kw">details</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.mdpi.com/1911-8074/14/9/421"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Journal Page<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>::: {.publication-entry}</span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>::: {.publication-meta}</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-year"</span><span class="dt">&gt;</span>2020<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-type"</span><span class="dt">&gt;</span>Published<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>::: {.publication-content}</span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### [Comparison of Financial Models for Stock Price Prediction](/publication/pub1/)</span></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-authors"</span><span class="dt">&gt;&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Mohammad Rafiqul Islam<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> and Nguyet Nguyen<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-venue"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://doi.org/10.3390/jrfm13080181"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Journal of Risk and Financial Management, 13(8), 181<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Compares ARIMA, artificial neural networks, and geometric Brownian motion using historical daily stock prices. Against observed next-day prices, the conventional statistical and stochastic models provide closer approximations than the neural-network model, illustrating the value of comparing fundamentally different forecasting assumptions.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"publication-actions"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"/publication/pub1/paper1.pdf"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>PDF<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;</span><span class="kw">details</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-dropdown"</span><span class="dt">&gt;&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>BibTeX <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>⌄<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">summary</span><span class="dt">&gt;&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-panel"</span><span class="dt">&gt;&lt;</span><span class="kw">pre</span><span class="ot"> id</span><span class="op">=</span><span class="st">"bib-stock"</span><span class="dt">&gt;</span>@article{islam2020comparison,</span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>  title={Comparison of Financial Models for Stock Price Prediction},</span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>  author={Islam, Mohammad Rafiqul and Nguyen, Nguyet},</span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>  journal={Journal of Risk and Financial Management},</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>  volume={13}, number={8}, pages={181}, year={2020},</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>  doi={10.3390/jrfm13080181}</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>}<span class="dt">&lt;/</span><span class="kw">pre</span><span class="dt">&gt;&lt;</span><span class="kw">button</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bibtex-copy"</span><span class="ot"> data-copy-target</span><span class="op">=</span><span class="st">"bib-stock"</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="dt">&gt;</span>Copy to clipboard<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;&lt;/</span><span class="kw">details</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.mdpi.com/1911-8074/13/8/181"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Journal Page<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Undergraduate Research Mentorship  </span></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="fu">### FSU Mathematics Directed Reading Program (DRP) 2024-2025  </span></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span> </span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://fsumathdrp.wixsite.com/fsumathdrp"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> Directed Reading Program (DRP) <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with graduate students on research projects in mathematics and related fields. The following students have been mentored by me in the DRP program:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.linkedin.com/in/lily-g-kinney/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Lily Kinney<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>   </span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.linkedin.com/in/kieraagic/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Kiera Agic<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>**Project:** Comparative study of predictive models in Machine Learning  </span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Undergraduate Research Opportunity Program (UROP) 2025-2026  </span></span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://cre.fsu.edu"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> Center for Undergraduate Research and Academic Engagement (CRE) <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> is a research mentorship program for undergraduate students at Florida State University. The program provides an opportunity for students to work closely with faculty members, postdocs, and graduate students on research projects in various fields. The following students have been mentored by me in the UROP program:<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.linkedin.com/in/sarah-thapa-4aa751318/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Sarah Thapa<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>**Project:** Using Machine Learning to Identify Factors Contributing to Higher Fatalities in Florida Traffic Crashes.   </span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.linkedin.com/in/aiden-marin/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Aiden Marin<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>**Project:** Comparing Machine Learning Models with the Black-Scholes-Merton Model for Option Pricing.</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Course Projects  </span></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.academia.edu/103433771/Option_pricing_techniques_A_performance_based_comparative_study_of_the_randomized_quasi_Monte_Carlo_method_and_Fourier_cosine_method"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Option pricing techniques: A performance-based comparative study of the randomized quasi-Monte Carlo method and Fourier cosine method<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>  Advisor: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.math.fsu.edu/~okten/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Prof. Giray Ökten<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align:justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>    Pricing financial derivatives such as options with desired accuracy can be hard due to the nature of the functions and complicated integrals required by the pricing techniques. In this paper we investigate the pricing methodology of the European style options using two advanced numerical methods, namely, Quasi-Monte Carlo and Fourier Cosine (COS). For the RQMC method, we use the random-start Halton sequence. We use the Black-Scholes-Merton model to measure the pricing quality of both of the methods. For the numerical results we compute the option price of the call option and we found a few reasons to prefer the RQMC method over the COS method to approximate the European style options.</span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.academia.edu/13322836/Study_of_Runge_Kutta_Method_of_Higher_orders_and_its_Applications"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Study of Runge-Kutta Method of Higher orders and its Applications<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>  Advisor: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://appliedmath.du.ac.bd/details-ofdr-md-abdus-samad/"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span>Dr. Md. Abdus Samad <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>    This project is concerned with the study on Runge-Kutta method to apply on different order of differential equation and solve different types of problem such as initial value problem and boundary value problem in ordinary differential equation. At first we discuss about the definition and generation of differential equation specially based on partial differential equation and then definition of Runge-kutta method and the derivation of midpoint method and the formula of Runge-Kutta metod of fourth order and sixth order. We also write FORTRAN 90/95 program for different order of Runge-Kutta methods. We have solved some examples of fourth order R-K method and sixth order R-K method to get the application of R-K method. We also compared the solution of R-K method with exact solution for different step sizes. Then we have given simultaneous first order differential equation and second order differential equation and then solved them by fourth order Runge-Kutta method. At last we have discussed the boundary value problem which we have solved by fourth and sixth order R-K method. After that we have written the algorithm of shooting method and showed computer results with the difference between two answer along with percentages of error.</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="fu">## Talks and Presentations  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.10.18</p>
+<div class="foot-col">
+<p><a class="foot-mark" href="./index.html" aria-label="Home"><img src="./_assets/images/mri-logo.svg" alt="MRI"></a> <span>Copyright 2026 @ Dr.&nbsp;Rafiq Islam</span> <span>All rights reserved</span> <span><a href="./LICENSE.txt">License</a></span> <span>Powered by <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
 </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- Copyright 2026 @ Rafiq Islam
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./license.txt">
-<p>License</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./research.html">
-<p>Research</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./teaching.html">
-<p>Teaching</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./cv.html">
-<p>CV</p>
-</a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<p><strong>Contact</strong> <span>Department of Mathematics</span> <span>Iowa State University</span> <span>Room 461, Carver Hall</span> <span>411 Morrill Road</span> <span>Ames, IA 50011</span> <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span></p>
+</div>
+</div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
-      <i class="bi bi-youtube" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
-      <i class="bi bi-envelope" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<strong>Connect</strong>
+<div class="foot-links">
+<p><a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a> <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a> <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a> <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a></p>
+</div>
+</div>
+</div>
   </div>
 </footer>
 

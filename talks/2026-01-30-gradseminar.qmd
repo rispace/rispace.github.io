@@ -9,11 +9,6 @@ date: 2026-01-30
 location: "Tallahassee, Florida"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
-
-
-
 ```{=html}
 <div style="width: 100%; aspect-ratio: 16 / 9; margin: 20px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <embed 

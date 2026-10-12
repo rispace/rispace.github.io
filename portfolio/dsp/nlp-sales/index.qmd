@@ -10,7 +10,7 @@ image: amazon.webp
 ---  
 
 <p style="text-align:center">
-  [Notebook](/codepages/amazonNLP/index.qmd){target="_blank" style="text-decoration:none"} [GitHub (Private until finished)](https://github.com/mrislambd/medical-insurance-charge){target="_blank" style="text-decoration:none"}  
+  [Notebook](/codepages/amazonNLP/){target="_blank" style="text-decoration:none"} [GitHub (Private until finished)](https://github.com/mrislambd/medical-insurance-charge){target="_blank" style="text-decoration:none"}  
 </p>  
 
 <p align="center">

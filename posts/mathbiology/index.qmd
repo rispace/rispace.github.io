@@ -9,16 +9,13 @@ search: true
 lightbox: true
 image: b1.png
 listing: 
-    contents: "/../../posts"
+    contents: "../*/index.qmd"
     max-items: 3
     type: grid
     categories: false
     date-format: full
     fields: [image, date, title, author, reading-time]
 ---  
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
 
 Consider the spreading of a highly communicable disease on an isolated island
 with population size $N$. A portion of the population travels abroad and returns
@@ -141,17 +138,17 @@ So, $X(12)\approx 4945$
 **Share on**  
 
 <div class="share-buttons">
-  <div class="fb-share-button" data-href="https://mrislambd.github.io/posts/mathbiology/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fmathbiology%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> 
+  <div class="fb-share-button" data-href="https://rispace.github.io/posts/mathbiology/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Fmathbiology%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> 
 
   <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-  <script type="IN/Share" data-url="https://mrislambd.github.io/posts/mathbiology/"></script>  
+  <script type="IN/Share" data-url="https://rispace.github.io/posts/mathbiology/"></script>  
 
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://mrislambd.github.io/posts/mathbiology/" data-show-count="false">Tweet</a>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-url="https://rispace.github.io/posts/mathbiology/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
 </div>
 
 
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/mathbiology/" data-width="650" data-numposts="5"></div>  
+<div class="fb-comments" data-href="https://rispace.github.io/posts/mathbiology/" data-width="650" data-numposts="5"></div>  
 
 
 **You may also like**  

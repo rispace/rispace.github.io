@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,57 +11,16 @@
 
 <title>Generalized eigenvectors and eigenspaces – Mohammad Rafiqul Islam</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,23 +31,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../..//_assets/images/favicon.ico" rel="icon">
+<link href="../../_assets/images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-listing/list.min.js"></script>
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ddd39223efcf1e1960c36e0bcd084f75.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-ed60b4568be9625e69269519dcf610f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,8 +85,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 18,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
@@ -156,10 +113,11 @@ gtag('js', new Date());
 gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="../../_assets/images/favicon.svg">
+<link rel="apple-touch-icon" href="../../_assets/images/apple-touch-icon.png">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -172,7 +130,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -190,16 +148,16 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Generalized eigenvectors and eigenspaces – Mohammad Rafiqul Islam">
-<meta property="og:description" content="">
+<meta property="og:description" content="Mohammad Rafiqul Islam — postdoctoral research associate in probability at Iowa State University. Langevin dynamics, MCMC, and stochastic optimization.">
 <meta property="og:image" content="https://rispace.github.io/posts/eigen/lin3.jpg">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
 <meta name="twitter:title" content="Generalized eigenvectors and eigenspaces – Mohammad Rafiqul Islam">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Mohammad Rafiqul Islam — postdoctoral research associate in probability at Iowa State University. Langevin dynamics, MCMC, and stochastic optimization.">
 <meta name="twitter:image" content="https://rispace.github.io/posts/eigen/lin3.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -368,8 +326,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://rispace.github.io/">
-    <span class="navbar-title">MRI</span>
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -391,76 +349,37 @@ window.Quarto = {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Blog</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/dsandml/">
- <span class="dropdown-text">Data Science and Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/letscode/">
- <span class="dropdown-text">Data Structure and Algorithm</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/statandprob/">
- <span class="dropdown-text">Statistics and Probability</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../blog.html">
- <span class="dropdown-text">Other Blogs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
 </ul>
-              <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Generalized eigenvectors and eigenspaces</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Generalized eigenvectors and eigenspaces</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Linear Algebra</div>
     <div class="quarto-category">Mathematics</div>
@@ -568,27 +487,25 @@ Hence, <span class="math inline">\(\{v,(\alpha-\lambda I)v,\cdots, (\alpha-\lamb
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
 <div class="share-buttons">
-<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/eigen/index.html" data-layout="button_count" data-size="small">
-<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Feigen%2Findex.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+<div class="fb-share-button" data-href="https://rispace.github.io/posts/eigen/index.html" data-layout="button_count" data-size="small">
+<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frispace.github.io%2Fposts%2Feigen%2Findex.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
 </div>
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://mrislambd.github.io/posts/eigen/index.html"></script>
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/posts/eigen/index.html" data-show-count="true">Tweet</a>
+<script type="IN/Share" data-url="https://rispace.github.io/posts/eigen/index.html"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://rispace.github.io/posts/eigen/index.html" data-show-count="true">Tweet</a>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/eigen/index.html" data-width="" data-numposts="5">
+<div class="fb-comments" data-href="https://rispace.github.io/posts/eigen/index.html" data-width="" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
 
 
 
-<!-- -->
-
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNTdG9jaGFzdGljJTIwR3JhZGllbnQlMjBEZXNjZW50JTJDT3B0aW1pemF0aW9u" data-listing-date-sort="1726722000000" data-listing-file-modified-sort="1787316001069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2737">
+<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNTdG9jaGFzdGljJTIwR3JhZGllbnQlMjBEZXNjZW50JTJDT3B0aW1pemF0aW9u" data-listing-date-sort="1726722000000" data-listing-file-modified-sort="1791766632000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2705">
 <a href="../../posts/sgd/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -610,7 +527,7 @@ Thursday, September 19, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNDb21wdXRhdGlvbmFsJTIwTWF0aGVtYXRpY3MlMkNBbGdvcml0aG1pYyUyMENvbXBsZXhpdHklMkNQcm9ncmFtbWluZyUyQ0NvbXB1dGVyJTIwU2NpZW5jZQ==" data-listing-date-sort="1636437600000" data-listing-file-modified-sort="1787316001060" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5076">
+<div class="g-col-1" data-index="1" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNDb21wdXRhdGlvbmFsJTIwTWF0aGVtYXRpY3MlMkNBbGdvcml0aG1pYyUyMENvbXBsZXhpdHklMkNQcm9ncmFtbWluZyUyQ0NvbXB1dGVyJTIwU2NpZW5jZQ==" data-listing-date-sort="1636437600000" data-listing-file-modified-sort="1791766632000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5076">
 <a href="../../posts/lu/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -632,7 +549,7 @@ Tuesday, November 9, 2021
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="TGluZWFyJTIwQWxnZWJyYSUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1611208800000" data-listing-file-modified-sort="1787316001062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="580">
+<div class="g-col-1" data-index="2" data-categories="TGluZWFyJTIwQWxnZWJyYSUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1611208800000" data-listing-file-modified-sort="1791766632000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="580">
 <a href="../../posts/matrixrep/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -665,156 +582,54 @@ Thursday, January 21, 2021
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-islam2021" class="csl-entry quarto-appendix-citeas" role="listitem">
 Islam, Rafiq. 2021. <span>“Generalized Eigenvectors and
-Eigenspaces.”</span> January 25. <a href="https://rispace.github.io/posts/eigen/">https://rispace.github.io/posts/eigen/</a>.
+Eigenspaces.”</span> January 25, 2021. <a href="https://rispace.github.io/posts/eigen/">https://rispace.github.io/posts/eigen/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script>
-// Keep navbar and in-page navigation in the current tab; open content links separately.
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-    if (link.closest('.navbar')) {
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-    } else if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-
-  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const source = document.getElementById(button.dataset.copyTarget);
-      if (!source) return;
-      const citation = source.textContent.trim();
-      const previous = button.textContent;
-      button.textContent = 'Copied';
-
-      const fallbackCopy = function () {
-        const field = document.createElement('textarea');
-        field.value = citation;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand('copy');
-        field.remove();
-      };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(citation).catch(fallbackCopy);
-      } else {
-        fallbackCopy();
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
-      setTimeout(function () { button.textContent = previous; }, 1600);
+    } catch (e) {}
+  });
+
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
+      if (!source) return;
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
     });
   });
 
-  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
-        if (other !== details) other.removeAttribute('open');
-      });
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
     });
   });
-
-  document.addEventListener('click', function (event) {
-    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) details.removeAttribute('open');
-    });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const canvas = document.getElementById("research-density-animation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const width = canvas.width;
-  const height = canvas.height;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let time = 0;
-
-  function palette() {
-    const dark = document.body.classList.contains("quarto-dark");
-    return dark ? {
-      background: "#18232d",
-      contourA: "rgba(130, 201, 194, 0.72)",
-      contourB: "rgba(190, 170, 232, 0.62)",
-      trace: "rgba(237, 241, 240, 0.72)",
-      point: "#f0dcae"
-    } : {
-      background: "#fbfcfa",
-      contourA: "rgba(31, 111, 105, 0.68)",
-      contourB: "rgba(109, 82, 178, 0.53)",
-      trace: "rgba(36, 52, 71, 0.58)",
-      point: "#b34d4d"
-    };
-  }
-
-  function contour(cx, cy, rx, ry, rotation, color, phase) {
-    for (let level = 1; level <= 13; level += 1) {
-      const scale = 0.22 + level * 0.062;
-      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
-      ctx.stroke();
-    }
-  }
-
-  function samplePath(cx, cy, rx, ry, direction, color, phase) {
-    ctx.beginPath();
-    for (let index = 0; index < 105; index += 1) {
-      const age = index / 104;
-      const theta = direction * (phase * 0.55 + index * 0.29);
-      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
-      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
-      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
-      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-
-    const theta = direction * (phase * 0.55 + 104 * 0.29);
-    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
-    return {
-      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
-      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
-    };
-  }
-
-  function draw() {
-    const colors = palette();
-    ctx.fillStyle = colors.background;
-    ctx.fillRect(0, 0, width, height);
-
-    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
-    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
-
-    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
-    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
-
-    [left, right].forEach(function (point) {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = colors.point;
-      ctx.fill();
-    });
-  }
-
-  draw();
-  if (reduceMotion) return;
-
-  function animate() {
-    time += 0.035;
-    draw();
-    window.requestAnimationFrame(animate);
-  }
-  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -832,13 +647,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -881,14 +689,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -900,57 +707,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
-        for (let i=0; i<cellDetails.length; i++) {
-          const details = cellDetails[i];
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -968,6 +724,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1280,93 +1041,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Generalized eigenvectors and eigenspaces"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2021-01-25"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> Rafiq Islam</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [Linear Algebra, Mathematics]</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span><span class="co"> true</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> lin3.jpg</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: false</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    date-format: full</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    fields: [image, date, title, author, reading-time]</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>    Definition: Let $\alpha\in End(V)$ and $\lambda\in spec(\alpha)$. A non-zero vector $v$ is called a generalized eigenvector vector of $\alpha$ associated with $\lambda$ if $(\alpha-\lambda I)^{k}(v)=0$ and $(\alpha-\lambda I)^{k-1}(v)\ne 0$ for some $k\ge 1$ where $k$ is called the degree of nilpotence for $v$.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Let $\lambda\in spec(\alpha)$. Then, $M_{\lambda}=\bigcup\limits_{m=1} ker(\lambda I-\alpha)^m$ is what we call it the generalized eigenspace corresponding to $\lambda$. Clearly, $M_{\lambda}$ is the union of the zero vector and the set of all generalized eigenvectors of $\alpha$ associated with $\lambda$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Fact: <span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span>$M_{\lambda}$ is a subspace and $\alpha-$invariant and if $v$ is a generalized vector of index $k$ then $<span class="sc">\{</span>v,(\alpha-\lambda I)v,\cdots, (\alpha-\lambda I)^{k-1}v<span class="sc">\}</span>$ is linearly independent.    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Proof: <span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span>Let $a\in \mathbb{F}$ and let $v,w\in V$ be generalized eigenvectors of $\alpha$ associated with $\lambda$ of degrees $k$ and $h$ respectively. Then,<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$(\alpha-\lambda I)^k(v)=0$ and $(\alpha-\lambda I)^h(w)=0$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$\implies v\in ker (\alpha-\lambda I)^k$ and $w\in ker(\alpha-\lambda I)^h$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$\implies v\in ker (\alpha-\lambda I)^{k+h}$ and $w\in ker(\alpha-\lambda I)^{k+h}$ because $(\alpha-\lambda I)^{k+h}(v)=0$ and $(\alpha-\lambda I)^{k+h}(w)=0$    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$\implies v+w \in ker(\alpha-\lambda)^{k+h}$    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>And, $(\alpha-\lambda I)^{k+h}(av)=a.(\alpha-\lambda I)^{k+h}(v)=0$.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>This implies that $M_{\lambda}$ is a subspace of $V$.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">u</span><span class="dt">&gt;</span>Invariance:<span class="dt">&lt;/</span><span class="kw">u</span><span class="dt">&gt;</span>    If $\beta\in End(V)$ commutes with $\alpha$ and if $v$ is a generalized eigenvector of $\alpha$ associated with $\lambda$ such that $v\in ker(\alpha-\lambda I)^k$ then,<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$(\alpha-\lambda I)^k\beta(v)=\beta(\alpha-\lambda I)^k(v)=0_V$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$\implies \beta(v)$ is also a generalized eigenvector of $\alpha$ associated with $\lambda$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">br</span><span class="ot"> </span><span class="dt">/&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">u</span><span class="dt">&gt;</span>Linearly Independence:<span class="dt">&lt;/</span><span class="kw">u</span><span class="dt">&gt;</span>    If $v$ is a generalized vector of $\alpha$ associated with $\lambda$ then $(\alpha-\lambda I)^k(v)=0$ and $(\alpha-\lambda I)^{k-1}(v)\ne 0$. Now we assume that,<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$c_0v+c_1(\alpha-\lambda I)(v)+\cdots+c_{k-1}(\alpha-\lambda I)^{k-1}(v)=0$.    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>We need to show that $c_i's$ are zero for $0\le i\le k-1$.    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Applying $(\alpha-\lambda)^{k-1}$ we get,<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$(\alpha-\lambda)^{k-1}(c_0v+c_1(\alpha-\lambda I)(v)+\cdots+c_{k-1}(\alpha-\lambda I)^{k-1}(v))=0$<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$\implies c_0(\alpha-\lambda I)^{k-1}(v)=0$. Since $(\alpha-\lambda I)^{k-1}(v)\ne 0$ so we get $c_0=0$.    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Similarly applying $(\alpha-\lambda I)^{k-2},(\alpha-\lambda I)^{k-3},$ and so on, we have<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>$c_i=0$ for $1\le i\le k-1$.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hence, $<span class="sc">\{</span>v,(\alpha-\lambda I)v,\cdots, (\alpha-\lambda I)^{k-1}v<span class="sc">\}</span>$ is linearly independent.    <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Share on** </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"fb-root"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async defer crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ot"> src</span><span class="op">=</span><span class="st">"https://connect.facebook.net/en_US/sdk.js#xfbml=1</span><span class="er">&amp;</span><span class="st">version=v20.0"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"share-buttons"</span><span class="dt">&gt;</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-share-button"</span><span class="ot"> data-href</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/eigen/index.html"</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ot">data-layout</span><span class="op">=</span><span class="st">"button_count"</span><span class="ot"> data-size</span><span class="op">=</span><span class="st">"small"</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> </span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Feigen%2Findex.html</span><span class="dv">&amp;amp;</span><span class="st">src=sdkpreparse"</span><span class="ot"> </span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-xfbml-parse-ignore"</span><span class="dt">&gt;</span>Share<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://platform.linkedin.com/in.js"</span><span class="ot"> type=</span><span class="st">"text/javascript"</span><span class="dt">&gt;</span>lang<span class="op">:</span> en_US<span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">"IN/Share"</span><span class="ot"> data-url</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/eigen/index.html"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span> </span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://twitter.com/share?ref_src=twsrc%5Etfw"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"twitter-share-button"</span><span class="ot"> </span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ot"> data-url</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/eigen/index.html"</span><span class="ot"> data-show-count</span><span class="op">=</span><span class="st">"true"</span><span class="dt">&gt;</span>Tweet<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://platform.twitter.com/widgets.js"</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"fb-comments"</span><span class="ot"> data-href</span><span class="op">=</span><span class="st">"https://mrislambd.github.io/posts/eigen/index.html"</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ot"> data-width</span><span class="op">=</span><span class="st">""</span><span class="ot"> data-numposts</span><span class="op">=</span><span class="st">"5"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**You may also like**</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.10.18</p>
+<div class="foot-col">
+<p><a class="foot-mark" href="../../index.html" aria-label="Home"><img src="../../_assets/images/mri-logo.svg" alt="MRI"></a> <span>Copyright 2026 @ Dr.&nbsp;Rafiq Islam</span> <span>All rights reserved</span> <span><a href="../../LICENSE.txt">License</a></span> <span>Powered by <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
 </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- Copyright 2026 @ Rafiq Islam
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../../license.txt">
-<p>License</p>
-</a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<p><strong>Contact</strong> <span>Department of Mathematics</span> <span>Iowa State University</span> <span>Room 461, Carver Hall</span> <span>411 Morrill Road</span> <span>Ames, IA 50011</span> <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span></p>
+</div>
+</div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
-      <i class="bi bi-youtube" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
-      <i class="bi bi-envelope" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<strong>Connect</strong>
+<div class="foot-links">
+<p><a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a> <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a> <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a> <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a></p>
+</div>
+</div>
+</div>
   </div>
 </footer>
 

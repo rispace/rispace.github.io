@@ -3,13 +3,6 @@ title: বাংলা ভাষায় আমার লেখা || My Blog in B
 author: মোহাম্মদ রকিবুল ইসলাম 
 date: 2024-10-23
 mainfont: Kalpurush
-listing: 
-    contents: "/../../banglablog"
-    max-items: 3
-    type: grid
-    categories: true
-    date-format: full
-    fields: [image, date, title, author, reading-time]
 toc: true
 image: ben.svg
 ---   

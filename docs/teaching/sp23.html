@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,57 +10,16 @@
 
 <title>Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,21 +30,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="..//_assets/images/favicon.ico" rel="icon">
+<link href="../_assets/images/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ddd39223efcf1e1960c36e0bcd084f75.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69ced6038d3877ce07f28f544c6cf8f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ed60b4568be9625e69269519dcf610f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-668b8c4c88d5d5a33e5ebfad60353caf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,17 +81,20 @@ gtag('js', new Date());
 gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="../_assets/images/favicon.svg">
+<link rel="apple-touch-icon" href="../_assets/images/apple-touch-icon.png">
 
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam">
+<meta property="og:image" content="https://rispace.github.io/teaching/_assets/images/rafiq-islam.jpeg">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
 <meta name="twitter:title" content="Spring 2023: MAC1140 PreCalculus Algebra – Mohammad Rafiqul Islam">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rispace.github.io/teaching/_assets/images/rafiq-islam.jpeg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -302,8 +263,8 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://rispace.github.io/">
-    <span class="navbar-title">MRI</span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -325,76 +286,37 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Blog</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/dsandml/">
- <span class="dropdown-text">Data Science and Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/letscode/">
- <span class="dropdown-text">Data Structure and Algorithm</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/statandprob/">
- <span class="dropdown-text">Statistics and Probability</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../blog.html">
- <span class="dropdown-text">Other Blogs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
 </ul>
-              <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Spring 2023: MAC1140 PreCalculus Algebra</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">Spring 2023: MAC1140 PreCalculus Algebra</h1>
 </div>
 
 
@@ -417,222 +339,59 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </header>
 
 
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
 <div style="text-align: justify">
 <p>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<br> <br> As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</p>
 </div>
 
 
-<!-- -->
-
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
-// Internal navigation stays in the current tab.
-// External links open in a new tab.
 document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-
-    if (
-      !href ||
-      href.startsWith('#') ||
-      href.startsWith('javascript:')
-    ) {
-      return;
-    }
-
-    // Email and telephone links do not need a new browser tab
-    if (href.startsWith('mailto:') || href.startsWith('tel:')) {
-      link.removeAttribute('target');
-      return;
-    }
-
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
     try {
-      const url = new URL(href, window.location.href);
-      const isExternal = url.origin !== window.location.origin;
-
-      if (isExternal) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-      } else {
-        link.removeAttribute('target');
-        link.removeAttribute('rel');
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
-    } catch (e) {
-      // Leave unusual links untouched
-    }
+    } catch (e) {}
   });
 
-
-  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const source = document.getElementById(button.dataset.copyTarget);
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
-
-      const citation = source.textContent.trim();
-      const previous = button.textContent;
-      button.textContent = 'Copied';
-
-      const fallbackCopy = function () {
-        const field = document.createElement('textarea');
-        field.value = citation;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand('copy');
-        field.remove();
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
       };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(citation).catch(fallbackCopy);
-      } else {
-        fallbackCopy();
-      }
-
-      setTimeout(function () {
-        button.textContent = previous;
-      }, 1600);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
     });
   });
 
-
-  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-
-      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
-        if (other !== details) other.removeAttribute('open');
-      });
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
     });
   });
-
-
-  document.addEventListener('click', function (event) {
-    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) {
-        details.removeAttribute('open');
-      }
-    });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const social = document.querySelector(".research-sidebar-social");
-  const toc = document.getElementById("TOC");
-  if (social && toc) {
-    social.hidden = false;
-    toc.appendChild(social);
-  }
-
-  const canvas = document.getElementById("research-density-animation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const width = canvas.width;
-  const height = canvas.height;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let time = 0;
-
-  function palette() {
-    const dark = document.body.classList.contains("quarto-dark");
-    return dark ? {
-      background: "#fbfbf8",
-      contourA: "rgba(12, 18, 17, 0.72)",
-      contourB: "rgba(12, 18, 17, 0.5)",
-      trace: "rgba(12, 18, 17, 0.66)",
-      point: "#050706",
-      core: "12, 18, 17"
-    } : {
-      background: "#080a09",
-      contourA: "rgba(255, 255, 255, 0.76)",
-      contourB: "rgba(255, 255, 255, 0.54)",
-      trace: "rgba(255, 255, 255, 0.7)",
-      point: "#ffffff",
-      core: "255, 255, 255"
-    };
-  }
-
-  function densityCore(cx, cy, radius, rgb) {
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
-    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
-    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function contour(cx, cy, rx, ry, rotation, color, phase) {
-    for (let level = 1; level <= 13; level += 1) {
-      const scale = 0.22 + level * 0.062;
-      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
-      ctx.stroke();
-    }
-  }
-
-  function samplePath(cx, cy, rx, ry, direction, color, phase) {
-    ctx.beginPath();
-    for (let index = 0; index < 105; index += 1) {
-      const age = index / 104;
-      const theta = direction * (phase * 0.55 + index * 0.29);
-      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
-      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
-      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
-      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-
-    const theta = direction * (phase * 0.55 + 104 * 0.29);
-    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
-    return {
-      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
-      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
-    };
-  }
-
-  function draw() {
-    const colors = palette();
-    ctx.fillStyle = colors.background;
-    ctx.fillRect(0, 0, width, height);
-
-    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
-    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
-
-    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
-    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
-
-    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
-    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
-
-    [left, right].forEach(function (point) {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = colors.point;
-      ctx.fill();
-    });
-  }
-
-  draw();
-  if (reduceMotion) return;
-
-  function animate() {
-    time += 0.035;
-    draw();
-    window.requestAnimationFrame(animate);
-  }
-  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -650,13 +409,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -699,14 +451,13 @@ document.addEventListener("DOMContentLoaded", function () {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -718,57 +469,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
-        for (let i=0; i<cellDetails.length; i++) {
-          const details = cellDetails[i];
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -786,6 +486,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1098,93 +803,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Spring 2023: MAC1140 PreCalculus Algebra"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">collection:</span><span class="co"> teaching</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">type:</span><span class="co"> "Instructor of Record"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">permalink:</span><span class="co"> /teaching/2023-spring-teaching</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">venue:</span><span class="co"> "Department of Mathematics, Florida State University"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2023-05-04</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="an">location:</span><span class="co"> "Tallahassee, Florida"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>PreCalculus and Algebra are one of the many important foundation math courses that open doors to many upper-level math and science courses. The topic of this course includes but not is limited to Complex Numbers, Piecewise Functions, Quadratic Functions, Polynomial Functions, Polynomial Division, Zeros of Polynomials, Rational Functions, Polynomial and Rational Inequalities, Inverse Functions, Exponential Functions, Logarithmic Functions, Properties of Logarithms, Exponential and Logarithmic Equations, and so on.<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>As an Instructor of Record for this course, I taught a class of 27 undergraduate students from different majors. I also proctor their lab classes where they take their quizzes and tests online and other application based lab activities.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.10.18</p>
+<div class="foot-col">
+<p><a class="foot-mark" href="../index.html" aria-label="Home"><img src="../_assets/images/mri-logo.svg" alt="MRI"></a> <span>Copyright 2026 @ Dr.&nbsp;Rafiq Islam</span> <span>All rights reserved</span> <span><a href="../LICENSE.txt">License</a></span> <span>Powered by <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
 </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- Copyright 2026 @ Rafiq Islam
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../license.txt">
-<p>License</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../research.html">
-<p>Research</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../teaching.html">
-<p>Teaching</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../cv.html">
-<p>CV</p>
-</a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<p><strong>Contact</strong> <span>Department of Mathematics</span> <span>Iowa State University</span> <span>Room 461, Carver Hall</span> <span>411 Morrill Road</span> <span>Ames, IA 50011</span> <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span></p>
+</div>
+</div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
-      <i class="bi bi-youtube" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
-      <i class="bi bi-envelope" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<strong>Connect</strong>
+<div class="foot-links">
+<p><a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a> <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a> <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a> <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a></p>
+</div>
+</div>
+</div>
   </div>
 </footer>
 

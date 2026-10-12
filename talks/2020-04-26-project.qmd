@@ -9,7 +9,4 @@ date: 2020-04-28
 location: "Youngstown, Ohio"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
 A copy of the presentation can be found <a href="/_assets/documents/Project_Presentation%20(1).pdf" target="_blank"> here </a>

@@ -19,56 +19,21 @@ bibliography: ../../biblio.bib
 google-scholar: true
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>  
-
 <p style="text-align: justify">
     Cryptocurrencies are currently traded worldwide, with hundreds of different currencies in existence and even more on the way. This study implements some statistical and machine learning approaches for cryptocurrency investments. First, we implement GJR-GARCH over the GARCH model to estimate the volatility of ten popular cryptocurrencies based on market capitalization: Bitcoin, Bitcoin Cash, Bitcoin SV, Chainlink, EOS, Ethereum, Litecoin, TETHER, Tezos, and XRP. Then, we use Monte Carlo simulations to generate the conditional variance of the cryptocurrencies using the GJR-GARCH model, and calculate the value at risk (VaR) of the simulations. We also estimate the tail-risk using VaR backtesting. Finally, we use an artificial neural network (ANN) for predicting the prices of the ten cryptocurrencies. The graphical analysis and mean square errors (MSEs) from the ANN models confirmed that the predicted prices are close to the market prices. For some cryptocurrencies, the ANN models perform better than traditional ARIMA models.
 </p>
 
 ```{=html}
-<div class="text-center">
-    <a class="pdf-button" href="/publication/pub2/paper2.pdf" target="_blank">
-        <img src="/_assets/images/pdf1.png" alt="Download a PDF">
-    </a>
-    <a class="mdpi-button" href="https://www.mdpi.com/1911-8074/14/9/421" target="_blank">
-        <img src="/_assets/images/mdpi.png" alt="MDPI Journal">
-    </a>
-</div>
+<div class="paper-links"><a href="/publication/pub2/paper2.pdf"><i class="bi bi-file-earmark-pdf"></i> PDF</a><a href="https://www.mdpi.com/1911-8074/14/9/421"><i class="bi bi-box-arrow-up-right"></i> Journal page (MDPI)</a><a href="https://doi.org/10.3390/jrfm14090421"><i class="bi bi-link-45deg"></i> DOI</a></div>
 ```
 
 ---
 
-**Share on**  
-
-::::{.columns}
-:::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/publication/pub2/" target="_blank" style="color:#1877F2; text-decoration: none;">
- 
-{{< fa brands facebook size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/publication/pub2/" target="_blank" style="color:#0077B5; text-decoration: none;">
- 
-{{< fa brands linkedin size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/publication/pub2/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
- 
-{{< fa brands twitter size=3x >}}
-</a>
- 
-:::
-::::
- 
+```{=html}
+<div class="share-row"><span>Share:</span><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/publication/pub2/"><i class="bi bi-facebook"></i> Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/publication/pub2/"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://twitter.com/intent/tweet?url=https://rispace.github.io/publication/pub2/"><i class="bi bi-twitter"></i> Twitter</a></div>
+```
 <script src="https://giscus.app/client.js"
-        data-repo="mrislambd/mrislambd.github.io" 
+        data-repo="mrislambd/rispace.github.io" 
         data-repo-id="R_kgDOMV8crA"
         data-category="Announcements"
         data-category-id="DIC_kwDOMV8crM4CjbQW"
@@ -86,4 +51,4 @@ google-scholar: true
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/publication/pub2/" data-width="750" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://rispace.github.io/publication/pub2/" data-width="750" data-numposts="5"></div>

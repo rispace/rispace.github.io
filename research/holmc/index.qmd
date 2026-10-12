@@ -28,47 +28,14 @@ our proposed algorithms.
 </p>
 
 ```{=html}
-<div class="text-center">
-    <a class="arxiv-button" href="https://arxiv.org/abs/2508.17545" target="_blank">
-        <img src="/_assets/images/arxiv.png" alt="View on arXiv">
-    </a>
-
-    <a class="pdf-button" href="/_assets/documents/2508.17545v1.pdf" target="_blank">
-        <img src="/_assets/images/pdf1.png" alt="Download a PDF">
-    </a>
-</div>
+<div class="paper-links"><a href="https://arxiv.org/abs/2508.17545"><i class="bi bi-journal-text"></i> arXiv</a><a href="/_assets/documents/2508.17545v1.pdf"><i class="bi bi-file-earmark-pdf"></i> PDF</a></div>
 ```  
 
 --- 
 
-**Share on**  
-
-::::{.columns}
-:::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/research/holmc/" target="_blank" style="color:#1877F2; text-decoration: none;">
- 
-{{< fa brands facebook size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/research/holmc/" target="_blank" style="color:#0077B5; text-decoration: none;">
- 
-{{< fa brands linkedin size=3x >}}
-</a>
- 
-:::
- 
-:::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://rispace.github.io/research/holmc/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
- 
-{{< fa brands twitter size=3x >}}
-</a>
- 
-:::
-::::
- 
+```{=html}
+<div class="share-row"><span>Share:</span><a href="https://www.facebook.com/sharer.php?u=https://rispace.github.io/research/holmc/"><i class="bi bi-facebook"></i> Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://rispace.github.io/research/holmc/"><i class="bi bi-linkedin"></i> LinkedIn</a><a href="https://twitter.com/intent/tweet?url=https://rispace.github.io/research/holmc/"><i class="bi bi-twitter"></i> Twitter</a></div>
+```
 <script src="https://giscus.app/client.js"
         data-repo="rispace/rispace.github.io"
         data-repo-id="R_kgDOPdB7AQ"

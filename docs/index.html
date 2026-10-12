@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mohammad Rafiqul Islam</title>
+<title>Probability, Sampling &amp; Stochastic Optimization – Mohammad Rafiqul Islam</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -70,23 +35,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href=".//_assets/images/favicon.ico" rel="icon">
+<link href="./_assets/images/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d1d47b186ed51bd716350a6c0df4baf.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-dc6f50355c98770d0e624658394cd635.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0d1d47b186ed51bd716350a6c0df4baf.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8598d2e4dfd393001eb172495299b792.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d4574cdef541e0fa40919a8962586ab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8cd1e16287bf56d05b1f98d5732a2233.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7ef214892f0830bd8165588640b97112.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8cd1e16287bf56d05b1f98d5732a2233.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -124,21 +86,49 @@ gtag('js', new Date());
 gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
+<link rel="icon" type="image/svg+xml" href="./_assets/images/favicon.svg">
+<link rel="apple-touch-icon" href="./_assets/images/apple-touch-icon.png">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Mohammad Rafiqul Islam">
-<meta property="og:image" content="https://rispace.github.io/_assets/images/new-profile.jpeg">
+<meta property="og:title" content="Probability, Sampling &amp; Stochastic Optimization">
+<meta property="og:image" content="https://rispace.github.io/_assets/images/rafiq-islam.jpeg">
 <meta property="og:site_name" content="Mohammad Rafiqul Islam">
-<meta property="og:image:alt" content="Profile Picture">
-<meta name="twitter:title" content="Mohammad Rafiqul Islam">
-<meta name="twitter:image" content="https://rispace.github.io/_assets/images/new-profile.jpeg">
-<meta name="twitter:image:alt" content="Profile Picture">
+<meta name="twitter:title" content="Probability, Sampling &amp; Stochastic Optimization">
+<meta name="twitter:image" content="https://rispace.github.io/_assets/images/rafiq-islam.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -307,8 +297,9 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://rispace.github.io/">
-    <span class="navbar-title">MRI</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo light-content">
+    <img src="./_assets/images/mri-logo.svg" alt="MRI — Mohammad Rafiqul Islam, home" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -330,313 +321,232 @@ gtag('config', 'G-J42B20L4ER', { 'anonymize_ip': true});
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-blog" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Blog</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-blog">    
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/dsandml/">
- <span class="dropdown-text">Data Science and Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/letscode/">
- <span class="dropdown-text">Data Structure and Algorithm</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://rispace.github.io/statandprob/">
- <span class="dropdown-text">Statistics and Probability</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./blog.html">
- <span class="dropdown-text">Other Blogs</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Notebook</span></a>
   </li>  
 </ul>
-              <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
-  
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
 
 
 
-<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528" crossorigin="anonymous"></script>
-<div class="columns home-columns">
-<div class="column home-profile" style="width:37%;">
-<p><img align="center" src="./_assets/images/new-profile.jpeg" class="oval-image" alt="Profile Picture" style="align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px"></p>
-<section id="rafiq-islam-ph.d." class="level2">
-<h2 class="anchored" data-anchor-id="rafiq-islam-ph.d.">Rafiq Islam, Ph.D.&nbsp;</h2>
-<p>Postdoctoral Research Associate<br>
-Department of Mathematics<br>
-<a href="https://iastate.edu" target="_blank" style="text-decoration:none">Iowa State University</a></p>
-<p><span style="font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;">Contact</span><br>
-Email: <a href="mailto:mir@iastate.edu" style="text-decoration:none"> mir@iastate.edu</a><br>
-Office: <a href="https://maps.app.goo.gl/AXzBwijj2KkxnFDK9" target="_blank" style="text-decoration:none"> Carver Hall: Room 461</a><br>
-Office Hours: TBA<br></p>
-<p><i class="ai  ai-GitHub" aria-label="GitHub"></i></p>
-</section>
-</div><div class="column home-spacer" style="width:2%;">
-
-</div><div class="column home-biography" style="width:61%;">
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p style="text-align: justify">
-Hi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am a Probability Theory Postdoctoral Research Associate in the Mathematics Department at Iowa State University. I am working under the mentorship of professor <a href="https://faculty.sites.iastate.edu/dherzog/" style="text-decoration:none" target="_blank"> David P. Herzog</a>. I obtained my Ph.D.&nbsp;in Mathematics from Florida State University in the summer of 2026. My Ph.D.&nbsp;research was conducted under the supervision of professor <a href="https://www.math.fsu.edu/DepartmentNews/Articles/Fac_Zhu.math" style="text-decoration:none" target="_blank"> Lingjiong Zhu</a>. <br> <br> I hold a Bachelor of Science (BS) in Mathematics degree from the <a href="https://www.du.ac.bd" style="text-decoration: none" target="_blank"> University of Dhaka, Bangladesh</a>, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master’s degree in Applied Mathematics from the same institution. During my master’s studies, I pursued actuarial exams and passed several professional exams from the <a href="https://www.ifoa.org.uk" style="text-decoration:none" target="_blank">Institute and Faculty of Actuaries (IFoA), UK </a> which are equivalent to the exams P, FM, and Life Contingencies of <a href="https://www.soa.org" style="text-decoration:none" target="_blank"> Society of Actuaries (SOA), USA </a>. With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.<br> <br> In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at <a href="https://www.ysu.edu" style="text-decoration:none" target="_blank">Youngstown State University, Ohio</a>. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D.&nbsp;in Mathematics with a focus on Theoretical Machine Learning
+<div class="wrap">
+<div class="home-hero">
+<div class="hero-text">
+<h1>
+Mohammad Rafiqul Islam
+</h1>
+<div class="role">
+<b>Ph.D.&nbsp;in Mathematics</b> · Florida State University
+</div>
+<p class="lede">
+I design and analyze Langevin algorithms: Markov chain Monte Carlo methods for sampling high-dimensional distributions across networks of agents, inside constrained domains, and at higher orders of accuracy. At Iowa State I work with David&nbsp;P.&nbsp;Herzog. I earned my Ph.D.&nbsp;at Florida State University in 2026, advised by Lingjiong&nbsp;Zhu.
 </p>
-</section>
+<div class="btn-row">
+<p><a class="btn-r solid" href="./research.html">Research &amp; papers <i class="bi bi-arrow-right"></i></a> <a class="btn-r solid" href="_assets/documents/CV.pdf"><i class="bi bi-file-earmark-text"></i> CV (PDF)</a> <a class="btn-r solid" href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i> Email</a></p>
+</div>
+<div class="hero-meta">
+<p><span><i class="bi bi-geo-alt"></i> Carver Hall 461, Ames, IA</span> <span><i class="bi bi-mortarboard"></i> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en">Google Scholar</a></span> <span><i class="bi bi-github"></i> <a href="https://github.com/rispace">GitHub</a></span></p>
+</div>
+</div>
+<figure class="portrait-arch figure">
+<span class="arch" aria-hidden="true"></span><img src="_assets/images/rafiq-cutout.png" alt="Portrait of Mohammad Rafiqul Islam" class="figure-img">
+</figure>
+</div>
+</div>
+<div class="band">
+<div class="wrap">
+<div class="band-head">
+<h2>
+Research directions
+</h2>
+<p><a class="text-link" href="./research.html">All research</a></p>
+</div>
+<div class="theme-grid">
+<div class="theme-card">
+<div class="num">
+<span>I.</span><span class="status">current · 2026</span>
+</div>
+<h3>
+Constrained dynamics with singular repulsion
+</h3>
+<p>
+Collision-free stochastic particle systems inside a constrained domain, and numerical schemes that stay stable near the singularity without creating artificial collisions. Joint work with D.&nbsp;P.&nbsp;Herzog.
+</p>
+<div class="refs">
+<a href="research/singular-langevin/" target="_blank">Project overview</a>
+</div>
+</div>
+<div class="theme-card">
+<div class="num">
+<span>II.</span><span class="status">2024 – 2026</span>
+</div>
+<h3>
+Decentralized Bayesian sampling
+</h3>
+<p>
+Agents on a network sample a shared posterior without pooling their data. This line of work removes network bias with EXTRA-type corrections and handles convex constraints through proximal regularization.
+</p>
+<div class="refs">
+<a href="research/extrasgld/" target="_blank">Generalized EXTRA SGLD</a><a href="research/dpsgld/" target="_blank">Decentralized Proximal SGLD</a>
+</div>
+</div>
+<div class="theme-card">
+<div class="num">
+<span>III.</span><span class="status">2025</span>
+</div>
+<h3>
+High-order Langevin Monte Carlo
+</h3>
+<p>
+Samplers built from <span class="math inline">\(P\)</span>-th order Langevin dynamics through splitting and accurate integration. Their Wasserstein guarantees depend better on the dimension and the accuracy level as the order grows.
+</p>
+<div class="refs">
+<a href="research/holmc/" target="_blank">High-Order Langevin Monte Carlo</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="band tint">
+<div class="wrap">
+<div class="two-col">
+<div>
+<h2>
+News
+</h2>
+<ul class="news">
+<li>
+<time>sep 2026</time><span>Talk on <strong>scalable sampling via Langevin dynamics</strong> at the Analysis, Geometry &amp; Probability Seminar, Iowa State.</span>
+</li>
+<li>
+<time>aug 2026</time><span>Joined <strong>Iowa State University</strong> as a postdoctoral research associate in probability.</span>
+</li>
+<li>
+<time>jul 2026</time><span>Completed my <strong>Ph.D.&nbsp;at Florida State</strong>: <em>Advances in Langevin Algorithms for Decentralized, Constrained, and Accelerated Sampling.</em></span>
+</li>
+<li>
+<time>apr 2026</time><span>Received FSU’s <strong>Distinguished Teaching Assistant Award</strong> and the <strong>Tam Family Excellence in Graduate Student Research Award</strong>.</span>
+</li>
+</ul>
+</div>
+<div>
+<h2>
+Selected papers
+</h2>
+<ol class="mini-pubs">
+<li>
+<a class="t" href="research/dpsgld/" target="_blank">Decentralized Proximal Stochastic Gradient Langevin Dynamics</a><span class="by"><b>M. R. Islam</b>, L. Zhu · arXiv 2026</span>
+</li>
+<li>
+<a class="t" href="research/holmc/" target="_blank">High-Order Langevin Monte Carlo Algorithms</a><span class="by">T. L. Dang, M. Gürbüzbalaban, <b>M. R. Islam</b>, N. Yao, L. Zhu · arXiv 2025</span>
+</li>
+<li>
+<a class="t" href="research/extrasgld/" target="_blank">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a><span class="by">M. Gürbüzbalaban, <b>M. R. Islam</b>, X. Wang, L. Zhu · arXiv 2024</span>
+</li>
+<li>
+<a class="t" href="publication/pub2/" target="_blank">GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies</a><span class="by">F. Mostafa, P. Saha, <b>M. R. Islam</b>, N. Nguyen · J. Risk Financial Manag. 2021</span>
+</li>
+</ol>
+<p style="margin-top:1.1rem">
+<a class="text-link" href="./research.html#publications" target="_blank">Full publication list</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="band">
+<div class="wrap">
+<div class="teach-band">
+<figure class="photo-frame figure">
+<img src="_assets/images/teaching.png" alt="Rafiq Islam teaching calculus at a chalkboard" loading="lazy" class="figure-img">
+</figure>
+<div>
+<h2 style="margin-top:0">
+Teaching
+</h2>
+<blockquote class="pull blockquote">
+You played a large part in convincing me that I am capable of learning difficult subjects.
+</blockquote>
+<span class="pull-cite">Student evaluation, MAP 2302 Ordinary Differential Equations, Summer 2026</span>
+<p style="color:var(--muted)">
+I have taught calculus, differential equations, precalculus, and actuarial mathematics since 2018. This fall I lead Calculus III recitations at Iowa State.
+</p>
+<p><a class="text-link" href="./teaching.html" target="_blank">Courses &amp; student feedback</a></p>
+</div>
+</div>
 </div>
 </div>
 
 
-<!-- -->
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script>
-// Internal navigation stays in the current tab.
-// External links open in a new tab.
 document.addEventListener("DOMContentLoaded", function () {
-
-  document.querySelectorAll('a[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-
-    if (
-      !href ||
-      href.startsWith('#') ||
-      href.startsWith('javascript:')
-    ) {
-      return;
-    }
-
-    // Email and telephone links do not need a new browser tab
-    if (href.startsWith('mailto:') || href.startsWith('tel:')) {
-      link.removeAttribute('target');
-      return;
-    }
-
+  // External links open in a new tab; internal navigation stays put.
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (!href || href.charAt(0) === "#" || href.indexOf("javascript:") === 0) return;
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) { link.removeAttribute("target"); return; }
     try {
-      const url = new URL(href, window.location.href);
-      const isExternal = url.origin !== window.location.origin;
-      const shouldOpenInNewTab = isExternal || link.classList.contains('term-link');
-
-      if (shouldOpenInNewTab) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-      } else {
-        link.removeAttribute('target');
-        link.removeAttribute('rel');
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin || /\.pdf($|[#?])/i.test(url.pathname)) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
       }
-    } catch (e) {
-      // Leave unusual links untouched
-    }
+    } catch (e) {}
   });
 
-
-  document.querySelectorAll('.bibtex-copy').forEach(function (button) {
-    button.addEventListener('click', function () {
-      const source = document.getElementById(button.dataset.copyTarget);
+  // BibTeX: copy button
+  document.querySelectorAll(".bibtex-copy").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var source = document.getElementById(button.dataset.copyTarget);
       if (!source) return;
-
-      const citation = source.textContent.trim();
-      const previous = button.textContent;
-      button.textContent = 'Copied';
-
-      const fallbackCopy = function () {
-        const field = document.createElement('textarea');
-        field.value = citation;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand('copy');
-        field.remove();
+      var text = source.textContent.trim();
+      var label = button.textContent;
+      var fallback = function () {
+        var t = document.createElement("textarea");
+        t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
       };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(citation).catch(fallbackCopy);
-      } else {
-        fallbackCopy();
-      }
-
-      setTimeout(function () {
-        button.textContent = previous;
-      }, 1600);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(fallback);
+      else fallback();
+      button.textContent = "Copied";
+      setTimeout(function () { button.textContent = label; }, 1600);
     });
   });
 
-
-  document.querySelectorAll('.bibtex-dropdown').forEach(function (details) {
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-
-      document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (other) {
-        if (other !== details) other.removeAttribute('open');
-      });
+  // BibTeX: only one panel open; click outside closes
+  var panels = document.querySelectorAll(".bibtex-dropdown");
+  panels.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      panels.forEach(function (o) { if (o !== d) o.removeAttribute("open"); });
     });
   });
-
-
-  document.addEventListener('click', function (event) {
-    document.querySelectorAll('.bibtex-dropdown[open]').forEach(function (details) {
-      if (!details.contains(event.target)) {
-        details.removeAttribute('open');
-      }
-    });
+  document.addEventListener("click", function (ev) {
+    panels.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.removeAttribute("open"); });
   });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const social = document.querySelector(".research-sidebar-social");
-  const toc = document.getElementById("TOC");
-  if (social && toc) {
-    social.hidden = false;
-    toc.appendChild(social);
-  }
-
-  const canvas = document.getElementById("research-density-animation");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  const width = canvas.width;
-  const height = canvas.height;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let time = 0;
-
-  function palette() {
-    const dark = document.body.classList.contains("quarto-dark");
-    return dark ? {
-      background: "#fbfbf8",
-      contourA: "rgba(12, 18, 17, 0.72)",
-      contourB: "rgba(12, 18, 17, 0.5)",
-      trace: "rgba(12, 18, 17, 0.66)",
-      point: "#050706",
-      core: "12, 18, 17"
-    } : {
-      background: "#080a09",
-      contourA: "rgba(255, 255, 255, 0.76)",
-      contourB: "rgba(255, 255, 255, 0.54)",
-      trace: "rgba(255, 255, 255, 0.7)",
-      point: "#ffffff",
-      core: "255, 255, 255"
-    };
-  }
-
-  function densityCore(cx, cy, radius, rgb) {
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-    gradient.addColorStop(0, "rgba(" + rgb + ",0.94)");
-    gradient.addColorStop(0.24, "rgba(" + rgb + ",0.48)");
-    gradient.addColorStop(1, "rgba(" + rgb + ",0)");
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function contour(cx, cy, rx, ry, rotation, color, phase) {
-    for (let level = 1; level <= 13; level += 1) {
-      const scale = 0.22 + level * 0.062;
-      const wobble = 1 + 0.018 * Math.sin(phase + level * 0.7);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * scale * wobble, ry * scale, rotation, 0, Math.PI * 2);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = level % 4 === 0 ? 1.8 : 1.05;
-      ctx.stroke();
-    }
-  }
-
-  function samplePath(cx, cy, rx, ry, direction, color, phase) {
-    ctx.beginPath();
-    for (let index = 0; index < 105; index += 1) {
-      const age = index / 104;
-      const theta = direction * (phase * 0.55 + index * 0.29);
-      const radius = 0.18 + 0.6 * age + 0.045 * Math.sin(index * 1.71 + phase);
-      const x = cx + rx * radius * Math.cos(theta) + 7 * Math.sin(index * 0.83);
-      const y = cy + ry * radius * Math.sin(theta) + 5 * Math.cos(index * 0.67);
-      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-
-    const theta = direction * (phase * 0.55 + 104 * 0.29);
-    const radius = 0.78 + 0.045 * Math.sin(104 * 1.71 + phase);
-    return {
-      x: cx + rx * radius * Math.cos(theta) + 7 * Math.sin(104 * 0.83),
-      y: cy + ry * radius * Math.sin(theta) + 5 * Math.cos(104 * 0.67)
-    };
-  }
-
-  function draw() {
-    const colors = palette();
-    ctx.fillStyle = colors.background;
-    ctx.fillRect(0, 0, width, height);
-
-    densityCore(width * 0.34, height * 0.49, width * 0.13, colors.core);
-    densityCore(width * 0.68, height * 0.51, width * 0.12, colors.core);
-
-    contour(width * 0.34, height * 0.49, width * 0.29, height * 0.34, -0.34, colors.contourA, time);
-    contour(width * 0.68, height * 0.51, width * 0.25, height * 0.38, 0.38, colors.contourB, -time * 0.8);
-
-    const left = samplePath(width * 0.34, height * 0.49, width * 0.27, height * 0.31, 1, colors.trace, time);
-    const right = samplePath(width * 0.68, height * 0.51, width * 0.23, height * 0.35, -1, colors.trace, time + 2.2);
-
-    [left, right].forEach(function (point) {
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = colors.point;
-      ctx.fill();
-    });
-  }
-
-  draw();
-  if (reduceMotion) return;
-
-  function animate() {
-    time += 0.035;
-    draw();
-    window.requestAnimationFrame(animate);
-  }
-  window.requestAnimationFrame(animate);
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
@@ -654,13 +564,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -723,57 +626,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       clipboardModal.on('success', onCopySuccess);
     }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
-        for (let i=0; i<cellDetails.length; i++) {
-          const details = cellDetails[i];
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
-    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/rispace\.github\.io\/");
@@ -790,6 +642,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1102,119 +959,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> async src</span><span class="op">=</span><span class="st">"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">     crossorigin</span><span class="op">=</span><span class="st">"anonymous"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>:::: {.columns .home-columns}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.column .home-profile width="37%"}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> align</span><span class="op">=</span><span class="st">"center"</span><span class="ot"> src</span><span class="op">=</span><span class="st">'/_assets/images/new-profile.jpeg'</span><span class="ot"> class</span><span class="op">=</span><span class="st">'oval-image'</span><span class="ot"> alt</span><span class="op">=</span><span class="st">'Profile Picture'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'align-right; margin-left: 2px; margin-bottom: 5px; margin-top: 30px'</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rafiq Islam, Ph.D.  </span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Postdoctoral Research Associate  </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Department of Mathematics    </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">'https://iastate.edu'</span><span class="ot"> target</span><span class="op">=</span><span class="st">'_blank'</span><span class="ot"> style</span><span class="op">=</span><span class="st">'text-decoration:none'</span><span class="dt">&gt;</span>Iowa State University<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> style</span><span class="op">=</span><span class="st">'font-size: 1.1em; font-weight: bold; margin-top: 50px; margin-bottom: 50px;'</span><span class="dt">&gt;</span>Contact<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    Email: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"mailto:mir@iastate.edu"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> mir@iastate.edu<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    Office: <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://maps.app.goo.gl/AXzBwijj2KkxnFDK9"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="dt">&gt;</span> Carver Hall: Room 461<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    Office Hours: TBA<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>{{&lt; ai GitHub &gt;}}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>:::  </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>::: {.column .home-spacer width="2%"}</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>::: {.column .home-biography width="61%"}</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## About</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-align: justify"</span><span class="dt">&gt;</span>   </span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    Hi, thank you and welcome to my website. My name is Mohammad Rafiqul Islam (Rafiq Islam), and I am</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    a Probability Theory Postdoctoral Research Associate in the Mathematics Department at Iowa State University. I am working under the mentorship of professor <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://faculty.sites.iastate.edu/dherzog/"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span> David P. Herzog<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>. I obtained my Ph.D. in Mathematics from Florida State University in the summer of 2026. My Ph.D. research was conducted under the supervision of professor <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.math.fsu.edu/DepartmentNews/Articles/Fac_Zhu.math"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span> Lingjiong Zhu<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>. <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    I hold a Bachelor of Science (BS) in Mathematics degree from the <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.du.ac.bd"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration: none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span> University of Dhaka, Bangladesh<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>, with minors in Statistics, Physics, and Computer Science. I also completed an integrated master's degree in Applied Mathematics from the same institution. During my master's studies, I pursued actuarial exams and passed several professional exams from the <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.ifoa.org.uk"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Institute and Faculty of Actuaries (IFoA), UK <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span> which are equivalent to the exams P, FM, and Life Contingencies of <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.soa.org"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span> Society of Actuaries (SOA), USA <span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>. With this background, I began my professional career in the life insurance industries in Bangladesh, working for two years at two prominent life insurance companies.<span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    In 2018, I moved to the United States to pursue a second master’s degree in Mathematics, specializing in Statistics and Data Analytics, at <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://www.ysu.edu"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"text-decoration:none"</span><span class="ot"> target</span><span class="op">=</span><span class="st">"_blank"</span><span class="dt">&gt;</span>Youngstown State University, Ohio<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>. During my studies and professional work, I developed a deeper interest in data science, machine learning, and research, which ultimately led me to pursue a Ph.D. in Mathematics with a focus on Theoretical Machine Learning</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span>  </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>::::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Powered by <a href="https://quarto.org/">Quarto</a> 1.10.18</p>
+<div class="foot-col">
+<p><a class="foot-mark" href="./index.html" aria-label="Home"><img src="./_assets/images/mri-logo.svg" alt="MRI"></a> <span>Copyright 2026 @ Dr.&nbsp;Rafiq Islam</span> <span>All rights reserved</span> <span><a href="./LICENSE.txt">License</a></span> <span>Powered by <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
 </div>   
     <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
- Copyright 2026 @ Rafiq Islam
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./license.txt">
-<p>License</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./research.html">
-<p>Research</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./teaching.html">
-<p>Teaching</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./cv.html">
-<p>CV</p>
-</a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<p><strong>Contact</strong> <span>Department of Mathematics</span> <span>Iowa State University</span> <span>Room 461, Carver Hall</span> <span>411 Morrill Road</span> <span>Ames, IA 50011</span> <span><a href="mailto:mri@iastate.edu">mri@iastate.edu</a></span></p>
+</div>
+</div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/rafiqr35" target="_blank">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://youtube.com/@quanttube" target="_blank">
-      <i class="bi bi-youtube" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="mailto:rafiqfsu@gmail.com?subject&amp;body" target="_blank">
-      <i class="bi bi-envelope" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/" target="_blank">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rispace" target="_blank">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
+<div class="foot-col">
+<strong>Connect</strong>
+<div class="foot-links">
+<p><a href="mailto:mri@iastate.edu"><i class="bi bi-envelope"></i>Email</a> <a href="https://github.com/rispace"><i class="bi bi-github"></i>GitHub</a> <a href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i>LinkedIn</a> <a href="https://scholar.google.com/citations?user=gTz5r68AAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i>YouTube</a> <a href="https://twitter.com/rafiqr35"><i class="bi bi-twitter"></i>Twitter</a></p>
+</div>
+</div>
+</div>
   </div>
 </footer>
 

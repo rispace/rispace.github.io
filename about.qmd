@@ -1,5 +1,60 @@
 ---
-title: "About"
+pagetitle: "About · Rafiq Islam"
+description: "Background, path, and contact details for Rafiq Islam."
+page-layout: custom
 ---
 
-About this site
+::: {.wrap}
+
+::: {.about-grid}
+::: {.portrait}
+<figure class="portrait-frame"><img src="_assets/images/rafiq-islam.jpeg" alt="Portrait of Mohammad Rafiqul Islam"></figure>
+<div class="contact">
+<b>Mohammad Rafiqul Islam</b>
+Postdoctoral Research Associate<br>
+Department of Mathematics, Iowa State University<br>
+[Carver Hall, Room 461](https://maps.app.goo.gl/AXzBwijj2KkxnFDK9) · 411 Morrill Road, Ames, IA 50011<br>
+[mri@iastate.edu](mailto:mri@iastate.edu)
+</div>
+<div class="btn-row" style="margin-top:1.1rem">
+<a class="btn-r" href="https://www.linkedin.com/in/mohammad-rafiqul-islam/"><i class="bi bi-linkedin"></i> LinkedIn</a>
+<a class="btn-r" href="https://youtube.com/@quanttube"><i class="bi bi-youtube"></i> QuantTube</a>
+</div>
+:::
+
+::: {}
+::: {.prose}
+I am a postdoctoral research associate in probability theory in the Mathematics Department at Iowa State University, where I work with [David P. Herzog](https://faculty.sites.iastate.edu/dherzog/). I earned my Ph.D. in Mathematics from Florida State University in summer 2026 under the supervision of [Lingjiong Zhu](https://www.math.fsu.edu/DepartmentNews/Articles/Fac_Zhu.math). My dissertation is *Advances in Langevin Algorithms for Decentralized, Constrained, and Accelerated Sampling*.
+
+I hold a B.S. in Mathematics from the [University of Dhaka](https://www.du.ac.bd), with minors in statistics, physics, and computer science, and an integrated master's in Applied Mathematics from the same university. During my master's I passed several professional exams from the [Institute and Faculty of Actuaries (IFoA)](https://www.ifoa.org.uk), equivalent to the Society of Actuaries' Exams P, FM, and Life Contingencies. I then spent two years in the Bangladeshi life-insurance industry, pricing products, computing reserves, and working with consulting actuaries on actuarial valuations.
+
+In 2018 I moved to the United States for a second master's, in mathematics with a focus on statistics and data analytics, at [Youngstown State University](https://www.ysu.edu) in Ohio. Along the way I became more and more drawn to data science, machine learning, and the mathematics underneath them. That interest led to a Ph.D. in theoretical machine learning, and from there to my current work on stochastic dynamics and sampling.
+:::
+
+<h2 style="font-size:1.35rem;margin:2.6rem 0 1.2rem">The path so far</h2>
+<ol class="path">
+<li class="here"><time>2026 –</time><div><b>Postdoctoral Research Associate</b><span>Iowa State University · probability, with David P. Herzog</span></div></li>
+<li><time>2021 – 26</time><div><b>Ph.D. in Mathematics</b><span>Florida State University · advised by Lingjiong Zhu</span></div></li>
+<li><time>2018 – 20</time><div><b>M.S. in Mathematics</b><span>Youngstown State University · statistics &amp; data analytics; SOA Exams P and FM</span></div></li>
+<li><time>2016 – 18</time><div><b>Life insurance industry</b><span>Sandhani Life (actuarial trainee executive), then Delta Life (assistant vice president), Dhaka</span></div></li>
+<li><time>2014 – 16</time><div><b>B.S. Mathematics &amp; M.S. Applied Mathematics</b><span>University of Dhaka · IFoA professional exams</span></div></li>
+</ol>
+
+<h2 style="font-size:1.35rem;margin:2.6rem 0 1.2rem">Beyond the papers</h2>
+::: {.card-grid}
+::: {.card}
+<span class="meta">Video</span>
+<h3>[QuantTube](https://youtube.com/@quanttube)</h3>
+<p>A YouTube channel for mathematical and quantitative topics.</p>
+:::
+::: {.card}
+<span class="meta">Off the clock</span>
+<h3>Bamboo flute</h3>
+<p>An enthusiastic amateur. I speak Bengali natively and English fluently.</p>
+:::
+:::
+:::
+:::
+:::
+
+<div style="height:4rem"></div>

@@ -14,3 +14,7 @@ We propose Decentralized Proximal Stochastic Gradient Langevin Dynamics (DE-PSGL
 </p>  
 
 <img src="1dsampling_density_compare.png" style="max-width: 100%; height: auto;">  
+
+```{=html}
+<div class="paper-links"><a href="https://arxiv.org/abs/2605.00723"><i class="bi bi-journal-text"></i> arXiv</a><a href="https://arxiv.org/pdf/2605.00723"><i class="bi bi-file-earmark-pdf"></i> PDF</a></div>
+```

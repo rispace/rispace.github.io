@@ -9,11 +9,6 @@ date: 2026-03-03
 location: "Providence, Rhode Island"
 ---  
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6878992848042528"
-     crossorigin="anonymous"></script>
-
-
-
 ```{=html}
 <div style="width: 100%; aspect-ratio: 91.44 / 60.94; margin: 20px 0; border: 1px solid #ccc;">
     <embed 
