@@ -1,21 +1,5 @@
 [
   {
-    "listing": "/research.html",
-    "items": [
-      "/talks/2026-03-03-icerm.html",
-      "/talks/2026-01-30-gradseminar.html",
-      "/talks/2023-11-20-candi.html",
-      "/talks/2023-10-05-st-op.html",
-      "/talks/2020-04-26-project.html"
-    ]
-  },
-  {
-    "listing": "/posts/bengalitrial/index.html",
-    "items": [
-      "/banglablog/welcomepost/index.html"
-    ]
-  },
-  {
     "listing": "/posts/webtemplate/index.html",
     "items": [
       "/posts/eigen/index.html",
@@ -115,29 +99,29 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/eigen/index.html",
-      "/posts/sgd/index.html",
-      "/posts/lu/index.html",
-      "/posts/matrixrep/index.html",
-      "/posts/matmul/index.html",
-      "/posts/mathbiology/index.html",
-      "/posts/someproofs/index.html",
-      "/posts/bengalitrial/index.html"
-    ]
-  },
-  {
-    "listing": "/portfolio.html",
-    "items": [
+      "/portfolio/spd/holmc/index.html",
+      "/portfolio/spd/webapp/index.html",
+      "/portfolio/spd/desgld/index.html",
       "/portfolio/dsp/autoloan/index.html",
       "/portfolio/dsp/nlp-sales/index.html",
       "/portfolio/dsp/medicalcost/index.html",
       "/portfolio/dsp/dp-nlp/index.html",
       "/portfolio/dsp/lendingclub/index.html",
       "/portfolio/dsp/ecommerce/index.html",
-      "/portfolio/dsp/titanic/index.html",
-      "/portfolio/spd/holmc/index.html",
-      "/portfolio/spd/webapp/index.html",
-      "/portfolio/spd/desgld/index.html"
+      "/portfolio/dsp/titanic/index.html"
+    ]
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/bengalitrial/index.html",
+      "/posts/sgd/index.html",
+      "/posts/matmul/index.html",
+      "/posts/lu/index.html",
+      "/posts/mathbiology/index.html",
+      "/posts/eigen/index.html",
+      "/posts/someproofs/index.html",
+      "/posts/matrixrep/index.html"
     ]
   }
 ]
