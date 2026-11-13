@@ -208,6 +208,7 @@ $$x_{k+1} = x_k \;\underbrace{-\,h\,U'(x_k)}_{\text{downhill pull}} \;+\; \under
 :::
 
 <ul class="talks">
+<li><time>Nov 7, 2026</time><div><a class="t" href="talks/2026-11-07-ams.html">Generalized EXTRA Stochastic Gradient Langevin Dynamics</a><span class="where">AMS Fall Western Sectional Meeting · Arizona State University, AZ</span></div><span class="kind">Contributed</span></li>
 <li><time>Sep 9, 2026</time><div><a class="t" href="talks/2026-09-09-isu-agp.html">Scalable Sampling Algorithms via Langevin Dynamics</a><span class="where">Analysis, Geometry and Probability Seminar · Iowa State University</span></div><span class="kind">Seminar</span></li>
 <li><time>Mar 28, 2026</time><div><a class="t" href="talks/2026-03-28-ams.html">Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics</a><span class="where">AMS Spring Eastern Sectional Meeting · Boston College, MA</span></div><span class="kind">Contributed</span></li>
 <li><time>Mar 3, 2026</time><div><a class="t" href="talks/2026-03-03-icerm.html">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</a><span class="where">Bayesian Inverse Problems &amp; UQ · ICERM, Brown University</span></div><span class="kind">Poster</span></li>

@@ -1,0 +1,25 @@
+---
+title: "Generalized EXTRA Stochastic Gradient Langevin Dynamics"
+description: "Contributed talk · AMS 2026 Fall Western Sectional Meeting, Arizona State University"
+collection: talks
+author: "Mert Gürbüzbalaban, Mohammad Rafiqul Islam, Xiaoyu Wang, Lingjiong Zhu"
+type: "Contributed talk"
+permalink: /talks/2026-11-07-ams
+venue: "AMS 2026 Fall Western Sectional Meeting, Arizona State University"
+date: 2026-11-07
+location: "Arizona State University, Arizona"
+language:
+  title-block-published: "Date"
+---
+
+## Abstract
+
+Langevin algorithms are widely used Markov chain Monte Carlo methods for Bayesian learning, enabling posterior sampling from parametric models. Stochastic gradient Langevin dynamics (SGLD) scales these methods to large datasets through updates based on randomly sampled minibatches. However, standard SGLD is unsuitable when data are distributed across agents subject to communication and privacy constraints. Decentralized SGLD (DE-SGLD) enables collaborative Bayesian learning without sharing individual data, but it can introduce network-dependent bias that adversely affects individual agents. For quadratic potentials, we demonstrate that this bias can persist even with full gradients.
+
+Motivated by EXTRA and its generalizations, which eliminate the fixed-point bias of decentralized gradient descent, we propose generalized EXTRA stochastic gradient Langevin dynamics (EXTRA-SGLD). The algorithm combines an EXTRA-inspired correction with stochastic gradient estimates and injected Gaussian noise. We establish an iteration complexity bound that avoids a network-dependent factor present in the corresponding DE-SGLD bound. Because this factor becomes large as network connectivity weakens, our result yields an improved iteration complexity, with significant gains for weakly connected networks.
+
+We complement the theoretical analysis with Bayesian deep learning experiments on MNIST and exact Gaussian experiments. On MNIST, EXTRA-SGLD achieves higher consensus model accuracy, closer agreement among agent parameters, and stable mean and worst-agent accuracies as connectivity weakens. The Gaussian experiments isolate the network-induced stationary mean bias of DE-SGLD and examine EXTRA-SGLD under heterogeneous local Hessians. Together, these results demonstrate the theoretical and empirical advantages of EXTRA-SGLD for decentralized Bayesian learning, particularly in networks where limited connectivity compromises the performance of DE-SGLD.
+
+## Related paper
+
+- [Generalized EXTRA Stochastic Gradient Langevin Dynamics](/research/extrasgld/) · [arXiv:2412.01993](https://arxiv.org/abs/2412.01993)
