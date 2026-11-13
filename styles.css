@@ -683,3 +683,7 @@ body.quarto-dark .portrait-arch::before { inset: calc(2% + 14px) -14px -14px 14p
   .home-hero { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
   .home-hero .portrait-arch { order: -1; justify-self: start; margin: 0; width: min(100%, 23rem); }
 }
+
+/* CV: submission status after a preprint */
+.cv-status { font-style: italic; color: var(--muted); font-size: .92em; }
+.cv-status::before { content: "("; } .cv-status::after { content: ")"; }
