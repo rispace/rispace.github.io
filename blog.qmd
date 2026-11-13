@@ -72,7 +72,7 @@ listing:
 ::: {.band .tint}
 ::: {.wrap}
 ::: {.band-head}
-<div><h2 id="portfolio">Portfolio</h2>
+<div><h2 id="portfolio">Development &amp; Deployment</h2>
 <p>Software I have written and data-science projects I have worked on.</p></div>
 :::
 

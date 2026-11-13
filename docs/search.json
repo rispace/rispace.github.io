@@ -676,7 +676,7 @@
     "href": "portfolio/spd/holmc/index.html",
     "title": "Python Package: holmc",
     "section": "",
-    "text": "A Higher-Order Langevin Monte Carlo Sampler for Bayesian Learning\nHolmc provides third- and fourth-order Langevin MCMC samplers designed for efficient sampling in Bayesian regression and classification problems. The detail of the package can be found here\n\n\n\n Back to topCitationBibTeX citation:@online{islam2025,\n  author = {Islam, Rafiq},\n  title = {Python {Package:} Holmc},\n  date = {2025-08-14},\n  url = {https://rispace.github.io/portfolio/spd/holmc/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nIslam, Rafiq. 2025. “Python Package: Holmc.” August 14,\n2025. https://rispace.github.io/portfolio/spd/holmc/."
+    "text": "A Higher-Order Langevin Monte Carlo Sampler for Bayesian Learning\nHolmc provides third- and fourth-order Langevin MCMC samplers designed for efficient sampling in Bayesian regression and classification problems. The detail of the package can be found here\n\n\n\n Back to topCitationBibTeX citation:@online{islam2025,\n  author = {Islam, Rafiq},\n  title = {Python {Package:} Holmc},\n  date = {2025-08-14},\n  url = {https://rispace.github.io/portfolio/spd/holmc/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nIslam, Rafiq. 2025. “Python Package: Holmc.” August 14. https://rispace.github.io/portfolio/spd/holmc/."
   },
   {
     "objectID": "portfolio/spd/desgld/index.html",
@@ -866,5 +866,75 @@
     "title": "Feature Selection: A linear regression approach to find the impact of the features of e-commerce sales data",
     "section": "Conclusion",
     "text": "Conclusion\n\ncoeff = pd.DataFrame({\n    'Feature': ['Intercept'] + list(X.columns), \n    'Coefficient': [linreg.intercept_] + list(linreg.coef_) \n})\n\ncoeff\n\n\n\n\n\n\n\n\nFeature\nCoefficient\n\n\n\n\n0\nIntercept\n-1054.215476\n\n\n1\nAvg. Session Length\n25.362665\n\n\n2\nTime on App\n38.823679\n\n\n3\nTime on Website\n0.803568\n\n\n4\nLength of Membership\n61.549053"
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html",
+    "href": "portfolio/spd/finance/index.html",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "",
+    "text": "Your money, at a glance. Private by design.\nA free, open-source personal finance app with no server. Your data stays on your device and, if you choose, in a private folder in your own Google Drive.\n\n\n\nOpen the app\n\n\n       \nAbout · Privacy policy · Terms · Report a problem\n\n\n\n      \nScreenshots use made-up demo data."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#about",
+    "href": "portfolio/spd/finance/index.html#about",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "",
+    "text": "Welcome to MiCharge Predictor! This web app is a part of my data science project Insurance Cost Forecast by using Linear Regression, aimed at predicting the medical cost based on various personal and lifestyle factors. By leveraging advanced machine learning techniques, MiCharge Predictor provides an approximate estimates to help users understand potential medical expances.\n\n\n\n\nUser-Friendly Interface: Easily input your personal details and receive instant predictions.\n\nCopmprehensive Data Analysis: Utilizes sophisticated algorithms to analyze factors such as age, BMI, smoking habits, and more.\n\nAccessibility: Available both on web and mobile platforms.\n\n\n\n\n\nInput Your Data: Enter details such as age, gender, BMI, number of children, smoking status, and region.\n\nage: Minimum 18, maximum 100\ngender: Male or Female\nBMI: Minimum 15.0, maximum 60\nnumber of children: Takes values from 0 to 5\nsmoking: Yes or No\nregion: Takes four string input: Northeast, Northwest, Southeast, Southwest\n\nAnalyze: The algorithm process the given input\nGet Prediction: Based on the input, you get the output."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#usage",
+    "href": "portfolio/spd/finance/index.html#usage",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "Usage",
+    "text": "Usage\nYou can use the app directly from streamlit web using this link or just here.."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#features",
+    "href": "portfolio/spd/finance/index.html#features",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "✨ Features",
+    "text": "✨ Features\n\n\n\n\n\n\n\n🧾 Spending\nCategories and subcategories, a monthly donut chart (tap for subcategories and 12-month history), a 12-month trend, search, filters, four sort orders, CSV import/export\n\n\n💵 Earnings\nPaychecks, side income, interest and refunds; monthly totals, savings rate, year-to-date, a 12-month earned-vs-spent chart, filters, sorting and CSV\n\n\n🎯 Budgets\nAn overall monthly limit plus lines you name yourself (“Groceries”, “Netflix, YouTube”), matched automatically to your spending; pace marker; copy last month\n\n\n💳 Credit cards\nBalances, limits, utilization, charges, payments and refunds, limit-change history, monthly summary, CSV\n\n\n🚗 Loans\nCar, mortgage, student and personal loans; each payment is split into interest (estimated from balance × APR × days) and principal\n\n\n🏠 Assets & net worth\nCar, home and savings with value history and equity against linked loans; stocks and ETFs with live prices; uninvested cash\n\n\n🔄 Sync\nOptional: keeps your phone, tablet and computer in sync through your Google Drive\n\n\n📴 Offline\nOpens instantly and works with no connection; changes sync when you’re back online\n\n\n🌗 Light & dark\nFollows your device’s appearance"
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#install",
+    "href": "portfolio/spd/finance/index.html#install",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "📲 Install",
+    "text": "📲 Install\nFinance is a web app you add to your home screen. It then opens full-screen like any other app. There’s no app store and nothing to download.\n👉 Step-by-step guide with pictures: iPhone (including iOS 26’s new Safari), Android and computers.\n\n\n\n📱 iPhone / iPad\n\n\n🤖 Android\n\n\n\n\n\nOpen rispace.github.io/my-finance in Safari\nTap ⋯ next to the address bar, then Share (older iOS: tap Share  directly)\nTap Add to Home Screen, keep Open as Web App on, tap Add\nOpen Finance from your home screen\n\n\n\n\nOpen rispace.github.io/my-finance in Chrome\nTap Install app (or ⋮ → Add to Home screen)\nOpen Finance from your home screen\n\n\n\n\n\n💻 Mac\n\n\n🖥️ Windows / Linux\n\n\n\n\n\nSafari: open the app, then File → Add to Dock\nChrome / Edge: click the install icon at the right of the address bar\n\n\n\n\nChrome / Edge: click the install icon in the address bar, or menu → Install Finance\n\n\n\n\nThen, in the app:\n\nTap Start with starter categories. You can rename or delete them any time.\n(Optional) Settings → Sign in with Google on each device to sync them.\n(Optional) Paste a free Finnhub key in Settings → Stock prices to get live stock prices.\n\n\nTip: use the installed app rather than a browser tab. Browsers may clear data from websites you haven’t visited in a while, but not from installed apps. Signing in to Google adds a second copy, and Settings → Full backup gives you a file you control."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#privacy-data",
+    "href": "portfolio/spd/finance/index.html#privacy-data",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "🔒 Privacy & data",
+    "text": "🔒 Privacy & data\n\nThere is no Finance server. The app is static files on GitHub Pages, and nothing you enter is ever sent to the developer.\nOn your device: all data is stored in the browser’s private storage (IndexedDB).\nIn your Google Drive (optional): signing in grants one permission, drive.appdata. It lets the app keep its own file in a hidden app folder in your Drive. It can’t see any of your other files, and nobody else can read that folder.\nNo ads, analytics, trackers or cookies.\nDelete anytime: Settings → Erase this device. In Google Drive, go to Settings → Manage apps → Finance → Delete hidden app data. To revoke access, use myaccount.google.com/permissions.\n\nFull details are in the privacy policy. Finance’s use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#how-it-works",
+    "href": "portfolio/spd/finance/index.html#how-it-works",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "⚙️ How it works",
+    "text": "⚙️ How it works\n Your phone / laptop                                  Your Google Drive\n┌──────────────────────────────────┐   1-hour pass    ┌────────────────────────┐\n│  App ─▶ IndexedDB (all your data)│ ◀─────────────▶ │ hidden app folder/     │\n│          ▲ instant, works offline│ merge by record │   finance-data.json    │\n└──────────────────────────────────┘                 └────────────────────────┘\n\nEvery record has an id, a last-changed time and a deleted flag. A sync merges your device’s copy with the Drive copy record by record, and the newest edit wins.\nSyncs run when the app opens, about 2 seconds after each change, when you return to the app, and when the connection comes back.\nGoogle sign-in renews silently while you’re signed in to Google. You see Tap to sync only when it can’t."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#for-developers",
+    "href": "portfolio/spd/finance/index.html#for-developers",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "🧑‍💻 For developers",
+    "text": "🧑‍💻 For developers\nNo build step and no dependencies: the files in this repo are the app.\ngit clone https://github.com/rispace/my-finance.git && cd my-finance\npython3 -m http.server 8080          # then open http://localhost:8080\nnode tests/merge.test.mjs && node tests/calc.test.mjs && node tests/earnings.test.mjs\n\n\nProject structure\n\n\n\n\n\n\n\n\nPath\nWhat it does\n\n\n\n\nindex.html, styles.css\nApp shell and design system (light and dark)\n\n\nabout.html, privacy.html, terms.html\nPublic homepage, privacy policy, terms\n\n\nconfig.js\nGoogle OAuth client ID (public; there’s no secret)\n\n\njs/app.js\nStart-up, hash routes, sync scheduling, status chip\n\n\njs/calc.js\nAll money math: dashboard, budgets, cards, loans, portfolio, earnings\n\n\njs/store.js, js/db.js\nIn-memory data and on-device storage (IndexedDB)\n\n\njs/sync.js, js/merge.js, js/drive.js, js/auth.js\nGoogle Drive sync and sign-in\n\n\njs/importer.js, js/csv.js, js/quotes.js\nBackup and CSV import/export, Finnhub prices\n\n\njs/views/*.js\nScreens: overview, activity, earnings, budget, debt, assets, settings\n\n\nsw.js, manifest.webmanifest\nOffline support and installability\n\n\ntests/\nUnit tests with a synthetic backup (no real data)\n\n\n\n\n\n\nReleasing a change\n\n\nMake the change and test locally.\nBump CACHE in sw.js (for example finance-drive-v4). Installed apps only pick up new files when it changes.\nRun git add -A && git commit -m \"…\" && git push. GitHub Pages redeploys in about a minute, and open apps switch to the new version automatically.\n\n\n\n\nRun your own copy\n\nFork the repo and enable GitHub Pages (Settings → Pages → Deploy from branch → main / root). Then create your own Google OAuth client:\n\nIn Google Cloud Console, create a project and enable the Google Drive API.\nGo to Google Auth Platform → Get started. Choose External and fill in the app name and emails.\nUnder Data Access, add the scope https://www.googleapis.com/auth/drive.appdata.\nUnder Clients → Create client → Web application, set the JavaScript origin to https://&lt;you&gt;.github.io and the redirect URI to https://&lt;you&gt;.github.io/&lt;repo&gt;/.\nPut the client ID in config.js.\n\ndocs/GOOGLE_SETUP.md covers publishing and brand verification.\n\n\n\nComing from the older Django “Personal Finance” app?\n\nIn the old app, go to Settings → Full backup → Download. In Finance, go to Settings → Import backup (JSON). Transactions, categories, payment methods, cards, card activity, limit history, loans, payments, stocks and cash all come across. Importing twice doesn’t create duplicates. Budgets and assets weren’t part of the old backup, so set those up once."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#license",
+    "href": "portfolio/spd/finance/index.html#license",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "📄 License",
+    "text": "📄 License\nMIT © 2026 Mohammad Rafiqul Islam\nFigures in the app come from what you enter and from third-party price data. They aren’t financial advice."
+  },
+  {
+    "objectID": "portfolio/spd/finance/index.html#finance",
+    "href": "portfolio/spd/finance/index.html#finance",
+    "title": "Personal Finance WebApp: Finance",
+    "section": "",
+    "text": "Your money, at a glance. Private by design.\nA free, open-source personal finance app with no server. Your data stays on your device and, if you choose, in a private folder in your own Google Drive.\n\n\n\nOpen the app\n\n\n       \nAbout · Privacy policy · Terms · Report a problem\n\n\n\n      \nScreenshots use made-up demo data."
   }
 ]

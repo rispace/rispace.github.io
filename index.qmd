@@ -65,10 +65,11 @@ page-layout: custom
 ::: {}
 <h2>News</h2>
 <ul class="news">
+<li><time>nov 2026</time><span>Contributed Talk on <strong>Generalized EXTRA Stochastic Gradient Langevin dynamics</strong> at the 2026 American Mathematical Society (AMS) Fall Western Sectional Meeting, Arizona State University, Tempe, AZ.</span></li>
 <li><time>sep 2026</time><span>Talk on <strong>scalable sampling via Langevin dynamics</strong> at the Analysis, Geometry &amp; Probability Seminar, Iowa State.</span></li>
 <li><time>aug 2026</time><span>Joined <strong>Iowa State University</strong> as a postdoctoral research associate in probability.</span></li>
 <li><time>jul 2026</time><span>Completed my <strong>Ph.D. at Florida State</strong>: <em>Advances in Langevin Algorithms for Decentralized, Constrained, and Accelerated Sampling.</em></span></li>
-<li><time>apr 2026</time><span>Received FSU's <strong>Distinguished Teaching Assistant Award</strong> and the <strong>Tam Family Excellence in Graduate Student Research Award</strong>.</span></li>
+<!-- <li><time>apr 2026</time><span>Received FSU's <strong>Distinguished Teaching Assistant Award</strong> and the <strong>Tam Family Excellence in Graduate Student Research Award</strong>.</span></li> -->
 </ul>
 :::
 
