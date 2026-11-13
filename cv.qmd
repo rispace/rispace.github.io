@@ -38,7 +38,7 @@ page-layout: custom
 <p class="cvsub">Preprints</p>
 <ol class="cvl">
 <li><b>Islam, M. R.</b> and Zhu, L. [Decentralized Proximal Stochastic Gradient Langevin Dynamics](research/dpsgld/). <i>arXiv:2605.00723</i> (2026). <span class="cv-status">Submitted</span></li>
-<li>Emdad, F. B., Rahman, M. I., and <b>Islam, M. R.</b> Rawls–Shapley Fairness: A Nash-Bargaining Approach to Equitable Machine Learning. <span class="cv-status">Submitted</span></li>
+<li>Emdad, F. B., Rahman, M. I., and <b>Islam, M. R.</b> [Rawls–Shapley Fairness: A Nash-Bargaining Approach to Equitable Machine Learning](https://openreview.net/forum?id=GZxEMfjutA). <i>OpenReview</i>. <span class="cv-status">Submitted</span></li>
 <li>Dang, T., Gürbüzbalaban, M., <b>Islam, M. R.</b>, Yao, N., and Zhu, L. [High-Order Langevin Monte Carlo Algorithms](research/holmc/). <i>arXiv:2508.17545</i> (2025).</li>
 <li>Gürbüzbalaban, M., <b>Islam, M. R.</b>, Wang, X., and Zhu, L. [Generalized EXTRA Stochastic Gradient Langevin Dynamics](research/extrasgld/). <i>arXiv:2412.01993</i> (2024). <span class="cv-status">Submitted, revised</span></li>
 </ol>
