@@ -37,18 +37,20 @@ page-layout: custom
 <section class="cvs"><h2>Publications</h2>
 <p class="cvsub">Preprints</p>
 <ol class="cvl">
-<li><b>Islam, M. R.</b> and Zhu, L. [Decentralized Proximal Stochastic Gradient Langevin Dynamics](research/dpsgld/). <i>arXiv:2605.00723</i> (2026).</li>
+<li><b>Islam, M. R.</b> and Zhu, L. [Decentralized Proximal Stochastic Gradient Langevin Dynamics](research/dpsgld/). <i>arXiv:2605.00723</i> (2026). <span class="cv-status">Submitted</span></li>
+<li>Emdad, F. B., Rahman, M. I., and <b>Islam, M. R.</b> Rawls–Shapley Fairness: A Nash-Bargaining Approach to Equitable Machine Learning. <span class="cv-status">Submitted</span></li>
 <li>Dang, T., Gürbüzbalaban, M., <b>Islam, M. R.</b>, Yao, N., and Zhu, L. [High-Order Langevin Monte Carlo Algorithms](research/holmc/). <i>arXiv:2508.17545</i> (2025).</li>
-<li>Gürbüzbalaban, M., <b>Islam, M. R.</b>, Wang, X., and Zhu, L. [Generalized EXTRA Stochastic Gradient Langevin Dynamics](research/extrasgld/). <i>arXiv:2412.01993</i> (2024).</li>
+<li>Gürbüzbalaban, M., <b>Islam, M. R.</b>, Wang, X., and Zhu, L. [Generalized EXTRA Stochastic Gradient Langevin Dynamics](research/extrasgld/). <i>arXiv:2412.01993</i> (2024). <span class="cv-status">Submitted, revised</span></li>
 </ol>
 <p class="cvsub">Peer-reviewed</p>
-<ol class="cvl" start="4">
+<ol class="cvl" start="5">
 <li>Mostafa, F., Saha, P., <b>Islam, M. R.</b>, and Nguyen, N. [GJR-GARCH volatility modeling under NIG and ANN for predicting top cryptocurrencies](publication/pub2/). <i>Journal of Risk and Financial Management</i> 14(9): 421 (2021).</li>
 <li><b>Islam, M. R.</b> and Nguyen, N. [Comparison of financial models for stock price prediction](publication/pub1/). <i>Journal of Risk and Financial Management</i> 13(8): 181 (2020).</li>
 </ol>
 </section>
 
 <section class="cvs"><h2>Presentations and Talks</h2>
+<div class="ent"><span class="t">Generalized EXTRA Stochastic Gradient Langevin Dynamics</span><span class="d">Nov 7–8, 2026</span><span class="s">Contributed talk, AMS Fall Western Sectional Meeting, Arizona State University</span></div>
 <div class="ent"><span class="t">Scalable Sampling Algorithms via Langevin Dynamics</span><span class="d">Sep 9, 2026</span><span class="s">Analysis, Geometry and Probability Seminar, Iowa State University</span></div>
 <div class="ent"><span class="t">Decentralized Constrained Sampling via Proximal Stochastic Langevin Dynamics</span><span class="d">Mar 28–29, 2026</span><span class="s">Contributed talk, AMS Spring Eastern Sectional Meeting, Boston College</span></div>
 <div class="ent"><span class="t">Generalized EXTRA SGLD: Eliminating Network Bias in Decentralized Bayesian Learning</span><span class="d">Mar 2–6, 2026</span><span class="s">Poster, Bayesian Inverse Problems and UQ, ICERM, Brown University</span></div>
@@ -61,7 +63,7 @@ page-layout: custom
 
 <section class="cvs" id="teaching"><h2>Teaching Experience</h2>
 <p class="cvsub">Iowa State University: Recitation Instructor</p>
-<div class="ent"><span class="t">Calculus III</span><span class="d">Fall 2026</span></div>
+<div class="ent"><span class="t">MATH 2650 Calculus III</span><span class="d">Fall 2026</span></div>
 <p class="cvsub">Florida State University: Instructor of Record</p>
 <div class="ent"><span class="t">MAP 2302 Ordinary Differential Equations</span><span class="d">Summer 2026</span></div>
 <div class="ent"><span class="t">MAC 2312 Calculus and Analytic Geometry II</span><span class="d">Fall 2025, Spring 2026</span></div>
@@ -77,8 +79,8 @@ page-layout: custom
 </section>
 
 <section class="cvs"><h2>Undergraduate Research Mentoring</h2>
-<div class="ent"><span class="t">Research Mentor, FSU Undergraduate Research Opportunity Program</span><span class="d">2025 – 2026</span><span class="s">Sarah Thapa: predictive modeling of Florida road crashes and the economic impact of crash casualties.<br>Aiden Marin: Black–Scholes–Merton vs. machine-learning models for option pricing.</span></div>
-<div class="ent"><span class="t">Research Mentor, FSU Mathematics Directed Reading Program</span><span class="d">2024 – 2025</span><span class="s">Lily Kinney and Kiera Agic: machine-learning methods for spam detection.</span></div>
+<div class="ent"><span class="t">Research Mentor, FSU Undergraduate Research Opportunity Program</span><span class="d">Fall 2025 – Spring 2026</span><span class="s">Sarah Thapa: predictive modeling of Florida road crashes and the economic impact of crash casualties.<br>Aiden Marin: Black–Scholes–Merton vs. machine-learning models for option pricing.</span></div>
+<div class="ent"><span class="t">Research Mentor, FSU Mathematics Directed Reading Program</span><span class="d">Fall 2024 – Spring 2025</span><span class="s">Lily Kennedy and Kiera Agic: studying and implementing machine-learning methods for an NLP project, <i>Identifying Spam and Non-Spam Emails</i>.</span></div>
 </section>
 
 <section class="cvs"><h2>Honors and Awards</h2>
@@ -104,7 +106,8 @@ page-layout: custom
 <div class="ent"><span class="t">Actuarial Trainee Executive</span><span class="d">Sep 2016 – Aug 2017</span><span class="s"><i>Sandhani Life Insurance Company Ltd.</i>, Dhaka, Bangladesh</span></div>
 </section>
 
-<section class="cvs"><h2>Conferences and Workshops</h2>
+<section class="cvs"><h2>Conferences, Workshops, and Seminars</h2>
+<div class="ent"><span class="t">AMS 2026 Fall Western Sectional Meeting</span><span class="d">Nov 2026</span><span class="s">Arizona State University, Arizona</span></div>
 <div class="ent"><span class="t">AMS 2026 Spring Eastern Sectional Meeting</span><span class="d">Mar 2026</span><span class="s">Boston College, Massachusetts</span></div>
 <div class="ent"><span class="t">Bayesian Inverse Problems and Uncertainty Quantification</span><span class="d">Mar 2026</span><span class="s">ICERM, Brown University, Providence, Rhode Island</span></div>
 <div class="ent"><span class="t">1st SRU SAS Analytics Day</span><span class="d">Mar 2019</span><span class="s">Slippery Rock University and SAS Institute</span></div>
@@ -112,10 +115,24 @@ page-layout: custom
 <div class="ent"><span class="t">20th International Mathematics Conference</span><span class="d">2017</span><span class="s">Bangladesh Mathematical Society, Dhaka</span></div>
 </section>
 
-<section class="cvs"><h2>Memberships and Skills</h2>
-<div class="ent"><span class="t">Memberships</span><span class="s">Bangladesh Mathematical Society (life member); Society of Actuaries (student member); Society for Industrial and Applied Mathematics; American Mathematical Society.</span></div>
-<div class="ent"><span class="t">Computing</span><span class="s">Python, R, Julia, MATLAB, Mathematica, FORTRAN; Git, GitHub, PyPI; Quarto, LaTeX.</span></div>
-<div class="ent"><span class="t">Languages</span><span class="s">Bengali (native), English (fluent).</span></div>
+<section class="cvs"><h2>Memberships</h2>
+<div class="ent"><span class="s">Bangladesh Mathematical Society (life member); Society of Actuaries (student member); Society for Industrial and Applied Mathematics; American Mathematical Society.</span></div>
+</section>
+
+<section class="cvs"><h2>Technical Skills</h2>
+<div class="ent"><span class="t">Programming</span><span class="s">Python, R, Fortran, Mathematica, SQL, LaTeX</span></div>
+<div class="ent"><span class="t">Scientific computing and ML</span><span class="s">NumPy, pandas, scikit-learn, PyTorch, Matplotlib, Seaborn, SPSS</span></div>
+<div class="ent"><span class="t">Tools</span><span class="s">Git, GitHub Actions, Linux, Jupyter</span></div>
+</section>
+
+<section class="cvs"><h2>Volunteer Experience</h2>
+<div class="ent"><span class="t">Judge, Integration Bee</span><span class="d">Nov 12, 2024</span><span class="s">Annual undergraduate calculus-integral competition, Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Volunteer, Spring Graduate Research Week</span><span class="d">2023</span><span class="s">Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Volunteer, MathFunDay</span><span class="d">2022</span><span class="s">Annual free open-house math festival, Department of Mathematics, Florida State University</span></div>
+<div class="ent"><span class="t">Co-organizer, MathCon Undergraduate Mathematics Olympiad</span><span class="d">Sep 24, 2014</span><span class="s">Organized by students of the Department of Mathematics, University of Dhaka</span></div>
+<div class="ent"><span class="t">President, “Mathema – A Circle of Mathematicians”</span><span class="d">2013 – 2014</span><span class="s">Mathematics students’ organization, Fazlul Huq Muslim Hall, University of Dhaka</span></div>
+<div class="ent"><span class="t">Lead organizer, international study tour to Nepal</span><span class="d">2013</span><span class="s">Senior-year mathematics students, University of Dhaka</span></div>
+<div class="ent"><span class="t">Co-organizer, blood donation campaign</span><span class="d">Oct 13, 2013</span><span class="s">Students of the Department of Mathematics, University of Dhaka</span></div>
 </section>
 
 <p class="cv-note">References are listed in the <a href="_assets/documents/CV.pdf">PDF version</a>.</p>
